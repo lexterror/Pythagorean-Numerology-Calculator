@@ -1,0 +1,498 @@
+<html>
+<title>Basic Numerology Calculator</title>
+<style>
+body {
+
+    margin: 0 auto;
+    width: 498px;
+}
+
+input {
+    width: 448px;
+    float: right;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+label {
+    float: left;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+#mytitle {
+    font-family: Arial;
+    font-size: 28px;
+    text-decoration: bold;
+    text-align: left;
+    text-shadow: 0 0 5px orange;
+}
+#addborder {
+    display: block;
+    border: 2px solid #000;
+    width: 448px;
+    padding: 25px;
+    overflow: hidden;
+    clear: both;
+}
+
+</style>
+<body>
+<div id="mytitle"><span style="color:#ff0000;">B</span><span style="color:#ff0800;">a</span><span style="color:#ff1000;">s</span><span style="color:#ff1900;">i</span><span style="color:#ff2100;">c</span><span style="color:#ff2900;"> </span><span style="color:#ff3100;">N</span><span style="color:#ff3a00;">u</span><span style="color:#ff4200;">m</span><span style="color:#ff4a00;">e</span><span style="color:#ff5200;">r</span><span style="color:#ff5b00;">o</span><span style="color:#ff6300;">l</span><span style="color:#ff6b00;">o</span><span style="color:#ff7300;">g</span><span style="color:#ff7b00;">y</span><span style="color:#ff8400;"> </span><span style="color:#ff8c00;">C</span><span style="color:#ff9400;">a</span><span style="color:#ff9c00;">l</span><span style="color:#ffa500;">c</span><span style="color:#ffad00;">u</span><span style="color:#ffb500;">l</span><span style="color:#ffbd00;">a</span><span style="color:#ffc600;">t</span><span style="color:#ffce00;">o</span><span style="color:#ffd600;">r</span></div>
+<hr>
+<div id="addborder">
+
+<label>Data Entry</label><input type="text" name="numbers" id="numbers">
+<label>Totals</label><input type="text" name="display" id="display" readonly style="background: #000;color: #fff;">
+<input type="text" name="display2" id="display2" readonly style="background: #000;color: #fff;">
+<input type="text" name="display3" id="display3" readonly style="background: #000;color: #fff;">
+
+<label style="padding-top: 30px;">Year</label><input type="text" name="numbers" id="numbers1">
+<input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;">
+<label>Month</label><input type="text" name="numbers" id="numbers2">
+<input type="text" name="display3" id="display5" readonly style="background: #000;color: #fff;">
+<label>Date</label><input type="text" name="numbers" id="numbers3">
+<input type="text" name="display4" id="display6" readonly style="background: #000;color: #fff;">
+<label>Life Path Number</label>
+<input type="text" name="lifepath" id="lifepath" readonly style="background: #000;color: #fff;">
+
+</div>
+<script>
+
+
+
+//user is "finished typing," do something
+//function doneTyping () {
+    
+//}
+
+function calculate() {
+
+//initialize variables
+
+var total1 = 0;
+var total2 = 0;
+var total3 = 0;
+var before_total1 = 0;
+var before_total2 = 0;
+var before_total3 = 0;
+var correct_BT1 = "";
+var correct_BT2 = "";
+var correct_BT3 = "";
+
+
+//initial values entered in input
+
+var initial =  document.getElementById("numbers").value;
+
+
+if (initial.length == 0 || initial == null || initial == undefined)
+document.getElementById("display").value = "no data";
+
+else if (initial != null)
+{
+
+//split value entered into array
+
+var numbers = initial.split("");
+var data_entered_length = initial.length;
+
+    for (i = 0; i < data_entered_length; i++)
+    {
+        total1 = total1 + parseFloat(numbers[i]);
+        before_total1 = before_total1 + " + " + parseFloat(numbers[i]);
+        
+    }
+    
+    correct_BT1 = before_total1.substr(4, before_total1.length);
+    
+    
+    var initial2 = (""+total1).split("");
+    var total_length = initial2.length;
+    //(""+n).split("");
+    
+    for (j = 0; j < total_length; j++)
+    {
+        
+        total2 = total2 + parseFloat(initial2[j]);
+        before_total2 = before_total2 + " + " + parseFloat(initial2[j]);
+    }
+    
+    correct_BT2 = before_total2.substr(4, before_total2.length);
+    
+   
+    var remove_zeros = (total2 * 1).toString();
+    var initial3 = (""+remove_zeros).split("");
+    var total2_length = initial3.length;
+    
+    for (k = 0; k < total2_length; k++)
+    {
+        total3 = total3 + parseFloat(initial3[k]);
+        
+        
+        //str = (str * 1).toString();
+    }
+    
+    
+    var add_zeros =  (""+total2).split("");
+    
+    for (l = 0; l < total2_length; l++)
+    {
+    
+        before_total3 = before_total3 + " + " + parseFloat(add_zeros[l]);
+    
+    }
+    
+    correct_BT3 = before_total3.substr(4, before_total3.length);
+    
+    // display results
+    
+    document.getElementById("display").value = correct_BT1 + " = " + total1;
+    document.getElementById("display2").value = correct_BT2 + " = " + total2;
+    document.getElementById("display3").value = correct_BT3 + " = " + total3;
+    
+
+}}
+
+</script>
+<script>
+
+
+let typingTimer;                //timer identifier
+let doneTypingInterval = 500;  //time in ms (5 seconds)
+let myInput1 = document.getElementById('numbers1');
+let myInput2 = document.getElementById('numbers2');
+let myInput3 = document.getElementById('numbers3');
+//on keyup, start the countdown
+myInput1.addEventListener('keyup', () => {
+    clearTimeout(typingTimer);
+    if (myInput1.value) {
+        typingTimer = setTimeout(calculate2, doneTypingInterval);
+    }
+});
+myInput2.addEventListener('keyup', () => {
+    clearTimeout(typingTimer);
+    if (myInput2.value) {
+        typingTimer = setTimeout(calculate2, doneTypingInterval);
+    }
+});
+myInput3.addEventListener('keyup', () => {
+    clearTimeout(typingTimer);
+    if (myInput3.value) {
+        typingTimer = setTimeout(calculate2, doneTypingInterval);
+    }
+});
+let myInput = document.getElementById('numbers');
+
+//on keyup, start the countdown
+myInput.addEventListener('keyup', () => {
+    clearTimeout(typingTimer);
+    if (myInput.value) {
+        typingTimer = setTimeout(calculate, doneTypingInterval);
+    }
+});
+//user is "finished typing," do something
+//function doneTyping () {
+    
+//}
+
+function calculate2() {
+
+//initialize variables
+
+var total1 = 0;
+var total2 = 0;
+var total3 = 0;
+var before_total1 = 0;
+var before_total2 = 0;
+var before_total3 = 0;
+var correct_BT1 = "";
+var correct_BT2 = "";
+var correct_BT3 = "";
+
+
+var month_total1 = 0;
+var month_total2 = 0;
+var month_total3 = 0;
+var month_before_total1 = 0;
+var month_before_total2 = 0;
+var month_before_total3 = 0;
+var month_correct_BT1 = "";
+var month_correct_BT2 = "";
+var month_correct_BT3 = "";
+
+var date_total1 = 0;
+var date_total2 = 0;
+var date_total3 = 0;
+var date_before_total1 = 0;
+var date_before_total2 = 0;
+var date_before_total3 = 0;
+var date_correct_BT1 = "";
+var date_correct_BT2 = "";
+var date_correct_BT3 = "";
+
+
+
+var LifePath_total1 = 0;
+var LifePath_total2 = 0;
+var LifePath_total3 = 0;
+var LifePath_before_total1 = 0;
+var LifePath_before_total2 = 0;
+var LifePath_before_total3 = 0;
+var LifePath_correct_BT1 = "";
+var LifePath_correct_BT2 = "";
+var LifePath_correct_BT3 = "";
+//initial values entered in input
+
+var year =  document.getElementById("numbers1").value;
+var month =  document.getElementById("numbers2").value;
+var date =  document.getElementById("numbers3").value;
+
+
+
+
+
+//////////////// YEAR
+
+//////////////////YEAR
+
+
+
+
+if (year.length == 0 || year == null || year == undefined)
+document.getElementById("display4").value = "no data";
+
+else if (year != null)
+{
+
+//split value entered into array
+
+var numbers = year.split("");
+var data_entered_length = year.length;
+
+    for (i = 0; i < data_entered_length; i++)
+    {
+        total1 = total1 + parseFloat(numbers[i]);
+        before_total1 = before_total1 + " + " + parseFloat(numbers[i]);
+        
+    }
+    
+    correct_BT1 = before_total1.substr(4, before_total1.length);
+    
+    
+    var initial2 = (""+total1).split("");
+    var total_length = initial2.length;
+    
+    
+    for (j = 0; j < total_length; j++)
+    {
+        
+        total2 = total2 + parseFloat(initial2[j]);
+        before_total2 = before_total2 + " + " + parseFloat(initial2[j]);
+    }
+    
+    correct_BT2 = before_total2.substr(4, before_total2.length);
+    
+   
+    var remove_zeros = (total2 * 1).toString();
+    var initial3 = (""+remove_zeros).split("");
+    var total2_length = initial3.length;
+    
+    for (k = 0; k < total2_length; k++)
+    {
+        total3 = total3 + parseFloat(initial3[k]);
+        
+        
+        //str = (str * 1).toString();
+    }
+    
+    
+    var add_zeros =  (""+total2).split("");
+    
+    for (l = 0; l < total2_length; l++)
+    {
+    
+        before_total3 = before_total3 + " + " + parseFloat(add_zeros[l]);
+    
+    }
+    //(""+n).split("");
+    
+    // display results
+    
+    document.getElementById("display4").value = correct_BT1 + " = " + total1 + " = " + total3;
+    
+
+}
+
+/////////////// MONTH
+
+///////////// MONTH 
+
+
+if (month.length == 0 || month == null || month == undefined)
+document.getElementById("display5").value = "no data";
+
+else if (month != null)
+{
+
+//split value entered into array
+
+var numbers = month.split("");
+var data_entered_length = month.length;
+
+    for (i = 0; i < data_entered_length; i++)
+    {
+        month_total1 = month_total1 + parseFloat(numbers[i]);
+        month_before_total1 = month_before_total1 + " + " + parseFloat(numbers[i]);
+        
+    }
+    
+    month_correct_BT1 = month_before_total1.substr(4, month_before_total1.length);
+    
+    
+    var initial2 = (""+month_total1).split("");
+    var total_length = initial2.length;
+    
+    
+    for (j = 0; j < total_length; j++)
+    {
+        
+        month_total2 = month_total2 + parseFloat(initial2[j]);
+        month_before_total2 = month_before_total2 + " + " + parseFloat(initial2[j]);
+    }
+    
+    month_correct_BT2 = month_before_total2.substr(4, month_before_total2.length);
+    
+   
+    var remove_zeros = (month_total2 * 1).toString();
+    var initial3 = (""+remove_zeros).split("");
+    var total2_length = initial3.length;
+    
+    for (k = 0; k < total2_length; k++)
+    {
+        month_total3 = month_total3 + parseFloat(initial3[k]);
+        
+        
+        //str = (str * 1).toString();
+    }
+    
+    
+    var add_zeros =  (""+month_total2).split("");
+    
+    for (l = 0; l < total2_length; l++)
+    {
+    
+        month_before_total3 = month_before_total3 + " + " + parseFloat(add_zeros[l]);
+    
+    }
+    //(""+n).split("");
+    
+    // display results
+    
+    document.getElementById("display5").value = month_correct_BT1 + " = " + month_total3;
+    
+
+}
+
+//// DATE
+
+////DATE
+
+
+if (date.length == 0 || date == null || date == undefined)
+document.getElementById("display6").value = "no data";
+
+else if (month != null)
+{
+
+//split value entered into array
+
+var numbers = date.split("");
+var data_entered_length = date.length;
+
+    for (i = 0; i < data_entered_length; i++)
+    {
+        date_total1 = date_total1 + parseFloat(numbers[i]);
+        date_before_total1 = date_before_total1 + " + " + parseFloat(numbers[i]);
+        
+    }
+    
+    date_correct_BT1 = date_before_total1.substr(4, date_before_total1.length);
+    
+    
+    var initial2 = (""+date_total1).split("");
+    var total_length = initial2.length;
+    
+    
+    for (j = 0; j < total_length; j++)
+    {
+        
+        date_total2 = date_total2 + parseFloat(initial2[j]);
+        date_before_total2 = date_before_total2 + " + " + parseFloat(initial2[j]);
+    }
+    
+    date_correct_BT2 = date_before_total2.substr(4, date_before_total2.length);
+    
+   
+    var remove_zeros = (date_total2 * 1).toString();
+    var initial3 = (""+remove_zeros).split("");
+    var total2_length = initial3.length;
+    
+    for (k = 0; k < total2_length; k++)
+    {
+        date_total3 = date_total3 + parseFloat(initial3[k]);
+        
+        
+        //str = (str * 1).toString();
+    }
+    
+    
+    var add_zeros =  (""+date_total2).split("");
+    
+    for (l = 0; l < total2_length; l++)
+    {
+    
+        date_before_total3 = date_before_total3 + " + " + parseFloat(add_zeros[l]);
+    
+    }
+    //(""+n).split("");
+    
+    // display results
+    
+    document.getElementById("display6").value = date_correct_BT1 + " = " + date_total3;
+    
+
+}
+
+ /////////////// LIFEPATH
+ 
+   var yearpath = total3;
+   var monthpath = month_total3;
+   var datepath = date_total3;
+   
+   var pathsum = total3 + month_total3 + date_total3;
+   var pathbeforetotal = 0;
+   
+   var remove_pathzeros = (pathsum * 1).toString();
+   
+   var newpath = 0;
+   
+   for (m = 0; m < remove_pathzeros.length; m++)
+   {
+        newpath = newpath + parseFloat(remove_pathzeros[m]);
+        pathbeforetotal = pathbeforetotal + " + " + parseFloat(remove_pathzeros[m]);
+        
+   }
+   
+   var correct_Before_LifePathTotal = pathbeforetotal.substr(4, pathbeforetotal.length);
+
+    
+
+    document.getElementById("lifepath").value = newpath;
+
+}
+
+</script>
+</body>
+</html>
+
