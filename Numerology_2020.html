@@ -17,7 +17,7 @@ body {
 
     margin: 0 auto;
     width: 498px;
-    background-image: url("wax.png");
+    background-image: url("img/wax.png");
     background-repeat: repeat;
     color: #fff;
 }
@@ -69,7 +69,7 @@ font-size: 100%;
     background: #999;
     margin-top: 20px;
     font-family: goth;
-    background-image: url("bg.gif");
+    background-image: url("img/bg.gif");
     background-size: 100%;
     
 }
@@ -204,7 +204,9 @@ var nines=0;
 
 
 <label style="margin: 0 auto;width: 498px;">Names</label>
-<input type="text" name="numbers" id="thenames" style="margin: 0 auto; width: 498px;"><br><br>
+<input type="text" name="numbers" id="thenames" style="margin: 0 auto; width: 498px;">
+<input type="text" name="namestotal" id="namestotal" readonly style="background: #000;color: #fff; width: 498px;">
+<br><br>
 <table id="norm">
 <tr>
 <td id="threes">3</td>  <!-- 3 -->
@@ -278,7 +280,7 @@ Spiritual Creativity, Divine Love, Innate Talents, Completion, Karma: Reward for
 <span class="terrace">
 The more circles there are around a number, the higher the level of awareness of the energy symbolized by that number. The fewer circles around a number, the lower the awareness of the energy symbolized by that number. If you are not aware of something you cannot control it. If you cannot control something, it controls you. Increased awareness allows greater control.</span>
 </div>
-<img src="top.png" height="129" width="458">
+<img src="img/top.png" height="129" width="458">
 </div>
 
 
@@ -572,343 +574,377 @@ var thenames =  document.getElementById("thenames").value;
     nines++;
         
     }
+
+    
+    
+    var sumtotals = (ones + (twos * 2) + (threes * 3) + (fours * 4) + (fives * 5) + (sixes * 6) + (sevens * 7) + (eights * 8) + (nines * 9));
+    
+    var n = sumtotals.toString();
+    var sumtotalslentgh = n.length;
+    var numberss = n.split("");
+    var namestotalsfinal = 0;
+    var namestotalsfinal2 = 0;
     
 
 
- 
+    
+    for (m = 0; m < sumtotalslentgh; m++)
+    {
+        namestotalsfinal = namestotalsfinal + parseFloat(numberss[m]);
+    }
+    
+    document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal;
+    
+    
+    var nn = namestotalsfinal.toString();
+    var nnlength = nn.length;
+    if (nnlength > 1)
+    {
+    
+    var temp = nn.split("");
+    for (z = 0; z < nnlength; z++)
+    {
+         namestotalsfinal2 = namestotalsfinal2 + parseFloat(temp[z]);
+    }
+    
+    document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal + " / " + namestotalsfinal2;
+    }
+    
+    
+  
     if (ones == 1)
     {
-        document.getElementById("ones").style.backgroundImage = "url('_one.png')";
+        document.getElementById("ones").style.backgroundImage = "url('img/_one.png')";
     }
     if (ones == 2)
     {
-        document.getElementById("ones").style.backgroundImage = "url('_two.png')";        
+        document.getElementById("ones").style.backgroundImage = "url('img/_two.png')";        
     }
     if (ones == 3)
     {
-        document.getElementById("ones").style.backgroundImage = "url('_three.png')";        
+        document.getElementById("ones").style.backgroundImage = "url('img/_three.png')";        
     }
     if (ones == 4)
     {
-        document.getElementById("ones").style.backgroundImage = "url('_four.png')";        
+        document.getElementById("ones").style.backgroundImage = "url('img/_four.png')";        
     }
     if (ones == 5)
     {
-        document.getElementById("ones").style.backgroundImage = "url('_five.png')";        
+        document.getElementById("ones").style.backgroundImage = "url('img/_five.png')";        
     }
     if (ones == 6)
     {
-        document.getElementById("ones").style.backgroundImage = "url('_six.png')";        
+        document.getElementById("ones").style.backgroundImage = "url('img/_six.png')";        
     }
     if (ones == 7)
     {
-        document.getElementById("ones").style.backgroundImage = "url('_seven.png')";        
+        document.getElementById("ones").style.backgroundImage = "url('img/_seven.png')";        
     }
     if (ones == 8)
     {
-        document.getElementById("ones").style.backgroundImage = "url('_eight.png')";        
+        document.getElementById("ones").style.backgroundImage = "url('img/_eight.png')";        
     }
     if (ones == 9)
     {
-        document.getElementById("ones").style.backgroundImage = "url('_nine.png')";        
+        document.getElementById("ones").style.backgroundImage = "url('img/_nine.png')";        
     }
     
     if (twos == 1)
     {
-        document.getElementById("twos").style.backgroundImage = "url('_one.png')";
+        document.getElementById("twos").style.backgroundImage = "url('img/_one.png')";
     }
     if (twos == 2)
     {
-        document.getElementById("twos").style.backgroundImage = "url('_two.png')";        
+        document.getElementById("twos").style.backgroundImage = "url('img/_two.png')";        
     }
     if (twos == 3)
     {
-        document.getElementById("twos").style.backgroundImage = "url('_three.png')";        
+        document.getElementById("twos").style.backgroundImage = "url('img/_three.png')";        
     }
     if (twos == 4)
     {
-        document.getElementById("twos").style.backgroundImage = "url('_four.png')";        
+        document.getElementById("twos").style.backgroundImage = "url('img/_four.png')";        
     }
     if (twos == 5)
     {
-        document.getElementById("twos").style.backgroundImage = "url('_five.png')";        
+        document.getElementById("twos").style.backgroundImage = "url('img/_five.png')";        
     }
     if (twos == 6)
     {
-        document.getElementById("twos").style.backgroundImage = "url('_six.png')";        
+        document.getElementById("twos").style.backgroundImage = "url('img/_six.png')";        
     }
     if (twos == 7)
     {
-        document.getElementById("twos").style.backgroundImage = "url('_seven.png')";        
+        document.getElementById("twos").style.backgroundImage = "url('img/_seven.png')";        
     }
     if (twos == 8)
     {
-        document.getElementById("twos").style.backgroundImage = "url('_eight.png')";        
+        document.getElementById("twos").style.backgroundImage = "url('img/_eight.png')";        
     }
     if (twos == 9)
     {
-        document.getElementById("twos").style.backgroundImage = "url('_nine.png')";        
+        document.getElementById("twos").style.backgroundImage = "url('img/_nine.png')";        
     }    
     
 if (threes == 1)
     {
-        document.getElementById("threes").style.backgroundImage = "url('_one.png')";
+        document.getElementById("threes").style.backgroundImage = "url('img/_one.png')";
     }
     if (threes == 2)
     {
-        document.getElementById("threes").style.backgroundImage = "url('_two.png')";        
+        document.getElementById("threes").style.backgroundImage = "url('img/_two.png')";        
     }
     if (threes == 3)
     {
-        document.getElementById("threes").style.backgroundImage = "url('_three.png')";        
+        document.getElementById("threes").style.backgroundImage = "url('img/_three.png')";        
     }
     if (threes == 4)
     {
-        document.getElementById("threes").style.backgroundImage = "url('_four.png')";        
+        document.getElementById("threes").style.backgroundImage = "url('img/_four.png')";        
     }
     if (threes == 5)
     {
-        document.getElementById("threes").style.backgroundImage = "url('_five.png')";        
+        document.getElementById("threes").style.backgroundImage = "url('img/_five.png')";        
     }
     if (threes == 6)
     {
-        document.getElementById("threes").style.backgroundImage = "url('_six.png')";        
+        document.getElementById("threes").style.backgroundImage = "url('img/_six.png')";        
     }
     if (threes == 7)
     {
-        document.getElementById("threes").style.backgroundImage = "url('_seven.png')";        
+        document.getElementById("threes").style.backgroundImage = "url('img/_seven.png')";        
     }
     if (threes == 8)
     {
-        document.getElementById("threes").style.backgroundImage = "url('_eight.png')";        
+        document.getElementById("threes").style.backgroundImage = "url('img/_eight.png')";        
     }
     if (threes == 9)
     {
-        document.getElementById("threes").style.backgroundImage = "url('_nine.png')";        
+        document.getElementById("threes").style.backgroundImage = "url('img/_nine.png')";        
     }    
     
 if (fours == 1)
     {
-        document.getElementById("fours").style.backgroundImage = "url('_one.png')";
+        document.getElementById("fours").style.backgroundImage = "url('img/_one.png')";
     }
     if (fours == 2)
     {
-        document.getElementById("fours").style.backgroundImage = "url('_two.png')";        
+        document.getElementById("fours").style.backgroundImage = "url('img/_two.png')";        
     }
     if (fours == 3)
     {
-        document.getElementById("fours").style.backgroundImage = "url('_three.png')";        
+        document.getElementById("fours").style.backgroundImage = "url('img/_three.png')";        
     }
     if (fours == 4)
     {
-        document.getElementById("fours").style.backgroundImage = "url('_four.png')";        
+        document.getElementById("fours").style.backgroundImage = "url('img/_four.png')";        
     }
     if (fours == 5)
     {
-        document.getElementById("fours").style.backgroundImage = "url('_five.png')";        
+        document.getElementById("fours").style.backgroundImage = "url('img/_five.png')";        
     }
     if (fours == 6)
     {
-        document.getElementById("fours").style.backgroundImage = "url('_six.png')";        
+        document.getElementById("fours").style.backgroundImage = "url('img/_six.png')";        
     }
     if (fours == 7)
     {
-        document.getElementById("fours").style.backgroundImage = "url('_seven.png')";        
+        document.getElementById("fours").style.backgroundImage = "url('img/_seven.png')";        
     }
     if (fours == 8)
     {
-        document.getElementById("fours").style.backgroundImage = "url('_eight.png')";        
+        document.getElementById("fours").style.backgroundImage = "url('img/_eight.png')";        
     }
     if (fours == 9)
     {
-        document.getElementById("fours").style.backgroundImage = "url('_nine.png')";        
+        document.getElementById("fours").style.backgroundImage = "url('img/_nine.png')";        
     }
     
     
 if (fives == 1)
     {
-        document.getElementById("fives").style.backgroundImage = "url('_one.png')";
+        document.getElementById("fives").style.backgroundImage = "url('img/_one.png')";
     }
     if (fives == 2)
     {
-        document.getElementById("fives").style.backgroundImage = "url('_two.png')";        
+        document.getElementById("fives").style.backgroundImage = "url('img/_two.png')";        
     }
     if (fives == 3)
     {
-        document.getElementById("fives").style.backgroundImage = "url('_three.png')";        
+        document.getElementById("fives").style.backgroundImage = "url('img/_three.png')";        
     }
     if (fives == 4)
     {
-        document.getElementById("fives").style.backgroundImage = "url('_four.png')";        
+        document.getElementById("fives").style.backgroundImage = "url('img/_four.png')";        
     }
     if (fives == 5)
     {
-        document.getElementById("fives").style.backgroundImage = "url('_five.png')";        
+        document.getElementById("fives").style.backgroundImage = "url('img/_five.png')";        
     }
     if (fives == 6)
     {
-        document.getElementById("fives").style.backgroundImage = "url('_six.png')";        
+        document.getElementById("fives").style.backgroundImage = "url('img/_six.png')";        
     }
     if (fives == 7)
     {
-        document.getElementById("fives").style.backgroundImage = "url('_seven.png')";        
+        document.getElementById("fives").style.backgroundImage = "url('img/_seven.png')";        
     }
     if (fives == 8)
     {
-        document.getElementById("fives").style.backgroundImage = "url('_eight.png')";        
+        document.getElementById("fives").style.backgroundImage = "url('img/_eight.png')";        
     }
     if (fives == 9)
     {
-        document.getElementById("fives").style.backgroundImage = "url('_nine.png')";        
+        document.getElementById("fives").style.backgroundImage = "url('img/_nine.png')";        
     }    
     
  if (sixes == 1)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('_one.png')";
+        document.getElementById("sixes").style.backgroundImage = "url('img/_one.png')";
     }
     if (sixes == 2)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('_two.png')";        
+        document.getElementById("sixes").style.backgroundImage = "url('img/_two.png')";        
     }
     if (sixes == 3)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('_three.png')";        
+        document.getElementById("sixes").style.backgroundImage = "url('img/_three.png')";        
     }
     if (sixes == 4)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('_four.png')";        
+        document.getElementById("sixes").style.backgroundImage = "url('img/_four.png')";        
     }
     if (sixes == 5)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('_five.png')";        
+        document.getElementById("sixes").style.backgroundImage = "url('img/_five.png')";        
     }
     if (sixes == 6)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('_six.png')";        
+        document.getElementById("sixes").style.backgroundImage = "url('img/_six.png')";        
     }
     if (sixes == 7)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('_seven.png')";        
+        document.getElementById("sixes").style.backgroundImage = "url('img/_seven.png')";        
     }
     if (sixes == 8)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('_eight.png')";        
+        document.getElementById("sixes").style.backgroundImage = "url('img/_eight.png')";        
     }
     if (sixes == 9)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('_nine.png')";        
+        document.getElementById("sixes").style.backgroundImage = "url('img/_nine.png')";        
     }
     
 if (sevens == 1)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('_one.png')";
+        document.getElementById("sevens").style.backgroundImage = "url('img/_one.png')";
     }
     if (sevens == 2)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('_two.png')";        
+        document.getElementById("sevens").style.backgroundImage = "url('img/_two.png')";        
     }
     if (sevens == 3)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('_three.png')";        
+        document.getElementById("sevens").style.backgroundImage = "url('img/_three.png')";        
     }
     if (sevens == 4)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('_four.png')";        
+        document.getElementById("sevens").style.backgroundImage = "url('img/_four.png')";        
     }
     if (sevens == 5)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('_five.png')";        
+        document.getElementById("sevens").style.backgroundImage = "url('img/_five.png')";        
     }
     if (sevens == 6)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('_six.png')";        
+        document.getElementById("sevens").style.backgroundImage = "url('img/_six.png')";        
     }
     if (sevens == 7)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('_seven.png')";        
+        document.getElementById("sevens").style.backgroundImage = "url('img/_seven.png')";        
     }
     if (sevens == 8)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('_eight.png')";        
+        document.getElementById("sevens").style.backgroundImage = "url('img/_eight.png')";        
     }
     if (sevens == 9)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('_nine.png')";        
+        document.getElementById("sevens").style.backgroundImage = "url('img/_nine.png')";        
     }
     
     
 if (eights == 1)
     {
-        document.getElementById("eights").style.backgroundImage = "url('_one.png')";
+        document.getElementById("eights").style.backgroundImage = "url('img/_one.png')";
     }
     if (eights == 2)
     {
-        document.getElementById("eights").style.backgroundImage = "url('_two.png')";        
+        document.getElementById("eights").style.backgroundImage = "url('img/_two.png')";        
     }
     if (eights == 3)
     {
-        document.getElementById("eights").style.backgroundImage = "url('_three.png')";        
+        document.getElementById("eights").style.backgroundImage = "url('img/_three.png')";        
     }
     if (eights == 4)
     {
-        document.getElementById("eights").style.backgroundImage = "url('_four.png')";        
+        document.getElementById("eights").style.backgroundImage = "url('img/_four.png')";        
     }
     if (eights == 5)
     {
-        document.getElementById("eights").style.backgroundImage = "url('_five.png')";        
+        document.getElementById("eights").style.backgroundImage = "url('img/_five.png')";        
     }
     if (eights == 6)
     {
-        document.getElementById("eights").style.backgroundImage = "url('_six.png')";        
+        document.getElementById("eights").style.backgroundImage = "url('img/_six.png')";        
     }
     if (eights == 7)
     {
-        document.getElementById("eights").style.backgroundImage = "url('_seven.png')";        
+        document.getElementById("eights").style.backgroundImage = "url('img/_seven.png')";        
     }
     if (eights == 8)
     {
-        document.getElementById("eights").style.backgroundImage = "url('_eight.png')";        
+        document.getElementById("eights").style.backgroundImage = "url('img/_eight.png')";        
     }
     if (eights == 9)
     {
-        document.getElementById("eights").style.backgroundImage = "url('_nine.png')";        
+        document.getElementById("eights").style.backgroundImage = "url('img/_nine.png')";        
     }    
     
     if (nines == 1)
     {
-        document.getElementById("nines").style.backgroundImage = "url('_one.png')";
+        document.getElementById("nines").style.backgroundImage = "url('img/_one.png')";
     }
     if (nines == 2)
     {
-        document.getElementById("nines").style.backgroundImage = "url('_two.png')";        
+        document.getElementById("nines").style.backgroundImage = "url('img/_two.png')";        
     }
     if (nines == 3)
     {
-        document.getElementById("nines").style.backgroundImage = "url('_three.png')";        
+        document.getElementById("nines").style.backgroundImage = "url('img/_three.png')";        
     }
     if (nines == 4)
     {
-        document.getElementById("nines").style.backgroundImage = "url('_four.png')";        
+        document.getElementById("nines").style.backgroundImage = "url('img/_four.png')";        
     }
     if (nines == 5)
     {
-        document.getElementById("nines").style.backgroundImage = "url('_five.png')";        
+        document.getElementById("nines").style.backgroundImage = "url('img/_five.png')";        
     }
     if (nines == 6)
     {
-        document.getElementById("nines").style.backgroundImage = "url('_six.png')";        
+        document.getElementById("nines").style.backgroundImage = "url('img/_six.png')";        
     }
     if (nines == 7)
     {
-        document.getElementById("nines").style.backgroundImage = "url('_seven.png')";        
+        document.getElementById("nines").style.backgroundImage = "url('img/_seven.png')";        
     }
     if (nines == 8)
     {
-        document.getElementById("nines").style.backgroundImage = "url('_eight.png')";        
+        document.getElementById("nines").style.backgroundImage = "url('img/_eight.png')";        
     }
     if (nines == 9)
     {
-        document.getElementById("nines").style.backgroundImage = "url('_nine.png')";        
+        document.getElementById("nines").style.backgroundImage = "url('img/_nine.png')";        
     }   
 /////////////////////// end of NORMAN //////////
 
