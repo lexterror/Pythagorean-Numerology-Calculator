@@ -74,6 +74,17 @@ font-size: 100%;
     
 }
 
+#psychomatrix {
+    width: 375px;
+    height: 375px;
+    margin: 0 auto;
+    background: #999;
+    margin-top: 20px;
+    font-family: goth;
+    background: #000;
+    
+}
+
 #norm td {
 
     width: 150px;
@@ -89,6 +100,20 @@ font-size: 100%;
 
 }
 
+#psychomatrix td {
+
+    width: 125px;
+    height: 125px;
+    margin: 0 auto;
+    text-align: center;
+    border: 5px solid #666;
+    font-family: goth;
+    font-size: 32px;
+    line-height: 32px;
+    color: gold;
+    text-shadow: 0 0 5px #000;
+
+}
 
 #calculate {
 
@@ -191,6 +216,25 @@ Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a
 <label>Life Path Number</label>
 <input type="text" name="lifepath" id="lifepath" readonly style="background: #000;color: #fff;">
 
+<label style="right:0;width: 100px;">Psychomatrix</label>
+<!--<input type="text" name="psycho" id="psycho" readonly style="background: #000;color: #fff;"> -->
+<table id="psychomatrix">
+<tr>
+<td><span id="ones3"></span></td>  <!-- 3 -->
+<td><span id="fours3"></span></td>
+<td><span id="sevens3"></span></td>
+</tr>
+<tr>
+<td><span id="twos3"></span></td> <!-- 2 -->
+<td><span id="fives3"></span></td>
+<td><span id="eights3"></span></td>
+</tr>
+<tr>
+<td><span id="threes3"></span></td>  <!-- 1 -->
+<td><span id="sixes3"></span></td>
+<td><span id="nines3"></span></td>
+</tr>
+</table>
 
 </div>
 
@@ -306,6 +350,7 @@ Spiritual Creativity, Divine Love, Innate Talents, Completion, Karma: Reward for
 The more circles there are around a number, the higher the level of awareness of the energy symbolized by that number. The fewer circles around a number, the lower the awareness of the energy symbolized by that number. If you are not aware of something you cannot control it. If you cannot control something, it controls you. Increased awareness allows greater control.</span>
 </div>
 <img src="img/top.png" height="129" width="458">
+<br>
 </div>
 
 
@@ -1513,9 +1558,214 @@ var data_entered_length = date.length;
 
     document.getElementById("lifepath").value = newpath;
 
-
   
-
+  
+  
+  //psychomatrix//
+  
+  
+   var onep = 0;
+   var twop = 0;
+   var threep = 0;
+   var fourp = 0;
+   var fivep = 0;
+   var sixp = 0;
+   var sevenp =0;
+   var eightp = 0;
+   var ninep = 0;
+  
+   var step1 = 0;
+   var pyear = document.getElementById("numbers1").value;
+   var pmonth = document.getElementById("numbers2").value;
+   var pdate = document.getElementById("numbers3").value;
+   
+   var step1b = pmonth.toString();
+   var step2b = pdate.toString();
+   var step1blength = step1b.length;
+   var step2blength = step2b.length;
+   var st1 = step1b.split("");
+   var st2 = step2b.split("");
+   var st1temp = 0;
+   var st2temp = 0;
+   
+   for (i = 0; i < step1blength; i++)
+   {
+        st1temp = st1temp + st1[i];
+   }
+   for (j = 0; j < step2blength; j++)
+   {
+        st2temp = st2temp + st2[j];
+   }
+   
+   var zzzstep1 = parseInt(st1temp + st2temp);
+   var zzzstep1string = zzzstep1.toString();
+   var zzzstep1split = zzzstep1string.split("");
+   var zzzlength = zzzstep1split.length;
+   var temp = 0;
+   
+   for (l = 0; l < zzzlength; l++)
+   {
+        temp = temp + parseInt(zzzstep1split[l]);
+   }
+   
+   step1 = temp; //DONE
+   
+   var digityeartostring = pyear.toString();
+   var digityear = digityeartostring.split("");
+   var digityearlength = digityear.length;
+   var yearsum = 0;
+   
+   for (i = 0; i < digityearlength; i++)
+   {
+        yearsum = yearsum + parseInt(digityear[i]);
+   }
+   
+   var step3 = parseInt(yearsum) + parseInt(step1); // DONE
+  
+   var step3tostring = step3.toString();
+   var prestep4 = step3tostring.split("");
+   var prestep4length = prestep4.length;
+   var step4 = 0;
+   
+   for (j = 0; j < prestep4length; j++)
+   {
+        step4 = step4 + parseInt(prestep4[j]);
+   }
+   
+   var prestep5tostring = pdate.toString();
+   var prestep5 = prestep5tostring.split("");
+   var step5 = step3 - (2 * prestep5[0]); 
+   
+   var prestep6tostring = step5.toString();
+   var prestep6 = prestep6tostring.split("");
+   var prestep6length = prestep6.length;
+   var step6 = 0;
+   
+   for (k = 0; k < prestep6length; k++)
+   {
+       step6 = step6 + parseInt(prestep6[k]);
+   }
+   
+   var original = pyear + pmonth + pdate;
+   var ostring = original.toString();
+   var lstring = ostring.length;
+   var sstring = ostring.split("");
+   var orig = 0;
+   
+   for (o = 0; o < lstring; o++)
+   {
+        orig = orig + sstring[o];
+   }
+   
+   var psycho1 = step3.toString() + step4.toString() + step5.toString() + step6.toString();
+   
+   var neue = orig + psycho1;
+   
+  //* document.getElementById("psycho").value = neue; /// DONE
+   
+   var knot = neue.toString();
+   var knots = knot.length;
+   var knotty = knot.split("");
+   var kno = 0;
+   
+   for (t = 0; t < knots; t++)
+   {
+        if (parseInt(knotty[t]) == 1)
+        {
+            onep++;
+        }
+        if (parseInt(knotty[t]) == 2)
+        {
+            twop++;
+        }   
+        if (parseInt(knotty[t]) == 3)
+        {
+            threep++;
+        }
+        if (parseInt(knotty[t]) == 4)
+        {
+            fourp++;
+        }
+        if (parseInt(knotty[t]) == 5)
+        {
+            fivep++;
+        }
+        if (parseInt(knotty[t]) == 6)
+        {
+            sixp++;
+        }
+        if (parseInt(knotty[t]) == 7)
+        {
+            sevenp++;
+        }
+        if (parseInt(knotty[t]) == 8)
+        {
+            eightp++;
+        }
+        if (parseInt(knotty[t]) == 9)
+        {
+            ninep++;
+        }
+   
+   }
+   
+    var psycho111 = "";
+    var psycho222 = "";
+    var psycho333 = "";
+    var psycho444 = "";
+    var psycho555 = "";
+    var psycho666 = "";
+    var psycho777 = "";
+    var psycho888 = "";
+    var psycho999 = "";
+    
+    for (i = 0; i < onep; i++)
+    {
+        psycho111 = psycho111 + "1";
+    }
+    for (i = 0; i < twop; i++)
+    {
+        psycho222 = psycho222 + "2";
+    } 
+    for (i = 0; i < threep; i++)
+    {
+        psycho333 = psycho333 + "3";
+    }
+    for (i = 0; i < fourp; i++)
+    {
+        psycho444 = psycho444 + "4";
+    }
+    for (i = 0; i < fivep; i++)
+    {
+        psycho555 = psycho555 + "5";
+    }
+    for (i = 0; i < sixp; i++)
+    {
+        psycho666 = psycho666 + "6";
+    }    
+    for (i = 0; i < sevenp; i++)
+    {
+        psycho777 = psycho777 + "7";
+    }
+    for (i = 0; i < eightp; i++)
+    {
+        psycho888 = psycho888 + "8";
+    }
+    for (i = 0; i < ninep; i++)
+    {
+        psycho999 = psycho999 + "9";
+    }
+    
+    document.getElementById("ones3").innerText = psycho111;
+    document.getElementById("twos3").innerText = psycho222;
+    document.getElementById("threes3").innerText = psycho333;
+    document.getElementById("fours3").innerText = psycho444;
+    document.getElementById("fives3").innerText = psycho555;
+    document.getElementById("sixes3").innerText = psycho666;
+    document.getElementById("sevens3").innerText = psycho777;
+    document.getElementById("eights3").innerText = psycho888;
+    document.getElementById("nines3").innerText = psycho999;
+    
 }
 
     
@@ -1531,3 +1781,25 @@ var data_entered_length = date.length;
 </body>
 </html>
 
+<!--
+
+How do I calculate my Psychomatrix Square?
+
+Take December 8, 1980. Or 8/12/1980 (dd/mm/yyyy)
+
+1. Add the digits of the day with those of the month, 8 + 1 + 2 = 11
+
+2. Add the digits for the year, 1 + 9 + 8 + 0 = 18
+
+3. Add the resulting numbers, 11 + 18 = 29. 29 will be the first working number.
+
+4. Add the digits of the first working number, 29, to get the second working number, 2+9=11
+
+5. Multiply the first digit of the date of birth (in this case, 8) by 2 and subtract from the first working number to get the third working number, 29 - 2 * 8 = 13
+
+6. Add the the digits of the third working number, 1 + 3 = 4, to get the fourth working number.
+
+Now you have two series of number, the first is the original date of birth, 8121980 and a string of working numbers, 2911134. After counting the digits in each series, we can begin to plot our grid.
+
+
+-->
