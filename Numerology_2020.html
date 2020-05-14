@@ -1,5 +1,5 @@
 <html>
-<title>Basic Numerology Calculator</title>
+<title>Pythagorean Numerology Calculator</title>
 <style>
 ::-webkit-scrollbar {
     width: 10px;
@@ -148,6 +148,11 @@ padding: 20px;
     font-family: terra;
 }
 
+#ulti {
+    width: 498px;
+    background: #777;
+}
+
 @font-face {
 font-family: 'terra';
 src: url('fonts/TerraIgnotaW01-Regular.eot'); /* IE9 Compat Modes */
@@ -160,7 +165,7 @@ font-size: 100%;
 </style>
 <body>
 <div id="mytitle">
-<span style="color:#ff0000;">B</span><span style="color:#ff0800;">a</span><span style="color:#ff1000;">s</span><span style="color:#ff1900;">i</span><span style="color:#ff2100;">c</span><span style="color:#ff2900;"> </span><span style="color:#ff3100;">N</span><span style="color:#ff3a00;">u</span><span style="color:#ff4200;">m</span><span style="color:#ff4a00;">e</span><span style="color:#ff5200;">r</span><span style="color:#ff5b00;">o</span><span style="color:#ff6300;">l</span><span style="color:#ff6b00;">o</span><span style="color:#ff7300;">g</span><span style="color:#ff7b00;">y</span><span style="color:#ff8400;"> </span><span style="color:#ff8c00;">C</span><span style="color:#ff9400;">a</span><span style="color:#ff9c00;">l</span><span style="color:#ffa500;">c</span><span style="color:#ffad00;">u</span><span style="color:#ffb500;">l</span><span style="color:#ffbd00;">a</span><span style="color:#ffc600;">t</span><span style="color:#ffce00;">o</span><span style="color:#ffd600;">r</span></div>
+Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a00;">u</span><span style="color:#ff4200;">m</span><span style="color:#ff4a00;">e</span><span style="color:#ff5200;">r</span><span style="color:#ff5b00;">o</span><span style="color:#ff6300;">l</span><span style="color:#ff6b00;">o</span><span style="color:#ff7300;">g</span><span style="color:#ff7b00;">y</span><span style="color:#ff8400;"> </span><span style="color:#ff8c00;">C</span><span style="color:#ff9400;">a</span><span style="color:#ff9c00;">l</span><span style="color:#ffa500;">c</span><span style="color:#ffad00;">u</span><span style="color:#ffb500;">l</span><span style="color:#ffbd00;">a</span><span style="color:#ffc600;">t</span><span style="color:#ffce00;">o</span><span style="color:#ffd600;">r</span></div>
 <hr>
 <div id="addborder">
 
@@ -202,11 +207,30 @@ var nines=0;
 
 </script>
 
+<label style="float:left;width: 398px;">Vowels</label><label style="right:0;width: 100px;">Totals</label><br>
+<input type="text" name="VowelsT" id="VowelsT" readonly style="background: #000;color: #fff;width: 100px;"><input type="text" name="Vowels" id="Vowels" readonly style="background: #000;color: #fff;width:398px">
 
-<label style="margin: 0 auto;width: 498px;">Names</label>
-<input type="text" name="numbers" id="thenames" style="margin: 0 auto; width: 498px;">
-<input type="text" name="namestotal" id="namestotal" readonly style="background: #000;color: #fff; width: 498px;">
+<label style="float:left;width: 398px;">Names</label><label style="right:0;width: 100px;">Totals</label><br>
+<input type="text" name="namestotal" id="namestotal" readonly style="background: #000;color: #fff; width: 100px;"><input type="text" name="numbers" id="thenames" style="width: 398px;">
+
+<label style="float:left;width: 398px;">Consonants</label><label style="right:0;width: 100px;">Totals</label><br>
+<input type="text" name="ConsonantsT" id="ConsonantsT" readonly style="background: #000;color: #fff;width: 100px;"><input type="text" name="Consonants" id="Consonants" readonly style="background: #000;color: #fff;width:398px">
 <br><br>
+
+<table id="ulti">
+<tr>
+<td></td><td id="">1</td><td id="">2</td><td id="">3</td><td id="">4</td><td id="">5</td><td id="">6</td><td id="">7</td><td id="">8</td><td id="">9</td><td>Totals</td>
+</tr>
+<tr>
+<td>Vowels</td><td id="v1"></td><td id="v2"></td><td id="v3"></td><td id="v4"></td><td id="v5"></td><td id="v6"></td><td id="v7"></td><td id="v8"></td><td id="v9"></td><td id="vt"></td>
+</tr>
+<tr>
+<td>Consonants</td><td id="c1"></td><td id="c2"></td><td id="c3"></td><td id="c4"></td><td id="c5"></td><td id="c6"></td><td id="c7"></td><td id="c8"></td><td id="c9"></td><td id="ct"></td>
+</tr>
+<tr>
+<td>Totals</td><td id="1t"></td><td id="2t"></td><td id="3t"></td><td id="4t"></td><td id="5t"></td><td id="6t"></td><td id="7t"></td><td id="8t"></td><td id="9t"></td><td id="tt"></td>
+</tr>
+</table>
 <table id="norm">
 <tr>
 <td id="threes">3</td>  <!-- 3 -->
@@ -447,6 +471,8 @@ myInput5.addEventListener('keyup', () => {
     
 //}
 
+    
+    
 function calculate2() {
 
 //initialize variables
@@ -512,6 +538,33 @@ var thenames =  document.getElementById("thenames").value;
     sevens=0;
     eights=0;
     nines=0;
+    
+    onesc=0;
+    twosc=0;
+    threesc=0;
+    foursc=0;
+    fivesc=0;
+    sixesc=0;
+    sevensc=0;
+    eightsc=0;
+    ninesc=0;
+    
+    onesv=0;
+    twosv=0;
+    threesv=0;
+    foursv=0;
+    fivesv=0;
+    sixesv=0;
+    sevensv=0;
+    eightsv=0;
+    ninesv=0;
+    
+    vowelstrack = 0;
+    consonantstrack = 0;
+    vowels = [];
+    consonants = [];
+    
+    
    document.getElementById("ones").style.backgroundImage = "";  
    document.getElementById("twos").style.backgroundImage = "";   
    document.getElementById("threes").style.backgroundImage = "";   
@@ -526,60 +579,311 @@ var thenames =  document.getElementById("thenames").value;
     {
 
     if (namesumbers[i] == "a")
+    {
+    vowelstrack++;
+    vowels[vowelstrack] = 1;
+    onesv++;
     ones++;
+    }
     if (namesumbers[i] == "j")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 1;
     ones++;
+    onesc++
+    }
     if (namesumbers[i] == "s")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 1;
     ones++;
+    onesc++;
+    }
     if (namesumbers[i] == "b")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 2;
     twos++;
+    twosc++;
+    }
     if (namesumbers[i] == "k")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 2;
     twos++;
+    twosc++;
+    }
     if (namesumbers[i] == "t")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 2;
     twos++;
+    twosc++;
+    }
     if (namesumbers[i] == "c")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 3;
     threes++;
+    threesc++;
+    }
     if (namesumbers[i] == "l")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 3;
     threes++;
+    threesv++;
+    }
     if (namesumbers[i] == "u")
+    {
+    vowelstrack++;
+    vowels[vowelstrack] = 3;
     threes++;
+    threesv++;
+    }
     if (namesumbers[i] == "d")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 4;
     fours++;
+    foursc++;
+    }
     if (namesumbers[i] == "m")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 4;
     fours++;
+    foursc++;
+    }
     if (namesumbers[i] == "v")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 4;
     fours++;
+    foursc++;
+    }
     if (namesumbers[i] == "e")
+    {
+    vowelstrack++;
+    vowels[vowelstrack] = 5;
     fives++;
+    fivesv++;
+    }
     if (namesumbers[i] == "n")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 5;
     fives++;
+    fivesc++;
+    }
     if (namesumbers[i] == "w")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 5;
     fives++;
+    fivesc++;
+    }
     if (namesumbers[i] == "f")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 6;
     sixes++;
+    sixesc++;
+    }
     if (namesumbers[i] == "o")
+    {
+    vowelstrack++;
+    vowels[vowelstrack] = 6;
     sixes++;
+    sixesv++;
+    }
     if (namesumbers[i] == "x")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 6;
     sixes++;
+    sixesc++;
+    }
     if (namesumbers[i] == "g")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 7;
     sevens++;
+    sevensc++;
+    }
     if (namesumbers[i] == "p")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 7;
     sevens++;
+    sevensc++;
+    }
     if (namesumbers[i] == "y")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 7;
     sevens++;
+    sevensc++;
+    }
     if (namesumbers[i] == "h")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 8;
     eights++;
+    eightsc++;
+    }
     if (namesumbers[i] == "q")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 8;
     eights++;
+    eightsc++;
+    }
     if (namesumbers[i] == "z")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 8;
     eights++;
+    eightsc++;
+    }
     if (namesumbers[i] == "i")
+    {
+    vowelstrack++;
+    vowels[vowelstrack] = 9;
     nines++;
+    ninesv++;
+    }
     if (namesumbers[i] == "r")
+    {
+    consonantstrack++;
+    consonants[consonantstrack] = 9;
     nines++;
+    ninesc++;
+    }
         
     }
+    ////////////// MATRIX //////////////////////
+    
+    document.getElementById("v1").innerText = onesv; 
+    document.getElementById("v2").innerText = twosv;     
+    document.getElementById("v3").innerText = threesv; 
+    document.getElementById("v4").innerText = foursv; 
+    document.getElementById("v5").innerText = fivesv; 
+    document.getElementById("v6").innerText = sixesv; 
+    document.getElementById("v7").innerText = sevensv; 
+    document.getElementById("v8").innerText = eightsv; 
+    document.getElementById("v9").innerText = ninesv; 
+    document.getElementById("c1").innerText = onesc; 
+    document.getElementById("c2").innerText = twosc;     
+    document.getElementById("c3").innerText = threesc; 
+    document.getElementById("c4").innerText = foursc; 
+    document.getElementById("c5").innerText = fivesc; 
+    document.getElementById("c6").innerText = sixesc; 
+    document.getElementById("c7").innerText = sevensc; 
+    document.getElementById("c8").innerText = eightsc; 
+    document.getElementById("c9").innerText = ninesc;   
+    
+    document.getElementById("1t").innerText = onesc + onesv; 
+    document.getElementById("2t").innerText = twosc + twosv;  
+    document.getElementById("3t").innerText = threesc + threesv; 
+    document.getElementById("4t").innerText = foursc + foursv; 
+    document.getElementById("5t").innerText = fivesc + fivesv; 
+    document.getElementById("6t").innerText = sixesc + sixesv; 
+    document.getElementById("7t").innerText = sevensc + sevensv; 
+    document.getElementById("8t").innerText = eightsc + eightsv; 
+    document.getElementById("9t").innerText = ninesc + ninesv; 
+    
+    document.getElementById("vt").innerText = onesv + twosv + threesv + foursv + fivesv + sixesv + sevensv + eightsv + ninesv;
+    document.getElementById("ct").innerText = onesc + twosc + threesc + foursc + fivesc + sixesc + sevensc + eightsc + ninesc;  
+    
+    document.getElementById("tt").innerText = onesc + twosc + threesc + foursc + fivesc + sixesc + sevensc + eightsc + ninesc + onesv + twosv + threesv + foursv + fivesv + sixesv + sevensv + eightsv + ninesv;     
+    ///////////// VOWELS CONSONANTS TOTALS ///////////////////
 
+    var consonantstotals = consonants.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    var vowelstotals = vowels.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    
+    var vpass1 = vowelstotals.length;
+    var cpass1 = consonantstotals.length;
+    var vpass1totals = 0;
+    var vpass1totals2 = 0;
+    var cpass1totals = 0;
+    var cpass1totals2 = 0;
+    
+    
+    document.getElementById("VowelsT").value = vowelstotals; 
+    document.getElementById("ConsonantsT").value = consonantstotals;
+    
+    
+    var cc = consonantstotals.toString();
+    var vv = vowelstotals.toString();
+    var cc2 = cc.length;
+    var vv2 = vv.length;
+    var v1split = vv.split("");
+    var c1split = cc.split("");
+    
+    if (vv2 > 1)
+    {
+    for (j = 0; j < vv2; j++)
+    {
+         vpass1totals = vpass1totals + parseFloat(v1split[j]);
+    }
+    document.getElementById("VowelsT").value = vowelstotals + " / " + vpass1totals;     
+    }
+
+    if (cc2 > 1)
+    {
+    for (j = 0; j < cc2; j++)
+    {
+         cpass1totals = cpass1totals + parseFloat(c1split[j]);
+    }
+    document.getElementById("ConsonantsT").value = consonantstotals + " / " + cpass1totals;     
+    }
+    
+    
+    
+    var cc3 = cpass1totals.toString();
+    var vv3 = vpass1totals.toString();
+    var cc23 = cc3.length;
+    var vv23 = vv3.length;
+    var v3split = vv3.split("");
+    var c3split = cc3.split("");    
+        
+        
+    if (vv23 > 1)
+    {
+    for (j = 0; j < vv23; j++)
+    {
+         vpass1totals2 = vpass1totals2 + parseFloat(v3split[j]);
+    }
+    document.getElementById("VowelsT").value = vowelstotals + " / " + vpass1totals + " / " + vpass1totals2;     
+    }
+
+    if (cc23 > 1)
+    {
+    for (j = 0; j < cc23; j++)
+    {
+         cpass1totals2 = cpass1totals2 + parseFloat(c3split[j]);
+    }
+    document.getElementById("ConsonantsT").value = consonantstotals + " / " + cpass1totals + " / " + cpass1totals2;     
+    }    
+    
+    
+    var vow1 = vowels.map(String);
+    var con1 = consonants.map(String);
+    var vow2 = vow1.toString().replace(/,/g,"");
+    var con2 = con1.toString().replace(/,/g,"");
+    document.getElementById("Vowels").value = vow2;
+    document.getElementById("Consonants").value = con2;
+
+
+    
+    
+    
+    
     
     
     var sumtotals = (ones + (twos * 2) + (threes * 3) + (fours * 4) + (fives * 5) + (sixes * 6) + (sevens * 7) + (eights * 8) + (nines * 9));
