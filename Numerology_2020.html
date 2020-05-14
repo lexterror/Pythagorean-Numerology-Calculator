@@ -385,9 +385,14 @@ var data_entered_length = initial.length;
     // display results
     
     document.getElementById("display").value = correct_BT1 + " = " + total1;
+    if (correct_BT2.length > 1)
     document.getElementById("display2").value = correct_BT2 + " = " + total2;
+    if (correct_BT2.length == 1)
+    document.getElementById("display2").value = "";
+    if (correct_BT3.length > 1)
     document.getElementById("display3").value = correct_BT3 + " = " + total3;
-    
+    if (correct_BT3.length == 1)
+    document.getElementById("display3").value = "";    
 
 }}
 
@@ -586,15 +591,17 @@ var thenames =  document.getElementById("thenames").value;
     var namestotalsfinal2 = 0;
     
 
-
-    
+   
     for (m = 0; m < sumtotalslentgh; m++)
     {
         namestotalsfinal = namestotalsfinal + parseFloat(numberss[m]);
     }
     
+    if (sumtotalslentgh > 1)
     document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal;
-    
+    if (sumtotalslentgh == 1)
+    document.getElementById("namestotal").value = sumtotals;   
+
     
     var nn = namestotalsfinal.toString();
     var nnlength = nn.length;
