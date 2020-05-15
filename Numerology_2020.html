@@ -16,10 +16,9 @@
 body {
 
     margin: 0 auto;
-    width: 498px;
+    width: 1000px;
     background-image: url("img/wax.png");
     background-repeat: repeat;
-    color: #fff;
 }
 
 input {
@@ -52,6 +51,8 @@ font-size: 100%;
     text-decoration: bold;
     text-align: left;
     text-shadow: 0 0 5px #000;
+    width: 996px;
+    color: #fff;
 }
 #addborder {
     display: block;
@@ -142,7 +143,7 @@ font-size: 100%;
 
 #about {
 
-width: 458px;
+width: 960px;
 font-size: 24px;
 margin: 0 auto;
 color: #eeeeee;
@@ -153,6 +154,7 @@ padding: 20px;
 #abouttable {
     margin: 0 auto;
     width: 270px;
+    color: #eee;
 }
 
 #abouttable td {
@@ -179,6 +181,53 @@ padding: 20px;
     color: #fff;
 }
 
+#box1 {
+
+    width: 498px;
+    color:#fff;
+    background: #000000;
+    float: left;
+}
+
+#box2 {
+
+    width: 498px;
+    color:#fff;
+    float: right;
+    background: #000000;
+    overflow: hidden;
+    margin-top: 27px;
+
+}
+
+#boxes {
+    width: 1000px;
+    margin: 0 auto;
+    background: #000000;
+    overflow: hidden;
+    
+}
+
+#about {
+    width: 960px;
+    background: #000;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    float: left;
+}
+
+.terrace {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#terracebox {
+    width: 452px;
+    margin: 0 auto;
+}
+
 @font-face {
 font-family: 'terra';
 src: url('fonts/TerraIgnotaW01-Regular.eot'); /* IE9 Compat Modes */
@@ -193,6 +242,9 @@ font-size: 100%;
 <div id="mytitle">
 Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a00;">u</span><span style="color:#ff4200;">m</span><span style="color:#ff4a00;">e</span><span style="color:#ff5200;">r</span><span style="color:#ff5b00;">o</span><span style="color:#ff6300;">l</span><span style="color:#ff6b00;">o</span><span style="color:#ff7300;">g</span><span style="color:#ff7b00;">y</span><span style="color:#ff8400;"> </span><span style="color:#ff8c00;">C</span><span style="color:#ff9400;">a</span><span style="color:#ff9c00;">l</span><span style="color:#ffa500;">c</span><span style="color:#ffad00;">u</span><span style="color:#ffb500;">l</span><span style="color:#ffbd00;">a</span><span style="color:#ffc600;">t</span><span style="color:#ffce00;">o</span><span style="color:#ffd600;">r</span></div>
 <hr>
+
+<div id="boxes">
+<div id="box1">
 <div id="addborder">
 
 <label>Data Entry</label><input type="text" name="numbers" id="numbers">
@@ -235,7 +287,7 @@ Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a
 <td><span id="nines3"></span></td>
 </tr>
 </table>
-
+</div>
 </div>
 
 
@@ -252,6 +304,7 @@ var nines=0;
 
 </script>
 
+<div id="box2">
 <label style="float:left;width: 398px;">Vowels</label><label style="right:0;width: 100px;">Totals</label><br>
 <input type="text" name="VowelsT" id="VowelsT" readonly style="background: #000;color: #fff;width: 100px;"><input type="text" name="Vowels" id="Vowels" readonly style="background: #000;color: #fff;width:398px">
 
@@ -293,9 +346,8 @@ var nines=0;
 <td id="sevens">7</td>
 </tr>
 </table>
-
-
-
+</div>
+</div>
 
 <div id="about"><span class="terrace">
 <p>Using the English alphabet we find the following correspondence between numbers and letters:</p></span>
@@ -315,6 +367,7 @@ var nines=0;
 </tr>
 </table>
 <br><br><hr>
+
 <span class="terrace">
 <p>Number Characteristics</p><br>
 <center><h3 style="font-family:terra;">One</h3></center>
@@ -345,10 +398,11 @@ The Unconscious Mind, Transformation of the Material, Timeless Space, Both/and B
 Spiritual Creativity, Divine Love, Innate Talents, Completion, Karma: Reward for Actions of the Previous Lives
 </span>
 <br><br>
+<div id="terracebox">
 <div id="finalt">
 <span class="terrace">
 The more circles there are around a number, the higher the level of awareness of the energy symbolized by that number. The fewer circles around a number, the lower the awareness of the energy symbolized by that number. If you are not aware of something you cannot control it. If you cannot control something, it controls you. Increased awareness allows greater control.</span>
-</div>
+</div></div>
 <img src="img/top.png" height="129" width="458">
 <br>
 </div>
