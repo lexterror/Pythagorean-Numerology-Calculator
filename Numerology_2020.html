@@ -67,12 +67,8 @@ font-size: 100%;
     width: 480px;
     height: 480px;
     margin: 0 auto;
-    background: #999;
-    margin-top: 20px;
     font-family: goth;
-    background-image: url("img/bg.gif");
-    background-size: 100%;
-    
+
 }
 
 #psychomatrix {
@@ -92,7 +88,7 @@ font-size: 100%;
     height: 150px;
     margin: 0 auto;
     text-align: center;
-    border: 5px solid #000;
+    border: 5px solid transparent;
     font-family: goth;
     font-size: 32px;
     line-height: 32px;
@@ -294,7 +290,17 @@ Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a
 <td><span id="nines3"></span><br><span class="infos">intellect,<br>memory</span></td>
 </tr>
 </table>
+
+<table id="infostable">
+<tr>
+<td class="infolabels">Self</td><td class="infolabels">Work</td><td class="infolabels">Talent</td><td class="infolabels">Purpose</td><td class="infolabels">Family</td><td class="infolabels">Habits</td><td class="infolabels">Spirit</td><td class="infolabels">Temp</td>
+</tr>
+<tr>
+<td id="t1" class="infoss"></td><td id="t2" class="infoss"></td><td id="t3" class="infoss"></td><td id="t4" class="infoss"></td><td id="t5" class="infoss"></td><td id="t6" class="infoss"></td><td id="t7" class="infoss"></td><td id="t8" class="infoss"></td>
+</tr>
+</table>
 </div>
+
 </div>
 
 
@@ -336,6 +342,27 @@ var nines=0;
 <td>Totals</td><td id="1t"></td><td id="2t"></td><td id="3t"></td><td id="4t"></td><td id="5t"></td><td id="6t"></td><td id="7t"></td><td id="8t"></td><td id="9t"></td><td id="tt"></td>
 </tr>
 </table>
+
+
+<style>
+#container {
+  position: relative;
+  width: 480px;
+  height: 480px;
+}
+#container canvas, #overlay {
+  position: absolute;
+}
+canvas {
+    background: #aaa;
+    width:480px;
+    height:480px;
+}
+</style>
+<div id="container">
+<canvas id="DemoCanvas" width="480" height="480"></canvas>
+
+<div id="overlay">
 <table id="norm">
 <tr>
 <td id="threes">3</td>  <!-- 3 -->
@@ -353,6 +380,9 @@ var nines=0;
 <td id="sevens">7</td>
 </tr>
 </table>
+</div>
+</div>
+<img src="img/legend.png" width="480" height="250">
 
 <style>
 #infostable {
@@ -376,14 +406,7 @@ var nines=0;
 }
 </style>
 
-<table id="infostable">
-<tr>
-<td class="infolabels">Self</td><td class="infolabels">Work</td><td class="infolabels">Talent</td><td class="infolabels">Purpose</td><td class="infolabels">Family</td><td class="infolabels">Habits</td><td class="infolabels">Spirit</td><td class="infolabels">Temp</td>
-</tr>
-<tr>
-<td id="t1" class="infoss"></td><td id="t2" class="infoss"></td><td id="t3" class="infoss"></td><td id="t4" class="infoss"></td><td id="t5" class="infoss"></td><td id="t6" class="infoss"></td><td id="t7" class="infoss"></td><td id="t8" class="infoss"></td>
-</tr>
-</table>
+
 
 
 </div>
@@ -1397,6 +1420,299 @@ if (eights == 1)
     {
         document.getElementById("nines").style.backgroundImage = "url('img/_nine.png')";        
     }   
+    
+    
+    
+    
+    
+//////////////////////////// THELINES //////////////
+  
+var canvas = document.getElementById('DemoCanvas');
+//Always check for properties and methods, to make sure your code doesn't break in other browsers.
+if (canvas.getContext) 
+ {
+  var materialworldline1 = canvas.getContext('2d');
+  var materialworldline2 = canvas.getContext('2d');
+  var consciousmind1 = canvas.getContext('2d');
+  var consciousmind2 = canvas.getContext('2d'); 
+  var creativity1 = canvas.getContext('2d');
+  var creativity2 = canvas.getContext('2d'); 
+  
+  var bodyline1 = canvas.getContext('2d');
+  var bodyline2 = canvas.getContext('2d'); 
+  var intellect1 = canvas.getContext('2d');
+  var intellect2 = canvas.getContext('2d');   
+  var spirit1 = canvas.getContext('2d');
+  var spirit2 = canvas.getContext('2d');     
+  
+  var effect1 = canvas.getContext('2d');
+  var effect2 = canvas.getContext('2d');     
+  var communication1 = canvas.getContext('2d');
+  var communication2 = canvas.getContext('2d');     
+  
+  
+  materialworldline1.clearRect(0, 0, canvas.width, canvas.height);
+  materialworldline2.clearRect(0, 0, canvas.width, canvas.height);  
+  
+  consciousmind1.clearRect(0, 0, canvas.width, canvas.height);
+  consciousmind2.clearRect(0, 0, canvas.width, canvas.height);    
+  
+  creativity1.clearRect(0, 0, canvas.width, canvas.height);
+  creativity2.clearRect(0, 0, canvas.width, canvas.height); 
+  
+  bodyline1.clearRect(0, 0, canvas.width, canvas.height);
+  bodyline2.clearRect(0, 0, canvas.width, canvas.height);   
+  
+  
+  intellect1.clearRect(0, 0, canvas.width, canvas.height);
+  intellect2.clearRect(0, 0, canvas.width, canvas.height);     
+  
+  
+  spirit1.clearRect(0, 0, canvas.width, canvas.height);
+  spirit2.clearRect(0, 0, canvas.width, canvas.height);  
+  
+  
+  effect1.clearRect(0, 0, canvas.width, canvas.height);
+  effect2.clearRect(0, 0, canvas.width, canvas.height); 
+  
+  
+  communication1.clearRect(0, 0, canvas.width, canvas.height);
+  communication2.clearRect(0, 0, canvas.width, canvas.height); 
+  
+  
+  if (ones > 0 && fours > 0)
+  {
+  materialworldline1.strokeStyle = "orange";
+  materialworldline1.lineWidth = 8;
+  // Reset the current path
+  materialworldline1.beginPath(); 
+  // Staring point (10,45)
+  materialworldline1.moveTo(110,400);
+  // End point (180,47)
+  materialworldline1.lineTo(200,400);
+  // Make the line visible
+  materialworldline1.stroke();
+  }
+  
+  if (fours > 0 && sevens > 0)
+  {
+  materialworldline2.strokeStyle = "orange";
+  materialworldline2.lineWidth = 8;
+  // Reset the current path
+  materialworldline2.beginPath(); 
+  // Staring point (10,45)
+  materialworldline2.moveTo(275,400);
+  // End point (180,47)
+  materialworldline2.lineTo(360,400);
+  // Make the line visible
+  materialworldline2.stroke();
+  }
+  
+  if (twos > 0 && fives > 0)
+  {
+  consciousmind1.strokeStyle = "lawngreen";
+  consciousmind1.lineWidth = 8;
+  // Reset the current path
+  consciousmind1.beginPath(); 
+  // Staring point (10,45)
+  consciousmind1.moveTo(110,245);
+  // End point (180,47)
+  consciousmind1.lineTo(200,245);
+  // Make the line visible
+  consciousmind1.stroke();
+  }
+  
+  if (fives > 0 && eights > 0)
+  {
+  consciousmind2.strokeStyle = "lawngreen";
+  consciousmind2.lineWidth = 8;
+  // Reset the current path
+  consciousmind2.beginPath(); 
+  // Staring point (10,45)
+  consciousmind2.moveTo(275,245);
+  // End point (180,47)
+  consciousmind2.lineTo(360,245);
+  // Make the line visible
+  consciousmind2.stroke();
+  }
+   
+  if (threes > 0 && sixes > 0)
+  { 
+  creativity1.strokeStyle = "deeppink";
+  creativity1.lineWidth = 8;
+  // Reset the current path
+  creativity1.beginPath(); 
+  // Staring point (10,45)
+  creativity1.moveTo(110,85);
+  // End point (180,47)
+  creativity1.lineTo(200,85);
+  // Make the line visible
+  creativity1.stroke();
+  }
+  
+  if (sixes > 0 && nines > 0)
+  {
+  creativity2.strokeStyle = "deeppink";
+  creativity2.lineWidth = 8;
+  // Reset the current path
+  creativity2.beginPath(); 
+  // Staring point (10,45)
+  creativity2.moveTo(275,85);
+  // End point (180,47)
+  creativity2.lineTo(360,85);
+  // Make the line visible
+  creativity2.stroke();   
+  }
+
+  if (twos > 0 && threes > 0)
+  {
+  bodyline1.strokeStyle = "green";
+  bodyline1.lineWidth = 8;
+  // Reset the current path
+  bodyline1.beginPath(); 
+  // Staring point (10,45)
+  bodyline1.moveTo(80,115);
+  // End point (180,47)
+  bodyline1.lineTo(80,205);
+  // Make the line visible
+  bodyline1.stroke();
+  }
+  
+  if (ones > 0 && twos > 0)
+  {
+  bodyline2.strokeStyle = "green";
+  bodyline2.lineWidth = 8;
+  // Reset the current path
+  bodyline2.beginPath(); 
+  // Staring point (10,45)
+  bodyline2.moveTo(80,280);
+  // End point (180,47)
+  bodyline2.lineTo(80,365);
+  // Make the line visible
+  bodyline2.stroke();     
+  }
+  
+  if (fives > 0 && sixes > 0)  
+  {
+  intellect1.strokeStyle = "yellow";
+  intellect1.lineWidth = 8;
+  // Reset the current path
+  intellect1.beginPath(); 
+  // Staring point (10,45)
+  intellect1.moveTo(240,115);
+  // End point (180,47)
+  intellect1.lineTo(240,205);
+  // Make the line visible
+  intellect1.stroke();
+  }
+  
+  if (fours > 0 && fives > 0)
+  {
+  intellect2.strokeStyle = "yellow";
+  intellect2.lineWidth = 8;
+  // Reset the current path
+  intellect2.beginPath(); 
+  // Staring point (10,45)
+  intellect2.moveTo(240,280);
+  // End point (180,47)
+  intellect2.lineTo(240,365);
+  // Make the line visible
+  intellect2.stroke(); 
+  } 
+  if (eights > 0 && nines > 0)  
+
+  {
+  spirit1.strokeStyle = "brown";
+  spirit1.lineWidth = 8;
+  // Reset the current path
+  spirit1.beginPath(); 
+  // Staring point (10,45)
+  spirit1.moveTo(400,115);
+  // End point (180,47)
+  spirit1.lineTo(400,205);
+  // Make the line visible
+  spirit1.stroke();
+  }
+  
+  if (sevens > 0 && eights > 0)
+  {
+  spirit2.strokeStyle = "brown";
+  spirit2.lineWidth = 8;
+  // Reset the current path
+  spirit2.beginPath(); 
+  // Staring point (10,45)
+  spirit2.moveTo(400,280);
+  // End point (180,47)
+  spirit2.lineTo(400,365);
+  // Make the line visible
+  spirit2.stroke();  
+  }
+  
+  if (threes > 0 && fives > 0)
+  {
+  effect1.strokeStyle = "red";
+  effect1.lineWidth = 8;
+  // Reset the current path
+  effect1.beginPath(); 
+  // Staring point (10,45)
+  effect1.moveTo(100,100);
+  // End point (180,47)
+  effect1.lineTo(220,220);
+  // Make the line visible
+  effect1.stroke();
+  }
+  
+  if (fives > 0 && sevens > 0)
+  {
+  effect2.strokeStyle = "red";
+  effect2.lineWidth = 8;
+  // Reset the current path
+  effect2.beginPath(); 
+  // Staring point (10,45)
+  effect2.moveTo(260,260);
+  // End point (180,47)
+  effect2.lineTo(375,375);
+  // Make the line visible
+  effect2.stroke(); 
+  }
+  
+  if (ones > 0 && fives > 0)
+  {
+  communication1.strokeStyle = "blue";
+  communication1.lineWidth = 8;
+  // Reset the current path
+  communication1.beginPath(); 
+  // Staring point (10,45)
+  communication1.moveTo(100,375);
+  // End point (180,47)
+  communication1.lineTo(220,260);
+  // Make the line visible
+  communication1.stroke();
+  }
+  
+  if (fives > 0 && nines > 0)
+  {
+  communication2.strokeStyle = "blue";
+  communication2.lineWidth = 8;
+  // Reset the current path
+  communication2.beginPath(); 
+  // Staring point (10,45)
+  communication2.moveTo(260,220);
+  // End point (180,47)
+  communication2.lineTo(380,100);
+  // Make the line visible
+  communication2.stroke(); 
+  }
+  
+  }
+    
+    
+    
+    
+    
+    
+    
+    
 /////////////////////// end of NORMAN //////////
 
 //////////////// YEAR
