@@ -76,8 +76,8 @@ font-size: 100%;
 }
 
 #psychomatrix {
-    width: 375px;
-    height: 375px;
+    width: 420px;
+    height: 420px;
     margin: 0 auto;
     background: #999;
     margin-top: 20px;
@@ -103,8 +103,8 @@ font-size: 100%;
 
 #psychomatrix td {
 
-    width: 125px;
-    height: 125px;
+    width: 140px;
+    height: 140px;
     margin: 0 auto;
     text-align: center;
     border: 5px solid #666;
@@ -228,6 +228,13 @@ padding: 20px;
     margin: 0 auto;
 }
 
+.infos {
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    line-height: 16px;
+}
+
 @font-face {
 font-family: 'terra';
 src: url('fonts/TerraIgnotaW01-Regular.eot'); /* IE9 Compat Modes */
@@ -272,19 +279,19 @@ Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a
 <!--<input type="text" name="psycho" id="psycho" readonly style="background: #000;color: #fff;"> -->
 <table id="psychomatrix">
 <tr>
-<td><span id="ones3"></span></td>  <!-- 3 -->
-<td><span id="fours3"></span></td>
-<td><span id="sevens3"></span></td>
+<td><span id="ones3"></span><br><span class="infos">character,<br>will</span></td>  <!-- 3 -->
+<td><span id="fours3"></span><br><span class="infos">health, <br>beauty</span></td>
+<td><span id="sevens3"></span><br><span class="infos">luck</span></td>
 </tr>
 <tr>
-<td><span id="twos3"></span></td> <!-- 2 -->
-<td><span id="fives3"></span></td>
-<td><span id="eights3"></span></td>
+<td><span id="twos3"></span><br><span class="infos">vital,<br>energy</span></td> <!-- 2 -->
+<td><span id="fives3"></span><br><span class="infos">logic,<br>intuition</span></td>
+<td><span id="eights3"></span><br><span class="infos">duty</span></td>
 </tr>
 <tr>
-<td><span id="threes3"></span></td>  <!-- 1 -->
-<td><span id="sixes3"></span></td>
-<td><span id="nines3"></span></td>
+<td><span id="threes3"></span><br><span class="infos">cognitive,<br>creative</span></td>  <!-- 1 -->
+<td><span id="sixes3"></span><br><span class="infos">labor, <br>skill</span></td>
+<td><span id="nines3"></span><br><span class="infos">intellect,<br>memory</span></td>
 </tr>
 </table>
 </div>
@@ -346,6 +353,39 @@ var nines=0;
 <td id="sevens">7</td>
 </tr>
 </table>
+
+<style>
+#infostable {
+    color: #eee;
+    margin-top: 20px;
+}
+
+#infostable td {
+    width: 60px;
+}
+
+.infoss {
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+}
+.infolabels {
+    font-size: 12px;
+    line-height: 12px;
+    text-align:center;
+}
+</style>
+
+<table id="infostable">
+<tr>
+<td class="infolabels">Esteem</td><td class="infolabels">Money</td><td class="infolabels">Talent</td><td class="infolabels">Tenacity</td><td class="infolabels">Home</td><td class="infolabels">Stability</td><td class="infolabels">Spirit</td><td class="infolabels">Temper</td>
+</tr>
+<tr>
+<td id="t1" class="infoss"></td><td id="t2" class="infoss"></td><td id="t3" class="infoss"></td><td id="t4" class="infoss"></td><td id="t5" class="infoss"></td><td id="t6" class="infoss"></td><td id="t7" class="infoss"></td><td id="t8" class="infoss"></td>
+</tr>
+</table>
+
+
 </div>
 </div>
 
@@ -1819,6 +1859,25 @@ var data_entered_length = date.length;
     document.getElementById("sevens3").innerText = psycho777;
     document.getElementById("eights3").innerText = psycho888;
     document.getElementById("nines3").innerText = psycho999;
+    
+    var esteem = onep + twop + threep;
+    var money = fourp + fivep + sixp;
+    var talent = sevenp + eightp + ninep;
+    var tenacity = onep + fourp + sevenp;
+    var domestic = twop + fivep + eightp;
+    var stability = threep + sixp + ninep;
+    var spirit = onep + fivep + ninep;
+    var temper = threep + fivep + sevenp;
+    
+    document.getElementById("t1").innerText = esteem;
+    document.getElementById("t2").innerText = money;
+    document.getElementById("t3").innerText = talent;
+    document.getElementById("t4").innerText = tenacity;
+    document.getElementById("t5").innerText = domestic;
+    document.getElementById("t6").innerText = stability;
+    document.getElementById("t7").innerText = spirit;
+    document.getElementById("t8").innerText = temper;
+    
     
 }
 
