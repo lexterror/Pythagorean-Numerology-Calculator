@@ -1426,29 +1426,78 @@ if (eights == 1)
     
     
 //////////////////////////// THELINES //////////////
-  
+function drawArrowhead(context, from, to, radius) {
+	var x_center = to.x;
+	var y_center = to.y;
+
+	var angle;
+	var x;
+	var y;
+
+	context.beginPath();
+
+	angle = Math.atan2(to.y - from.y, to.x - from.x)
+	x = radius * Math.cos(angle) + x_center;
+	y = radius * Math.sin(angle) + y_center;
+
+	context.moveTo(x, y);
+
+	angle += (1.0/3.0) * (2 * Math.PI)
+	x = radius * Math.cos(angle) + x_center;
+	y = radius * Math.sin(angle) + y_center;
+
+	context.lineTo(x, y);
+
+	angle += (1.0/3.0) * (2 * Math.PI)
+	x = radius *Math.cos(angle) + x_center;
+	y = radius *Math.sin(angle) + y_center;
+
+	context.lineTo(x, y);
+
+	context.closePath();
+
+	context.fill();
+}
+
+
 var canvas = document.getElementById('DemoCanvas');
 //Always check for properties and methods, to make sure your code doesn't break in other browsers.
 if (canvas.getContext) 
  {
+ 
   var materialworldline1 = canvas.getContext('2d');
+  materialworldline1.lineCap = "round";
   var materialworldline2 = canvas.getContext('2d');
+  materialworldline2.lineCap = "round";
   var consciousmind1 = canvas.getContext('2d');
+   consciousmind1.lineCap = "round";
   var consciousmind2 = canvas.getContext('2d'); 
+  consciousmind2.lineCap = "round";
   var creativity1 = canvas.getContext('2d');
+  creativity1.lineCap = "round";
   var creativity2 = canvas.getContext('2d'); 
-  
+  creativity2.lineCap = "round"; 
   var bodyline1 = canvas.getContext('2d');
+  bodyline1.lineCap = "round";
   var bodyline2 = canvas.getContext('2d'); 
+  bodyline2.lineCap = "round";
   var intellect1 = canvas.getContext('2d');
-  var intellect2 = canvas.getContext('2d');   
+  intellect1.lineCap = "round";
+  var intellect2 = canvas.getContext('2d');  
+  intellect2.lineCap = "round";
   var spirit1 = canvas.getContext('2d');
-  var spirit2 = canvas.getContext('2d');     
+  spirit1.lineCap = "round";
+  var spirit2 = canvas.getContext('2d');  
+  spirit2.lineCap = "round";
   
   var effect1 = canvas.getContext('2d');
-  var effect2 = canvas.getContext('2d');     
+  effect1.lineCap = "round";
+  var effect2 = canvas.getContext('2d');
+  effect2.lineCap = "round";
   var communication1 = canvas.getContext('2d');
-  var communication2 = canvas.getContext('2d');     
+  communication1.lineCap ="round";
+  var communication2 = canvas.getContext('2d');    
+  communication2.lineCap = "round";
   
   
   materialworldline1.clearRect(0, 0, canvas.width, canvas.height);
@@ -1482,6 +1531,7 @@ if (canvas.getContext)
   
   if (ones > 0 && fours > 0)
   {
+
   materialworldline1.strokeStyle = "orange";
   materialworldline1.lineWidth = 8;
   // Reset the current path
@@ -1491,7 +1541,9 @@ if (canvas.getContext)
   // End point (180,47)
   materialworldline1.lineTo(200,400);
   // Make the line visible
+
   materialworldline1.stroke();
+
   }
   
   if (fours > 0 && sevens > 0)
@@ -1506,6 +1558,7 @@ if (canvas.getContext)
   materialworldline2.lineTo(360,400);
   // Make the line visible
   materialworldline2.stroke();
+
   }
   
   if (twos > 0 && fives > 0)
