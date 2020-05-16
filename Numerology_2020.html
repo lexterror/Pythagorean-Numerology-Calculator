@@ -1,5 +1,6 @@
 <html>
 <title>Pythagorean Numerology Calculator</title>
+<script src="js/canvas-arrow.js"></script>
 <style>
 ::-webkit-scrollbar {
     width: 10px;
@@ -1519,7 +1520,7 @@ if (canvas.getContext)
   {
   
   ctx.strokeStyle = "white";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
 
   // Reset the current path
   ctx.beginPath(); 
@@ -1537,7 +1538,7 @@ if (canvas.getContext)
   if (sixes > 0 && eights > 0)
   {
   ctx.strokeStyle = "white";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
 
   // Reset the current path
   ctx.beginPath(); 
@@ -1554,7 +1555,7 @@ if (canvas.getContext)
   if (twos > 0 && fours > 0)
   {
   ctx.strokeStyle = "white";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
 
   // Reset the current path
   ctx.beginPath(); 
@@ -1571,29 +1572,33 @@ if (canvas.getContext)
   if (fours > 0 && eights > 0)
   {
   ctx.strokeStyle = "white";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
 
   // Reset the current path
   ctx.beginPath(); 
   ctx.setLineDash([15, 13]);
   ctx.lineCap = "round";
   // Staring point (10,45)
-  ctx.moveTo(255,375);
+  ctx.moveTo(265,375);
   // End point (180,47)
-  ctx.lineTo(375,255);
+  ctx.lineTo(375,265);
   // Make the line visible
   ctx.stroke(); 
   }
   
+  
+   
   if (ones > 0 && fours > 0)
   {
 
   ctx.strokeStyle = "orange";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
+
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
   ctx.setLineDash([]); 
+  ctx.arrow(110, 400, 200, 400, [4, 4, 4, 1, -4, 1, -4, 4]);
   // Staring point (10,45)
   ctx.moveTo(110,400);
   // End point (180,47)
@@ -1607,10 +1612,12 @@ if (canvas.getContext)
   if (fours > 0 && sevens > 0)
   {
   ctx.strokeStyle = "orange";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
+
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(275, 400, 360, 400, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]); 
   // Staring point (10,45)
   ctx.moveTo(275,400);
@@ -1624,10 +1631,11 @@ if (canvas.getContext)
   if (twos > 0 && fives > 0)
   {
    ctx.strokeStyle = "lawngreen";
-   ctx.lineWidth = 8;
+   ctx.lineWidth = 6;
   // Reset the current path
    ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(110, 245, 200, 245, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]); 
   // Staring point (10,45)
   ctx.moveTo(110,245);
@@ -1640,10 +1648,11 @@ if (canvas.getContext)
   if (fives > 0 && eights > 0)
   {
   ctx.strokeStyle = "lawngreen";
-   ctx.lineWidth = 8;
+   ctx.lineWidth = 6;
   // Reset the current path
    ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(275, 245, 360, 245, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]); 
   // Staring point (10,45)
    ctx.moveTo(275,245);
@@ -1656,10 +1665,11 @@ if (canvas.getContext)
   if (threes > 0 && sixes > 0)
   { 
   ctx.strokeStyle = "deeppink";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(110, 85, 200, 85, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]); 
   // Staring point (10,45)
   ctx.moveTo(110,85);
@@ -1672,10 +1682,11 @@ if (canvas.getContext)
   if (sixes > 0 && nines > 0)
   {
   ctx.strokeStyle = "deeppink";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(275, 85, 360, 85, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]);
   // Staring point (10,45)
   ctx.moveTo(275,85);
@@ -1688,13 +1699,15 @@ if (canvas.getContext)
   if (twos > 0 && threes > 0)
   {
   ctx.strokeStyle = "green";
-   ctx.lineWidth = 8;
+   ctx.lineWidth = 6;
   // Reset the current path
    ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(80, 115, 80, 205, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]);
   // Staring point (10,45)
    ctx.moveTo(80,115);
+
   // End point (180,47)
    ctx.lineTo(80,205);
   // Make the line visible
@@ -1704,10 +1717,11 @@ if (canvas.getContext)
   if (ones > 0 && twos > 0)
   {
   ctx.strokeStyle = "green";
-   ctx.lineWidth = 8;
+   ctx.lineWidth = 6;
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(80, 280, 80, 365, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]);
   // Staring point (10,45)
   ctx.moveTo(80,280);
@@ -1720,10 +1734,11 @@ if (canvas.getContext)
   if (fives > 0 && sixes > 0)  
   {
   ctx.strokeStyle = "yellow";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(240, 115, 240, 205, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]);
   // Staring point (10,45)
   ctx.moveTo(240,115);
@@ -1736,10 +1751,11 @@ if (canvas.getContext)
   if (fours > 0 && fives > 0)
   {
   ctx.strokeStyle = "yellow";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(240, 280, 240, 365, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]);
   // Staring point (10,45)
   ctx.moveTo(240,280);
@@ -1752,10 +1768,11 @@ if (canvas.getContext)
 
   {
   ctx.strokeStyle = "brown";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(400, 115, 400, 205, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]);
   // Staring point (10,45)
   ctx.moveTo(400,115);
@@ -1768,10 +1785,11 @@ if (canvas.getContext)
   if (sevens > 0 && eights > 0)
   {
   ctx.strokeStyle = "brown";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(400, 280, 400, 365, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]);
   // Staring point (10,45)
   ctx.moveTo(400,280);
@@ -1784,10 +1802,11 @@ if (canvas.getContext)
   if (threes > 0 && fives > 0)
   {
   ctx.strokeStyle = "red";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(100, 100, 220, 220, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]);
   // Staring point (10,45)
   ctx.moveTo(100,100);
@@ -1800,10 +1819,11 @@ if (canvas.getContext)
   if (fives > 0 && sevens > 0)
   {
   ctx.strokeStyle = "red";
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 6;
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(260, 260, 375, 375, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]);
   // Staring point (10,45)
   ctx.moveTo(260,260);
@@ -1816,10 +1836,11 @@ if (canvas.getContext)
   if (ones > 0 && fives > 0)
   {
   ctx.strokeStyle = "blue";
-   ctx.lineWidth = 8;
+   ctx.lineWidth = 6;
   // Reset the current path
    ctx.beginPath(); 
   ctx.lineCap = "round";
+  ctx.arrow(100, 375, 220, 260, [4, 4, 4, 1, -4, 1, -4, 4]);
   ctx.setLineDash([]);
   // Staring point (10,45)
    ctx.moveTo(100,375);
@@ -1832,11 +1853,12 @@ if (canvas.getContext)
   if (fives > 0 && nines > 0)
   {
    ctx.strokeStyle = "blue";
-   ctx.lineWidth = 8;
+   ctx.lineWidth = 6;
   // Reset the current path
    ctx.beginPath();
   ctx.lineCap = "round";
-  ctx.setLineDash([]);
+   ctx.arrow(260, 220, 380, 100, [4, 4, 4, 1, -4, 1, -4, 4]);
+ ctx.setLineDash([]);
   // Staring point (10,45)
    ctx.moveTo(260,220);
   // End point (180,47)
@@ -1844,6 +1866,9 @@ if (canvas.getContext)
   // Make the line visible
    ctx.stroke(); 
   }
+  
+ 
+  
   
   }
     
