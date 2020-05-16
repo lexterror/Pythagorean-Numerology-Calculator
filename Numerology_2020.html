@@ -263,14 +263,15 @@ Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a
 
 
 
-<label style="padding-top: 30px;">Year</label><input type="text" name="numbers" id="numbers1">
-<input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;">
-<label>Month</label><input type="text" name="numbers" id="numbers2">
-<input type="text" name="display3" id="display5" readonly style="background: #000;color: #fff;">
-<label>Date</label><input type="text" name="numbers" id="numbers3">
-<input type="text" name="display4" id="display6" readonly style="background: #000;color: #fff;">
-<label>Life Path Number</label>
-<input type="text" name="lifepath" id="lifepath" readonly style="background: #000;color: #fff;">
+<label style="width:149px;">Year</label><label style="width:149px;">Month</label><label style="width:149px;">Date</label>
+<input type="text" name="numbers" id="numbers1" style="width:149px;"><input type="text" name="numbers" id="numbers2" style="width:149px;"><input type="text" name="numbers" id="numbers3" style="width:149px;">
+<input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;width:149px;">
+<input type="text" name="display3" id="display5" readonly style="background: #000;color: #fff;width:149px;">
+<input type="text" name="display4" id="display6" readonly style="background: #000;color: #fff;width:149px;">
+
+
+
+
 
 <label style="right:0;width: 100px;">Psychomatrix</label>
 <!--<input type="text" name="psycho" id="psycho" readonly style="background: #000;color: #fff;"> -->
@@ -300,6 +301,16 @@ Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a
 <td><span id="t7"></span>,<span id="t8"></span><br><span class="infos">Spirit<br>/Temp</span></td>
 </tr>
 </table>
+<style>
+#lifepathbox {
+    width: 450px;
+    text-align:center;
+}
+</style>
+<label style="margin: 0 auto;width:450px;text-align:center;padding-top: 30px;">Life Path Number</label>
+<div id="lifepathbox">
+<span id="lifepath" style="color:gold;font-size:64px;margin:0 auto;text-align:center;font-family:goth;float:center;width:100px;"></span>
+</div>
 <!--
 <table id="infostable">
 <tr>
@@ -2132,7 +2143,7 @@ var data_entered_length = date.length;
 
    
 
-    document.getElementById("lifepath").value = newpath;
+    document.getElementById("lifepath").innerText = newpath;
 
   
   
