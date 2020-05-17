@@ -1473,8 +1473,9 @@ if (eights == 1)
     }   
     
     
-    
-    
+  var bool = 0;    
+  var growright = 0;
+  var growleft = 0;    
     
 //////////////////////////// THELINES //////////////
 function drawArrowhead(context, from, to, radius) {
@@ -1510,6 +1511,20 @@ function drawArrowhead(context, from, to, radius) {
 	context.fill();
 }
 
+function init() {
+ window.requestAnimationFrame(draw);
+}
+init();
+
+
+// SLOW DOWN ANIMATION
+
+
+
+
+///////////////////////////////
+    function draw()
+    {
 
 var canvas = document.getElementById('DemoCanvas');
 const ctx = canvas.getContext('2d');
@@ -1523,6 +1538,28 @@ if (canvas.getContext)
   
 
   
+  if (growleft < 5 && bool == 0)
+  {
+  growleft = growleft + 0.25;
+  growright = growright - 0.25;
+  if (growleft == 5)
+  {
+        bool = 1;
+  }
+  }
+  
+  if (growleft > 0 && bool == 1)
+  {
+   growleft = growleft - 0.25;
+   growright = growright + 0.25;
+  if (growleft == 0)
+  {
+        bool = 0;
+  }
+  }
+  
+
+
   
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.clearRect(0, 0, canvas.width, canvas.height);  
@@ -1535,12 +1572,12 @@ if (canvas.getContext)
 
   // Reset the current path
   ctx.beginPath(); 
-  ctx.setLineDash([15, 13]);
+  ctx.setLineDash([15 , 13]);
   ctx.lineCap = "round";
   // Staring point (10,45)
-  ctx.moveTo(100,220);
+  ctx.moveTo(100 + growleft,220 + growright);
   // End point (180,47)
-  ctx.lineTo(220,100);
+  ctx.lineTo(220 + growright,100 + growleft);
   // Make the line visible
 
   ctx.stroke();  
@@ -1556,9 +1593,9 @@ if (canvas.getContext)
   ctx.setLineDash([15, 13]);
   ctx.lineCap = "round";
   // Staring point (10,45)
-  ctx.moveTo(255,100);
+  ctx.moveTo(255 + growleft,100 + growleft);
   // End point (180,47)
-  ctx.lineTo(375,220);
+  ctx.lineTo(375 + growright,220 + growright);
   // Make the line visible
   ctx.stroke();   
   }
@@ -1573,9 +1610,9 @@ if (canvas.getContext)
   ctx.setLineDash([15, 13]);
   ctx.lineCap = "round";
   // Staring point (10,45)
-  ctx.moveTo(100,265);
+  ctx.moveTo(100 + growleft,265 + growleft);
   // End point (180,47)
-  ctx.lineTo(220,375);
+  ctx.lineTo(220 + growright,375 + growright);
   // Make the line visible
   ctx.stroke();   
   }
@@ -1590,9 +1627,9 @@ if (canvas.getContext)
   ctx.setLineDash([15, 13]);
   ctx.lineCap = "round";
   // Staring point (10,45)
-  ctx.moveTo(265,375);
+  ctx.moveTo(265 + growleft,375 + growright);
   // End point (180,47)
-  ctx.lineTo(375,265);
+  ctx.lineTo(375 + growright,265 + growleft);
   // Make the line visible
   ctx.stroke(); 
   }
@@ -1609,11 +1646,11 @@ if (canvas.getContext)
   ctx.beginPath(); 
   ctx.lineCap = "round";
   ctx.setLineDash([]); 
-  ctx.arrow(110, 400, 200, 400, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(110 + growright, 400, 200 + growleft, 400, [2, 2, 2, 1, -2, 1, -2, 2]);
   // Staring point (10,45)
-  ctx.moveTo(110,400);
+  ctx.moveTo(110 + growright,400);
   // End point (180,47)
-  ctx.lineTo(200,400);
+  ctx.lineTo(200 + growleft,400);
   // Make the line visible
 
   ctx.stroke();
@@ -1628,12 +1665,12 @@ if (canvas.getContext)
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(275, 400, 360, 400, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(275 + growright, 400, 360 + growleft, 400, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]); 
   // Staring point (10,45)
-  ctx.moveTo(275,400);
+  ctx.moveTo(275 + growright,400);
   // End point (180,47)
-  ctx.lineTo(360,400);
+  ctx.lineTo(360 + growleft,400);
   // Make the line visible
   ctx.stroke();
 
@@ -1646,12 +1683,12 @@ if (canvas.getContext)
   // Reset the current path
    ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(110, 245, 200, 245, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(110 + growright, 245, 200 + growleft, 245, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]); 
   // Staring point (10,45)
-  ctx.moveTo(110,245);
+  ctx.moveTo(110 + growright,245);
   // End point (180,47)
-   ctx.lineTo(200,245);
+   ctx.lineTo(200 + growleft,245);
   // Make the line visible
    ctx.stroke();
   }
@@ -1663,12 +1700,12 @@ if (canvas.getContext)
   // Reset the current path
    ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(275, 245, 360, 245, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(275 + growright, 245, 360 + growleft, 245, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]); 
   // Staring point (10,45)
-   ctx.moveTo(275,245);
+   ctx.moveTo(275 + growright,245);
   // End point (180,47)
-   ctx.lineTo(360,245);
+   ctx.lineTo(360 + growleft,245);
   // Make the line visible
    ctx.stroke();
   }
@@ -1680,12 +1717,12 @@ if (canvas.getContext)
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(110, 85, 200, 85, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(110 + growright, 85, 200 + growleft, 85, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]); 
   // Staring point (10,45)
-  ctx.moveTo(110,85);
+  ctx.moveTo(110 + growright,85);
   // End point (180,47)
-  ctx.lineTo(200,85);
+  ctx.lineTo(200 + growleft,85);
   // Make the line visible
   ctx.stroke();
   }
@@ -1697,12 +1734,12 @@ if (canvas.getContext)
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(275, 85, 360, 85, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(275 + growright, 85, 360 + growleft, 85, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]);
   // Staring point (10,45)
-  ctx.moveTo(275,85);
+  ctx.moveTo(275 + growright,85);
   // End point (180,47)
-  ctx.lineTo(360,85);
+  ctx.lineTo(360 + growleft,85);
   // Make the line visible
   ctx.stroke();   
   }
@@ -1714,13 +1751,13 @@ if (canvas.getContext)
   // Reset the current path
    ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(80, 115, 80, 205, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(80, 115 + growright, 80, 205 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]);
   // Staring point (10,45)
-   ctx.moveTo(80,115);
+   ctx.moveTo(80,115 + growright);
 
   // End point (180,47)
-   ctx.lineTo(80,205);
+   ctx.lineTo(80,205 + growleft);
   // Make the line visible
    ctx.stroke();
   }
@@ -1732,12 +1769,12 @@ if (canvas.getContext)
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(80, 280, 80, 365, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(80, 280 + growright, 80, 365 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]);
   // Staring point (10,45)
-  ctx.moveTo(80,280);
+  ctx.moveTo(80,280 + growright);
   // End point (180,47)
-  ctx.lineTo(80,365);
+  ctx.lineTo(80,365 + growleft);
   // Make the line visible
    ctx.stroke();     
   }
@@ -1749,12 +1786,12 @@ if (canvas.getContext)
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(240, 115, 240, 205, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(240, 115 + growright, 240, 205 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]);
   // Staring point (10,45)
-  ctx.moveTo(240,115);
+  ctx.moveTo(240,115 + growright);
   // End point (180,47)
-  ctx.lineTo(240,205);
+  ctx.lineTo(240,205 + growleft);
   // Make the line visible
   ctx.stroke();
   }
@@ -1766,12 +1803,12 @@ if (canvas.getContext)
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(240, 280, 240, 365, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(240, 280 + growright, 240, 365 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]);
   // Staring point (10,45)
-  ctx.moveTo(240,280);
+  ctx.moveTo(240,280 + growright);
   // End point (180,47)
-  ctx.lineTo(240,365);
+  ctx.lineTo(240,365 + growleft);
   // Make the line visible
   ctx.stroke(); 
   } 
@@ -1783,12 +1820,12 @@ if (canvas.getContext)
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(400, 115, 400, 205, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(400, 115 + growright, 400, 205 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]);
   // Staring point (10,45)
-  ctx.moveTo(400,115);
+  ctx.moveTo(400,115 + growright);
   // End point (180,47)
-  ctx.lineTo(400,205);
+  ctx.lineTo(400,205 + growleft);
   // Make the line visible
   ctx.stroke();
   }
@@ -1800,12 +1837,12 @@ if (canvas.getContext)
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(400, 280, 400, 365, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(400, 280 + growright, 400, 365 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]);
   // Staring point (10,45)
-  ctx.moveTo(400,280);
+  ctx.moveTo(400,280 + growright);
   // End point (180,47)
-  ctx.lineTo(400,365);
+  ctx.lineTo(400,365 + growleft);
   // Make the line visible
   ctx.stroke();  
   }
@@ -1817,12 +1854,12 @@ if (canvas.getContext)
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(100, 100, 220, 220, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(100 + growright, 100 + growright, 220 + growleft, 220 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]);
   // Staring point (10,45)
-  ctx.moveTo(100,100);
+  ctx.moveTo(100 + growright,100 + growright);
   // End point (180,47)
-  ctx.lineTo(220,220);
+  ctx.lineTo(220 + growleft,220 + growleft);
   // Make the line visible
   ctx.stroke();
   }
@@ -1834,12 +1871,12 @@ if (canvas.getContext)
   // Reset the current path
   ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(260, 260, 375, 375, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(260 + growright, 260 + growright, 375 + growleft, 375 +growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]);
   // Staring point (10,45)
-  ctx.moveTo(260,260);
+  ctx.moveTo(260 + growright,260 + growright);
   // End point (180,47)
-  ctx.lineTo(375,375);
+  ctx.lineTo(375 + growleft,375 + growleft);
   // Make the line visible
   ctx.stroke(); 
   }
@@ -1851,12 +1888,12 @@ if (canvas.getContext)
   // Reset the current path
    ctx.beginPath(); 
   ctx.lineCap = "round";
-  ctx.arrow(100, 375, 220, 260, [4, 4, 4, 1, -4, 1, -4, 4]);
+  ctx.arrow(100 + growright, 375 + growleft, 220 + growleft, 260 + growright, [2, 2, 2, 1, -2, 1, -2, 2]);
   ctx.setLineDash([]);
   // Staring point (10,45)
-   ctx.moveTo(100,375);
+   ctx.moveTo(100 + growright,375 + growleft);
   // End point (180,47)
-   ctx.lineTo(220,260);
+   ctx.lineTo(220 + growleft,260 + growright);
   // Make the line visible
    ctx.stroke();
   }
@@ -1868,12 +1905,12 @@ if (canvas.getContext)
   // Reset the current path
    ctx.beginPath();
   ctx.lineCap = "round";
-   ctx.arrow(260, 220, 380, 100, [4, 4, 4, 1, -4, 1, -4, 4]);
+   ctx.arrow(260 + growright, 220 + growleft, 380 + growleft, 100 + growright, [2, 2, 2, 1, -2, 1, -2, 2]);
  ctx.setLineDash([]);
   // Staring point (10,45)
-   ctx.moveTo(260,220);
+   ctx.moveTo(260 + growright,220 + growleft);
   // End point (180,47)
-   ctx.lineTo(380,100);
+   ctx.lineTo(380 + growleft,100 + growright);
   // Make the line visible
    ctx.stroke(); 
   }
@@ -1883,12 +1920,11 @@ if (canvas.getContext)
   
   }
     
+     window.requestAnimationFrame(draw);
     
+  }
     
-    
-    
-    
-    
+
     
 /////////////////////// end of NORMAN //////////
 
@@ -2375,12 +2411,6 @@ var data_entered_length = date.length;
 }
 
     
-</script>
-
-
-<script>
-
-
 </script>
 
 
