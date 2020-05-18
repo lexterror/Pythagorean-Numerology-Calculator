@@ -291,19 +291,23 @@ Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a
 </style>
 
 <div id="datasentries">
-<label style="color:orange;">Data Entry</label><input type="text" name="numbers" id="numbers" style="width:420px;"><br>
-<label>Totals</label><input type="text" name="display" id="display" readonly style="background: #000;color: #fff;width:420px;"><br>
-<input type="text" name="display2" id="display2" readonly style="background: #000;color: #fff;width:420px;"><br>
-<input type="text" name="display3" id="display3" readonly style="background: #000;color: #fff;width:420px;"><br>
+<label style="color:orange;">Data Entry</label><label style="float:right">Totals</label><br>
+<input type="text" name="numbers" id="numbers" style="width:320px;float:left;"><input type="text" name="display" id="display" readonly style="background: #000;color: #fff;width:100px;float:right;"><br><br>
 </div>
 
 <div id="datasentries3">
-<label style="width:139px;margin-left: 15px;margin-top: 15px;">Year</label><label style="width:139px;margin-top: 15px;">Month</label><label style="width:139px;margin-top: 15px;">Date</label>
-<input type="text" name="numbers" id="numbers1" style="width:139px;margin-right: 20px;"><input type="text" name="numbers" id="numbers2" style="width:139px;"><input type="text" name="numbers" id="numbers3" style="width:139px;">
-<input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;width:139px;margin-right:20px;">
-<input type="text" name="display3" id="display5" readonly style="background: #000;color: #fff;width:139px;">
-<input type="text" name="display4" id="display6" readonly style="background: #000;color: #fff;width:139px;">
 
+<label style="width:105px;margin-left: 120px;margin-top: 15px;">Year</label>
+<label style="width:105px;margin-top: 15px;">Month</label>
+<label style="width:105px;margin-top: 15px;">Date</label>
+
+<input type="text" name="numbers" id="numbers3" style="width:105px;margin-right: 20px;">
+<input type="text" name="numbers" id="numbers2" style="width:105px;">
+<input type="text" name="numbers" id="numbers1" style="width:105px;">
+<input type="text" name="display4" id="display6" readonly style="background: #000;color: #fff;width:105px;margin-right:20px;">
+<input type="text" name="display3" id="display5" readonly style="background: #000;color: #fff;width:105px;">
+<input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;width:105px;">
+<input type="text" name="display2" id="lifepathbelow" readonly style="background: #000;color: #fff;width:105px;">
 <label style="right:0;width: 100px;margin-left:15px;margin-top:15px;margin-bottom:15px;color:orange;">Psychomatrix</label>
 <!--<input type="text" name="psycho" id="psycho" readonly style="background: #000;color: #fff;"> -->
 <table id="psychomatrix">
@@ -373,7 +377,7 @@ var nines=0;
 
 
 <div id="datasentries2">
-<label style="float:left;width: 378px;margin-left:20px;margin-top: 15px;">Vowels</label><label style="right:0;width: 80px;margin-right:20px;margin-top: 15px;">Totals</label><br>
+<label style="float:left;width: 378px;margin-left:20px;margin-top: 15px;">Vowels</label><label style="right:0;width: 80px;margin-right:0px;margin-top: 15px;float:right;">Totals</label><br>
 <input type="text" name="VowelsT" id="VowelsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Vowels" id="Vowels" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
 
 <label style="float:left;width: 378px;margin-left:20px;color:orange;">Names</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
@@ -544,15 +548,11 @@ var data_entered_length = initial.length;
     correct_BT3 = before_total3.substr(4, before_total3.length);
     
     // display results
-    document.getElementById("display").value = correct_BT1 + " = " + total1;
+    document.getElementById("display").value = total1;
     if (correct_BT2.length > 1)
-    document.getElementById("display2").value = correct_BT2 + " = " + total2;
-    if (correct_BT2.length == 1)
-    document.getElementById("display2").value = "";
+    document.getElementById("display").value = total1 + " / " + total2;
     if (correct_BT3.length > 1)
-    document.getElementById("display3").value = correct_BT3 + " = " + total3;
-    if (correct_BT3.length == 1)
-    document.getElementById("display3").value = "";    
+    document.getElementById("display").value = total1 + " / " + total2 + " / " + total3;    
 }}
 
 </script>
@@ -2609,7 +2609,7 @@ var data_entered_length = year.length;
     }
     //(""+n).split("");
     // display results
-    document.getElementById("display4").value = correct_BT1 + " = " + total1 + " = " + total3;
+    document.getElementById("display4").value = total1 + " / " + total3;
 }
 
 /////////////// MONTH
@@ -2660,7 +2660,7 @@ var data_entered_length = month.length;
     }
     //(""+n).split("");
     // display results
-    document.getElementById("display5").value = month_correct_BT1 + " = " + month_total3;
+    document.getElementById("display5").value =  month_total3;
 }
 
 //// DATE
@@ -2709,7 +2709,7 @@ var data_entered_length = date.length;
     }
     //(""+n).split("");
     // display results
-    document.getElementById("display6").value = date_correct_BT1 + " = " + date_total3;
+    document.getElementById("display6").value = date_total3;
 }
 
  /////////////// LIFEPATH
@@ -2732,7 +2732,7 @@ var data_entered_length = date.length;
    }
    var correct_Before_LifePathTotal = pathbeforetotal.substr(4, pathbeforetotal.length);
    
-  //  document.getElementById("lifepath").innerText = newpath;
+   document.getElementById("lifepathbelow").value = newpath;
     
   //psychomatrix//
    var onep = 0;
