@@ -7,7 +7,7 @@
 (function(target) {
   if (!target || !target.prototype)
     return;
-  target.prototype.arrow = function(startX, startY, endX, endY, controlPoints) {
+    target.prototype.arrow = function(startX, startY, endX, endY, controlPoints) {
     var dx = endX - startX;
     var dy = endY - startY;
     var len = Math.sqrt(dx * dx + dy * dy);
@@ -39,7 +39,6 @@
 <style>
 
 body {
-
     margin: 0 auto;
     width: 1000px;
     background-image: url("img/wax.png");
@@ -57,6 +56,7 @@ label {
     float: left;
     font-family: goth;
     font-size: 24px;
+    line-height: 24px;
 }
 
 @font-face {
@@ -69,7 +69,6 @@ url('fonts/Gothicus W00 Regular.ttf')  format('truetype'); /* Safari, Android, i
 font-size: 100%;
 }
 
-
 #mytitle {
     font-family: goth;
     font-size: 28px;
@@ -81,19 +80,17 @@ font-size: 100%;
 }
 #addborder {
     display: block;
-    border: 2px solid #000;
     width: 448px;
     padding: 25px;
     overflow: hidden;
     clear: both;
-    background: #000;
+    background: transparent;
 }
 #norm {
     width: 480px;
     height: 480px;
     margin: 0 auto;
     font-family: goth;
-
 }
 
 #psychomatrix {
@@ -104,7 +101,6 @@ font-size: 100%;
     margin-top: 20px;
     font-family: goth;
     background: #000;
-    
 }
 
 #norm td {
@@ -119,7 +115,6 @@ font-size: 100%;
     line-height: 32px;
     color: white;
     text-shadow: 0 0 5px #000;
-
 }
 
 #psychomatrix td {
@@ -134,7 +129,6 @@ font-size: 100%;
     line-height: 18px;
     color: gold;
     text-shadow: 0 0 5px #000;
-
 }
 
 #calculate {
@@ -158,18 +152,13 @@ font-size: 100%;
     margin: 0 auto;
 }
 
-
-
-
-
 #about {
-
-width: 960px;
-font-size: 24px;
-margin: 0 auto;
-color: #eeeeee;
-background: #000;
-padding: 20px;
+    width: 960px;
+    font-size: 24px;
+    margin: 0 auto;
+    color: #eeeeee;
+    background: #000;
+    padding: 20px;
 }
 
 #abouttable {
@@ -185,7 +174,6 @@ padding: 20px;
 }
 
 #finalt {
-
     width: 422px;
     border: 3px solid gold;
     padding: 15px;
@@ -198,35 +186,31 @@ padding: 20px;
 
 #ulti {
     width: 498px;
-    background: #000;
+    background: #777;
     color: #fff;
 }
 
 #box1 {
-
     width: 498px;
     color:#fff;
-    background: #000000;
+    background: transparent;
     float: left;
 }
 
 #box2 {
-
     width: 498px;
     color:#fff;
     float: right;
-    background: #000000;
+    background: transparent;
     overflow: hidden;
     margin-top: 27px;
-
 }
 
 #boxes {
     width: 1000px;
     margin: 0 auto;
-    background: #000000;
+    background: transparent;
     overflow: hidden;
-    
 }
 
 #about {
@@ -275,29 +259,52 @@ Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a
 <div id="box1">
 <div id="addborder">
 
-<label>Data Entry</label><input type="text" name="numbers" id="numbers">
-<label>Totals</label><input type="text" name="display" id="display" readonly style="background: #000;color: #fff;">
-<input type="text" name="display2" id="display2" readonly style="background: #000;color: #fff;">
-<input type="text" name="display3" id="display3" readonly style="background: #000;color: #fff;">
+<style>
+#datasentries {
+    background: #777;
+    border-radius: 5px;
+    position: relative;
+    display: block;
+    width: 420px;
+    padding: 15px;
+    overflow-y: hidden;
+}
+#datasentries2 {
+    background: #555;
+    border-radius: 5px;
+    position: relative;
+    display: block;
+    width: 498px;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+}
+#datasentries3 {
+    background: #555;
+    border-radius: 5px;
+    position: relative;
+    display: block;
+    width: 450px;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+</style>
 
+<div id="datasentries">
+<label style="color:orange;">Data Entry</label><input type="text" name="numbers" id="numbers" style="width:420px;"><br>
+<label>Totals</label><input type="text" name="display" id="display" readonly style="background: #000;color: #fff;width:420px;"><br>
+<input type="text" name="display2" id="display2" readonly style="background: #000;color: #fff;width:420px;"><br>
+<input type="text" name="display3" id="display3" readonly style="background: #000;color: #fff;width:420px;"><br>
+</div>
 
+<div id="datasentries3">
+<label style="width:139px;margin-left: 15px;margin-top: 15px;">Year</label><label style="width:139px;margin-top: 15px;">Month</label><label style="width:139px;margin-top: 15px;">Date</label>
+<input type="text" name="numbers" id="numbers1" style="width:139px;margin-right: 20px;"><input type="text" name="numbers" id="numbers2" style="width:139px;"><input type="text" name="numbers" id="numbers3" style="width:139px;">
+<input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;width:139px;margin-right:20px;">
+<input type="text" name="display3" id="display5" readonly style="background: #000;color: #fff;width:139px;">
+<input type="text" name="display4" id="display6" readonly style="background: #000;color: #fff;width:139px;">
 
-
-
-
-
-
-<label style="width:149px;">Year</label><label style="width:149px;">Month</label><label style="width:149px;">Date</label>
-<input type="text" name="numbers" id="numbers1" style="width:149px;"><input type="text" name="numbers" id="numbers2" style="width:149px;"><input type="text" name="numbers" id="numbers3" style="width:149px;">
-<input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;width:149px;">
-<input type="text" name="display3" id="display5" readonly style="background: #000;color: #fff;width:149px;">
-<input type="text" name="display4" id="display6" readonly style="background: #000;color: #fff;width:149px;">
-
-
-
-
-
-<label style="right:0;width: 100px;">Psychomatrix</label>
+<label style="right:0;width: 100px;margin-left:15px;margin-top:15px;margin-bottom:15px;color:orange;">Psychomatrix</label>
 <!--<input type="text" name="psycho" id="psycho" readonly style="background: #000;color: #fff;"> -->
 <table id="psychomatrix">
 <tr>
@@ -325,16 +332,18 @@ Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a
 <td><span id="t7"></span>,<span id="t8"></span><br><span class="infos">Spirit<br>/Temp</span></td>
 </tr>
 </table>
+</div>
 <style>
 #lifepathbox {
     width: 450px;
     text-align:center;
 }
 </style>
+<!--
 <label style="margin: 0 auto;width:450px;text-align:center;padding-top: 30px;">Life Path Number</label>
 <div id="lifepathbox">
 <span id="lifepath" style="color:gold;font-size:64px;margin:0 auto;text-align:center;font-family:goth;float:center;width:100px;"></span>
-</div>
+</div> -->
 <!--
 <table id="infostable">
 <tr>
@@ -345,9 +354,7 @@ Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a
 </tr>
 </table> -->
 </div>
-
 </div>
-
 
 <script>
 var ones=0;
@@ -363,37 +370,50 @@ var nines=0;
 </script>
 
 <div id="box2">
-<label style="float:left;width: 398px;">Vowels</label><label style="right:0;width: 100px;">Totals</label><br>
-<input type="text" name="VowelsT" id="VowelsT" readonly style="background: #000;color: #fff;width: 100px;"><input type="text" name="Vowels" id="Vowels" readonly style="background: #000;color: #fff;width:398px">
 
-<label style="float:left;width: 398px;">Names</label><label style="right:0;width: 100px;">Totals</label><br>
-<input type="text" name="namestotal" id="namestotal" readonly style="background: #000;color: #fff; width: 100px;"><input type="text" name="numbers" id="thenames" style="width: 398px;">
 
-<label style="float:left;width: 398px;">Consonants</label><label style="right:0;width: 100px;">Totals</label><br>
-<input type="text" name="ConsonantsT" id="ConsonantsT" readonly style="background: #000;color: #fff;width: 100px;"><input type="text" name="Consonants" id="Consonants" readonly style="background: #000;color: #fff;width:398px">
+<div id="datasentries2">
+<label style="float:left;width: 378px;margin-left:20px;margin-top: 15px;">Vowels</label><label style="right:0;width: 80px;margin-right:20px;margin-top: 15px;">Totals</label><br>
+<input type="text" name="VowelsT" id="VowelsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Vowels" id="Vowels" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
+
+<label style="float:left;width: 378px;margin-left:20px;color:orange;">Names</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
+<input type="text" name="namestotal" id="namestotal" readonly style="background: #000;color: #fff; width: 80px;margin-right:20px;"><input type="text" name="numbers" id="thenames" style="width: 378px;margin-left:20px;">
+
+<label style="float:left;width: 378px;margin-left:20px;">Consonants</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
+<input type="text" name="ConsonantsT" id="ConsonantsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Consonants" id="Consonants" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
 <br><br>
 
-<table id="ulti">
+
+<table id="ulti" style="padding: 15px;background: #777;border-radius: 0px;">
 <tr>
-<td></td><td id="">1</td><td id="">2</td><td id="">3</td><td id="">4</td><td id="">5</td><td id="">6</td><td id="">7</td><td id="">8</td><td id="">9</td><td>Totals</td>
+<td></td><td id="" class="spacer">1</td><td id="" class="spacer">2</td><td id="" class="spacer">3</td><td id="" class="spacer">4</td><td id="" class="spacer">5</td><td id="" class="spacer">6</td><td id="" class="spacer">7</td><td id="" class="spacer">8</td><td id="" class="spacer">9</td><td style="text-align:center;">Totals</td>
 </tr>
 <tr>
-<td>Vowels</td><td id="v1"></td><td id="v2"></td><td id="v3"></td><td id="v4"></td><td id="v5"></td><td id="v6"></td><td id="v7"></td><td id="v8"></td><td id="v9"></td><td id="vt"></td>
+<td>Vowels</td><td id="v1" class="spacer"></td><td id="v2" class="spacer"></td><td id="v3" class="spacer"></td><td id="v4" class="spacer"></td><td id="v5" class="spacer"></td><td id="v6" class="spacer"></td><td id="v7" class="spacer"></td><td id="v8" class="spacer"></td><td id="v9" class="spacer"></td><td id="vt" style="text-align:center;"></td>
 </tr>
 <tr>
-<td>Consonants</td><td id="c1"></td><td id="c2"></td><td id="c3"></td><td id="c4"></td><td id="c5"></td><td id="c6"></td><td id="c7"></td><td id="c8"></td><td id="c9"></td><td id="ct"></td>
+<td>Consonants</td><td id="c1" class="spacer"></td><td id="c2" class="spacer"></td><td id="c3" class="spacer"></td><td id="c4" class="spacer"></td><td id="c5" class="spacer"></td><td id="c6" class="spacer"></td><td id="c7" class="spacer"></td><td id="c8" class="spacer"></td><td id="c9" class="spacer"></td><td id="ct" style="text-align:center;"></td>
 </tr>
 <tr>
-<td>Totals</td><td id="1t"></td><td id="2t"></td><td id="3t"></td><td id="4t"></td><td id="5t"></td><td id="6t"></td><td id="7t"></td><td id="8t"></td><td id="9t"></td><td id="tt"></td>
+<td>Totals</td><td id="1t" class="spacer"></td><td id="2t" class="spacer"></td><td id="3t" class="spacer"></td><td id="4t" class="spacer"></td><td id="5t" class="spacer"></td><td id="6t" class="spacer"></td><td id="7t" class="spacer"></td><td id="8t" class="spacer"></td><td id="9t" class="spacer"></td><td id="tt" style="text-align:center;"></td>
 </tr>
 </table>
-
-
+</div>
 <style>
 #container {
   position: relative;
   width: 480px;
   height: 480px;
+}
+
+#ultibox {
+    background: #555;
+}
+
+.spacer {
+    width: 30px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 #container canvas, #overlay {
@@ -405,7 +425,6 @@ canvas {
     background-size: 480px 480px;
     width:480px;
     height:480px;
-
 }
 </style>
 <div id="container">
@@ -454,28 +473,16 @@ canvas {
     text-align:center;
 }
 </style>
-
-
-
-
 </div>
 </div>
-
-
 
 <script>
-
-
-
 //user is "finished typing," do something
 //function doneTyping () {
-    
 //}
-
 function calculate() {
 
 //initialize variables
-
 var total1 = 0;
 var total2 = 0;
 var total3 = 0;
@@ -486,11 +493,8 @@ var correct_BT1 = "";
 var correct_BT2 = "";
 var correct_BT3 = "";
 
-
 //initial values entered in input
-
 var initial =  document.getElementById("numbers").value;
-
 
 if (initial.length == 0 || initial == null || initial == undefined)
 document.getElementById("display").value = "no data";
@@ -499,7 +503,6 @@ else if (initial != null)
 {
 
 //split value entered into array
-
 var numbers = initial.split("");
 var data_entered_length = initial.length;
 
@@ -507,26 +510,21 @@ var data_entered_length = initial.length;
     {
         total1 = total1 + parseFloat(numbers[i]);
         before_total1 = before_total1 + " + " + parseFloat(numbers[i]);
-        
     }
     
     correct_BT1 = before_total1.substr(4, before_total1.length);
-    
-    
     var initial2 = (""+total1).split("");
     var total_length = initial2.length;
     //(""+n).split("");
     
     for (j = 0; j < total_length; j++)
     {
-        
         total2 = total2 + parseFloat(initial2[j]);
         before_total2 = before_total2 + " + " + parseFloat(initial2[j]);
     }
     
     correct_BT2 = before_total2.substr(4, before_total2.length);
     
-   
     var remove_zeros = (total2 * 1).toString();
     var initial3 = (""+remove_zeros).split("");
     var total2_length = initial3.length;
@@ -534,25 +532,18 @@ var data_entered_length = initial.length;
     for (k = 0; k < total2_length; k++)
     {
         total3 = total3 + parseFloat(initial3[k]);
-        
-        
-        //str = (str * 1).toString();
     }
-    
     
     var add_zeros =  (""+total2).split("");
     
     for (l = 0; l < total2_length; l++)
     {
-    
         before_total3 = before_total3 + " + " + parseFloat(add_zeros[l]);
-    
     }
     
     correct_BT3 = before_total3.substr(4, before_total3.length);
     
     // display results
-    
     document.getElementById("display").value = correct_BT1 + " = " + total1;
     if (correct_BT2.length > 1)
     document.getElementById("display2").value = correct_BT2 + " = " + total2;
@@ -562,7 +553,6 @@ var data_entered_length = initial.length;
     document.getElementById("display3").value = correct_BT3 + " = " + total3;
     if (correct_BT3.length == 1)
     document.getElementById("display3").value = "";    
-
 }}
 
 </script>
@@ -596,7 +586,6 @@ var data_entered_length = initial.length;
 }
 </style>
 <script>
-
 
 let typingTimer;                //timer identifier
 let doneTypingInterval = 500;  //time in ms (5 seconds)
@@ -633,7 +622,6 @@ myInput.addEventListener('keyup', () => {
     }
 });
 
-
 myInput5.addEventListener('keyup', () => {
     clearTimeout(typingTimer);
     if (myInput5.value) {
@@ -642,15 +630,10 @@ myInput5.addEventListener('keyup', () => {
 });
 //user is "finished typing," do something
 //function doneTyping () {
-    
-//}
-
-    
-    
+//
 function calculate2() {
 
 //initialize variables
-
 var total1 = 0;
 var total2 = 0;
 var total3 = 0;
@@ -660,7 +643,6 @@ var before_total3 = 0;
 var correct_BT1 = "";
 var correct_BT2 = "";
 var correct_BT3 = "";
-
 
 var month_total1 = 0;
 var month_total2 = 0;
@@ -682,8 +664,6 @@ var date_correct_BT1 = "";
 var date_correct_BT2 = "";
 var date_correct_BT3 = "";
 
-
-
 var LifePath_total1 = 0;
 var LifePath_total2 = 0;
 var LifePath_total3 = 0;
@@ -693,8 +673,8 @@ var LifePath_before_total3 = 0;
 var LifePath_correct_BT1 = "";
 var LifePath_correct_BT2 = "";
 var LifePath_correct_BT3 = "";
-//initial values entered in input
 
+//initial values entered in input
 var year =  document.getElementById("numbers1").value;
 var month =  document.getElementById("numbers2").value;
 var date =  document.getElementById("numbers3").value;
@@ -737,7 +717,6 @@ var thenames =  document.getElementById("thenames").value;
     consonantstrack = 0;
     vowels = [];
     consonants = [];
-    
     
    document.getElementById("ones").style.backgroundImage = "";  
    document.getElementById("twos").style.backgroundImage = "";   
@@ -937,7 +916,6 @@ var thenames =  document.getElementById("thenames").value;
         
     }
     ////////////// MATRIX //////////////////////
-    
     document.getElementById("v1").innerText = onesv; 
     document.getElementById("v2").innerText = twosv;     
     document.getElementById("v3").innerText = threesv; 
@@ -971,8 +949,8 @@ var thenames =  document.getElementById("thenames").value;
     document.getElementById("ct").innerText = onesc + twosc + threesc + foursc + fivesc + sixesc + sevensc + eightsc + ninesc;  
     
     document.getElementById("tt").innerText = onesc + twosc + threesc + foursc + fivesc + sixesc + sevensc + eightsc + ninesc + onesv + twosv + threesv + foursv + fivesv + sixesv + sevensv + eightsv + ninesv;     
+    
     ///////////// VOWELS CONSONANTS TOTALS ///////////////////
-
     var consonantstotals = consonants.reduce(function(a, b){
         return a + b;
     }, 0);
@@ -987,10 +965,8 @@ var thenames =  document.getElementById("thenames").value;
     var cpass1totals = 0;
     var cpass1totals2 = 0;
     
-    
     document.getElementById("VowelsT").value = vowelstotals; 
     document.getElementById("ConsonantsT").value = consonantstotals;
-    
     
     var cc = consonantstotals.toString();
     var vv = vowelstotals.toString();
@@ -1017,15 +993,12 @@ var thenames =  document.getElementById("thenames").value;
     document.getElementById("ConsonantsT").value = consonantstotals + " / " + cpass1totals;     
     }
     
-    
-    
     var cc3 = cpass1totals.toString();
     var vv3 = vpass1totals.toString();
     var cc23 = cc3.length;
     var vv23 = vv3.length;
     var v3split = vv3.split("");
     var c3split = cc3.split("");    
-        
         
     if (vv23 > 1)
     {
@@ -1045,20 +1018,12 @@ var thenames =  document.getElementById("thenames").value;
     document.getElementById("ConsonantsT").value = consonantstotals + " / " + cpass1totals + " / " + cpass1totals2;     
     }    
     
-    
     var vow1 = vowels.map(String);
     var con1 = consonants.map(String);
     var vow2 = vow1.toString().replace(/,/g,"");
     var con2 = con1.toString().replace(/,/g,"");
     document.getElementById("Vowels").value = vow2;
     document.getElementById("Consonants").value = con2;
-
-
-    
-    
-    
-    
-    
     
     var sumtotals = (ones + (twos * 2) + (threes * 3) + (fours * 4) + (fives * 5) + (sixes * 6) + (sevens * 7) + (eights * 8) + (nines * 9));
     
@@ -1068,8 +1033,6 @@ var thenames =  document.getElementById("thenames").value;
     var namestotalsfinal = 0;
     var namestotalsfinal2 = 0;
     
-
-   
     for (m = 0; m < sumtotalslentgh; m++)
     {
         namestotalsfinal = namestotalsfinal + parseFloat(numberss[m]);
@@ -1080,34 +1043,27 @@ var thenames =  document.getElementById("thenames").value;
     if (sumtotalslentgh == 1)
     document.getElementById("namestotal").value = sumtotals;   
 
-    
     var nn = namestotalsfinal.toString();
     var nnlength = nn.length;
     if (nnlength > 1)
     {
-    
     var temp = nn.split("");
     for (z = 0; z < nnlength; z++)
     {
          namestotalsfinal2 = namestotalsfinal2 + parseFloat(temp[z]);
     }
-    
     document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal + " / " + namestotalsfinal2;
     }
-    
-  
-  
-  
- var canvas = document.getElementById('DemoCanvas');
 
- var ctx = canvas.getContext('2d');   
- 
+  var canvas = document.getElementById('DemoCanvas');
+
+  var ctx = canvas.getContext('2d');   
    
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
- var globalit = 0;
- globalit = 0;
- var xlength_right_36 = globalit;
+  var globalit = 0;
+  globalit = 0;
+  var xlength_right_36 = globalit;
   var xlength_left_36 = -globalit;
   var xlength_right_69 = globalit;
   var xlength_left_69 = -globalit;
@@ -1147,10 +1103,9 @@ var thenames =  document.getElementById("thenames").value;
   var xlength_left_48 = -globalit;   
   var xlength_right_59 = globalit;
   var xlength_left_59 = - globalit; 
-    
-    var onesx = -2;
+  
+  var onesx = -2;
    
-    
     if (ones == 1)
     {  
          ctx.strokeStyle = "black";
@@ -1158,119 +1113,106 @@ var thenames =  document.getElementById("thenames").value;
          ctx.beginPath();
          ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
          ctx.stroke();
-
-   
     }
     if (ones == 2)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
-        
     }
     if (ones == 3)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-
-             
     }
     if (ones == 4)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-
-             
     }
     if (ones == 5)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-             
     }
     if (ones == 6)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-       
     }
     if (ones == 7)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(82 + onesx, 400, 50, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (ones == 8)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(82 + onesx, 400, 55, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 50, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-            
     }
     if (ones == 9)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(82 + onesx, 400, 60, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 55, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 50, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 60, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-           
     }
     
     var twosy = -2;
@@ -1282,115 +1224,106 @@ var thenames =  document.getElementById("thenames").value;
          ctx.beginPath();
          ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);
          ctx.stroke();
-
     }
     if (twos == 2)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-     
     }
     if (twos == 3)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-           
     }
     if (twos == 4)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-      
     }
     if (twos == 5)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 242 + twosy, 40, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 242 + twosy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-       
     }
     if (twos == 6)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 242 + twosy, 45, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 40, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 242 + twosy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-           
     }
     if (twos == 7)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 242 + twosy, 50, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 45, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 40, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 242 + twosy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (twos == 8)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 242 + twosy, 55, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 50, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 45, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 40, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 242 + twosy, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (twos == 9)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 242 + twosy, 60, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 55, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 50, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 45, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 40, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 242 + twosy, 60, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 242 + twosy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-         
     }    
     
     var threesx = 0;
@@ -1403,233 +1336,215 @@ var thenames =  document.getElementById("thenames").value;
          ctx.beginPath();
          ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
          ctx.stroke();
-   
     }
     if (threes == 2)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (threes == 3)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-      
     }
     if (threes == 4)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (threes == 5)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (threes == 6)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (threes == 7)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 85 + threesy, 50, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-           
     }
     if (threes == 8)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 85 + threesy, 55, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 50, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (threes == 9)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(80, 85 + threesy, 60, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 55, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 50, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
-         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 60, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-      
     }    
     
-if (fours == 1)
+    if (fours == 1)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);ctx.stroke();
          ctx.stroke();
-
     }
     if (fours == 2)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (fours == 3)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-     
     }
     if (fours == 4)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (fours == 5)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 402, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-            
     }
     if (fours == 6)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 402, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-             
     }
     if (fours == 7)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 402, 50, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (fours == 8)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 402, 55, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 50, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (fours == 9)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 402, 60, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 55, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 50, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 60, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-            
     }
     
     var fivesy = -5;
@@ -1641,115 +1556,106 @@ if (fours == 1)
          ctx.beginPath();
          ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
          ctx.stroke();
-    
     }
     if (fives == 2)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-       
     }
     if (fives == 3)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (fives == 4)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (fives == 5)
         {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (fives == 6)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-         
     }
     if (fives == 7)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 245 + fivesy, 50, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-       
     }
     if (fives == 8)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 245 + fivesy, 55, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 50, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (fives == 9)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 245 + fivesy, 60, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 55, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 50, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 60, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-       
     }    
     
     if (sixes == 1)
@@ -1759,115 +1665,106 @@ if (fours == 1)
          ctx.beginPath();
          ctx.arc(240, 80, 20, 0, 2 * Math.PI);
          ctx.stroke();
-   
     }
     if (sixes == 2)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (sixes == 3)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-      
     }
     if (sixes == 4)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-       
     }
     if (sixes == 5)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 80, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-           
     }
     if (sixes == 6)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 80, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (sixes == 7)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 80, 50, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (sixes == 8)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 80, 55, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 50, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-      
     }
     if (sixes == 9)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(240, 80, 60, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 55, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 50, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 45, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 40, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
-         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 60, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-       
     }
     
 if (sevens == 1)
@@ -1877,234 +1774,215 @@ if (sevens == 1)
          ctx.beginPath();
          ctx.arc(400, 400, 20, 0, 2 * Math.PI);
          ctx.stroke();
-  
     }
     if (sevens == 2)
     {
-        ctx.strokeStyle = "black";
+         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-       ctx.arc(400, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-            
     }
     if (sevens == 3)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-            
     }
     if (sevens == 4)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (sevens == 5)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 400, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-       
     }
     if (sevens == 6)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 400, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-         
     }
     if (sevens == 7)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 400, 50, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (sevens == 8)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 400, 55, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 50, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (sevens == 9)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 400, 60, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 55, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 50, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 60, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     
-    
-if (eights == 1)
+    if (eights == 1)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
          ctx.arc(400, 240, 20, 0, 2 * Math.PI);
          ctx.stroke();
-    
     }
     if (eights == 2)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-           
     }
     if (eights == 3)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (eights == 4)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (eights == 5)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 240, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (eights == 6)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 240, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (eights == 7)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 240, 50, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-           
     }
     if (eights == 8)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 240, 55, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 50, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-             
     }
     if (eights == 9)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 240, 60, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 55, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 50, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 60, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-       
     }    
     
     var ninesx = 0;
@@ -2117,122 +1995,107 @@ if (eights == 1)
          ctx.beginPath();
          ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
          ctx.stroke();
-  
     }
     if (nines == 2)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (nines == 3)
     {
          ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-            
     }
     if (nines == 4)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (nines == 5)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-       
     }
     if (nines == 6)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-       
     }
     if (nines == 7)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 85 + ninesy, 50, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-        
     }
     if (nines == 8)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 85 + ninesy, 55, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 50, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
     }
     if (nines == 9)
     {
         ctx.strokeStyle = "black";
          ctx.lineWidth = 3;
          ctx.beginPath();
-         ctx.arc(400, 85 + ninesy, 60, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 55, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 50, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
-         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 60, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 55, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 50, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);ctx.stroke();ctx.beginPath();
          ctx.stroke();
-          
-    }   
-    
-    
-
-  
-  
-
+    }  
   
   if (twos > 0 && sixes > 0)
   {
@@ -2241,18 +2104,15 @@ if (eights == 1)
   ctx.lineWidth = 1;
   ctx.fillStyle = "white";
 
- 
   ctx.beginPath(); 
   
   if (twos == sixes)
   {
   ctx.arrow(110  + xlength_right_36, 210  + xlength_left_36 , 210 + xlength_left_36  , 110  + xlength_right_36 ,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
   }
   if (twos > sixes)
   {
   ctx.arrow(110 + xlength_right_36, 210  + xlength_left_36 , 210 + xlength_left_36 , 110  + xlength_right_36 , [0, 2,-10,2,-10,7]);
-
   }
   if (twos < sixes)
   {
@@ -2269,24 +2129,19 @@ if (eights == 1)
   ctx.lineWidth = 1;
   ctx.fillStyle = "white";
 
-
   ctx.beginPath(); 
-
   
   if (sixes == eights)
   {
   ctx.arrow(270  + xlength_right_24, 110  + xlength_right_24 , 370 + xlength_left_24 , 210  + xlength_left_24 ,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
   }
   if (sixes > eights)
   {
   ctx.arrow(270 + xlength_right_24 , 110  + xlength_right_24 , 370 + xlength_left_24 , 210  + xlength_left_24 , [0, 2,-10,2,-10,7]);
-
   }
   if (sixes < eights)
   {
  ctx.arrow(270 + xlength_right_24, 110  + xlength_right_24 , 370 + xlength_left_24 , 210  + xlength_left_24 , [10,-7,10,-2,-1,-2]);
-
   }
   ctx.fill();
   ctx.stroke();   
@@ -2299,22 +2154,18 @@ if (eights == 1)
   ctx.fillStyle = "white";
 
   ctx.beginPath(); 
-
   
   if (twos == fours)
   {
   ctx.arrow(110 + xlength_right_68 , 270  + xlength_right_68 , 210  + xlength_left_68 , 370  + xlength_left_68 ,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
   }
   if (twos > fours)
   {
   ctx.arrow(110 + xlength_right_68 , 270  + xlength_right_68 , 210   + xlength_left_68, 370  + xlength_left_68 , [0, 2,-10,2,-10,7]);
-
   }
   if (twos < fours)
   {
  ctx.arrow(110 + xlength_right_68  , 270  + xlength_right_68 , 210  + xlength_left_68, 370  + xlength_left_68 , [10,-7,10,-2,-1,-2]);
-  
   }
   ctx.fill();
   ctx.stroke();   
@@ -2327,57 +2178,43 @@ if (eights == 1)
   ctx.fillStyle = "white";
   ctx.beginPath(); 
 
-  
   if (fours == eights) 
   {
   ctx.arrow(270 + xlength_right_57  , 370  + xlength_left_57  , 370 + xlength_left_57   , 270  + xlength_right_57  ,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
   }
   if (fours > eights) 
   {
   ctx.arrow(270+ xlength_right_57   , 370  + xlength_left_57  , 370  + xlength_left_57  , 270  + xlength_right_57  ,[0, 2,-10,2,-10,7]);
-
   }
   if (fours < eights) 
   {
  ctx.arrow(270 + xlength_right_57  , 370  + xlength_left_57  , 370 + xlength_left_57  , 270  + xlength_right_57  ,[10,-7,10,-2,-1,-2]);
- 
   }
   ctx.fill();
   ctx.stroke(); 
   }
   
-  
-   
   if (ones > 0 && fours > 0)
   {
-
   ctx.strokeStyle = "orange";
   ctx.lineWidth = 1;
   ctx.fillStyle = "orange";
-
   ctx.beginPath(); 
-  
-  
+
   if (ones == fours)
   {
   ctx.arrow(110 + xlength_right_14 , 400, 210  + xlength_left_14 , 400,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
   }
   if (ones > fours)
   {
   ctx.arrow(110 + xlength_right_14 , 400, 210 + xlength_left_14 , 400, [0, 2,-10,2,-10,7]);
-
   }
   if (ones < fours)
   {
  ctx.arrow(110 + xlength_right_14 , 400, 210 + xlength_left_14  , 400, [10,-7,10,-2,-1,-2]);
-
   }
-
   ctx.fill();
   ctx.stroke();
-
   }
   
   if (fours > 0 && sevens > 0)
@@ -2385,88 +2222,68 @@ if (eights == 1)
   ctx.strokeStyle = "orange";
   ctx.fillStyle = "orange";
   ctx.lineWidth = 1;
-
- 
   ctx.beginPath(); 
   
   if (fours == sevens)
   {
   ctx.arrow(270 + xlength_right_47  , 400, 370  + xlength_left_47  , 400,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
   }
   if (fours > sevens)
   {
   ctx.arrow(270 + xlength_right_47  , 400, 370  + xlength_left_47  , 400, [0, 2,-10,2,-10,7]);
-
   }
   if (fours < sevens)
   {
- ctx.arrow(270 + xlength_right_47  , 400, 370  + xlength_left_47  , 400,  [10,-7,10,-2,-1,-2]);
- 
-
+  ctx.arrow(270 + xlength_right_47  , 400, 370  + xlength_left_47  , 400,  [10,-7,10,-2,-1,-2]);
   }
   ctx.fill();
   ctx.stroke();
-
   }
   
   if (twos > 0 && fives > 0)
   {
    ctx.strokeStyle = "lawngreen";
-  ctx.fillStyle = "lawngreen";
+   ctx.fillStyle = "lawngreen";
    ctx.lineWidth = 1;
-
    ctx.beginPath(); 
-  
   if (twos == fives)
   {
   ctx.arrow(110 + xlength_right_25, 240, 210  + xlength_left_25 , 240,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
-   }
+  }
   if (twos > fives)
   {
   ctx.arrow(110 + xlength_right_25 , 240, 210 + xlength_left_25 , 240,  [0, 2,-10,2,-10,7]);
-  
-
-   }
+  }
   if (twos < fives)
   {
   ctx.arrow(110 + xlength_right_25 , 240, 210 + xlength_left_25 , 240,  [10,-7,10,-2,-1,-2]);
-
-
-   }
+  }
    ctx.fill();
    ctx.stroke();
   }
-  
+
   if (fives > 0 && eights > 0)
   {
   ctx.strokeStyle = "lawngreen";
   ctx.fillStyle = "lawngreen";
-   ctx.lineWidth = 1;
-
-   ctx.beginPath(); 
+  ctx.lineWidth = 1;
+  ctx.beginPath(); 
   
   if (fives == eights)
   {
   ctx.arrow(270 + xlength_right_58  , 240, 370  + xlength_left_58  , 240,  [10, 7, 10, 2, -10, 2, -10, 7]);
-  
- 
    }
   if (fives > eights)
   {
   ctx.arrow(270 + xlength_right_58  , 240, 370  + xlength_left_58 , 240, [0, 2,-10,2,-10,7]);
-
    }
   if (fives < eights)
   {
     ctx.arrow(270 + xlength_right_58 , 240, 370+ xlength_left_58 , 240, [10,-7,10,-2,-1,-2]);
-   
    }
    ctx.fill();
    ctx.stroke();
   }
-   
   if (threes > 0 && sixes > 0)
   { 
   ctx.strokeStyle = "deeppink";
@@ -2477,18 +2294,14 @@ if (eights == 1)
   if (threes == sixes)
   {
   ctx.arrow(110 + xlength_right_36, 80, 210  + xlength_left_36  , 80,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
   }
   if (threes > sixes)
   {
   ctx.arrow(110 + xlength_right_36  , 80, 210 + xlength_left_36  , 80, [0, 2,-10,2,-10,7]);
-
   }
   if (threes < sixes)
   {
   ctx.arrow(110 + xlength_right_36 , 80, 210  + xlength_left_36 , 80, [10,-7,10,-2,-1,-2]);
-
-  
   }
   ctx.fill();
   ctx.stroke();
@@ -2504,20 +2317,14 @@ if (eights == 1)
   if (sixes == nines)
   {
   ctx.arrow(270+ xlength_right_69  , 80, 370  + xlength_left_69 , 80,  [10, 7, 10, 2, -10, 2, -10, 7]);
- 
-
   }
   if (sixes > nines)
   {
   ctx.arrow(270 + xlength_right_69  , 80, 370 + xlength_left_69 , 80,[0, 2,-10,2,-10,7]);
- 
- 
   }
   if (sixes < nines)
   {
-ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,-1,-2]);
-
-
+  ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,-1,-2]);
   }
   ctx.fill();
   ctx.stroke();   
@@ -2525,32 +2332,26 @@ ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,
 
   if (twos > 0 && threes > 0)
   {
-  ctx.strokeStyle = "green";
+   ctx.strokeStyle = "green";
    ctx.lineWidth = 1;
-  ctx.fillStyle = "green";
+   ctx.fillStyle = "green";
    ctx.beginPath(); 
   
   if (twos == threes)
   {
   ctx.arrow(80, 110 + xlength_right_32  , 80, 210  + xlength_left_32 ,  [10, 7, 10, 2, -10, 2, -10, 7]);
- 
-
    }
   if (twos < threes)
   {
   ctx.arrow(80 , 110+ xlength_right_32  , 80, 210  + xlength_left_32 ,[0, 2,-10,2,-10,7]);
- 
-
-   }
+  }
   if (twos > threes)
   {
   ctx.arrow(80 , 110 + xlength_right_32 , 80, 210  + xlength_left_32 , [10,-7,10,-2,-1,-2]);
- 
    }
    ctx.fill();
    ctx.stroke();
   }
-  
   if (ones > 0 && twos > 0)
   {
   ctx.strokeStyle = "green";
@@ -2561,18 +2362,14 @@ ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,
   if (ones == twos)
   {
   ctx.arrow(80, 270+ xlength_right_21  , 80, 370 + xlength_left_21,  [10, 7, 10, 2, -10, 2, -10, 7]);
- 
- 
   }
   if (ones < twos)
   {
   ctx.arrow(80, 270 + xlength_right_21 , 80, 370  + xlength_left_21 ,[0, 2,-10,2,-10,7]);
-
   }
   if (ones > twos)
   {
- ctx.arrow(80, 270+ xlength_right_21  , 80, 370 + xlength_left_21 , [10,-7,10,-2,-1,-2]);
-
+  ctx.arrow(80, 270+ xlength_right_21  , 80, 370 + xlength_left_21 , [10,-7,10,-2,-1,-2]);
   }
    ctx.fill();
    ctx.stroke();     
@@ -2588,20 +2385,16 @@ ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,
   if (fives == sixes)
   {
   ctx.arrow(240, 110 + xlength_right_65  , 240, 210 + xlength_left_65 ,  [10, 7, 10, 2, -10, 2, -10, 7]);
- 
-
   }
   if (fives < sixes)
   {
   ctx.arrow(240, 110 + xlength_right_65 , 240, 210 + xlength_left_65  ,[0, 2,-10,2,-10,7]);
-
   }
   if (fives > sixes)
   {
   ctx.arrow(240, 110+ xlength_right_65  , 240 , 210 + xlength_left_65 , [10,-7,10,-2,-1,-2]);
- 
   }
- ctx.fill();
+  ctx.fill();
   ctx.stroke();
   }
   
@@ -2615,18 +2408,14 @@ ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,
   if (fours == fives)
   {
   ctx.arrow(240, 270+ xlength_right_54  , 240, 370 + xlength_left_54 ,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
   }
   if (fours < fives)
   {
   ctx.arrow(240, 270+ xlength_right_54  , 240, 370  + xlength_left_54 , [0, 2,-10,2,-10,7]);
-
   }
   if (fours > fives)
   {
   ctx.arrow(240, 270 + xlength_right_54 , 240 , 370 + xlength_left_54 ,[10,-7,10,-2,-1,-2]);
-
-
   }
   ctx.fill();
   ctx.stroke(); 
@@ -2642,18 +2431,14 @@ ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,
   if (eights == nines)
   {
   ctx.arrow(400, 110 + xlength_right_98  , 400, 210   + xlength_left_98 ,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
   }
   if (eights < nines)
   {
   ctx.arrow(400 , 110 + xlength_right_98  , 400, 210 + xlength_left_98  ,  [0, 2,-10,2,-10,7]);
-
   }
   if (eights > nines)
   {
   ctx.arrow(400 , 110 + xlength_right_98  , 400 , 210 + xlength_left_98  ,[10,-7,10,-2,-1,-2]);
-
-
   }
   ctx.fill();
   ctx.stroke();
@@ -2669,22 +2454,19 @@ ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,
   if (sevens == eights)
   {
   ctx.arrow(400, 270 + xlength_right_87 , 400, 370 + xlength_left_87 ,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
   }
   if (sevens < eights)
   {
   ctx.arrow(400, 270 + xlength_right_87 , 400 , 370 + xlength_left_87 , [0, 2,-10,2,-10,7]);
-
   }
   if (sevens > eights)
   {
   ctx.arrow(400, 270+ xlength_right_87  , 400 , 370 + xlength_left_87 , [10,-7,10,-2,-1,-2]);
-
   }
   ctx.fill();
   ctx.stroke();  
   }
-  
+
   if (threes > 0 && fives > 0)
   {
   ctx.strokeStyle = "red";
@@ -2695,17 +2477,14 @@ ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,
   if (threes == fives)
   {
   ctx.arrow(110 + xlength_right_35 , 110 + xlength_right_35  , 210 + xlength_left_35  , 210 + xlength_left_35   ,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
   }
   if (threes > fives)
   {
   ctx.arrow(110 + xlength_right_35, 110 + xlength_right_35  , 210 + xlength_left_35 , 210+ xlength_left_35   , [0, 2,-10,2,-10,7]);
-
   }
   if (threes < fives)
   {
  ctx.arrow(110+ xlength_right_35  , 110 + xlength_right_35  , 210 + xlength_left_35 , 210 + xlength_left_35  ,  [10,-7,10,-2,-1,-2]);
-   
   }
   ctx.fill();
   ctx.stroke();
@@ -2721,18 +2500,14 @@ ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,
   if (fives == sevens)
   {
   ctx.arrow(270 + xlength_right_57  , 270  + xlength_right_57 , 370 + xlength_left_57 , 370+ xlength_left_57 ,  [10, 7, 10, 2, -10, 2, -10, 7]);
- 
   }
   if (fives > sevens)
   {
   ctx.arrow(270 + xlength_right_57 , 270  + xlength_right_57 , 370 + xlength_left_57 , 370 + xlength_left_57,  [0, 2,-10,2,-10,7]);
- 
-
   }
   if (fives < sevens)
   {
   ctx.arrow(270 + xlength_right_57 , 270  + xlength_right_57 , 370 + xlength_left  , 370 + xlength_left_57, [10,-7,10,-2,-1,-2]);
-
   }
   ctx.fill();
   // Make the line visible
@@ -2749,19 +2524,14 @@ ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,
   if (ones == fives)
   {
   ctx.arrow(110 + xlength_right_15, 370 + xlength_left_15 , 210  + xlength_left_15 , 270  + xlength_right_15 ,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
    }
   if (ones > fives)
   {
   ctx.arrow(110 + xlength_right_15, 370 + xlength_left_15  , 210  + xlength_left_15 , 270  + xlength_right_15 , [0, 2,-10,2,-10,7]);
- 
-
    }
   if (ones < fives)
   {
-  
  ctx.arrow(110 + xlength_right_15, 370 + xlength_left_15 , 210  + xlength_left_15 , 270  + xlength_right_15 , [10,-7,10,-2,-1,-2]);
-   
    }
     ctx.fill();
    ctx.stroke();
@@ -2777,37 +2547,21 @@ ctx.arrow(270 + xlength_right_69 , 80, 370 + xlength_left_69 , 80, [10,-7,10,-2,
   if (fives == nines)
   {
    ctx.arrow(270 + xlength_right_59 , 210 + xlength_left_59 , 370 + xlength_left_59 , 110   + xlength_right_59,  [10, 7, 10, 2, -10, 2, -10, 7]);
-
    }
   if (fives > nines)
   {
    ctx.arrow(270 + xlength_right_59 , 210 + xlength_left_59 , 370  + xlength_left_59 , 110  + xlength_right_59 ,[0, 2,-10,2,-10,7]);
-
-
    }
   if (fives < nines)
   {
   ctx.arrow(270+ xlength_right_59  , 210 + xlength_left_59 , 370 + xlength_left_59 , 110  + xlength_right_59 , [10,-7,10,-2,-1,-2]);
-
    }
    ctx.fill();
    ctx.stroke(); 
   }
-  
-
-    
 /////////////////////// end of NORMAN //////////
 
 //////////////// YEAR
-
-//////////////////YEAR
-
-
-//
-
-
-
-
 if (year.length == 0 || year == null || year == undefined)
 document.getElementById("display4").value = "no data";
 
@@ -2815,25 +2569,19 @@ else if (year != null)
 {
 
 //split value entered into array
-
 var numbers = year.split("");
 var data_entered_length = year.length;
-
-
 
     for (i = 0; i < data_entered_length; i++)
     {
         total1 = total1 + parseFloat(numbers[i]);
         before_total1 = before_total1 + " + " + parseFloat(numbers[i]);
-        
     }
     
     correct_BT1 = before_total1.substr(4, before_total1.length);
-    
-    
+
     var initial2 = (""+total1).split("");
     var total_length = initial2.length;
-    
     
     for (j = 0; j < total_length; j++)
     {
@@ -2844,7 +2592,6 @@ var data_entered_length = year.length;
     
     correct_BT2 = before_total2.substr(4, before_total2.length);
     
-   
     var remove_zeros = (total2 * 1).toString();
     var initial3 = (""+remove_zeros).split("");
     var total2_length = initial3.length;
@@ -2852,75 +2599,50 @@ var data_entered_length = year.length;
     for (k = 0; k < total2_length; k++)
     {
         total3 = total3 + parseFloat(initial3[k]);
-        
-        
         //str = (str * 1).toString();
     }
-    
-    
     var add_zeros =  (""+total2).split("");
     
     for (l = 0; l < total2_length; l++)
     {
-    
         before_total3 = before_total3 + " + " + parseFloat(add_zeros[l]);
-    
     }
     //(""+n).split("");
-    
     // display results
-    
     document.getElementById("display4").value = correct_BT1 + " = " + total1 + " = " + total3;
-    
-
 }
 
 /////////////// MONTH
 
 ///////////// MONTH 
-
-
-
-
 if (month.length == 0 || month == null || month == undefined)
 document.getElementById("display5").value = "no data";
 
 else if (month != null)
 {
-
-
-
 //split value entered into array
-
 var numbers = month.split("");
 var data_entered_length = month.length;
-
-
 
     for (i = 0; i < data_entered_length; i++)
     {
         month_total1 = month_total1 + parseFloat(numbers[i]);
         month_before_total1 = month_before_total1 + " + " + parseFloat(numbers[i]);
-        
     }
     
     month_correct_BT1 = month_before_total1.substr(4, month_before_total1.length);
     
-    
     var initial2 = (""+month_total1).split("");
     var total_length = initial2.length;
-    
-    
+
     for (j = 0; j < total_length; j++)
     {
-        
         month_total2 = month_total2 + parseFloat(initial2[j]);
         month_before_total2 = month_before_total2 + " + " + parseFloat(initial2[j]);
     }
     
     month_correct_BT2 = month_before_total2.substr(4, month_before_total2.length);
     
-   
     var remove_zeros = (month_total2 * 1).toString();
     var initial3 = (""+remove_zeros).split("");
     var total2_length = initial3.length;
@@ -2928,73 +2650,48 @@ var data_entered_length = month.length;
     for (k = 0; k < total2_length; k++)
     {
         month_total3 = month_total3 + parseFloat(initial3[k]);
-        
-        
         //str = (str * 1).toString();
     }
-    
-    
     var add_zeros =  (""+month_total2).split("");
     
     for (l = 0; l < total2_length; l++)
     {
-    
         month_before_total3 = month_before_total3 + " + " + parseFloat(add_zeros[l]);
-    
     }
     //(""+n).split("");
-    
     // display results
-    
     document.getElementById("display5").value = month_correct_BT1 + " = " + month_total3;
-    
-
 }
 
 //// DATE
-
 ////DATE
-
-
-
-
 if (date.length == 0 || date == null || date == undefined)
 document.getElementById("display6").value = "no data";
 
 else if (month != null)
 {
-
 //split value entered into array
-
 var numbers = date.split("");
 var data_entered_length = date.length;
-
-
 
     for (i = 0; i < data_entered_length; i++)
     {
         date_total1 = date_total1 + parseFloat(numbers[i]);
         date_before_total1 = date_before_total1 + " + " + parseFloat(numbers[i]);
-        
     }
-    
     date_correct_BT1 = date_before_total1.substr(4, date_before_total1.length);
-    
     
     var initial2 = (""+date_total1).split("");
     var total_length = initial2.length;
     
-    
     for (j = 0; j < total_length; j++)
     {
-        
         date_total2 = date_total2 + parseFloat(initial2[j]);
         date_before_total2 = date_before_total2 + " + " + parseFloat(initial2[j]);
     }
     
     date_correct_BT2 = date_before_total2.substr(4, date_before_total2.length);
     
-   
     var remove_zeros = (date_total2 * 1).toString();
     var initial3 = (""+remove_zeros).split("");
     var total2_length = initial3.length;
@@ -3002,27 +2699,17 @@ var data_entered_length = date.length;
     for (k = 0; k < total2_length; k++)
     {
         date_total3 = date_total3 + parseFloat(initial3[k]);
-        
-        
         //str = (str * 1).toString();
     }
-    
-    
     var add_zeros =  (""+date_total2).split("");
     
     for (l = 0; l < total2_length; l++)
     {
-    
         date_before_total3 = date_before_total3 + " + " + parseFloat(add_zeros[l]);
-    
     }
     //(""+n).split("");
-    
     // display results
-    
     document.getElementById("display6").value = date_correct_BT1 + " = " + date_total3;
-    
-
 }
 
  /////////////// LIFEPATH
@@ -3042,21 +2729,12 @@ var data_entered_length = date.length;
    {
         newpath = newpath + parseFloat(remove_pathzeros[m]);
         pathbeforetotal = pathbeforetotal + " + " + parseFloat(remove_pathzeros[m]);
-        
    }
-   
    var correct_Before_LifePathTotal = pathbeforetotal.substr(4, pathbeforetotal.length);
-
    
-
-    document.getElementById("lifepath").innerText = newpath;
-
-  
-  
-  
+  //  document.getElementById("lifepath").innerText = newpath;
+    
   //psychomatrix//
-  
-  
    var onep = 0;
    var twop = 0;
    var threep = 0;
@@ -3089,7 +2767,7 @@ var data_entered_length = date.length;
    {
         st2temp = st2temp + st2[j];
    }
-   
+
    var zzzstep1 = parseInt(st1temp + st2temp);
    var zzzstep1string = zzzstep1.toString();
    var zzzstep1split = zzzstep1string.split("");
@@ -3199,7 +2877,6 @@ var data_entered_length = date.length;
         {
             ninep++;
         }
-   
    }
    
     var psycho111 = "";
@@ -3276,14 +2953,10 @@ var data_entered_length = date.length;
     document.getElementById("t6").innerText = stability;
     document.getElementById("t7").innerText = spirit;
     document.getElementById("t8").innerText = temper;
-    
-    
 }
 
     
 </script>
-
-
 </body>
 </html>
 
