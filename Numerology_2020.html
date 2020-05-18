@@ -1,19 +1,43 @@
 <html>
 <title>Pythagorean Numerology Calculator</title>
-<script src="js/canvas-arrow.js"></script>
+<head>
+  <meta charset="UTF-8" />
+</head>
+<script>
+(function(target) {
+  if (!target || !target.prototype)
+    return;
+  target.prototype.arrow = function(startX, startY, endX, endY, controlPoints) {
+    var dx = endX - startX;
+    var dy = endY - startY;
+    var len = Math.sqrt(dx * dx + dy * dy);
+    var sin = dy / len;
+    var cos = dx / len;
+    var a = [];
+    a.push(0, 0);
+    for (var i = 0; i < controlPoints.length; i += 2) {
+      var x = controlPoints[i];
+      var y = controlPoints[i + 1];
+      a.push(x < 0 ? len + x : x, y);
+    }
+    a.push(len, 0);
+    for (var i = controlPoints.length; i > 0; i -= 2) {
+      var x = controlPoints[i - 2];
+      var y = controlPoints[i - 1];
+      a.push(x < 0 ? len + x : x, -y);
+    }
+    a.push(0, 0);
+    for (var i = 0; i < a.length; i += 2) {
+      var x = a[i] * cos - a[i + 1] * sin + startX;
+      var y = a[i] * sin + a[i + 1] * cos + startY;
+      if (i === 0) this.moveTo(x, y);
+      else this.lineTo(x, y);
+    }
+  };
+})(CanvasRenderingContext2D);
+</script>
 <style>
-::-webkit-scrollbar {
-    width: 10px;
-}
-/**  STYLE 6 */
-::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #000000;
-}
 
-::-webkit-scrollbar-thumb {
-	background-color: #F70;	
-}
 body {
 
     margin: 0 auto;
@@ -371,14 +395,17 @@ var nines=0;
   width: 480px;
   height: 480px;
 }
+
 #container canvas, #overlay {
   position: absolute;
+ 
 }
 canvas {
     background-image: url("img/magicsquare.png");
     background-size: 480px 480px;
     width:480px;
     height:480px;
+
 }
 </style>
 <div id="container">
@@ -433,73 +460,6 @@ canvas {
 
 </div>
 </div>
-<!--
-<div id="about"><span class="terrace">
-<p>Using the English alphabet we find the following correspondence between numbers and letters:</p></span>
-<br><br>
-<table id="abouttable">
-<tr>
-<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
-</tr>
-<tr>
-<td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td>
-</tr>
-<tr>
-<td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td>
-</tr>
-<tr>
-<td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td><td></td>
-</tr>
-</table>
-<br><br><hr>
-
-<span class="terrace">
-<p>Number Characteristics</p><br>
-<center><h3 style="font-family:terra;">One</h3></center>
-Being, Ego, Leadership, Personal Resources, Personal Identity
-<br>
-<center><h3 style="font-family:terra;">Two</h3></center>
-Duality, Feelings, Caring, Either/or - Imbalance, The Conscious Mind
-<br>
-<center><h3 style="font-family:terra;">Three</h3></center>
-Personal creativity, Action, Forcefulness, Initiative, Service
-<br>
-<center><h3 style="font-family:terra;">Four</h3></center>
-Logical Thought, Practicality, Instincts, The Concrete, Material World
-<br>
-<center><h3 style="font-family:terra;">Five</h3></center>
-The Senses, Expansion, Flexibility, Tolerance, Learning
-<br>
-<center><h3 style="font-family:terra;">Six</h3></center>
-Intellectual Creativity, Imagination, Fantasy, Abstract Thinking, Theory
-<br>
-<center><h3 style="font-family:terra;">Seven</h3></center>
-Setting Limits, Time, Material Attachments, The Limits of the Material World, The Bridge to the Spiritual Realm
-<br>
-<center><h3 style="font-family:terra;">Eight</h3></center>
-The Unconscious Mind, Transformation of the Material, Timeless Space, Both/and Balance, Dharma: doing what has to be done
-<br>
-<center><h3 style="font-family:terra;">Nine</h3></center>
-Spiritual Creativity, Divine Love, Innate Talents, Completion, Karma: Reward for Actions of the Previous Lives
-</span>
-<br><br>
-<div id="terracebox">
-<div id="finalt">
-<span class="terrace">
-The more circles there are around a number, the higher the level of awareness of the energy symbolized by that number. The fewer circles around a number, the lower the awareness of the energy symbolized by that number. If you are not aware of something you cannot control it. If you cannot control something, it controls you. Increased awareness allows greater control.</span>
-</div></div>
-<img src="img/top.png" height="129" width="458">
-<br>
-</div>
--->
-
-<script>
-
-
-
-
-
-</script>
 
 
 
@@ -1135,495 +1095,1205 @@ var thenames =  document.getElementById("thenames").value;
     document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal + " / " + namestotalsfinal2;
     }
     
+
     
+    
+ var canvas = document.getElementById('DemoCanvas');
+
+ var ctx = canvas.getContext('2d');   
+ 
+   
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   
+    var onesx = -2;
+    
     if (ones == 1)
-    {
-        document.getElementById("ones").style.backgroundImage = "url('img/_one.png')";
+    {  
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+   
     }
     if (ones == 2)
     {
-        document.getElementById("ones").style.backgroundImage = "url('img/_two.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (ones == 3)
     {
-        document.getElementById("ones").style.backgroundImage = "url('img/_three.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+             
     }
     if (ones == 4)
     {
-        document.getElementById("ones").style.backgroundImage = "url('img/_four.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+             
     }
     if (ones == 5)
     {
-        document.getElementById("ones").style.backgroundImage = "url('img/_five.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+             
     }
     if (ones == 6)
     {
-        document.getElementById("ones").style.backgroundImage = "url('img/_six.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+       
     }
     if (ones == 7)
     {
-        document.getElementById("ones").style.backgroundImage = "url('img/_seven.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 50, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (ones == 8)
     {
-        document.getElementById("ones").style.backgroundImage = "url('img/_eight.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 55, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 50, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+            
     }
     if (ones == 9)
     {
-        document.getElementById("ones").style.backgroundImage = "url('img/_nine.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(82 + onesx, 400, 60, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 55, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 50, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 45, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 40, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(82 + onesx, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+           
     }
     
     if (twos == 1)
     {
-        document.getElementById("twos").style.backgroundImage = "url('img/_one.png')";
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 242, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+
     }
     if (twos == 2)
     {
-        document.getElementById("twos").style.backgroundImage = "url('img/_two.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 242, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+     
     }
     if (twos == 3)
     {
-        document.getElementById("twos").style.backgroundImage = "url('img/_three.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 242, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+           
     }
     if (twos == 4)
     {
-        document.getElementById("twos").style.backgroundImage = "url('img/_four.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 242, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+      
     }
     if (twos == 5)
     {
-        document.getElementById("twos").style.backgroundImage = "url('img/_five.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 242, 40, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+       
     }
     if (twos == 6)
     {
-        document.getElementById("twos").style.backgroundImage = "url('img/_six.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 242, 45, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 40, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+           
     }
     if (twos == 7)
     {
-        document.getElementById("twos").style.backgroundImage = "url('img/_seven.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 242, 50, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 45, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 40, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (twos == 8)
     {
-        document.getElementById("twos").style.backgroundImage = "url('img/_eight.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 242, 55, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 50, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 45, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 40, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (twos == 9)
     {
-        document.getElementById("twos").style.backgroundImage = "url('img/_nine.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 242, 60, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 55, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 50, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 45, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 40, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 242, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+         
     }    
+    
+    var threesx = 0;
+    var threesy = -5;
     
     if (threes == 1)
     {
-        document.getElementById("threes").style.backgroundImage = "url('img/_one.png')";
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+   
     }
     if (threes == 2)
     {
-        document.getElementById("threes").style.backgroundImage = "url('img/_two.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (threes == 3)
     {
-        document.getElementById("threes").style.backgroundImage = "url('img/_three.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+      
     }
     if (threes == 4)
     {
-        document.getElementById("threes").style.backgroundImage = "url('img/_four.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (threes == 5)
     {
-        document.getElementById("threes").style.backgroundImage = "url('img/_five.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (threes == 6)
     {
-        document.getElementById("threes").style.backgroundImage = "url('img/_six.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (threes == 7)
     {
-        document.getElementById("threes").style.backgroundImage = "url('img/_seven.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 50, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+           
     }
     if (threes == 8)
     {
-        document.getElementById("threes").style.backgroundImage = "url('img/_eight.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 55, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 50, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (threes == 9)
     {
-        document.getElementById("threes").style.backgroundImage = "url('img/_nine.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(80, 85 + threesy, 60, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 55, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 50, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 45, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 40, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 35, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 30, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 25, 0, 2 * Math.PI);
+         ctx.arc(80, 85 + threesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+      
     }    
     
 if (fours == 1)
     {
-        document.getElementById("fours").style.backgroundImage = "url('img/_one.png')";
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+
     }
     if (fours == 2)
     {
-        document.getElementById("fours").style.backgroundImage = "url('img/_two.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (fours == 3)
     {
-        document.getElementById("fours").style.backgroundImage = "url('img/_three.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+     
     }
     if (fours == 4)
     {
-        document.getElementById("fours").style.backgroundImage = "url('img/_four.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (fours == 5)
     {
-        document.getElementById("fours").style.backgroundImage = "url('img/_five.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 402, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+            
     }
     if (fours == 6)
     {
-        document.getElementById("fours").style.backgroundImage = "url('img/_six.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 402, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+             
     }
     if (fours == 7)
     {
-        document.getElementById("fours").style.backgroundImage = "url('img/_seven.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 402, 50, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (fours == 8)
     {
-        document.getElementById("fours").style.backgroundImage = "url('img/_eight.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 402, 55, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 50, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (fours == 9)
     {
-        document.getElementById("fours").style.backgroundImage = "url('img/_nine.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 402, 60, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 55, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 50, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 402, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+            
     }
     
+    var fivesy = -5;
     
-if (fives == 1)
+    if (fives == 1)
     {
-        document.getElementById("fives").style.backgroundImage = "url('img/_one.png')";
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+    
     }
     if (fives == 2)
     {
-        document.getElementById("fives").style.backgroundImage = "url('img/_two.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+       
     }
     if (fives == 3)
     {
-        document.getElementById("fives").style.backgroundImage = "url('img/_three.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (fives == 4)
     {
-        document.getElementById("fives").style.backgroundImage = "url('img/_four.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (fives == 5)
-    {
-        document.getElementById("fives").style.backgroundImage = "url('img/_five.png')";        
+        {
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (fives == 6)
     {
-        document.getElementById("fives").style.backgroundImage = "url('img/_six.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+         
     }
     if (fives == 7)
     {
-        document.getElementById("fives").style.backgroundImage = "url('img/_seven.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 50, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+       
     }
     if (fives == 8)
     {
-        document.getElementById("fives").style.backgroundImage = "url('img/_eight.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 55, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 50, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (fives == 9)
     {
-        document.getElementById("fives").style.backgroundImage = "url('img/_nine.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 245 + fivesy, 60, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 55, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 50, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 245 + fivesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+       
     }    
     
- if (sixes == 1)
+    if (sixes == 1)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('img/_one.png')";
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+   
     }
     if (sixes == 2)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('img/_two.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (sixes == 3)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('img/_three.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+      
     }
     if (sixes == 4)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('img/_four.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+       
     }
     if (sixes == 5)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('img/_five.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 80, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+           
     }
     if (sixes == 6)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('img/_six.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 80, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (sixes == 7)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('img/_seven.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 80, 50, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (sixes == 8)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('img/_eight.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 80, 55, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 50, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+      
     }
     if (sixes == 9)
     {
-        document.getElementById("sixes").style.backgroundImage = "url('img/_nine.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(240, 80, 60, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 55, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 50, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 45, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 40, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 35, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 30, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 25, 0, 2 * Math.PI);
+         ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+       
     }
     
 if (sevens == 1)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('img/_one.png')";
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+  
     }
     if (sevens == 2)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('img/_two.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+       ctx.arc(400, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+            
     }
     if (sevens == 3)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('img/_three.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+            
     }
     if (sevens == 4)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('img/_four.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (sevens == 5)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('img/_five.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 400, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+       
     }
     if (sevens == 6)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('img/_six.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 400, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+         
     }
     if (sevens == 7)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('img/_seven.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 400, 50, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (sevens == 8)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('img/_eight.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 400, 55, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 50, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (sevens == 9)
     {
-        document.getElementById("sevens").style.backgroundImage = "url('img/_nine.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 400, 60, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 55, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 50, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 400, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     
     
 if (eights == 1)
     {
-        document.getElementById("eights").style.backgroundImage = "url('img/_one.png')";
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+    
     }
     if (eights == 2)
     {
-        document.getElementById("eights").style.backgroundImage = "url('img/_two.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+           
     }
     if (eights == 3)
     {
-        document.getElementById("eights").style.backgroundImage = "url('img/_three.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (eights == 4)
     {
-        document.getElementById("eights").style.backgroundImage = "url('img/_four.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (eights == 5)
     {
-        document.getElementById("eights").style.backgroundImage = "url('img/_five.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 240, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (eights == 6)
     {
-        document.getElementById("eights").style.backgroundImage = "url('img/_six.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 240, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (eights == 7)
     {
-        document.getElementById("eights").style.backgroundImage = "url('img/_seven.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 240, 50, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+           
     }
     if (eights == 8)
     {
-        document.getElementById("eights").style.backgroundImage = "url('img/_eight.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 240, 55, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 50, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+             
     }
     if (eights == 9)
     {
-        document.getElementById("eights").style.backgroundImage = "url('img/_nine.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 240, 60, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 55, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 50, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 240, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+       
     }    
+    
+    var ninesx = 0;
+    var ninesy = -5; 
     
     if (nines == 1)
     {
-        document.getElementById("nines").style.backgroundImage = "url('img/_one.png')";
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+  
     }
     if (nines == 2)
     {
-        document.getElementById("nines").style.backgroundImage = "url('img/_two.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (nines == 3)
     {
-        document.getElementById("nines").style.backgroundImage = "url('img/_three.png')";        
+         ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+            
     }
     if (nines == 4)
     {
-        document.getElementById("nines").style.backgroundImage = "url('img/_four.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (nines == 5)
     {
-        document.getElementById("nines").style.backgroundImage = "url('img/_five.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+       
     }
     if (nines == 6)
     {
-        document.getElementById("nines").style.backgroundImage = "url('img/_six.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+       
     }
     if (nines == 7)
     {
-        document.getElementById("nines").style.backgroundImage = "url('img/_seven.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 50, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+        
     }
     if (nines == 8)
     {
-        document.getElementById("nines").style.backgroundImage = "url('img/_eight.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 55, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 50, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }
     if (nines == 9)
     {
-        document.getElementById("nines").style.backgroundImage = "url('img/_nine.png')";        
+        ctx.strokeStyle = "white";
+         ctx.lineWidth = 3;
+         ctx.beginPath();
+         ctx.arc(400, 85 + ninesy, 60, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 55, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 50, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 45, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 40, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 35, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 30, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 25, 0, 2 * Math.PI);
+         ctx.arc(400, 85 + ninesy, 20, 0, 2 * Math.PI);
+         ctx.stroke();
+          
     }   
     
     
-  var bool = 0;    
-  var growright = 0;
-  var growleft = 0;    
-    
-//////////////////////////// THELINES //////////////
-function drawArrowhead(context, from, to, radius) {
-	var x_center = to.x;
-	var y_center = to.y;
 
-	var angle;
-	var x;
-	var y;
-
-	context.beginPath();
-
-	angle = Math.atan2(to.y - from.y, to.x - from.x)
-	x = radius * Math.cos(angle) + x_center;
-	y = radius * Math.sin(angle) + y_center;
-
-	context.moveTo(x, y);
-
-	angle += (1.0/3.0) * (2 * Math.PI)
-	x = radius * Math.cos(angle) + x_center;
-	y = radius * Math.sin(angle) + y_center;
-
-	context.lineTo(x, y);
-
-	angle += (1.0/3.0) * (2 * Math.PI)
-	x = radius *Math.cos(angle) + x_center;
-	y = radius *Math.sin(angle) + y_center;
-
-	context.lineTo(x, y);
-
-	context.closePath();
-
-	context.fill();
-}
-
-
-// SLOW DOWN ANIMATION
-
-
-
-
-///////////////////////////////
-
-var canvas = document.getElementById('DemoCanvas');
-const ctx = canvas.getContext('2d');
-//Always check for properties and methods, to make sure your code doesn't break in other browsers.
-if (canvas.getContext) 
- {
- 
-
- 
   
   
 
-  /*
-  if (growleft < 5 && bool == 0)
-  {
-  growleft = growleft + 0.25;
-  growright = growright - 0.25;
-  if (growleft == 5)
-  {
-        bool = 1;
-  }
-  }
-  
-  if (growleft > 0 && bool == 1)
-  {
-   growleft = growleft - 0.25;
-   growright = growright + 0.25;
-  if (growleft == 0)
-  {
-        bool = 0;
-  }
-  }*/
-  
-
-
-  
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);  
   
   if (twos > 0 && sixes > 0)
   {
   
   ctx.strokeStyle = "white";
-  ctx.lineWidth = 6;
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "white";
 
-  // Reset the current path
+ 
   ctx.beginPath(); 
-  ctx.setLineDash([15 , 13]);
-  ctx.lineCap = "round";
-  // Staring point (10,45)
-  ctx.moveTo(110 + growleft,210 + growright);
-  // End point (180,47)
-  ctx.lineTo(210 + growright,110 + growleft);
-  // Make the line visible
+  
+  if (twos == sixes)
+  {
+  ctx.arrow(110  , 210  , 210  , 110  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
 
+  }
+  if (twos > sixes)
+  {
+  ctx.arrow(110  , 210  , 210  , 110  , [-20,5,-20,15]);
+
+  }
+  if (twos < sixes)
+  {
+  ctx.arrow(110  , 210  , 210  , 110  , [20,15,20,5]);
+
+  }
+  ctx.fill();
   ctx.stroke();  
   }
   
   if (sixes > 0 && eights > 0)
   {
   ctx.strokeStyle = "white";
-  ctx.lineWidth = 6;
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "white";
 
-  // Reset the current path
+
   ctx.beginPath(); 
-  ctx.setLineDash([15, 13]);
-  ctx.lineCap = "round";
-  // Staring point (10,45)
-  ctx.moveTo(270 + growleft,110 + growleft);
-  // End point (180,47)
-  ctx.lineTo(370 + growright,210 + growright);
-  // Make the line visible
+
+  
+  if (sixes == eights)
+  {
+  ctx.arrow(270  , 110  , 370  , 210  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+  }
+  if (sixes > eights)
+  {
+  ctx.arrow(270  , 110  , 370  , 210  , [-20,5,-20,15]);
+
+  }
+  if (sixes < eights)
+  {
+ ctx.arrow(270  , 110  , 370  , 210  , [20,15,20,5]);
+
+  }
+  ctx.fill();
   ctx.stroke();   
   }
   
   if (twos > 0 && fours > 0)
   {
   ctx.strokeStyle = "white";
-  ctx.lineWidth = 6;
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "white";
 
-  // Reset the current path
   ctx.beginPath(); 
-  ctx.setLineDash([15, 13]);
-  ctx.lineCap = "round";
-  // Staring point (10,45)
-  ctx.moveTo(110 + growleft,270 + growleft);
-  // End point (180,47)
-  ctx.lineTo(210 + growright,370 + growright);
-  // Make the line visible
+
+  
+  if (twos == fours)
+  {
+  ctx.arrow(110  , 270  , 210  , 370  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+  }
+  if (twos > fours)
+  {
+  ctx.arrow(110  , 270  , 210  , 370  , [-20,5,-20,15]);
+
+  }
+  if (twos < fours)
+  {
+ ctx.arrow(110  , 270  , 210  , 370  , [20,15,20,5]);
+  
+  }
+  ctx.fill();
   ctx.stroke();   
   }
   
   if (fours > 0 && eights > 0)
   {
   ctx.strokeStyle = "white";
-  ctx.lineWidth = 6;
-
-  // Reset the current path
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "white";
   ctx.beginPath(); 
-  ctx.setLineDash([15, 13]);
-  ctx.lineCap = "round";
-  // Staring point (10,45)
-  ctx.moveTo(270 + growleft,370 + growright);
-  // End point (180,47)
-  ctx.lineTo(370 + growright,270 + growleft);
-  // Make the line visible
+
+  
+  if (fours == eights) 
+  {
+  ctx.arrow(270  , 370  , 370  , 270  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+  }
+  if (fours > eights) 
+  {
+  ctx.arrow(270  , 370  , 370  , 270  ,[-20,5,-20,15]);
+
+  }
+  if (fours < eights) 
+  {
+ ctx.arrow(270  , 370  , 370  , 270  ,[20,15,20,5]);
+ 
+  }
+  ctx.fill();
   ctx.stroke(); 
   }
   
@@ -1633,19 +2303,29 @@ if (canvas.getContext)
   {
 
   ctx.strokeStyle = "orange";
-  ctx.lineWidth = 6;
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "orange";
 
-  // Reset the current path
   ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.setLineDash([]); 
-  ctx.arrow(110 + growright, 400, 210 + growleft, 400, [2, 2, 2, 1, -2, 1, -2, 2]);
-  // Staring point (10,45)
-  ctx.moveTo(110 + growright,400);
-  // End point (180,47)
-  ctx.lineTo(210 + growleft,400);
-  // Make the line visible
+  
+  
+  if (ones == fours)
+  {
+  ctx.arrow(110  , 400, 210  , 400,  [20, 15, 20, 5, -20, 5, -20, 15]);
 
+  }
+  if (ones > fours)
+  {
+  ctx.arrow(110  , 400, 210  , 400, [-20,5,-20,15]);
+
+  }
+  if (ones < fours)
+  {
+ ctx.arrow(110  , 400, 210  , 400, [20,15,20,5]);
+
+  }
+
+  ctx.fill();
   ctx.stroke();
 
   }
@@ -1653,18 +2333,29 @@ if (canvas.getContext)
   if (fours > 0 && sevens > 0)
   {
   ctx.strokeStyle = "orange";
-  ctx.lineWidth = 6;
+  ctx.fillStyle = "orange";
+  ctx.lineWidth = 1;
 
-  // Reset the current path
+ 
   ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(270 + growright, 400, 370 + growleft, 400, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]); 
-  // Staring point (10,45)
-  ctx.moveTo(270 + growright,400);
-  // End point (180,47)
-  ctx.lineTo(370 + growleft,400);
-  // Make the line visible
+  
+  if (fours == sevens)
+  {
+  ctx.arrow(270  , 400, 370  , 400,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+  }
+  if (fours > sevens)
+  {
+  ctx.arrow(270  , 400, 370  , 400, [-20,5,-20,15]);
+
+  }
+  if (fours < sevens)
+  {
+ ctx.arrow(270  , 400, 370  , 400,  [20,15,20,5]);
+ 
+
+  }
+  ctx.fill();
   ctx.stroke();
 
   }
@@ -1672,204 +2363,328 @@ if (canvas.getContext)
   if (twos > 0 && fives > 0)
   {
    ctx.strokeStyle = "lawngreen";
-   ctx.lineWidth = 6;
-  // Reset the current path
+  ctx.fillStyle = "lawngreen";
+   ctx.lineWidth = 1;
+
    ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(110 + growright, 240, 210 + growleft, 240, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]); 
-  // Staring point (10,45)
-  ctx.moveTo(110 + growright,240);
-  // End point (180,47)
-   ctx.lineTo(210 + growleft,240);
-  // Make the line visible
+  
+  if (twos == fives)
+  {
+  ctx.arrow(110  , 240, 210  , 240,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+   }
+  if (twos > fives)
+  {
+  ctx.arrow(110  , 240, 210  , 240,  [-20,5,-20,15]);
+  
+
+   }
+  if (twos < fives)
+  {
+  ctx.arrow(110  , 240, 210  , 240,  [20,15,20,5]);
+
+
+   }
+   ctx.fill();
    ctx.stroke();
   }
   
   if (fives > 0 && eights > 0)
   {
   ctx.strokeStyle = "lawngreen";
-   ctx.lineWidth = 6;
-  // Reset the current path
+  ctx.fillStyle = "lawngreen";
+   ctx.lineWidth = 1;
+
    ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(270 + growright, 240, 370 + growleft, 240, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]); 
-  // Staring point (10,45)
-   ctx.moveTo(270 + growright,240);
-  // End point (180,47)
-   ctx.lineTo(370 + growleft,240);
-  // Make the line visible
+  
+  if (fives == eights)
+  {
+  ctx.arrow(270  , 240, 370  , 240,  [20, 15, 20, 5, -20, 5, -20, 15]);
+  
+ 
+   }
+  if (fives > eights)
+  {
+  ctx.arrow(270  , 240, 370  , 240, [-20,5,-20,15]);
+
+   }
+  if (fives < eights)
+  {
+    ctx.arrow(270  , 240, 370  , 240, [20,15,20,5]);
+   
+   }
+   ctx.fill();
    ctx.stroke();
   }
    
   if (threes > 0 && sixes > 0)
   { 
   ctx.strokeStyle = "deeppink";
-  ctx.lineWidth = 6;
-  // Reset the current path
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "deeppink";
   ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(110 + growright, 80, 210 + growleft, 80, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]); 
-  // Staring point (10,45)
-  ctx.moveTo(110 + growright,80);
-  // End point (180,47)
-  ctx.lineTo(210 + growleft,80);
-  // Make the line visible
+  
+  if (threes == sixes)
+  {
+  ctx.arrow(110  , 80, 210  , 80,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+  }
+  if (threes > sixes)
+  {
+  ctx.arrow(110  , 80, 210  , 80, [-20,5,-20,15]);
+
+  }
+  if (threes < sixes)
+  {
+  ctx.arrow(110  , 80, 210  , 80, [20,15,20,5]);
+
+  
+  }
+  ctx.fill();
   ctx.stroke();
   }
   
   if (sixes > 0 && nines > 0)
   {
   ctx.strokeStyle = "deeppink";
-  ctx.lineWidth = 6;
-  // Reset the current path
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "deeppink";
   ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(270 + growright, 80, 370 + growleft, 80, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]);
-  // Staring point (10,45)
-  ctx.moveTo(270 + growright,80);
-  // End point (180,47)
-  ctx.lineTo(370 + growleft,80);
-  // Make the line visible
+  
+  if (sixes == nines)
+  {
+  ctx.arrow(270  , 80, 370  , 80,  [20, 15, 20, 5, -20, 5, -20, 15]);
+ 
+
+  }
+  if (sixes > nines)
+  {
+  ctx.arrow(270  , 80, 370  , 80,[-20,5,-20,15]);
+ 
+ 
+  }
+  if (sixes < nines)
+  {
+ctx.arrow(270  , 80, 370  , 80, [20,15,20,5]);
+
+
+  }
+  ctx.fill();
   ctx.stroke();   
   }
 
   if (twos > 0 && threes > 0)
   {
   ctx.strokeStyle = "green";
-   ctx.lineWidth = 6;
-  // Reset the current path
+   ctx.lineWidth = 1;
+  ctx.fillStyle = "green";
    ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(80, 110 + growright, 80, 210 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]);
-  // Staring point (10,45)
-   ctx.moveTo(80,110 + growright);
+  
+  if (twos == threes)
+  {
+  ctx.arrow(80, 110  , 80, 210  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+ 
 
-  // End point (180,47)
-   ctx.lineTo(80,210 + growleft);
-  // Make the line visible
+   }
+  if (twos < threes)
+  {
+  ctx.arrow(80, 110  , 80, 210  ,[-20,5,-20,15]);
+ 
+
+   }
+  if (twos > threes)
+  {
+  ctx.arrow(80, 110  , 80, 210  , [20,15,20,5]);
+ 
+   }
+   ctx.fill();
    ctx.stroke();
   }
   
   if (ones > 0 && twos > 0)
   {
   ctx.strokeStyle = "green";
-   ctx.lineWidth = 6;
-  // Reset the current path
+   ctx.lineWidth = 1;
+  ctx.fillStyle = "green";
   ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(80, 270 + growright, 80, 370 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]);
-  // Staring point (10,45)
-  ctx.moveTo(80,270 + growright);
-  // End point (180,47)
-  ctx.lineTo(80,370 + growleft);
-  // Make the line visible
+  
+  if (ones == twos)
+  {
+  ctx.arrow(80, 270  , 80, 370  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+ 
+ 
+  }
+  if (ones < twos)
+  {
+  ctx.arrow(80, 270  , 80, 370  ,[-20,5,-20,15]);
+
+  }
+  if (ones > twos)
+  {
+ ctx.arrow(80, 270  , 80, 370  , [20,15,20,5]);
+
+  }
+   ctx.fill();
    ctx.stroke();     
   }
   
   if (fives > 0 && sixes > 0)  
   {
   ctx.strokeStyle = "yellow";
-  ctx.lineWidth = 6;
-  // Reset the current path
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "yellow";
   ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(240, 110 + growright, 240, 210 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]);
-  // Staring point (10,45)
-  ctx.moveTo(240,110 + growright);
-  // End point (180,47)
-  ctx.lineTo(240,210 + growleft);
-  // Make the line visible
+  
+  if (fives == sixes)
+  {
+  ctx.arrow(240, 110  , 240, 210  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+ 
+
+  }
+  if (fives < sixes)
+  {
+  ctx.arrow(240, 110  , 240, 210  ,[-20,5,-20,15]);
+
+  }
+  if (fives > sixes)
+  {
+  ctx.arrow(240, 110  , 240, 210  , [20,15,20,5]);
+ 
+  }
+ ctx.fill();
   ctx.stroke();
   }
   
   if (fours > 0 && fives > 0)
   {
   ctx.strokeStyle = "yellow";
-  ctx.lineWidth = 6;
-  // Reset the current path
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "yellow";
   ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(240, 270 + growright, 240, 370 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]);
-  // Staring point (10,45)
-  ctx.moveTo(240,270 + growright);
-  // End point (180,47)
-  ctx.lineTo(240,370 + growleft);
-  // Make the line visible
+  
+  if (fours == fives)
+  {
+  ctx.arrow(240, 270  , 240, 370  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+  }
+  if (fours < fives)
+  {
+  ctx.arrow(240, 270  , 240, 370  , [-20,5,-20,15]);
+
+  }
+  if (fours > fives)
+  {
+  ctx.arrow(240, 270  , 240, 370  ,[20,15,20,5]);
+
+
+  }
+  ctx.fill();
   ctx.stroke(); 
   } 
   if (eights > 0 && nines > 0)  
 
   {
   ctx.strokeStyle = "brown";
-  ctx.lineWidth = 6;
-  // Reset the current path
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "brown";
   ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(400, 110 + growright, 400, 210 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]);
-  // Staring point (10,45)
-  ctx.moveTo(400,110 + growright);
-  // End point (180,47)
-  ctx.lineTo(400,210 + growleft);
-  // Make the line visible
+  
+  if (eights == nines)
+  {
+  ctx.arrow(400, 110  , 400, 210  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+  }
+  if (eights < nines)
+  {
+  ctx.arrow(400, 110  , 400, 210  ,  [-20,5,-20,15]);
+
+  }
+  if (eights > nines)
+  {
+  ctx.arrow(400, 110  , 400, 210  ,[20,15,20,5]);
+
+
+  }
+  ctx.fill();
   ctx.stroke();
   }
   
   if (sevens > 0 && eights > 0)
   {
   ctx.strokeStyle = "brown";
-  ctx.lineWidth = 6;
-  // Reset the current path
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "brown";
   ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(400, 270 + growright, 400, 370 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]);
-  // Staring point (10,45)
-  ctx.moveTo(400,270 + growright);
-  // End point (180,47)
-  ctx.lineTo(400,370 + growleft);
-  // Make the line visible
+  
+  if (sevens == eights)
+  {
+  ctx.arrow(400, 270  , 400, 370  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+  }
+  if (sevens < eights)
+  {
+  ctx.arrow(400, 270  , 400, 370  , [-20,5,-20,15]);
+
+  }
+  if (sevens > eights)
+  {
+  ctx.arrow(400, 270  , 400, 370  , [20,15,20,5]);
+
+  }
+  ctx.fill();
   ctx.stroke();  
   }
   
   if (threes > 0 && fives > 0)
   {
   ctx.strokeStyle = "red";
-  ctx.lineWidth = 6;
-  // Reset the current path
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "red";
   ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(110 + growright, 110 + growright, 210 + growleft, 210 + growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]);
-  // Staring point (10,45)
-  ctx.moveTo(110 + growright,110 + growright);
-  // End point (180,47)
-  ctx.lineTo(210 + growleft,210 + growleft);
-  // Make the line visible
+  
+  if (threes == fives)
+  {
+  ctx.arrow(110  , 110  , 210  , 210  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+  }
+  if (threes > fives)
+  {
+  ctx.arrow(110  , 110  , 210  , 210  , [-20,5,-20,15]);
+
+  }
+  if (threes < fives)
+  {
+ ctx.arrow(110  , 110  , 210  , 210  ,  [20,15,20,5]);
+   
+  }
+  ctx.fill();
   ctx.stroke();
   }
   
   if (fives > 0 && sevens > 0)
   {
   ctx.strokeStyle = "red";
-  ctx.lineWidth = 6;
-  // Reset the current path
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "red";
   ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(270 + growright, 270 + growright, 370 + growleft, 370 +growleft, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]);
-  // Staring point (10,45)
-  ctx.moveTo(270 + growright,270 + growright);
-  // End point (180,47)
-  ctx.lineTo(370 + growleft,370 + growleft);
+  
+  if (fives == sevens)
+  {
+  ctx.arrow(270  , 270  , 370  , 370 ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+ 
+  }
+  if (fives > sevens)
+  {
+  ctx.arrow(270  , 270  , 370  , 370 ,  [-20,5,-20,15]);
+ 
+
+  }
+  if (fives < sevens)
+  {
+  ctx.arrow(270  , 270  , 370  , 370 , [20,15,20,5]);
+
+  }
+  ctx.fill();
   // Make the line visible
   ctx.stroke(); 
   }
@@ -1877,46 +2692,58 @@ if (canvas.getContext)
   if (ones > 0 && fives > 0)
   {
   ctx.strokeStyle = "dodgerblue";
-   ctx.lineWidth = 6;
-  // Reset the current path
+   ctx.lineWidth = 1;
+  ctx.fillStyle = "dodgerblue";
    ctx.beginPath(); 
-  ctx.lineCap = "round";
-  ctx.arrow(110 + growright, 370 + growleft, 210 + growleft, 270 + growright, [2, 2, 2, 1, -2, 1, -2, 2]);
-  ctx.setLineDash([]);
-  // Staring point (10,45)
-   ctx.moveTo(110 + growright,370 + growleft);
-  // End point (180,47)
-   ctx.lineTo(210 + growleft,270 + growright);
-  // Make the line visible
+  
+  if (ones == fives)
+  {
+  ctx.arrow(110  , 370  , 210  , 270  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+   }
+  if (ones > fives)
+  {
+  ctx.arrow(110  , 370  , 210  , 270  , [-20,5,-20,15]);
+ 
+
+   }
+  if (ones < fives)
+  {
+  
+ ctx.arrow(110  , 370  , 210  , 270  , [20,15,20,5]);
+   
+   }
+    ctx.fill();
    ctx.stroke();
   }
   
   if (fives > 0 && nines > 0)
   {
    ctx.strokeStyle = "dodgerblue";
-   ctx.lineWidth = 6;
-  // Reset the current path
+   ctx.lineWidth = 1;
+  ctx.fillStyle = "dodgerblue";
    ctx.beginPath();
-  ctx.lineCap = "round";
-   ctx.arrow(270 + growright, 210 + growleft, 370 + growleft, 110 + growright, [2, 2, 2, 1, -2, 1, -2, 2]);
- ctx.setLineDash([]);
-  // Staring point (10,45)
-   ctx.moveTo(270 + growright,210 + growleft);
-  // End point (180,47)
-   ctx.lineTo(370 + growleft,110 + growright);
-  // Make the line visible
+  
+  if (fives == nines)
+  {
+   ctx.arrow(270  , 210  , 370  , 110  ,  [20, 15, 20, 5, -20, 5, -20, 15]);
+
+   }
+  if (fives > nines)
+  {
+   ctx.arrow(270  , 210  , 370  , 110  ,[-20,5,-20,15]);
+
+
+   }
+  if (fives < nines)
+  {
+  ctx.arrow(270  , 210  , 370  , 110  , [20,15,20,5]);
+
+   }
+   ctx.fill();
    ctx.stroke(); 
   }
   
- 
-  
-  
-  }
-    
-  //   window.requestAnimationFrame(draw);
-    
-
-    
 
     
 /////////////////////// end of NORMAN //////////
