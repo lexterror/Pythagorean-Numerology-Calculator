@@ -1,6 +1,57 @@
 <html>
 <title>Numerology Help</title>
 <style>
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
 body {    
     width: 900px;
     margin: 0 auto;
@@ -10,6 +61,7 @@ body {
     width: 902px;
     padding: 20px;
     background: #999;
+    border-radius: 10px;
     overflow-y: hidden;
 }
 #column1 {
@@ -39,6 +91,7 @@ body {
     color: white;
     float: left;
     font-size: 16px;
+    line-height: 16px;
     background: #333;
     margin-top: 10px;
     border-radius: 5px;
@@ -82,12 +135,58 @@ font-size: 100%;
 <div id="columns">
 <div id="column1">
 <div id="title">Life Path Number</div>
-<div id="content">The <i>Life Path Number</i> is the sum of the birth date i.e. DD+MM+YY. This number when reduced down, represents at an essence level, who you are at birth and reveals your most core or native traits - that which you will carry with you throughout your entire life.</div>
+<div id="content">The <i>Life Path Number</i> is the sum of the birth date i.e. DD+MM+YY.<br><br>Your Life Path which is the reduced sum of your date of birth, gives an important indication on the type of events that you will be regularly confronted with, throughout your life. It isn't possible to skip school, the events always catch up with you, that's why in general one naturally adopts a style compatible with one's Life Path rather than going against the current. Numerology allows you to understand the nature of your route and the events likely to stimulate you. This will allow you the power to adopt the attitude that permits you to sail serenely on the sea of your life without capsizing or getting shaken about. A well-informed man is worth two.</div>
+<div id="title" style="margin-top:20px">Personal Year Number</div>
+<div id="content">The Personal Year Number is the reduced sum of :<br><br>
+Day of Birth + Month of Birth + Current Year<br><br>
+The Personal Year Number constitutes one of the major vibrations that you will be confronted with during the course of your life. Numerology calculates your Personal Year Number by adding (vertically) your date and month of birth to the current year. In reducing this number we will end up with a figure between 1 and 9. Each year is thus individualized and it is interesting to know this basic element in order to understand the dominant vibration which will always accompany you during this period and in order to help you to chose the best course of action. It is necessary, nevertheless, to keep in mind that dominant vibration does not signify fate or destiny. The explanation of a Personal Year Number is only concerned with the trends that you are going to experience and it gives an indication of how you are likely to react faced with these influences. Free-will is not denied, but the simple fact is, our decision making can be more judicious when we have got a bit of information beforehand.
+</div>
+<div id="title" style="margin-top:20px">Personal Month Number</div>
+<div id="content">The Personal Month is the reduced sum of :<br><br>
+Personal Year Number + value of the current month<br><br>
+Each month give you a new vibration included in the major vibration of your Personal Year. This information can be useful to act better in your sentimental, family or professional life. The current month of december will be 3 from 12.
+</div>
+<div id="title" style="margin-top:20px">Personal Day Number</div>
+<div id="content">The Personal Day Number is the sum of :<br><br>
+Value of the curent day (reduced to 1-9) +  Personal Month Number.<br><br>
+Each day is marked by a different vibration. In consulting the information relative to the day (tendency) and the hourly cycles, you can find the most profitable moments to be successful for an important meeting or interview.
+</div>
 <div id="title" style="margin-top:20px">Psychomatrix</div>
 <div id="content">
 <i>Pythagorean square</i> or <i>"Psychomatrix"</i> gives a characteristic according to the date of birth. It was developed by Pythagoras in the 5th century BC and was developed by his followers. The basic idea of psychomatrix is that the date of birth has a certain combination of numbers, with the help of which the human psychological type can be described. Each number from 1 to 9 symbolizes a certain quality and depending on the frequency of repetitions strengthens them.
 </div>
-<div id="title" style="margin-top:20px">Numbers and Letters</div>
+</div>
+<style>
+#norman1 {
+    width:410px;
+    background: #fff;
+    font-size: 12px;
+    line-height: 12px;
+}
+#normn {
+    width: 10px;
+    height: 12px;
+}
+#normdesc {
+    width: 126px;
+}
+#norman2 {
+    width: 410px;
+    background: #fff;
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 10px;
+}
+#normn2 {
+    width: 60px;
+    height: 12px;
+}
+#normdesc2 {
+    width: 145px;
+}
+</style>
+<div id="column2">
+<div id="title">Numbers and Letters</div>
 <div id="content">
 Using the English alphabet we find the following correspondence between numbers and letters:
 <table id="abouttable">
@@ -105,16 +204,48 @@ Using the English alphabet we find the following correspondence between numbers 
 </tr>
 </table>
 </div>
-</div>
-<div id="column2">
-<div id="title">How Name Diagrams Work <font color="white">(Norman Shine)</font></div>
+<div id="title" style="margin-top:20px">How Name Diagrams Work <font color="white">(Norman Shine)</font></div>
 <div id="content">
-<img src="img/legend.png" width="410" height="230">
+<table id="norman1">
+<tr>
+<td id="normn">3</td><td id="normdesc">Personal Creativity</td><td id="normn">6</td><td id="normdesc">Theory and Intuition<td id="normn">9</td><td id="normdesc">Spiritual Creativity</td>
+</tr>
+<tr>
+<td id="normn">2</td><td id="normdesc">Personal Feelings</td><td id="normn">5</td><td id="normdesc">Senses and Expansion<td id="normn">8</td><td id="normdesc">Transformation</td>
+</tr>
+</tr>
+<tr>
+<td id="normn">1</td><td id="normdesc">Personal Resources</td><td id="normn">4</td><td id="normdesc">Logic and Instincts<td id="normn">7</td><td id="normdesc">Setting Limits</td>
+</tr>
+</table>
+
+<table id="norman2">
+<tr>
+<td id="normn2" style="background:lawngreen;"></td><td id="normdesc2">The Physical Body Line</td><td id="normn2" style="background:orange;"></td><td id="normdesc2">The Material World Line</td></tr><tr>
+<td id="normn2" style="background:yellow;"></td><td id="normdesc2">The Intellectual Line</td><td id="normn2" style="background:green;"></td><td id="normdesc2">The Emotions Line</td></tr><tr>
+<td id="normn2" style="background:brown;"></td><td id="normdesc2">The Spiritual Line</td><td id="normn2" style="background:deeppink;"></td><td id="normdesc2">The Creativity Line</td></tr><tr>
+<td id="normn2" style="background:dodgerblue;"></td><td id="normdesc2">The Communication Line</td></tr><tr>
+<td id="normn2" style="background:red;"></td><td id="normdesc2">The Effectiveness Line</td></tr><tr>
+</tr>
+</table>
 </div>
-<div id="title" style="margin-top:20px">Destiny Number</div>
+<div id="title" style="margin-top:20px">Expression or Destiny Number</div>
 <div id="content">
 To find your <i>Destiny Number</i>, calculate the root number of your full name (first, middle, last) by reducing each name to a single digit, and adding up the total.
+<br><br>
+Intimate Number + Desire Number
 </div>
+<div id="title" style="margin-top:20px">Master Numbers</div>
+<div id="content">
+11, 22 and sometimes 33 and 44</div>
+<div id="title" style="margin-top:20px">Desire Number</div>
+<div id="content">
+It's value is the reduced sum of the vowels of the full name (given at birth).<br><br>
+The Desire Number corresponds to your deep motivations, to that which is important to you. It influences you in your choices and decisions even if you are not always conscious of it. This number is related to your tastes, psychological options or deep emotions. Your Expression Number will be strongly tinted or shaded by your Desire Number. This vibration is calculated by reducing the sum of the vowels of your full name given at birth.</div>
+<div id="title" style="margin-top:20px">Intimate Number</div>
+<div id="content">
+It's the reduced sum of all the consonants of the full name.<br><br>
+The Intimate Number, also known as the “ the hidden self ”, is the unconscious base of your personality. It forms a little of the “ keep ” or the main tower of your castle. Through it you search for strength when you feel the need ; particularly in conflicting situations, each time you must confront an important problem or undertaking, when you are tense, tired or when your primordial interests are threatened. At such a time you will stop using the vibration of your Expression Number in order to lean exclusively on your Intimate Number. It is your way of reacting. The Intimate Number's vibration allows one to know the hidden character of the human being, to reveal is behavior, strategy and reactions in cases of problem, tension, stress.</div>
 </div>
 </div>
 </body>
