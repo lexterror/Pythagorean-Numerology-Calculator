@@ -286,15 +286,15 @@ Pythagorean </span><span style="color:#ff3100;">N</span><span style="color:#ff3a
     width: 450px;
     overflow-y: hidden;
     padding-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 </style>
-
+<!--
 <div id="datasentries">
 <label style="color:orange;">Data Entry</label><label style="float:right">Totals</label><br>
 <input type="text" name="numbers" id="numbers" style="width:320px;float:left;"><input type="text" name="display" id="display" readonly style="background: #000;color: #fff;width:100px;float:right;"><br><br>
 </div>
-
+-->
 <div id="datasentries3">
 
 <label style="width:105px;margin-left: 120px;margin-top: 15px;">Year</label>
@@ -380,8 +380,8 @@ var nines=0;
 <label style="float:left;width: 378px;margin-left:20px;margin-top: 15px;">Vowels</label><label style="right:0;width: 80px;margin-right:0px;margin-top: 15px;float:right;">Totals</label><br>
 <input type="text" name="VowelsT" id="VowelsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Vowels" id="Vowels" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
 
-<label style="float:left;width: 378px;margin-left:20px;color:orange;">Names</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
-<input type="text" name="namestotal" id="namestotal" readonly style="background: #000;color: #fff; width: 80px;margin-right:20px;"><input type="text" name="numbers" id="thenames" style="width: 378px;margin-left:20px;">
+<label style="float:left;width: 378px;margin-left:20px;color:orange;">Names<font color="white">/</font>Numbers</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
+<input type="text" name="namestotal" id="namestotal" readonly style="background: #000;color: #fff; width: 80px;margin-right:20px;"><input type="text" name="numbers" id="thenames" style="width: 378px;margin-left:20px;text-transform:uppercase;">
 
 <label style="float:left;width: 378px;margin-left:20px;">Consonants</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
 <input type="text" name="ConsonantsT" id="ConsonantsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Consonants" id="Consonants" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
@@ -484,6 +484,10 @@ canvas {
 //user is "finished typing," do something
 //function doneTyping () {
 //}
+
+
+
+/*
 function calculate() {
 
 //initialize variables
@@ -554,7 +558,7 @@ var data_entered_length = initial.length;
     if (correct_BT3.length > 1)
     document.getElementById("display").value = total1 + " / " + total2 + " / " + total3;    
 }}
-
+*/
 </script>
 <style>
 #ones {
@@ -614,14 +618,15 @@ myInput3.addEventListener('keyup', () => {
 });
 let myInput = document.getElementById('numbers');
 
-//on keyup, start the countdown
+//on keyup, start the countdown 
+/*
 myInput.addEventListener('keyup', () => {
     clearTimeout(typingTimer);
     if (myInput.value) {
         typingTimer = setTimeout(calculate, doneTypingInterval);
     }
 });
-
+*/
 myInput5.addEventListener('keyup', () => {
     clearTimeout(typingTimer);
     if (myInput5.value) {
@@ -730,7 +735,47 @@ var thenames =  document.getElementById("thenames").value;
 
     for (i = 0; i < names_data_entered_length; i++)
     {
-
+    
+    if (namesumbers[i] == "1")
+    {
+    ones++;
+    }
+    if (namesumbers[i] == "2")
+    {
+    twos++;
+    }
+    if (namesumbers[i] == "3")
+    {
+    threes++;
+    }
+    if (namesumbers[i] == "4")
+    {
+    fours++;
+    }
+    if (namesumbers[i] == "5")
+    {
+    fives++;
+    }
+    if (namesumbers[i] == "6")
+    {
+    sixes++;
+    }
+    if (namesumbers[i] == "7")
+    {
+    sevens++;
+    }
+    if (namesumbers[i] == "8")
+    {
+    eights++;
+    }
+    if (namesumbers[i] == "9")
+    {
+    nines++;
+    }
+    
+    
+    
+    
     if (namesumbers[i] == "a")
     {
     vowelstrack++;
