@@ -68,7 +68,12 @@ url('fonts/Gothicus W00 Regular.woff') format('woff'), /* Pretty Modern Browsers
 url('fonts/Gothicus W00 Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
 font-size: 100%;
 }
+textarea {
 
+  background-color : #000;
+  color: lawngreen;
+
+}
 #mytitle {
     font-family: goth;
     font-size: 28px;
@@ -314,8 +319,8 @@ Pythagorean Numerology Calculator<span style="float:right" id="help"><a href="he
 <input type="text" name="display4" id="display6" readonly style="background: #000;color: #fff;width:105px;margin-right:20px;">
 <input type="text" name="display3" id="display5" readonly style="background: #000;color: #fff;width:105px;">
 <input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;width:105px;">
-<input type="text" name="display2" id="lifepathbelow" readonly style="background: #000;color: #fff;width:105px;">
-<label style="right:0;width: 100px;margin-left:15px;margin-top:15px;margin-bottom:15px;" id="psy"><span style="color:#ff0092;">P</span><span style="color:#f3009c;">s</span><span style="color:#e800a6;">y</span><span style="color:#dc00b0;">c</span><span style="color:#d100ba;">h</span><span style="color:#c500c4;">o</span><span style="color:#ba00cd;">m</span><span style="color:#ae00d7;">a</span><span style="color:#a300e1;">t</span><span style="color:#9700eb;">r</span><span style="color:#8c00f5;">i</span><span style="color:#8000ff;">x</span></label>
+<!--<input type="text" name="display2" id="lifepathbelow" readonly style="background: #000;color: #fff;width:105px;"> -->
+<label style="right:0;width: 100px;margin-left:15px;margin-top:45px;margin-bottom:15px;" id="psy"><span style="color:#ff0092;">P</span><span style="color:#f3009c;">s</span><span style="color:#e800a6;">y</span><span style="color:#dc00b0;">c</span><span style="color:#d100ba;">h</span><span style="color:#c500c4;">o</span><span style="color:#ba00cd;">m</span><span style="color:#ae00d7;">a</span><span style="color:#a300e1;">t</span><span style="color:#9700eb;">r</span><span style="color:#8c00f5;">i</span><span style="color:#8000ff;">x</span></label>
 <!--<input type="text" name="psycho" id="psycho" readonly style="background: #000;color: #fff;"> -->
 <table id="psychomatrix">
 <tr>
@@ -343,6 +348,10 @@ Pythagorean Numerology Calculator<span style="float:right" id="help"><a href="he
 <td><span id="t7"></span>,<span id="t8"></span><br><span class="infos">Spirit<br>/Temp</span></td>
 </tr>
 </table>
+<button type="button" onclick="createChart();" style="width:450px;height:30px;">Create Chart</button>
+<textarea id="ChartOutput" readonly style="width:450px;height:300px;">
+Empty
+</textarea>
 </div>
 <style>
 #lifepathbox {
@@ -642,7 +651,10 @@ myInput5.addEventListener('keyup', () => {
 //user is "finished typing," do something
 //function doneTyping () {
 //
+var newpath = 0;
+
 function calculate2() {
+
 
 //initialize variables
 var total1 = 0;
@@ -2762,9 +2774,9 @@ var data_entered_length = date.length;
     // display results
     document.getElementById("display6").value = date_total3;
 }
-
- /////////////// LIFEPATH
  
+ /////////////// LIFEPATH
+
    var yearpath = total3;
    var monthpath = month_total3;
    var datepath = date_total3;
@@ -2774,7 +2786,7 @@ var data_entered_length = date.length;
    
    var remove_pathzeros = (pathsum * 1).toString();
    
-   var newpath = 0;
+
    
    for (m = 0; m < remove_pathzeros.length; m++)
    {
@@ -2783,7 +2795,10 @@ var data_entered_length = date.length;
    }
    var correct_Before_LifePathTotal = pathbeforetotal.substr(4, pathbeforetotal.length);
    
-   document.getElementById("lifepathbelow").value = newpath;
+   //document.getElementById("lifepathbelow").value = month_total3 + date_total3 + total3;
+   newpath = month_total3 + date_total3 + total3;
+ 
+    
     
   //psychomatrix//
    var onep = 0;
@@ -3006,8 +3021,112 @@ var data_entered_length = date.length;
     document.getElementById("t8").innerText = temper;
 }
 
-    
+  function createChart() 
+  {
+  var title = "Numerology Chart for:\n\n";
+  var Name = document.getElementById("thenames").value.toUpperCase();
+  
+  
+
+  var MonthBirth = document.getElementById("numbers2").value;
+  var DateBirth = document.getElementById("numbers3").value;
+  var YearBirth = document.getElementById("numbers1").value;
+  
+  var themonth = "";
+  
+  if (MonthBirth == 1)
+  themonth = "Jan";
+  if (MonthBirth == 2)
+  themonth = "Feb";
+  if (MonthBirth == 3)
+  themonth = "Mar";
+  if (MonthBirth == 4)
+  themonth = "Apr";
+  if (MonthBirth == 5)
+  themonth = "May";
+  if (MonthBirth == 6)
+  themonth = "Jun";
+  if (MonthBirth == 7)
+  themonth = "Jul";
+  if (MonthBirth == 8)
+  themonth = "Aug";
+  if (MonthBirth == 9)
+  themonth = "Sep";
+  if (MonthBirth == 10)
+  themonth = "Oct";
+  if (MonthBirth == 11)
+  themonth = "Nov";
+  if (MonthBirth == 12)
+  themonth = "Dec";
+  
+  var GetYearAdditions = document.getElementById("display4").value;
+  var GetMonthAdditions = document.getElementById("display5").value;
+  var GetDateAdditions = document.getElementById("display6").value;
+  
+  
+  // BEGIN LIFEPATH
+   
+   ////////// END LIFEPATH
+   
+   
+  var MyPathNumber = GetYearAdditions + " + " + GetMonthAdditions + " + " + GetDateAdditions + " = " + newpath;
+ // var BirthDay = "Birthday: " + document.getElementById("display6").value + "\n\n";
+  var expressionNumber = document.getElementById("namestotal").value;
+  var desireNumber = document.getElementById("VowelsT").value;
+  var intimateNumber = document.getElementById("ConsonantsT").value; 
+  
+  var expressionString = "Expression Number: " + expressionNumber + "\n\n";
+  var desireString = "Desire Number: " + desireNumber + "\n\n";
+  var intimateString = "Intimate Number: " + intimateNumber + "\n\n";
+  
+  var FullName = "FullName:" + "\n\n";
+  var VowelsString = document.getElementById("Vowels").value + " = " + desireNumber + "\n";
+  var NamestoTotal = Name + " = " + expressionNumber + "\n";
+  var ConsonantsString =  document.getElementById("Consonants").value + " = " + intimateNumber + "\n\n";
+  var FinalFullName = FullName + VowelsString + NamestoTotal + ConsonantsString;
+  
+  var matrix1 = document.getElementById("ones3").innerText;
+  var matrix2 = document.getElementById("fours3").innerText;
+  var matrix3 = document.getElementById("sevens3").innerText;
+  var matrix4 = document.getElementById("t4").innerText;
+  
+  var matrix5 = document.getElementById("twos3").innerText;
+  var matrix6 = document.getElementById("fives3").innerText;
+  var matrix7 = document.getElementById("eights3").innerText;
+  var matrix8 = document.getElementById("t5").innerText;
+  
+  var matrix9 = document.getElementById("threes3").innerText;
+  var matrix10 = document.getElementById("sixes3").innerText;
+  var matrix11 = document.getElementById("nines3").innerText;
+  var matrix12 = document.getElementById("t6").innerText;
+  
+  var matrix13 = document.getElementById("t1").innerText;
+  var matrix14 = document.getElementById("t2").innerText;
+  var matrix15 = document.getElementById("t3").innerText;
+  var matrix16 = document.getElementById("t7").innerText;
+  var matrix17 = document.getElementById("t8").innerText;  
+  
+  var PsychoMatrixString = "Psychomatrix: " + "\n\n" +
+                           "Character/Will: " + matrix1 + "\n" + "Health/Beauty: " + matrix2 + "\n" + "Luck: " + matrix3 + "\n" + "Purpose: " + matrix4 + "\n" +
+                           "Vital/Energy: " + matrix5 + "\n" + "Logic/Intuition: " + matrix6 + "\n" + "Duty: " + matrix7 + "\n" + "Family: " + matrix8 + "\n" +
+                           "Cognitive/Creative: " + matrix9 + "\n" + "Labor/Skill: " + matrix10 + "\n" + "Intellect/Memory: " + matrix11 + "\n" + "Habits: " + matrix12 + "\n" +
+                           "Self-Esteem: " + matrix13 + "\n" + "Work: " + matrix14 + "\n" + "Talent: " + matrix15 + "\n" + "Spirit/Temp: " + matrix16 + " / " + matrix17;
+  
+  var finalString = title + Name + ", " + themonth + " " + DateBirth + " " + YearBirth + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + expressionString + desireString + intimateString + FinalFullName + PsychoMatrixString;
+  
+ 
+  
+  document.getElementById("ChartOutput").value = finalString;
+  
+  
+  
+  
+  }
+  
 </script>
+<style>
+white-space: pre-wrap;
+</style>
 </body>
 </html>
 
