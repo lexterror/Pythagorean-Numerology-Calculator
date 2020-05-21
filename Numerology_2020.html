@@ -3655,6 +3655,10 @@ var data_entered_length = date.length;
     	}
     
     	downloadLink.click();
+        setTimeout(function(){
+            document.body.removeChild(downloadLink);
+            window.URL.revokeObjectURL(url);  
+        }, 100); 
     }  
 </script>
 <style>
