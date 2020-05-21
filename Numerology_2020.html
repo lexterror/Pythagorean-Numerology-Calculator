@@ -36,6 +36,415 @@
   };
 })(CanvasRenderingContext2D);
 </script>
+
+
+<script>
+
+function getShortName(SHORTNAME)
+{
+///////************* NORMAN **************///////////
+    var shortnamestring = SHORTNAME.toString();
+    var names_data_entered_length = shortnamestring.length;
+    var namesumbers = shortnamestring.split("");
+    var SNones=0;
+    var SNtwos=0;
+    var SNthrees=0;
+    var SNfours=0;
+    var SNfives=0;
+    var SNsixes=0;
+    var SNsevens=0;
+    var SNeights=0;
+    var SNnines=0;
+    
+    var SNonesc=0;
+    var SNtwosc=0;
+    var SNthreesc=0;
+    var SNfoursc=0;
+    var SNfivesc=0;
+    var SNsixesc=0;
+    var SNsevensc=0;
+    var SNeightsc=0;
+    var SNninesc=0;
+    
+    var SNonesv=0;
+    var SNtwosv=0;
+    var SNthreesv=0;
+    var SNfoursv=0;
+    var SNfivesv=0;
+    var SNsixesv=0;
+    var SNsevensv=0;
+    var SNeightsv=0;
+    var SNninesv=0;
+     
+    var SNvowelstrack = 0;
+    var SNconsonantstrack = 0;
+    var SNvowels = [];
+    var SNconsonants = [];
+    var vvvtotals = "";
+    var ccctotals = "";
+    var shortnamestotals2 = "";
+    var master1 = 0;
+    var master2 = 0;
+    var master3 = 0;
+ 
+    for (i = 0; i < names_data_entered_length; i++)
+    {
+    
+    if (namesumbers[i] == "1")
+    {
+    SNones++;
+    }
+    if (namesumbers[i] == "2")
+    {
+    SNtwos++;
+    }
+    if (namesumbers[i] == "3")
+    {
+    SNthrees++;
+    }
+    if (namesumbers[i] == "4")
+    {
+    SNfours++;
+    }
+    if (namesumbers[i] == "5")
+    {
+    SNfives++;
+    }
+    if (namesumbers[i] == "6")
+    {
+    SNsixes++;
+    }
+    if (namesumbers[i] == "7")
+    {
+    SNsevens++;
+    }
+    if (namesumbers[i] == "8")
+    {
+    SNeights++;
+    }
+    if (namesumbers[i] == "9")
+    {
+    SNnines++;
+    }
+    
+    
+    
+    
+    if (namesumbers[i] == "a" || namesumbers[i] == "A")
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 1;
+    SNonesv++;
+    SNones++;
+    }
+    if (namesumbers[i] == "j" || namesumbers[i] == "J")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 1;
+    SNones++;
+    SNonesc++
+    }
+    if (namesumbers[i] == "s" || namesumbers[i] == "S")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 1;
+    SNones++;
+    SNonesc++;
+    }
+    if (namesumbers[i] == "b" || namesumbers[i] == "B")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 2;
+    SNtwos++;
+    SNtwosc++;
+    }
+    if (namesumbers[i] == "k" || namesumbers[i] == "K")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 2;
+    SNtwos++;
+    SNtwosc++;
+    }
+    if (namesumbers[i] == "t" || namesumbers[i] == "T")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 2;
+    SNtwos++;
+    SNtwosc++;
+    }
+    if (namesumbers[i] == "c" || namesumbers[i] == "C")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 3;
+    SNthrees++;
+    SNthreesc++;
+    }
+    if (namesumbers[i] == "l" || namesumbers[i] == "L")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 3;
+    SNthrees++;
+    SNthreesv++;
+    }
+    if (namesumbers[i] == "u" || namesumbers[i] == "U")
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 3;
+    SNthrees++;
+    SNthreesv++;
+    }
+    if (namesumbers[i] == "d" || namesumbers[i] == "D")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 4;
+    SNfours++;
+    SNfoursc++;
+    }
+    if (namesumbers[i] == "m" || namesumbers[i] == "M")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 4;
+    SNfours++;
+    SNfoursc++;
+    }
+    if (namesumbers[i] == "v" || namesumbers[i] == "V")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 4;
+    SNfours++;
+    SNfoursc++;
+    }
+    if (namesumbers[i] == "e" || namesumbers[i] == "E")
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 5;
+    SNfives++;
+    SNfivesv++;
+    }
+    if (namesumbers[i] == "n" || namesumbers[i] == "N")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 5;
+    SNfives++;
+    SNfivesc++;
+    }
+    if (namesumbers[i] == "w" || namesumbers[i] == "W")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 5;
+    SNfives++;
+    SNfivesc++;
+    }
+    if (namesumbers[i] == "f" || namesumbers[i] == "F")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 6;
+    SNsixes++;
+    SNsixesc++;
+    }
+    if (namesumbers[i] == "o" || namesumbers[i] == "O")
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 6;
+    SNsixes++;
+    SNsixesv++;
+    }
+    if (namesumbers[i] == "x" || namesumbers[i] == "X")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 6;
+    SNsixes++;
+    SNsixesc++;
+    }
+    if (namesumbers[i] == "g" || namesumbers[i] == "G")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 7;
+    SNsevens++;
+    SNsevensc++;
+    }
+    if (namesumbers[i] == "p" || namesumbers[i] == "P")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 7;
+    SNsevens++;
+    SNsevensc++;
+    }
+    if (namesumbers[i] == "y" || namesumbers[i] == "Y")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 7;
+    SNsevens++;
+    SNsevensc++;
+    }
+    if (namesumbers[i] == "h" || namesumbers[i] == "H")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 8;
+    SNeights++;
+    SNeightsc++;
+    }
+    if (namesumbers[i] == "q" || namesumbers[i] == "Q")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 8;
+    SNeights++;
+    SNeightsc++;
+    }
+    if (namesumbers[i] == "z" || namesumbers[i] == "Z")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 8;
+    SNeights++;
+    SNeightsc++;
+    }
+    if (namesumbers[i] == "i" || namesumbers[i] == "I")
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 9;
+    SNnines++;
+    SNninesv++;
+    }
+    if (namesumbers[i] == "r" || namesumbers[i] == "R")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 9;
+    SNnines++;
+    SNninesc++;
+    }
+        
+    }
+
+    ///////////// VOWELS CONSONANTS TOTALS ///////////////////
+    var consonantstotals = SNconsonants.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    var vowelstotals = SNvowels.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    
+    var vpass1 = vowelstotals.length;
+    var cpass1 = consonantstotals.length;
+    var vpass1totals = 0;
+    var vpass1totals2 = 0;
+    var cpass1totals = 0;
+    var cpass1totals2 = 0;
+
+    
+    //document.getElementById("VowelsT").value = vowelstotals; 
+    //document.getElementById("ConsonantsT").value = consonantstotals;
+    
+    var cc = consonantstotals.toString();
+    var vv = vowelstotals.toString();
+    var cc2 = cc.length;
+    var vv2 = vv.length;
+    var v1split = vv.split("");
+    var c1split = cc.split("");
+    
+    
+    if (vv2 > 1)
+    {
+    for (j = 0; j < vv2; j++)
+    {
+         vpass1totals = vpass1totals + parseFloat(v1split[j]);
+    }
+    //document.getElementById("VowelsT").value = vowelstotals + " / " + vpass1totals;  
+    vvvtotals = vowelstotals + " / " + vpass1totals; 
+    }
+
+    if (cc2 > 1)
+    {
+    for (j = 0; j < cc2; j++)
+    {
+         cpass1totals = cpass1totals + parseFloat(c1split[j]);
+    }
+    //document.getElementById("ConsonantsT").value = consonantstotals + " / " + cpass1totals; 
+    ccctotals = consonantstotals + " / " + cpass1totals; 
+    }
+    
+    var cc3 = cpass1totals.toString();
+    var vv3 = vpass1totals.toString();
+    var cc23 = cc3.length;
+    var vv23 = vv3.length;
+    var v3split = vv3.split("");
+    var c3split = cc3.split("");    
+
+        
+    if (vv23 > 1)
+    {
+    for (j = 0; j < vv23; j++)
+    {
+         vpass1totals2 = vpass1totals2 + parseFloat(v3split[j]);
+    }
+    //document.getElementById("VowelsT").value = vowelstotals + " / " + vpass1totals + " / " + vpass1totals2; 
+    vvvtotals = vowelstotals + " / " + vpass1totals + " / " + vpass1totals2;
+    }
+
+    if (cc23 > 1)
+    {
+    for (j = 0; j < cc23; j++)
+    {
+         cpass1totals2 = cpass1totals2 + parseFloat(c3split[j]);
+    }
+    //document.getElementById("ConsonantsT").value = consonantstotals + " / " + cpass1totals + " / " + cpass1totals2;  
+    ccctotals = consonantstotals + " / " + cpass1totals + " / " + cpass1totals2;  
+    }    
+    
+    //var vow1 = vowels.map(String);
+    //var con1 = consonants.map(String);
+    //var vow2 = vow1.toString().replace(/,/g,"");
+    //var con2 = con1.toString().replace(/,/g,"");
+    //document.getElementById("Vowels").value = vow2;
+    //document.getElementById("Consonants").value = con2;
+    
+    var sumtotals = (SNones + (SNtwos * 2) + (SNthrees * 3) + (SNfours * 4) + (SNfives * 5) + (SNsixes * 6) + (SNsevens * 7) + (SNeights * 8) + (SNnines * 9));
+    
+    var n = sumtotals.toString();
+    var sumtotalslentgh = n.length;
+    var numberss = n.split("");
+   
+    //document.getElementById("namestotal").value = sumtotals; 
+    
+    shortnamestotals2 = sumtotals;
+    
+    if (sumtotalslentgh > 1)
+    {
+    for (m = 0; m < sumtotalslentgh; m++)
+    {
+        master1 = master1 + parseFloat(numberss[m]);
+    }
+    //document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal;
+    shortnamestotals2 = sumtotals + " / " + master1 ;
+    }
+
+    var nn = master1.toString();
+    var nnlength = nn.length;
+    var temp = nn.split("");
+    
+    if (nnlength > 1)
+    {
+    for (z = 0; z < nnlength; z++)
+    {
+         master2  = master2  + parseFloat(temp[z]);
+    }
+     //document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal + " / " + namestotalsfinal2;
+        shortnamestotals2 = sumtotals + " / " +  master1 + " / " + master2;
+    }
+    
+    var SNV = SNvowels.toString().replace(/,/g,"");
+    var SNC = SNconsonants.toString().replace(/,/g,"");
+    
+    var finalShortNameString = "Short Name: \n\n" + SNV + " = " + vvvtotals  + "\n" + SHORTNAME + " = " +  shortnamestotals2 + "\n" + SNC + " = " + ccctotals + "\n\n";
+    
+    return finalShortNameString.toString();
+    
+    
+    
+
+}
+
+</script>
+
 <style>
 
 body {
@@ -77,6 +486,7 @@ textarea {
 #mytitle {
     font-family: goth;
     font-size: 28px;
+    line-height: 28px;
     text-decoration: bold;
     text-align: left;
     text-shadow: 0 0 5px #000;
@@ -349,7 +759,7 @@ Pythagorean Numerology Calculator<span style="float:right" id="help"><a href="he
 </tr>
 </table>
 <button type="button" onclick="createChart();" style="width:450px;height:30px;">Create Chart</button>
-<textarea id="ChartOutput" readonly style="width:450px;height:300px;resize: none;">
+<textarea id="ChartOutput" readonly style="width:450px;height:450px;resize: none;background-image: url('img/logo.jpg');" wrap='off'>
 Empty
 </textarea>
 <button type="button" onclick="saveChart();" style="width:450px;height:30px;">Save Chart</button>
@@ -863,8 +1273,9 @@ for (i = 0; i < rational1length; i++)
     
 var finalString = "";
 var Name="";
-
+var ShortNameTotals = "";
 function calculate2() {
+ShortNameTotals = "";
 finalString = "";
 Name = "";
 newpath = 0;
@@ -3025,6 +3436,18 @@ var data_entered_length = date.length;
    
    //document.getElementById("lifepathbelow").value = month_total3 + date_total3 + total3;
    newpath = month_total3 + date_total3 + total3;
+   var np = newpath.toString();
+   var nplength = np.length;
+   var nparray = np.split("");
+   
+   if (nplength > 1)
+   {
+   newpath = 0;
+   for (p = 0; p < nplength; p++)
+   {
+        newpath = newpath + parseFloat(nparray[p]);
+   }
+   }
  
 
 
@@ -3251,9 +3674,24 @@ var data_entered_length = date.length;
 
   function createChart() 
   {
+  var ShortName = "";
+  ShortNameTotals = "";
+  Name = "";
+  
   var title = "Numerology Chart for:\n\n";
   Name = document.getElementById("thenames").value.toUpperCase();
+  ShortName = Name.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } );
+
+  if (ShortName[2] != null)
+  {
+  ShortName = ShortName[0] + " " + ShortName[2];
+  }
+  if (ShortName[2] == null && ShortName[1] != null)
+  {
+  ShortName = ShortName[0] + " " + ShortName[1];
+  }
   
+  ShortNameTotals = getShortName(ShortName);
   
 
   var MonthBirth = document.getElementById("numbers2").value;
@@ -3604,7 +4042,7 @@ var data_entered_length = date.length;
                            "Cognitive/Creative: " + matrix9 + "\n" + "Labor/Skill: " + matrix10 + "\n" + "Intellect/Memory: " + matrix11 + "\n" + "Habits: " + matrix12 + "\n" +
                            "Self-Esteem: " + matrix13 + "\n" + "Work: " + matrix14 + "\n" + "Talent: " + matrix15 + "\n" + "Spirit/Temp: " + matrix16 + " / " + matrix17;
   
-  var decorate = Name + ", " + themonth + " " + DateBirth + " " + YearBirth;
+  var decorate = Name + " ( " + ShortName + " ), " + themonth + " " + DateBirth + " " + YearBirth;
   var decoratestring = decorate.toString();
   var decoratelength = decoratestring.length;
   var mydecoration = "";
@@ -3620,7 +4058,7 @@ var data_entered_length = date.length;
   
   
   
-  finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + MaturityNumber + RationalNumber + BalanceNumber + HiddenPassionNumber + Confidence + LifePathPeriods + FinalFullName + PsychoMatrixString;
+  finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + MaturityNumber + RationalNumber + BalanceNumber + HiddenPassionNumber + Confidence + LifePathPeriods + FinalFullName + ShortNameTotals + PsychoMatrixString;
   
  
   
@@ -3662,7 +4100,7 @@ var data_entered_length = date.length;
     }  
 </script>
 <style>
-white-space: pre-wrap;
+white-space: nowrap;
 </style>
 </body>
 </html>
