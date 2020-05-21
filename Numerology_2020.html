@@ -892,13 +892,11 @@ canvas {
 </table>
 </div>
 </div>
-<div id="forecast">
-<b>Personal Year</b> Number for <span id="currentyear"></span>: <b><span id="personalyear"></span></b><br> 
-<b>Personal Month</b> Number for <span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span>: <b><span id="personalmonth"></span></b> <br>
-</div>
+
+
 <style>
 #calendar-body {
-    background: #000;
+    background: #999;
     width: 480px;
     height: 300px;
 }
@@ -956,12 +954,28 @@ canvas {
 .bg-info {
     background: lawngreen !important;
 }
+
+#personalheader {
+    width: 440px;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: left;
+    color: #000 !important;
+}
 </style>
-<div class="container col-sm-4 col-md-7 col-lg-4 mt-5">
+<div class="container col-sm-4 col-md-7 col-lg-4 mt-5" style="border-radius:10px;background:#999;margin:0 auto;">
     <div class="card">
-        <h3 class="card-header" id="monthAndYear" style="font-family:terra;font-size:32px;line-height:32px;text-shadow: 0 0 5px orange;"></h3>
+    <div id="personalheader">
+    <b>Personal Year</b> Number for <span id="currentyear"></span>: <b><span id="personalyear"></span></b><br> 
+    <b>Personal Month</b> Number for <span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span>: <b><span id="personalmonth"></span></b> <br>
+    </div>
+        <span class="card-header" id="monthAndYear" style="font-family:arial;font-size:16px;line-height:16px;text-shadow: 0 0 5px white;margin-bottom: 20px; padding-top: 20px;padding-left: 20px;padding-right: 20px; float:right;text-align:center; width: 440px; color:#000 !important;"></span>
+        
+        <div id="personalheader">
+        The plain numbers in the calendar are the date numbers. The numbers in a circle are the personal day numbers.
+        </div>
        
-        <table class="table table-bordered table-responsive-sm" id="calendar" style="background: #000;color:#fff;">
+        <table class="table table-bordered table-responsive-sm" id="calendar" style="background: #999;color:#fff;margin:0 auto;padding-bottom:30px;padding-top:20px;">
             <thead>
             <tr>
                 <th>Sun</th>
@@ -3959,7 +3973,7 @@ function showCalendar(month, year) {
     tbl.innerHTML = "";
 
     // filing data about month and in the page via DOM.
-    monthAndYear.innerHTML = months[month] + " " + year;
+    monthAndYear.innerHTML = "Personal Day Calendar for: " + months[month] + " " + year;
     selectYear.value = year;
     selectMonth.value = month;
 
