@@ -908,10 +908,11 @@ canvas {
     height: 64px;
     background: #555;
     color: #fff;
-    font-family:goth;
+    font-family:arial;
     font-size: 18px;
     line-height: 18px;
     text-shadow: 0 0 5px red;
+    
 }
 
 #previous {
@@ -930,6 +931,26 @@ canvas {
 #month {
   width: 480px;
   color: #000;
+}
+
+#personaldays {
+
+    height: 35px;
+    width: 35px;
+    font-size: 24px !important;
+    line-height: 24px !important;
+    -moz-border-radius: 50px; /* or 50% */
+    border-radius: 50px; /* or 50% */
+    top:0 !important;
+    right:0 !important;
+    background-color: dodgerblue;
+    color: white;
+    float:right !important;
+    text-align: center !important;
+    font-family: goth;
+    vertical-align: middle !important;
+    text-shadow: 0 0 5px purple !important;
+    
 }
 
 .bg-info {
@@ -3952,6 +3973,8 @@ function showCalendar(month, year) {
         for (let j = 0; j < 7; j++) {
             if (i === 0 && j < firstDay) {
                 let cell = document.createElement("td");
+               
+
                 let cellText = document.createTextNode("");
                 cell.appendChild(cellText);
                 row.appendChild(cell);
@@ -3975,6 +3998,23 @@ function showCalendar(month, year) {
                     
                 } else { countdate = parseFloat(date); }
                 
+               /* var getPersonalDayNumbers = countdate + countmonths;
+                var GPDN_string = getPersonalDayNumbers.toString();
+                var GPDN_split = GPDN_string.split("");
+                var GPDN_length = GPDN_string.length;
+                var GPDN_final = 0;
+                
+                if (GPDN_length > 1)
+                {
+                    for (d = 0; d < GPDN_length; d++)
+                    {
+                        GPDN_final = GPDN_final + parseFloat(GPDN_split[d]);
+                    }
+                } else { GPDN_final = GPDN_string; }
+                */
+               // var newcontent = "<span id='personaldays'>" +  GPDN_final.toString() + "</span>";
+                
+                //date = date + "<span id='personaldays'>" +  GPDN_final.toString() + "</span>";
                 var getPersonalDayNumbers = countdate + countmonths;
                 var GPDN_string = getPersonalDayNumbers.toString();
                 var GPDN_split = GPDN_string.split("");
@@ -3990,7 +4030,10 @@ function showCalendar(month, year) {
                 } else { GPDN_final = GPDN_string; }
                 
                 
-                let cellText = document.createTextNode(date + " (("  + GPDN_final.toString() + "))");
+                cell.innerHTML = "<span id='personaldays'>" +  GPDN_final.toString() + "</span>";
+                
+                
+                let cellText = document.createTextNode(date);
                 
         
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
