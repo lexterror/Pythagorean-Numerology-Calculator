@@ -859,6 +859,15 @@ canvas {
     width:480px;
     height:480px;
 }
+
+#forecast {
+    width: 440px;
+    padding: 20px;
+    background: #666;
+    text-align: left;
+    color: #fff;
+    margin-top: 10px;
+}
 </style>
 <div id="container">
 <canvas id="DemoCanvas" width="480" height="480"></canvas>
@@ -883,11 +892,13 @@ canvas {
 </table>
 </div>
 </div>
-<b>Personal Year</b> Number for <span id="currentyear"></span>: <span id="personalyear"></span><br> 
-<b>Personal Month</b> Number for <span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span>: <span id="personalmonth"></span> <br>
+<div id="forecast">
+<b>Personal Year</b> Number for <span id="currentyear"></span>: <b><span id="personalyear"></span></b><br> 
+<b>Personal Month</b> Number for <span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span>: <b><span id="personalmonth"></span></b> <br>
+</div>
 <style>
 #calendar-body {
-    background: #fff;
+    background: #000;
     width: 480px;
     height: 300px;
 }
@@ -895,7 +906,7 @@ canvas {
 #calendar-body td {
     width: 64px;
     height: 64px;
-    background: #000;
+    background: #555;
     color: #fff;
     font-family:goth;
     font-size: 18px;
@@ -929,7 +940,7 @@ canvas {
     <div class="card">
         <h3 class="card-header" id="monthAndYear" style="font-family:terra;font-size:32px;line-height:32px;text-shadow: 0 0 5px orange;"></h3>
        
-        <table class="table table-bordered table-responsive-sm" id="calendar" style="background: #aaa;">
+        <table class="table table-bordered table-responsive-sm" id="calendar" style="background: #000;color:#fff;">
             <thead>
             <tr>
                 <th>Sun</th>
@@ -949,12 +960,12 @@ canvas {
 
         <div class="form-inline">
 
-            <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()">Previous</button>
+            <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()" style="display:none">Previous</button>
 
-            <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()">Next</button>
+            <button class="btn btn-outline-primary col-sm-6" id="next" style="display:none">Next</button>
         </div>
- <form class="form-inline">
-            <label class="lead mr-2 ml-2" for="month">Jump To: </label>
+ <form class="form-inline" style="display:none;">
+            <label class="lead mr-2 ml-2" for="month"></label>
             <select class="form-control col-sm-4" name="month" id="month" onchange="jump()">
                 <option value=0>Jan</option>
                 <option value=1>Feb</option>
