@@ -652,6 +652,214 @@ myInput5.addEventListener('keyup', () => {
 //function doneTyping () {
 //
 var newpath = 0;
+var namestotalsfinal2 = 0;
+
+/*
+function findRepeat(str) {
+  const arr = str.split('');
+  const hash = new Map();
+  const result = [];
+  // If repeat the value is false, if no repeat the value is true
+  for (let i = 0; i < arr.length; i++) {
+    if (hash.get(arr[i]) === undefined) {
+    
+      hash.set(arr[i], true);
+      
+    } else {
+      const value = hash.get(arr[i]);
+      if (value) {
+        hash.set(arr[i], !value);
+      }
+    }
+  }
+  
+  hash.forEach((v, k) => {
+    if (!v)
+    {
+      result.push(k);
+      }
+  });
+  return result;
+}*/
+
+function findRepeat(str){
+  const result = [];
+  const strArr = str.toLowerCase().split("").sort().join("").match(/(.)(.*\1+){2}/g);
+  
+  // (.)(.*\1){3}
+  // .*(\w).*\1.*\1.*\1.*
+
+  function number_exists_3_times(input) {
+    var result = false, matches;
+    for (i = 0; i <= 9 && result === false; i += 1) {
+        matches = input.match(new RegExp("" + i, "g"));
+        result = (matches !== null && matches.length >= 3);
+    }
+    return result;
+  }
+  
+  
+  if (strArr != null) {
+    strArr.forEach((elem) => {
+      result.push(elem[0]);
+    });
+  }
+  return result;
+}
+
+function findRepeatOwn(str){
+  const result = [];
+  const strArr = str.toLowerCase().split("").sort().join("").match(/(.)\1+/g);
+  
+  // (.)(.*\1){3}
+  // .*(\w).*\1.*\1.*\1.*
+
+  function number_exists_3_times(input) {
+    var result = false, matches;
+    for (i = 0; i <= 9 && result === false; i += 1) {
+        matches = input.match(new RegExp("" + i, "g"));
+        result = (matches !== null && matches.length >= 3);
+    }
+    return result;
+  }
+  
+  
+  if (strArr != null) {
+    strArr.forEach((elem) => {
+      result.push(elem[0]);
+    });
+  }
+  return result;
+}
+
+function whatsletter(rational1length, rational1)
+{
+var firstnametotalonly = 0;
+
+for (i = 0; i < rational1length; i++)
+  {
+
+    if (rational1 == "a" || rational1 == "A")
+    {
+    
+    firstnametotalonly = firstnametotalonly + 1;
+    
+    }
+    if (rational1 == "j" || rational1 == "J")
+    {
+    
+     firstnametotalonly = firstnametotalonly + 1;
+   
+   }
+    if (rational1 == "s" || rational1 == "S")
+    {
+    
+    firstnametotalonly = firstnametotalonly + 1;
+    }
+    if (rational1 == "b" || rational1 == "B")
+    {
+    
+    firstnametotalonly = firstnametotalonly + 2;
+    }
+    if (rational1 == "k" || rational1 == "K")
+    {
+    
+     firstnametotalonly = firstnametotalonly + 2;
+     
+    }
+    if (rational1 == "t" || rational1 == "T")
+    {
+    
+     firstnametotalonly = firstnametotalonly + 2;
+    }
+    if (rational1 == "c" || rational1 == "C")
+    {
+    
+     firstnametotalonly = firstnametotalonly + 3;
+    }
+    if (rational1 == "l" || rational1 == "L")
+    {
+    
+     firstnametotalonly = firstnametotalonly + 3;
+    }
+    if (rational1 == "u" || rational1 == "U")
+    {
+     firstnametotalonly = firstnametotalonly + 3;
+    }
+    if (rational1 == "d" || rational1 == "D")
+    {
+     firstnametotalonly = firstnametotalonly + 4;
+    }
+    if (rational1 == "m" || rational1 == "M")
+    {
+     firstnametotalonly = firstnametotalonly + 4;
+    }
+    if (rational1 == "v" || rational1 == "V")
+    {
+     firstnametotalonly = firstnametotalonly + 4;
+    }
+    if (rational1 == "e" || rational1 == "E")
+    {
+     firstnametotalonly = firstnametotalonly + 5;
+    }
+    if (rational1 == "n" || rational1 == "N")
+    {
+     firstnametotalonly = firstnametotalonly + 5;
+    }
+    if (rational1 == "w" || rational1 == "W")
+    {
+     firstnametotalonly = firstnametotalonly + 5;
+    }
+    if (rational1 == "f" || rational1 == "F")
+    {
+     firstnametotalonly = firstnametotalonly + 6;
+    }
+    if (rational1 == "o" || rational1 == "O")
+    {
+     firstnametotalonly = firstnametotalonly + 6;
+    }
+    if (rational1 == "x" || rational1 == "X")
+    {
+     firstnametotalonly = firstnametotalonly + 6;
+    }
+    if (rational1 == "g" || rational1 == "G")
+    {
+     firstnametotalonly = firstnametotalonly + 7;
+    }
+    if (rational1 == "p" || rational1 == "P")
+    {
+     firstnametotalonly = firstnametotalonly + 7;
+    }
+    if (rational1 == "y" || rational1 == "Y")
+    {
+     firstnametotalonly = firstnametotalonly + 7;
+    }
+    if (rational1 == "h" || rational1 == "H")
+    {
+     firstnametotalonly = firstnametotalonly + 8;
+    }
+    if (rational1 == "q" || rational1 == "Q")
+    {
+     firstnametotalonly = firstnametotalonly + 8;
+    }
+    if (rational1 == "z" || rational1 == "Z")
+    {
+     firstnametotalonly = firstnametotalonly + 8;
+    }
+    if (rational1 == "i" || rational1 == "I")
+    {
+     firstnametotalonly = firstnametotalonly + 9;
+    }
+    if (rational1 == "r" || rational1 == "R")
+    {
+     firstnametotalonly = firstnametotalonly + 9;
+    }  
+
+    }
+    
+    return firstnametotalonly;
+};    
+    
 
 function calculate2() {
 
@@ -1094,7 +1302,7 @@ var thenames =  document.getElementById("thenames").value;
     var sumtotalslentgh = n.length;
     var numberss = n.split("");
     var namestotalsfinal = 0;
-    var namestotalsfinal2 = 0;
+    
     
     for (m = 0; m < sumtotalslentgh; m++)
     {
@@ -2723,7 +2931,9 @@ var data_entered_length = month.length;
     }
     //(""+n).split("");
     // display results
-    document.getElementById("display5").value =  month_total3;
+    document.getElementById("display5").value =  month_total1 + " / " + month_total3;
+    if (month == 11)
+    document.getElementById("display5").value =  11 + " / " + month_total3;
 }
 
 //// DATE
@@ -2772,7 +2982,12 @@ var data_entered_length = date.length;
     }
     //(""+n).split("");
     // display results
-    document.getElementById("display6").value = date_total3;
+    
+    document.getElementById("display6").value = date_total1 + " / " + date_total3;
+    if (date == 11)
+    document.getElementById("display6").value = "11" + " / " + date_total3;
+    if (date == 22)
+    document.getElementById("display6").value = "22" + " / " + date_total3;
 }
  
  /////////////// LIFEPATH
@@ -2798,8 +3013,8 @@ var data_entered_length = date.length;
    //document.getElementById("lifepathbelow").value = month_total3 + date_total3 + total3;
    newpath = month_total3 + date_total3 + total3;
  
-    
-    
+
+
   //psychomatrix//
    var onep = 0;
    var twop = 0;
@@ -3070,14 +3285,263 @@ var data_entered_length = date.length;
    
    
   var MyPathNumber = GetYearAdditions + " + " + GetMonthAdditions + " + " + GetDateAdditions + " = " + newpath;
- // var BirthDay = "Birthday: " + document.getElementById("display6").value + "\n\n";
+  var BirthDay = "Birthday: " + document.getElementById("numbers3").value + " / " + document.getElementById("display6").value + "\n\n";
   var expressionNumber = document.getElementById("namestotal").value;
   var desireNumber = document.getElementById("VowelsT").value;
   var intimateNumber = document.getElementById("ConsonantsT").value; 
   
-  var expressionString = "Expression Number: " + expressionNumber + "\n\n";
+  var expressionString = "Expression/Destiny Number: " + expressionNumber + "\n\n";
   var desireString = "Desire Number: " + desireNumber + "\n\n";
-  var intimateString = "Intimate Number: " + intimateNumber + "\n\n";
+  var intimateString = "Intimate/Personality Number: " + intimateNumber + "\n\n";
+  
+  var MaturityNumbers = newpath + namestotalsfinal2;
+  var MaturityNumber = "Maturity Number: " + MaturityNumbers + "\n\n";
+  
+  var rationalget = document.getElementById("thenames").value;
+  var rationalbegin = rationalget.substr(0,rationalget.indexOf(' '));
+  var rational1 = rationalbegin.split("");
+  var rational1length = rationalbegin.length;
+  
+  var firstnametotalonly = 0;
+  //variables
+  for (i = 0; i < rational1length; i++)
+  {
+
+    if (rational1[i] == "a" || rational1[i] == "A")
+    {
+    
+    firstnametotalonly = firstnametotalonly + 1;
+    
+    }
+    if (rational1[i] == "j" || rational1[i] == "J")
+    {
+    
+     firstnametotalonly = firstnametotalonly + 1;
+   
+   }
+    if (rational1[i] == "s" || rational1[i] == "S")
+    {
+    
+    firstnametotalonly = firstnametotalonly + 1;
+    }
+    if (rational1[i] == "b" || rational1[i] == "B")
+    {
+    
+    firstnametotalonly = firstnametotalonly + 2;
+    }
+    if (rational1[i] == "k" || rational1[i] == "K")
+    {
+    
+     firstnametotalonly = firstnametotalonly + 2;
+     
+    }
+    if (rational1[i] == "t" || rational1[i] == "T")
+    {
+    
+     firstnametotalonly = firstnametotalonly + 2;
+    }
+    if (rational1[i] == "c" || rational1[i] == "C")
+    {
+    
+     firstnametotalonly = firstnametotalonly + 3;
+    }
+    if (rational1[i] == "l" || rational1[i] == "L")
+    {
+    
+     firstnametotalonly = firstnametotalonly + 3;
+    }
+    if (rational1[i] == "u" || rational1[i] == "U")
+    {
+     firstnametotalonly = firstnametotalonly + 3;
+    }
+    if (rational1[i] == "d" || rational1[i] == "D")
+    {
+     firstnametotalonly = firstnametotalonly + 4;
+    }
+    if (rational1[i] == "m" || rational1[i] == "M")
+    {
+     firstnametotalonly = firstnametotalonly + 4;
+    }
+    if (rational1[i] == "v" || rational1[i] == "V")
+    {
+     firstnametotalonly = firstnametotalonly + 4;
+    }
+    if (rational1[i] == "e" || rational1[i] == "E")
+    {
+     firstnametotalonly = firstnametotalonly + 5;
+    }
+    if (rational1[i] == "n" || rational1[i] == "N")
+    {
+     firstnametotalonly = firstnametotalonly + 5;
+    }
+    if (rational1[i] == "w" || rational1[i] == "W")
+    {
+     firstnametotalonly = firstnametotalonly + 5;
+    }
+    if (rational1[i] == "f" || rational1[i] == "F")
+    {
+     firstnametotalonly = firstnametotalonly + 6;
+    }
+    if (rational1[i] == "o" || rational1[i] == "O")
+    {
+     firstnametotalonly = firstnametotalonly + 6;
+    }
+    if (rational1[i] == "x" || rational1[i] == "X")
+    {
+     firstnametotalonly = firstnametotalonly + 6;
+    }
+    if (rational1[i] == "g" || rational1[i] == "G")
+    {
+     firstnametotalonly = firstnametotalonly + 7;
+    }
+    if (rational1[i] == "p" || rational1[i] == "P")
+    {
+     firstnametotalonly = firstnametotalonly + 7;
+    }
+    if (rational1[i] == "y" || rational1[i] == "Y")
+    {
+     firstnametotalonly = firstnametotalonly + 7;
+    }
+    if (rational1[i] == "h" || rational1[i] == "H")
+    {
+     firstnametotalonly = firstnametotalonly + 8;
+    }
+    if (rational1[i] == "q" || rational1[i] == "Q")
+    {
+     firstnametotalonly = firstnametotalonly + 8;
+    }
+    if (rational1[i] == "z" || rational1[i] == "Z")
+    {
+     firstnametotalonly = firstnametotalonly + 8;
+    }
+    if (rational1[i] == "i" || rational1[i] == "I")
+    {
+     firstnametotalonly = firstnametotalonly + 9;
+    }
+    if (rational1[i] == "r" || rational1[i] == "R")
+    {
+     firstnametotalonly = firstnametotalonly + 9;
+    }  
+  
+  }
+  
+  var rational2 = firstnametotalonly + document.getElementById("numbers3").value;
+  var rationalsplit = rational2.split("");
+  var rationallength = rational2.length;
+  var rational3 = 0;
+  var rational = 0;
+  
+  for (j = 0; j < rationallength; j++)
+  {
+      rational3 = rational3 + parseFloat(rationalsplit[j]);
+  }
+  
+  var b4rational = rational3.toString();
+  var b4rationalarray = b4rational.split("");
+  
+  
+  for (k = 0; k < b4rational.length; k++)
+  {
+      rational = rational + parseFloat(b4rationalarray[k]);
+  }
+  
+  
+  var RationalNumber = "Rational Thought Number: " + rational3 + " / " + rational + "\n\n";
+  
+  var BalanceNumber = "";
+  var initals = 0;
+  var balancenumberget = document.getElementById("thenames").value;
+  var balanceit = balancenumberget.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } );
+  var firstinitial = balanceit[0];
+  var secondinitial = balanceit[1]; 
+  var thirdinitial = balanceit[2];
+  var realfirst = "";
+  var realsecond = "";
+  var realthird = "";
+  if (firstinitial != null)
+  realfirst = firstinitial.toString().charAt(0);
+  if (firstinitial == null)
+  realfirst = "";
+  if (secondinitial != null)
+  realsecond = secondinitial.toString().charAt(0);
+  if (secondinitial == null)
+  realsecond = "";
+  if (thirdinitial != null)
+  realthird = thirdinitial.toString().charAt(0);
+  if (thirdinitial == null)
+  realthird = "";
+  
+  var first = whatsletter(1, realfirst);
+  var second = whatsletter(1, realsecond);
+  var third = whatsletter(1, realthird);
+  initials = first + second + third;
+  var initialsstring = initials.toString();
+  var initialslength = initialsstring.length;
+  var initial1 = initialsstring.split("");
+  var initial1sum = 0;
+  
+  for (l = 0; l < initialslength; l++)
+  {
+    initial1sum = initial1sum + parseFloat(initial1[l]);
+  }
+  
+  var initial2sum = 0;
+  var initial2string = initial1sum.toString();
+  var initial2split = initial2string.split("");
+  var initial2length = initial2string.length;
+  
+  for (o = 0; o < initial2length; o++)
+  {
+    initial2sum = initial2sum + parseFloat(initial2split[o]);
+  }
+  
+  BalanceNumber = "Balance Number: " + initial1sum + " / " + initial2sum + "\n\n";
+  
+  var firstset = document.getElementById("Vowels").value;
+  var secondset = document.getElementById("Consonants").value;
+  var theset = firstset.toString() + secondset.toString();
+  
+  var HiddenPassionNumber = "Hidden Passion Number: " + findRepeat(theset) + "\n\n";
+  
+  var confident = theset.length;
+  var confidentString = theset.split("");
+  var confidencenumber1 = 0;
+  var confidencenumber2 = 0;
+  var confidencenumber3 = 0;
+  var confidencenumber4 = 0;
+  var confidencenumber5 = 0;
+  var confidencenumber6 = 0;
+  var confidencenumber7 = 0;
+  var confidencenumber8 = 0;
+  var confidencenumber9 = 0;
+  
+  for (l = 0; l < confident; l++)
+  {
+      if (confidentString[l] == 1)
+      confidencenumber1 = 1;
+      if (confidentString[l] == 2)
+      confidencenumber2 = 1;
+      if (confidentString[l] == 3)
+      confidencenumber3 = 1;
+      if (confidentString[l] == 4)
+      confidencenumber4 = 1;
+      if (confidentString[l] == 5)
+      confidencenumber5 = 1;
+      if (confidentString[l] == 6)
+      confidencenumber6 = 1;
+      if (confidentString[l] == 7)
+      confidencenumber7 = 1;
+      if (confidentString[l] == 8)
+      confidencenumber8 = 1;
+      if (confidentString[l] == 9)
+      confidencenumber9 = 1;
+      
+  }
+  var confidencenumber = confidencenumber1 + confidencenumber2 + confidencenumber3 + confidencenumber4 + confidencenumber5 + confidencenumber6 + confidencenumber7 + confidencenumber8 + confidencenumber9;
+  
+  var Confidence = "Subconscious Confidence Number: " + confidencenumber + "\n\n";
+  
+  var LifePathPeriods = "Life Path Periods: " + GetMonthAdditions + ", " + GetDateAdditions + ", " + GetYearAdditions + "\n\n";
   
   var FullName = "FullName:" + "\n\n";
   var VowelsString = document.getElementById("Vowels").value + " = " + desireNumber + "\n";
@@ -3112,7 +3576,7 @@ var data_entered_length = date.length;
                            "Cognitive/Creative: " + matrix9 + "\n" + "Labor/Skill: " + matrix10 + "\n" + "Intellect/Memory: " + matrix11 + "\n" + "Habits: " + matrix12 + "\n" +
                            "Self-Esteem: " + matrix13 + "\n" + "Work: " + matrix14 + "\n" + "Talent: " + matrix15 + "\n" + "Spirit/Temp: " + matrix16 + " / " + matrix17;
   
-  var finalString = title + Name + ", " + themonth + " " + DateBirth + " " + YearBirth + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + expressionString + desireString + intimateString + FinalFullName + PsychoMatrixString;
+  var finalString = title + Name + ", " + themonth + " " + DateBirth + " " + YearBirth + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + MaturityNumber + RationalNumber + BalanceNumber + HiddenPassionNumber + Confidence + LifePathPeriods + FinalFullName + PsychoMatrixString;
   
  
   
