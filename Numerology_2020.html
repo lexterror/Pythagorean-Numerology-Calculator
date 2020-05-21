@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
 </head>
+
 <script>
 (function(target) {
   if (!target || !target.prototype)
@@ -830,6 +831,7 @@ var nines=0;
 </tr>
 </table>
 </div>
+
 <style>
 #container {
   position: relative;
@@ -880,6 +882,141 @@ canvas {
 </tr>
 </table>
 </div>
+</div>
+<b>Personal Year</b> Number for <span id="currentyear"></span>: <span id="personalyear"></span><br> 
+<b>Personal Month</b> Number for <span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span>: <span id="personalmonth"></span> <br>
+<style>
+#calendar-body {
+    background: #fff;
+    width: 480px;
+    height: 300px;
+}
+
+#calendar-body td {
+    width: 64px;
+    height: 64px;
+    background: #000;
+    color: #fff;
+    font-family:goth;
+    font-size: 18px;
+    line-height: 18px;
+    text-shadow: 0 0 5px red;
+}
+
+#previous {
+    width: 480px;
+}
+
+#next {
+    width: 480px
+}
+
+#year {
+  width: 480px;
+  color: #000;
+}
+
+#month {
+  width: 480px;
+  color: #000;
+}
+
+.bg-info {
+    background: lawngreen !important;
+}
+</style>
+<div class="container col-sm-4 col-md-7 col-lg-4 mt-5">
+    <div class="card">
+        <h3 class="card-header" id="monthAndYear" style="font-family:terra;font-size:32px;line-height:32px;text-shadow: 0 0 5px orange;"></h3>
+       
+        <table class="table table-bordered table-responsive-sm" id="calendar" style="background: #aaa;">
+            <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+            </thead>
+
+            <tbody id="calendar-body">
+
+            </tbody>
+        </table>
+
+        <div class="form-inline">
+
+            <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()">Previous</button>
+
+            <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()">Next</button>
+        </div>
+ <form class="form-inline">
+            <label class="lead mr-2 ml-2" for="month">Jump To: </label>
+            <select class="form-control col-sm-4" name="month" id="month" onchange="jump()">
+                <option value=0>Jan</option>
+                <option value=1>Feb</option>
+                <option value=2>Mar</option>
+                <option value=3>Apr</option>
+                <option value=4>May</option>
+                <option value=5>Jun</option>
+                <option value=6>Jul</option>
+                <option value=7>Aug</option>
+                <option value=8>Sep</option>
+                <option value=9>Oct</option>
+                <option value=10>Nov</option>
+                <option value=11>Dec</option>
+            </select>
+
+
+            <label for="year"></label><select class="form-control col-sm-4" name="year" id="year" onchange="jump()">
+            <option value=1990>1990</option>
+            <option value=1991>1991</option>
+            <option value=1992>1992</option>
+            <option value=1993>1993</option>
+            <option value=1994>1994</option>
+            <option value=1995>1995</option>
+            <option value=1996>1996</option>
+            <option value=1997>1997</option>
+            <option value=1998>1998</option>
+            <option value=1999>1999</option>
+            <option value=2000>2000</option>
+            <option value=2001>2001</option>
+            <option value=2002>2002</option>
+            <option value=2003>2003</option>
+            <option value=2004>2004</option>
+            <option value=2005>2005</option>
+            <option value=2006>2006</option>
+            <option value=2007>2007</option>
+            <option value=2008>2008</option>
+            <option value=2009>2009</option>
+            <option value=2010>2010</option>
+            <option value=2011>2011</option>
+            <option value=2012>2012</option>
+            <option value=2013>2013</option>
+            <option value=2014>2014</option>
+            <option value=2015>2015</option>
+            <option value=2016>2016</option>
+            <option value=2017>2017</option>
+            <option value=2018>2018</option>
+            <option value=2019>2019</option>
+            <option value=2020>2020</option>
+            <option value=2021>2021</option>
+            <option value=2022>2022</option>
+            <option value=2023>2023</option>
+            <option value=2024>2024</option>
+            <option value=2025>2025</option>
+            <option value=2026>2026</option>
+            <option value=2027>2027</option>
+            <option value=2028>2028</option>
+            <option value=2029>2029</option>
+            <option value=2030>2030</option>
+        </select>
+        </form>
+        
+    </div>
 </div>
 
 <style>
@@ -1274,7 +1411,18 @@ for (i = 0; i < rational1length; i++)
 var finalString = "";
 var Name="";
 var ShortNameTotals = "";
+var total3 = 0;
+var month_total3 = 0;
+var date_total3 = 0;
+var countyearss = 0;
+var countmonths = 0;
+
 function calculate2() {
+countyearss = 0;
+countmonths = 0;
+total3 = 0;
+month_total3 = 0;
+date_total3 = 0;
 ShortNameTotals = "";
 finalString = "";
 Name = "";
@@ -1283,7 +1431,7 @@ namestotalsfinal2 = 0;
 //initialize variables
 var total1 = 0;
 var total2 = 0;
-var total3 = 0;
+
 var before_total1 = 0;
 var before_total2 = 0;
 var before_total3 = 0;
@@ -1293,7 +1441,12 @@ var correct_BT3 = "";
 
 var month_total1 = 0;
 var month_total2 = 0;
-var month_total3 = 0;
+
+
+
+
+
+
 var month_before_total1 = 0;
 var month_before_total2 = 0;
 var month_before_total3 = 0;
@@ -1303,7 +1456,7 @@ var month_correct_BT3 = "";
 
 var date_total1 = 0;
 var date_total2 = 0;
-var date_total3 = 0;
+
 var date_before_total1 = 0;
 var date_before_total2 = 0;
 var date_before_total3 = 0;
@@ -3670,7 +3823,184 @@ var data_entered_length = date.length;
     document.getElementById("t6").innerText = stability;
     document.getElementById("t7").innerText = spirit;
     document.getElementById("t8").innerText = temper;
+
+    
+    
+    
+    
+    
+    
+var d = new Date();
+var ny = d.getFullYear();
+var month = new Array();
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "April";
+month[4] = "May";
+month[5] = "June";
+month[6] = "July";
+month[7] = "August";
+month[8] = "September";
+month[9] = "October";
+month[10] = "November";
+month[11] = "December";
+var nm = month[d.getMonth()];
+var monthit = d.getMonth();
+document.getElementById("currentyear").innerText = ny;
+document.getElementById("currentyear2").innerText = ny;
+document.getElementById("currentmonth").innerText = nm;
+var personalyear = parseFloat(month_total3) + parseFloat(date_total3) + parseFloat(ny);
+var personalyearstring = personalyear.toString();
+var personalyearlength = personalyearstring.length;
+var personalyearsplit = personalyearstring.split("");
+
+if (personalyearlength > 1)
+{
+for (n = 0; n < personalyearlength; n++)
+{
+    countyearss = countyearss + parseFloat(personalyearsplit[n]);
 }
+}
+else { countyearss = personalyearstring; }
+
+document.getElementById("personalyear").innerText = countyearss.toString();
+
+var mymonth = monthit + 1 + countyearss;
+var cmonth = mymonth.toString();
+var cmonthlength = cmonth.length;
+var cmonthsplit = cmonth.split("");
+
+
+if (cmonthlength > 1)
+{
+for (m = 0; m < cmonthlength; m++)
+{
+    countmonths = countmonths + parseFloat(cmonthsplit[m]);
+}
+}
+else { counthmonths = cmonth; }
+
+document.getElementById("personalmonth").innerText = countmonths.toString();    
+    
+    
+//////////////////////// CALENDAR
+    
+let today = new Date();
+let currentMonth = today.getMonth();
+let currentYear = today.getFullYear();
+let selectYear = document.getElementById("year");
+let selectMonth = document.getElementById("month");
+
+let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+let monthAndYear = document.getElementById("monthAndYear");
+showCalendar(currentMonth, currentYear);
+
+
+function next() {
+    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+    currentMonth = (currentMonth + 1) % 12;
+    showCalendar(currentMonth, currentYear);
+}
+
+function previous() {
+    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+    showCalendar(currentMonth, currentYear);
+}
+
+function jump() {
+    currentYear = parseInt(selectYear.value);
+    currentMonth = parseInt(selectMonth.value);
+    showCalendar(currentMonth, currentYear);
+}
+
+function showCalendar(month, year) {
+
+    let firstDay = (new Date(year, month)).getDay();
+    let daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+    let tbl = document.getElementById("calendar-body"); // body of the calendar
+
+    // clearing all previous cells
+    tbl.innerHTML = "";
+
+    // filing data about month and in the page via DOM.
+    monthAndYear.innerHTML = months[month] + " " + year;
+    selectYear.value = year;
+    selectMonth.value = month;
+
+    // creating all cells
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+        // creates a table row
+        let row = document.createElement("tr");
+
+        //creating individual cells, filing them up with data.
+        for (let j = 0; j < 7; j++) {
+            if (i === 0 && j < firstDay) {
+                let cell = document.createElement("td");
+                let cellText = document.createTextNode("");
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            else if (date > daysInMonth) {
+                break;
+            }
+
+            else {
+                let cell = document.createElement("td");
+                var tempdate = date.toString();
+                var tempdatelength = tempdate.length;
+                var tempdatesplit = tempdate.split("");
+                var countdate = 0;
+                if (tempdatelength > 1)
+                {
+                    for (s = 0; s < tempdatelength; s++)
+                    {
+                        countdate = countdate + parseFloat(tempdatesplit[s]);
+                    }
+                    
+                } else { countdate = parseFloat(date); }
+                
+                var getPersonalDayNumbers = countdate + countmonths;
+                var GPDN_string = getPersonalDayNumbers.toString();
+                var GPDN_split = GPDN_string.split("");
+                var GPDN_length = GPDN_string.length;
+                var GPDN_final = 0;
+                
+                if (GPDN_length > 1)
+                {
+                    for (d = 0; d < GPDN_length; d++)
+                    {
+                        GPDN_final = GPDN_final + parseFloat(GPDN_split[d]);
+                    }
+                } else { GPDN_final = GPDN_string; }
+                
+                
+                let cellText = document.createTextNode(date + " (("  + GPDN_final.toString() + "))");
+                
+        
+                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                    cell.classList.add("bg-info");
+                } // color today's date
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+                date++;
+            }
+
+
+        }
+
+        tbl.appendChild(row); // appending each row into calendar body.
+    }
+
+}    
+    
+}
+
+
 
   function createChart() 
   {
@@ -4068,6 +4398,8 @@ var data_entered_length = date.length;
   
   
   }
+  
+
 
    function saveChart()
     {
@@ -4104,7 +4436,11 @@ white-space: nowrap;
 </style>
 </body>
 </html>
+<script>
 
+
+
+</script>
 <!--
 
 How do I calculate my Psychomatrix Square?
