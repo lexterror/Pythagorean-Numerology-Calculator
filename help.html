@@ -100,11 +100,25 @@ body {
 #abouttable {
     margin: 0 auto;
     width: 328px;
+    height: 165px;
     color: #fff;
     border-radius: 5px;
     border: 1px solid #fff;
     padding: 5px;
     text-align: center;
+    margin-top: 10px;
+    font-size: 24px;
+    line-height: 35px;
+    background: #fff;
+}
+#aboutbox {
+    width: 348px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 165px;
+    border-radius: 5px;
+    background: #fff;
+    margin: 0 auto;
     margin-top: 10px;
 }
 @font-face {
@@ -117,9 +131,19 @@ url('fonts/Gothicus W00 Regular.ttf')  format('truetype'); /* Safari, Android, i
 font-size: 100%;
 }
 #abouttable td {
-    width: 40px;
+    width: 35px;
     text-align: center;
+    height: 35px;
+    vertical-align: middle;
+    border: 1px solid #fff;
+    
 }
+
+#abouttable  {
+     border-collapse: separate;
+}
+
+
 #mytitle {
     font-family: goth;
     font-size: 28px;
@@ -154,6 +178,18 @@ Each day is marked by a different vibration. In consulting the information relat
 <div id="title" style="margin-top:20px">Psychomatrix</div>
 <div id="content">
 <i>Pythagorean square</i> or <i>"Psychomatrix"</i> gives a characteristic according to the date of birth. It was developed by Pythagoras in the 5th century BC and was developed by his followers. The basic idea of psychomatrix is that the date of birth has a certain combination of numbers, with the help of which the human psychological type can be described. Each number from 1 to 9 symbolizes a certain quality and depending on the frequency of repetitions strengthens them.
+</div>
+<div id="title" style="margin-top:20px">Maturity Number</div>
+<div id="content">
+You calculate the Maturity Number (also called the Reality or Realization Number) by <i>adding your Life Path number and your Destiny/Expression number together.</i>
+</div>
+<div id="title" style="margin-top:20px">Rational Thought Number</div>
+<div id="content">
+You can find your Rational Thought number by first adding the sum of the numerical values of all of the letters which make up your first name (the full first name you were given at birth). Next, add to it your day of birth (the day of the month you were born.
+</div>
+<div id="title" style="margin-top:20px">Balance Number</div>
+<div id="content">
+Your Balance number is found by adding the numerical value of the initials of your full name at birth.
 </div>
 </div>
 <style>
@@ -195,25 +231,145 @@ Each day is marked by a different vibration. In consulting the information relat
     border: 2px solid #fff;
 
 }
+
+.ones {
+    background-color: red;
+    -moz-border-radius: 17px; /* or 50% */
+    border-radius: 17px; /* or 50% */
+    text-align: center;
+    width: 35px;
+    height:35px;
+
+}
+
+.onessub {
+    color: red;
+}
+
+.twos {
+    background-color: orange;
+    -moz-border-radius: 17px; /* or 50% */
+    border-radius: 17px; /* or 50% */
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+.twossub {
+    color: black;
+}
+
+.threes {
+    background-color: yellow;
+    -moz-border-radius: 17px; /* or 50% */
+    border-radius: 17px; /* or 50% */
+    text-align: center;
+    width: 35px;
+    height:35px;
+    color: #000;
+}
+
+.threessub {
+    color: black;
+}
+
+.fours {
+    background-color: green;
+    -moz-border-radius: 17px; /* or 50% */
+    border-radius: 17px; /* or 50% */
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.fourssub {
+    color: green;
+}
+
+.fives {
+    background-color: lawngreen;
+    -moz-border-radius: 17px; /* or 50% */
+    border-radius: 17px; /* or 50% */
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.fivessub {
+    color: black;
+}
+
+.sixes {
+    background-color: violet;
+    -moz-border-radius: 17px; /* or 50% */
+    border-radius: 17px; /* or 50% */
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.sixessub {
+    color: black;
+}
+
+.sevens {
+    background-color: purple;
+    -moz-border-radius: 17px; /* or 50% */
+    border-radius: 17px; /* or 50% */
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.sevenssub {
+    color: purple;
+}
+
+.eights {
+    background-color: deeppink;
+    -moz-border-radius: 17px; /* or 50% */
+    border-radius: 17px; /* or 50% */
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.eightssub {
+    color: black;
+}
+
+.nines {
+    background-color: gold;
+    -moz-border-radius: 17px; /* or 50% */
+    border-radius: 17px; /* or 50% */
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.ninessub {
+    color: black;
+}
 </style>
 <div id="column2">
 <div id="title">Numbers and Letters</div>
 <div id="content">
 Using the English alphabet we find the following correspondence between numbers and letters:
+<div id="aboutbox">
 <table id="abouttable">
 <tr>
-<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+<td class="ones">1</td><td class="twos">2</td><td class="threes">3</td><td class="fours">4</td><td class="fives">5</td><td class="sixes">6</td><td class="sevens">7</td><td class="eights">8</td><td class="nines">9</td>
 </tr>
 <tr>
-<td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td>
+<td class="onessub">A</td><td class="twossub">B</td><td class="threessub">C</td><td class="fourssub">D</td><td class="fivessub">E</td><td class="sixessub">F</td><td class="sevenssub">G</td><td class="eightssub">H</td><td class="ninessub">I</td>
 </tr>
 <tr>
-<td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td>
+<td class="onessub">J</td><td class="twossub">K</td><td class="threessub">L</td><td class="fourssub">M</td><td class="fivessub">N</td><td class="sixessub">O</td><td class="sevenssub">P</td><td class="eightssub">Q</td><td  class="ninessub">R</td>
 </tr>
 <tr>
-<td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td><td></td>
+<td class="onessub">S</td><td class="twossub">T</td><td class="threessub">U</td><td class="fourssub">V</td><td class="fivessub">W</td><td class="sixessub">X</td><td class="sevenssub">Y</td><td class="eightssub">Z</td><td></td>
 </tr>
 </table>
+</div>
 </div>
 <div id="title" style="margin-top:20px">How Name Diagrams Work <font color="white">(Norman Shine)</font></div>
 <div id="content">
@@ -252,10 +408,18 @@ Intimate Number + Desire Number
 <div id="content">
 It's value is the reduced sum of the vowels of the full name (given at birth).<br><br>
 The Desire Number corresponds to your deep motivations, to that which is important to you. It influences you in your choices and decisions even if you are not always conscious of it. This number is related to your tastes, psychological options or deep emotions. Your Expression Number will be strongly tinted or shaded by your Desire Number. This vibration is calculated by reducing the sum of the vowels of your full name given at birth.</div>
-<div id="title" style="margin-top:20px">Intimate Number</div>
+<div id="title" style="margin-top:20px">Intimate or Personality Number</div>
 <div id="content">
 It's the reduced sum of all the consonants of the full name.<br><br>
-The Intimate Number, also known as the "the hidden self", is the unconscious base of your personality. It forms a little of the "keep" or the main tower of your castle. Through it you search for strength when you feel the need ; particularly in conflicting situations, each time you must confront an important problem or undertaking, when you are tense, tired or when your primordial interests are threatened. At such a time you will stop using the vibration of your Expression Number in order to lean exclusively on your Intimate Number. It is your way of reacting. The Intimate Number's vibration allows one to know the hidden character of the human being, to reveal is behavior, strategy and reactions in cases of problem, tension, stress.</div>
+The Intimate Number, also known as the "the hidden self", is the unconscious base of your personality. It forms a little of the "keep" or the main tower of your castle. Through it you search for strength when you feel the need ; particularly in conflicting situations, each time you must confront an important problem or undertaking, when you are tense, tired or when your primordial interests are threatened. At such a time you will stop using the vibration of your Expression Number in order to lean exclusively on your Intimate Number. It is your way of reacting. The Intimate Number's vibration allows one to know the hidden character of the human being, to reveal is behavior, strategy and reactions in cases of problem, tension, stress.
+</div>
+<div id="title" style="margin-top:20px">Hidden Passion Number</div>
+<div id="content">
+Your unique hidden passion number comes from digits allocated to different letters of your name. Your hidden passion number is the one that occurs most often in your name.
+</div>
+<div id="title" style="margin-top:20px">Subconscious Confidence Number</div>
+<div id="content">
+The Subconscious Self is determined by adding up the quantity of represented numbers in your name. In other words, if the numbers 1,3,6,7, and 9 are represented, your Subconscious Self number is 5.
 </div>
 </div>
 </body>
