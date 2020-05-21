@@ -863,7 +863,8 @@ for (i = 0; i < rational1length; i++)
 
 function calculate2() {
 
-
+newpath = 0;
+namestotalsfinal2 = 0;
 //initialize variables
 var total1 = 0;
 var total2 = 0;
@@ -910,6 +911,7 @@ var year =  document.getElementById("numbers1").value;
 var month =  document.getElementById("numbers2").value;
 var date =  document.getElementById("numbers3").value;
 var thenames =  document.getElementById("thenames").value;
+thenames = thenames.replace(/\s/g, '');
 
 ///////************* NORMAN **************///////////
     var names_data_entered_length = thenames.length;
@@ -1303,28 +1305,35 @@ var thenames =  document.getElementById("thenames").value;
     var numberss = n.split("");
     var namestotalsfinal = 0;
     
+    document.getElementById("namestotal").value = sumtotals; 
     
+    
+    if (sumtotalslentgh > 1)
+    {
     for (m = 0; m < sumtotalslentgh; m++)
     {
         namestotalsfinal = namestotalsfinal + parseFloat(numberss[m]);
     }
-    
-    if (sumtotalslentgh > 1)
     document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal;
-    if (sumtotalslentgh == 1)
-    document.getElementById("namestotal").value = sumtotals;   
+    }
 
     var nn = namestotalsfinal.toString();
     var nnlength = nn.length;
+    var temp = nn.split("");
+    
     if (nnlength > 1)
     {
-    var temp = nn.split("");
     for (z = 0; z < nnlength; z++)
     {
          namestotalsfinal2 = namestotalsfinal2 + parseFloat(temp[z]);
     }
-    document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal + " / " + namestotalsfinal2;
+     document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal + " / " + namestotalsfinal2;
     }
+    
+    
+    
+    
+    
 
   var canvas = document.getElementById('DemoCanvas');
 
@@ -3053,14 +3062,14 @@ var data_entered_length = date.length;
    var zzzstep1string = zzzstep1.toString();
    var zzzstep1split = zzzstep1string.split("");
    var zzzlength = zzzstep1split.length;
-   var temp = 0;
+   var temp88 = 0;
    
    for (l = 0; l < zzzlength; l++)
    {
-        temp = temp + parseInt(zzzstep1split[l]);
+        temp88 = temp88 + parseInt(zzzstep1split[l]);
    }
    
-   step1 = temp; //DONE
+   step1 = temp88; //DONE
    
    var digityeartostring = pyear.toString();
    var digityear = digityeartostring.split("");
