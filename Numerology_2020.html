@@ -133,7 +133,7 @@ textarea {
     font-size: 18px;
     line-height: 18px;
     color: gold;
-    text-shadow: 0 0 5px #000;
+    text-shadow: 0 0 5px red;
 }
 
 #calculate {
@@ -352,6 +352,7 @@ Pythagorean Numerology Calculator<span style="float:right" id="help"><a href="he
 <textarea id="ChartOutput" readonly style="width:450px;height:300px;resize: none;">
 Empty
 </textarea>
+<button type="button" onclick="saveChart();" style="width:450px;height:30px;">Save Chart</button>
 </div>
 <style>
 #lifepathbox {
@@ -860,9 +861,12 @@ for (i = 0; i < rational1length; i++)
     return firstnametotalonly;
 };    
     
+var finalString = "";
+var Name="";
 
 function calculate2() {
-
+finalString = "";
+Name = "";
 newpath = 0;
 namestotalsfinal2 = 0;
 //initialize variables
@@ -3248,7 +3252,7 @@ var data_entered_length = date.length;
   function createChart() 
   {
   var title = "Numerology Chart for:\n\n";
-  var Name = document.getElementById("thenames").value.toUpperCase();
+  Name = document.getElementById("thenames").value.toUpperCase();
   
   
 
@@ -3307,9 +3311,23 @@ var data_entered_length = date.length;
   var MaturityNumber = "Maturity Number: " + MaturityNumbers + "\n\n";
   
   var rationalget = document.getElementById("thenames").value;
+  var rational1 = "";
+  var rational1length;
+  
   var rationalbegin = rationalget.substr(0,rationalget.indexOf(' '));
-  var rational1 = rationalbegin.split("");
-  var rational1length = rationalbegin.length;
+  
+  if (/\s/.test(rationalget))
+  {
+  rational1 = rationalbegin.split("");
+  rational1length = rationalbegin.length;
+  }
+  else 
+  {
+  rational1 = rationalget.split("");
+  rational1length = rational1.length;
+  }
+  
+  
   
   var firstnametotalonly = 0;
   //variables
@@ -3435,8 +3453,9 @@ var data_entered_length = date.length;
   }
   
   var rational2 = firstnametotalonly + document.getElementById("numbers3").value;
-  var rationalsplit = rational2.split("");
-  var rationallength = rational2.length;
+  var rationalstring = rational2.toString();
+  var rationalsplit = rationalstring.split("");
+  var rationallength = rationalstring.length;
   var rational3 = 0;
   var rational = 0;
   
@@ -3552,7 +3571,7 @@ var data_entered_length = date.length;
   
   var LifePathPeriods = "Life Path Periods: " + GetMonthAdditions + ", " + GetDateAdditions + ", " + GetYearAdditions + "\n\n";
   
-  var FullName = "FullName:" + "\n\n";
+  var FullName = "Full Name:" + "\n\n";
   var VowelsString = document.getElementById("Vowels").value + " = " + desireNumber + "\n";
   var NamestoTotal = Name + " = " + expressionNumber + "\n";
   var ConsonantsString =  document.getElementById("Consonants").value + " = " + intimateNumber + "\n\n";
@@ -3585,7 +3604,23 @@ var data_entered_length = date.length;
                            "Cognitive/Creative: " + matrix9 + "\n" + "Labor/Skill: " + matrix10 + "\n" + "Intellect/Memory: " + matrix11 + "\n" + "Habits: " + matrix12 + "\n" +
                            "Self-Esteem: " + matrix13 + "\n" + "Work: " + matrix14 + "\n" + "Talent: " + matrix15 + "\n" + "Spirit/Temp: " + matrix16 + " / " + matrix17;
   
-  var finalString = title + Name + ", " + themonth + " " + DateBirth + " " + YearBirth + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + MaturityNumber + RationalNumber + BalanceNumber + HiddenPassionNumber + Confidence + LifePathPeriods + FinalFullName + PsychoMatrixString;
+  var decorate = Name + ", " + themonth + " " + DateBirth + " " + YearBirth;
+  var decoratestring = decorate.toString();
+  var decoratelength = decoratestring.length;
+  var mydecoration = "";
+  
+  for (d = 0; d < decoratelength; d++)
+  {
+      mydecoration = mydecoration + "#";
+  }
+  
+  mydecoration = mydecoration + "####";
+  
+  
+  
+  
+  
+  finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + MaturityNumber + RationalNumber + BalanceNumber + HiddenPassionNumber + Confidence + LifePathPeriods + FinalFullName + PsychoMatrixString;
   
  
   
@@ -3595,7 +3630,32 @@ var data_entered_length = date.length;
   
   
   }
-  
+
+   function saveChart()
+    {
+        var BlobString = finalString.toString();
+    	var textFileAsBlob = new Blob([BlobString], {type:'text/plain'}); 
+    	var downloadLink = document.createElement("a");
+    	downloadLink.download = Name + "_Chart";
+    	downloadLink.innerHTML = "Download File";
+    	if (window.webkitURL != null)
+    	{
+    		// Chrome allows the link to be clicked
+    		// without actually adding it to the DOM.
+    		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    	}
+    	else
+    	{
+    		// Firefox requires the link to be added to the DOM
+    		// before it can be clicked.
+    		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    		downloadLink.onclick = destroyClickedElement;
+    		downloadLink.style.display = "none";
+    		document.body.appendChild(downloadLink);
+    	}
+    
+    	downloadLink.click();
+    }  
 </script>
 <style>
 white-space: pre-wrap;
