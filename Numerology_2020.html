@@ -796,6 +796,26 @@ url('fonts/Gothicus W00 Regular.woff') format('woff'), /* Pretty Modern Browsers
 url('fonts/Gothicus W00 Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
 font-size: 100%;
 }
+
+@font-face {
+font-family: 'helvetica';
+src: url('fonts/HelveticaLTStd-Cond.eot'); /* IE9 Compat Modes */
+src: url('fonts/HelveticaLTStd-Cond.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+url('fonts/HelveticaLTStd-Cond.woff2') format('woff2'), /* Super Modern Browsers */
+url('fonts/HelveticaLTStd-Cond.woff') format('woff'), /* Pretty Modern Browsers */
+url('fonts/HelveticaLTStd-Cond.ttf')  format('truetype'); /* Safari, Android, iOS */
+font-size: 100%;
+}
+
+@font-face {
+font-family: 'helveticanew';
+src: url('fonts/HelveticaLTStd-Cond.eot'); /* IE9 Compat Modes */
+src: url('fonts/HelveticaLTStd-Cond.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+url('fonts/HelveticaLTStd-Cond.woff2') format('woff2'), /* Super Modern Browsers */
+url('fonts/HelveticaLTStd-Cond.woff') format('woff'), /* Pretty Modern Browsers */
+url('fonts/HelveticaLTStd-Cond.ttf')  format('truetype'); /* Safari, Android, iOS */
+font-size: 100%;
+}
 textarea {
 
   background-color : #000;
@@ -824,7 +844,6 @@ textarea {
     width: 480px;
     height: 480px;
     margin: 0 auto;
-    font-family: goth;
 }
 
 #psychomatrix {
@@ -844,9 +863,7 @@ textarea {
     margin: 0 auto;
     text-align: center;
     border: 5px solid transparent;
-    font-family: goth;
-    font-size: 32px;
-    line-height: 32px;
+    font-family: helveticanew;
     color: white;
     text-shadow: 0 0 5px #000;
 }
@@ -858,7 +875,7 @@ textarea {
     margin: 0 auto;
     text-align: center;
     border: 5px solid #666;
-    font-family: goth;
+    font-family: helveticanew;
     font-size: 18px;
     line-height: 18px;
     color: gold;
@@ -922,6 +939,7 @@ textarea {
     width: 498px;
     background: #777;
     color: #fff;
+    font-family: helveticanew;
 }
 
 #box1 {
@@ -1049,32 +1067,32 @@ Pythagorean Numerology Calculator<span style="float:right" id="help"><a href="he
 <input type="text" name="display3" id="display5" readonly style="background: #000;color: #fff;width:105px;">
 <input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;width:105px;">
 <!--<input type="text" name="display2" id="lifepathbelow" readonly style="background: #000;color: #fff;width:105px;"> -->
-<label style="right:0;width: 100px;margin-left:15px;margin-top:45px;margin-bottom:15px;" id="psy"><span style="color:#ff0092;">P</span><span style="color:#f3009c;">s</span><span style="color:#e800a6;">y</span><span style="color:#dc00b0;">c</span><span style="color:#d100ba;">h</span><span style="color:#c500c4;">o</span><span style="color:#ba00cd;">m</span><span style="color:#ae00d7;">a</span><span style="color:#a300e1;">t</span><span style="color:#9700eb;">r</span><span style="color:#8c00f5;">i</span><span style="color:#8000ff;">x</span></label>
+<label style="background:#000;width: 435px;padding-left:15px;padding-bottom:10px;padding-top:5px;margin-top:45px;margin-bottom:15px;" id="psy"><span style="color:#ff0092;">P</span><span style="color:#f3009c;">s</span><span style="color:#e800a6;">y</span><span style="color:#dc00b0;">c</span><span style="color:#d100ba;">h</span><span style="color:#c500c4;">o</span><span style="color:#ba00cd;">m</span><span style="color:#ae00d7;">a</span><span style="color:#a300e1;">t</span><span style="color:#9700eb;">r</span><span style="color:#8c00f5;">i</span><span style="color:#8000ff;">x</span></label>
 <!--<input type="text" name="psycho" id="psycho" readonly style="background: #000;color: #fff;"> -->
 <table id="psychomatrix">
 <tr>
 <td><span id="ones3"></span><br><span class="infos">character,<br>will</span></td>  <!-- 3 -->
 <td><span id="fours3"></span><br><span class="infos">health, <br>beauty</span></td>
 <td><span id="sevens3"></span><br><span class="infos">luck<br> </span></td>
-<td><span id="t4"></span><br><span class="infos">Purpose<br> </span></td>
+<td><span id="t4"></span><br><span class="infos">purpose<br> </span></td>
 </tr>
 <tr>
 <td><span id="twos3"></span><br><span class="infos">vital,<br>energy</span></td> <!-- 2 -->
 <td><span id="fives3"></span><br><span class="infos">logic,<br>intuition</span></td>
 <td><span id="eights3"></span><br><span class="infos">duty<br> </span></td>
-<td><span id="t5"></span><br><span class="infos">Family<br> </span></td>
+<td><span id="t5"></span><br><span class="infos">family<br> </span></td>
 </tr>
 <tr>
 <td><span id="threes3"></span><br><span class="infos">cognitive,<br>creative</span></td>  <!-- 1 -->
 <td><span id="sixes3"></span><br><span class="infos">labor, <br>skill</span></td>
 <td><span id="nines3"></span><br><span class="infos">intellect,<br>memory</span></td>
-<td><span id="t6"></span><br><span class="infos">Habits<br> </span></td>
+<td><span id="t6"></span><br><span class="infos">habits<br> </span></td>
 </tr>
 <tr>
-<td><span id="t1"></span><br><span class="infos">Self-Esteem</span></td>  <!-- 1 -->
-<td><span id="t2"></span><br><span class="infos">Work</span></td>
-<td><span id="t3"></span><br><span class="infos">Talent</span></td>
-<td><span id="t7"></span>,<span id="t8"></span><br><span class="infos">Spirit<br>/Temp</span></td>
+<td><span id="t1"></span><br><span class="infos">self-esteem</span></td>  <!-- 1 -->
+<td><span id="t2"></span><br><span class="infos">work</span></td>
+<td><span id="t3"></span><br><span class="infos">talent</span></td>
+<td><span id="t7"></span>,<span id="t8"></span><br><span class="infos">spirit<br>/temp</span></td>
 </tr>
 </table>
 <button type="button" onclick="createChart();" style="width:450px;height:30px;">Create Chart</button>
@@ -1186,6 +1204,15 @@ canvas {
     color: #fff;
     margin-top: 10px;
 }
+
+.adjust {
+    line-height: 24px !important;
+    font-size: 24px !important;
+    display: block;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 6px !important;
+}
 </style>
 <div id="container">
 <canvas id="DemoCanvas" width="480" height="480"></canvas>
@@ -1193,19 +1220,19 @@ canvas {
 <div id="overlay">
 <table id="norm">
 <tr>
-<td id="threes">3</td>  <!-- 3 -->
-<td id="sixes">6</td>
-<td id="nines">9</td>
+<td id="threes"><span class="adjust">3</span></td>  <!-- 3 -->
+<td id="sixes"><span class="adjust">6</span></td>
+<td id="nines"><span class="adjust">9</span></td>
 </tr>
 <tr>
-<td id="twos">2</td> <!-- 2 -->
-<td id="fives">5</td>
-<td id="eights">8</td>
+<td id="twos"><span class="adjust">2</span></td> <!-- 2 -->
+<td id="fives"><span class="adjust">5</span></td>
+<td id="eights"><span class="adjust">8</span></td>
 </tr>
 <tr>
-<td id="ones">1</td>  <!-- 1 -->
-<td id="fours">4</td>
-<td id="sevens">7</td>
+<td id="ones"><span class="adjust">1</span></td>  <!-- 1 -->
+<td id="fours"><span class="adjust">4</span></td>
+<td id="sevens"><span class="adjust">7</span></td>
 </tr>
 </table>
 </div>
@@ -1224,7 +1251,7 @@ canvas {
     height: 64px;
     background: #999;
     color: #fff;
-    font-family:arial;
+    font-family:helveticanew;
     font-size: 18px;
     line-height: 18px;
     text-shadow: 0 0 5px #000;
@@ -1251,22 +1278,20 @@ canvas {
 
 #personaldays {
 
-    height: 35px;
-    width: 35px;
+    height: 32px;
+    width: 32px;
     font-size: 24px !important;
-    line-height: 24px !important;
-    -moz-border-radius: 50px; /* or 50% */
-    border-radius: 50px; /* or 50% */
-    top:0 !important;
-    right:0 !important;
+    line-height: 38px !important;
+    -moz-border-radius: 16px; /* or 50% */
+    border-radius: 16px; /* or 50% */
     background-color: dodgerblue;
     color: white;
     float:right !important;
     text-align: center !important;
-    font-family: goth;
+    font-family: helveticanew;
     vertical-align: middle !important;
     text-shadow: 0 0 5px purple !important;
-    
+    display: block;
 }
 
 .bg-info {
@@ -1276,26 +1301,121 @@ canvas {
 }
 
 #personalheader {
-    width: 440px;
+
     padding: 20px;
     margin: 0 auto;
     text-align: left;
-    color: #000 !important;
+    font-family: helveticanew;
+    text-align: right;
+    border-radius: 15px;
+    margin-top: 20px;
+    color: #fff;
 }
+
+#pill {
+    width: 458px;
+    height: 72px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#pillleft {
+    width: 178px;
+    height: 72px;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    float: left;
+    background: #666;
+    vertical-align: middle;
+    text-align:center;
+    border-radius: 5px 0 0 5px;
+}
+
+#pillright {
+    
+    width: 280px;
+    height: 72px;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    float: right;
+    background: black;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 0 5px 5px 0;
+
+}
+
+#pillslim {
+    width: 458px;
+    height: 36px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#pillslimleft {
+    width: 400px;
+    height: 36px;
+    line-height: 36px !important;
+    font-size: 14px !important;
+    float: left;
+    background: dodgerblue;
+    vertical-align: middle;
+    text-align: left;
+    border-radius: 5px 0 0 5px;
+}
+
+#pillslimright {
+    line-height: 36px !important;
+    width: 58px;
+    height: 36px;
+    float: right;
+    background: white;
+    color: black;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 0 5px 5px 0;
+
+}
+
 </style>
+
+   <div id="pillslim">
+    <div id="pillslimleft">
+    <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:36px;color:#fff;vertical-align:middle;">Personal Year Number for <span id="currentyear"></span></span>  
+    </div>
+    <div id="pillslimright">
+    <b><span id="personalyear" style="font-family:helveticanew;font-size:14px;line-height:36px;color:#000;vertical-align:middle;text-align:center;"></span></b>
+    </div>
+    </div> 
+    
+    <div id ="pillslim">
+    <div id="pillslimleft">
+     <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:36px;color:#fff;vertical-align:middle;">Personal Month Number for <span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span></span>
+    </div>
+    <div id="pillslimright">
+    <b><span id="personalmonth" style="font-family:helveticanew;font-size:14px;line-height:36px;color:#000;vertical-align:middle;text-align:center;"></span></b>
+    </div>
+    
+    </div>
+    
+    
+    
 <div class="container col-sm-4 col-md-7 col-lg-4 mt-5" style="border-radius:10px;background:#999;margin:0 auto;">
     <div class="card">
-    <div id="personalheader">
-    <b>Personal Year</b> Number for <span id="currentyear"></span>: <b><span id="personalyear"></span></b><br> 
-    <b>Personal Month</b> Number for <span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span>: <b><span id="personalmonth"></span></b> <br>
-    </div>
-        <span class="card-header" id="monthAndYear" style="font-family:arial;font-size:16px;line-height:16px;text-shadow: 0 0 5px white;margin-bottom: 20px; padding-top: 20px;padding-left: 20px;padding-right: 20px; float:right;text-align:center; width: 440px; color:#000 !important;"></span>
-        
-        <div id="personalheader">
-        The plain numbers in the calendar are the date numbers. The numbers in a circle are the personal day numbers.
-        </div>
-       
-        <table class="table table-bordered table-responsive-sm" id="calendar" style="background: #999;color:#fff;margin:0 auto;padding-bottom:30px;padding-top:20px;">
+   
+
+  
+    <div id="pill">
+        <div id="pillleft">
+         <span class="" style="font-family:helveticanew;font-size:16px;line-height:72px;color:#fff;vertical-align:middle;text-align:center;">Personal Day Calendar</span>
+       </div>
+       <div id="pillright">
+         <span class="card-header" id="monthAndYear" style="font-family:helveticanew;font-size:24px;line-height:72px;margin-left: 20px;text-shadow: 0 0 1px black;text-align:center; color:#fff !important;vertical-align:middle;"></span>      
+       </div>
+       </div>
+        <table class="table table-bordered table-responsive-sm" id="calendar" style="font-family:helveticanew;background: #999;color:#fff;margin:0 auto;padding-bottom:30px;padding-top:20px;">
             <thead>
             <tr>
                 <th>Sun</th>
@@ -4293,7 +4413,7 @@ function showCalendar(month, year) {
     tbl.innerHTML = "";
 
     // filing data about month and in the page via DOM.
-    monthAndYear.innerHTML = "Personal Day Calendar for: " + months[month] + " " + year;
+    monthAndYear.innerHTML = months[month] + " " + year;
     selectYear.value = year;
     selectMonth.value = month;
 
