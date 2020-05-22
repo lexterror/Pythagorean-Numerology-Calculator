@@ -9,12 +9,13 @@
 }
 
 #mainwindow {
-    background: #999;
+    background: #333;
     margin: 0 auto;
     width: 900px;
-    height: 500px;
+    height: 550px;
     border-radius: 10px;
     border: 20px solid #333;
+    margin-top: 20px !important;
 }
 #mainpanel {
     width: 540px;
@@ -1060,12 +1061,30 @@ font-size: 100%;
 #help a {
     color: white;
 }
+
+#apptitle {
+    width: 900px;
+    height:30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: left;
+    font-family: goth;
+    color: #fff;
+}   
+
+.apptitletext {
+    margin-left: 20px;
+    vertical-align: middle;
+    
+}
 </style>
 <body>
-<div id="mytitle">
-Pythagorean Numerology Calculator<span style="float:right" id="help"><a href="help.html" target="_blank">Help</a></span></div>
-<hr>
+
+
 <div id="mainwindow">
+<div id="apptitle"><span class="apptitletext">Pythagorean Numerology Calculator</span><span style="float:right;font-family:helveticanew;">version 0.07</span></div>
 <div id="mainpanel">
 <!--
 <div id="box2">
@@ -1549,22 +1568,22 @@ canvas {
 </div>
 <div id="sidepanel">
 <div id="labels">
-<div id="labelsbox"><a href="#calculator"><span class="labelstext">Calculator</span></a></div>
+<div id="labelsbox"><img src="icons/calculator.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#calculator"><span class="labelstext">Calculator</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox"><a href="#psychomatrix"><span class="labelstext">Psychomatrix</span></a></div>
+<div id="labelsbox"><img src="icons/psychomatrix.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#psychomatrix"><span class="labelstext">Psychomatrix</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox"><a href="#charts"><span class="labelstext">Charts</span></a></div>
+<div id="labelsbox"><img src="icons/charts.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#charts"><span class="labelstext">Charts</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox"><a href="#namediagrams"><span class="labelstext">Name Diagrams</span></a></div>
+<div id="labelsbox"><img src="icons/namediagrams.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#namediagrams"><span class="labelstext">Name Diagrams</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox"><a href="#personaldaycalendar"><span class="labelstext">Personal Day Calendar</span></a></div>
+<div id="labelsbox"><img src="icons/personaldaycalendar.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#personaldaycalendar"><span class="labelstext">Personal Day Calendar</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox"><a href="help.html" target="_blank"><span class="labelstext">Help</span></a></div>
+<div id="labelsbox"><img src="icons/help.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="help.html" target="_blank"><span class="labelstext">Help</span></a></div>
 </div>
 </div>
 </div>
