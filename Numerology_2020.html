@@ -3,6 +3,63 @@
 <head>
   <meta charset="UTF-8" />
 </head>
+<style>
+#sidepanel a {
+    color: white;
+}
+
+#mainwindow {
+    background: #999;
+    margin: 0 auto;
+    width: 900px;
+    height: 500px;
+    border-radius: 10px;
+    border: 20px solid #333;
+}
+#mainpanel {
+    width: 540px;
+    height: 500px;
+    float: left;
+    background: #333;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+
+#sidepanel {
+    width: 360px;
+    height: 500px;
+    float: right;
+    background: #333;
+    margin: 0 auto;
+    font-family: helveticanew;
+}
+
+#labels {
+    width: 340px;
+    margin: 0 auto;
+    height: 60px;
+    background: #333;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.labelstext {
+    margin-left: 20px;
+}
+
+#labelsbox {
+    width: 320px;
+    height: 60px;
+    background: #aaa;
+    border-radius: 10px;
+    margin: 0 auto;
+    border: 2px solid #666;
+}
+</style>
 <script>
 /*
  (c) 2011-2015, Vladimir Agafonkin
@@ -769,8 +826,7 @@ function getShortName(SHORTNAME)
 body {
     margin: 0 auto;
     width: 1000px;
-    background-image: url("img/wax.png");
-    background-repeat: repeat;
+    background: dodgerblue;
 }
 
 input {
@@ -952,10 +1008,9 @@ textarea {
 #box2 {
     width: 498px;
     color:#fff;
-    float: right;
     background: transparent;
-    overflow: hidden;
-    margin-top: 27px;
+    margin: 0 auto;
+    margin-top: 10px;
 }
 
 #boxes {
@@ -1010,64 +1065,67 @@ font-size: 100%;
 <div id="mytitle">
 Pythagorean Numerology Calculator<span style="float:right" id="help"><a href="help.html" target="_blank">Help</a></span></div>
 <hr>
+<div id="mainwindow">
+<div id="mainpanel">
+<!--
+<div id="box2">
 
-<div id="boxes">
-<div id="box1">
-<div id="addborder">
 
+<div id="datasentries2">
+-->
+
+<div id="datasentries2">
+<a name="calculator"></a>
+<label style="float:left;width: 378px;margin-left:20px;margin-top: 15px;">Vowels</label><label style="right:0;width: 80px;margin-right:0px;margin-top: 15px;float:right;">Totals</label><br>
+<input type="text" name="VowelsT" id="VowelsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Vowels" id="Vowels" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
+
+<label style="float:left;width: 378px;margin-left:20px;">Data Entry</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
+<input type="text" name="namestotal" id="namestotal" readonly style="background: #000;color: #fff; width: 80px;margin-right:20px;"><input type="text" name="numbers" id="thenames" style="width: 378px;margin-left:20px;text-transform:uppercase;">
+
+<label style="float:left;width: 378px;margin-left:20px;">Consonants</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
+<input type="text" name="ConsonantsT" id="ConsonantsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Consonants" id="Consonants" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
+<br><br>
+
+
+<table id="ulti" style="padding: 15px;background: #777;border-radius: 0px;">
+<tr>
+<td></td><td id="" class="spacer">1</td><td id="" class="spacer">2</td><td id="" class="spacer">3</td><td id="" class="spacer">4</td><td id="" class="spacer">5</td><td id="" class="spacer">6</td><td id="" class="spacer">7</td><td id="" class="spacer">8</td><td id="" class="spacer">9</td><td style="text-align:center;">Totals</td>
+</tr>
+<tr>
+<td>Vowels</td><td id="v1" class="spacer"></td><td id="v2" class="spacer"></td><td id="v3" class="spacer"></td><td id="v4" class="spacer"></td><td id="v5" class="spacer"></td><td id="v6" class="spacer"></td><td id="v7" class="spacer"></td><td id="v8" class="spacer"></td><td id="v9" class="spacer"></td><td id="vt" style="text-align:center;"></td>
+</tr>
+<tr>
+<td>Consonants</td><td id="c1" class="spacer"></td><td id="c2" class="spacer"></td><td id="c3" class="spacer"></td><td id="c4" class="spacer"></td><td id="c5" class="spacer"></td><td id="c6" class="spacer"></td><td id="c7" class="spacer"></td><td id="c8" class="spacer"></td><td id="c9" class="spacer"></td><td id="ct" style="text-align:center;"></td>
+</tr>
+<tr>
+<td>Totals</td><td id="1t" class="spacer"></td><td id="2t" class="spacer"></td><td id="3t" class="spacer"></td><td id="4t" class="spacer"></td><td id="5t" class="spacer"></td><td id="6t" class="spacer"></td><td id="7t" class="spacer"></td><td id="8t" class="spacer"></td><td id="9t" class="spacer"></td><td id="tt" style="text-align:center;"></td>
+</tr>
+</table>
+</div>
+<!--
+<div id="datasentries3">-->
 <style>
-#datasentries {
-    background: #777;
-    border-radius: 5px;
-    position: relative;
-    display: block;
-    width: 420px;
-    padding: 15px;
-    overflow-y: hidden;
-}
-#datasentries2 {
-    background: #555;
-    border-radius: 5px;
-    position: relative;
-    display: block;
-    width: 498px;
-    overflow-y: hidden;
-    padding-bottom: 20px;
-}
-#datasentries3 {
-    background: #555;
-    border-radius: 5px;
-    position: relative;
-    display: block;
-    width: 450px;
-    overflow-y: hidden;
-    padding-bottom: 20px;
-    margin-top: 0px;
-}
-#psy {
-    text-shadow: 0 0 5px #000;
+#datebirthbox {
+    width: 315px;
+    margin: 0 auto;
 }
 </style>
-<!--
-<div id="datasentries">
-<label style="color:orange;">Data Entry</label><label style="float:right">Totals</label><br>
-<input type="text" name="numbers" id="numbers" style="width:320px;float:left;"><input type="text" name="display" id="display" readonly style="background: #000;color: #fff;width:100px;float:right;"><br><br>
-</div>
--->
 <div id="datasentries3">
-
-<label style="width:105px;margin-left: 120px;margin-top: 15px;">Year</label>
+<div id="datebirthbox">
+<label style="width:105px;margin-top: 15px;float:left;">Year</label>
 <label style="width:105px;margin-top: 15px;">Month</label>
 <label style="width:105px;margin-top: 15px;">Date</label>
 
-<input type="text" name="numbers" id="numbers3" style="width:105px;margin-right: 20px;">
+<input type="text" name="numbers" id="numbers3" style="width:105px;">
 <input type="text" name="numbers" id="numbers2" style="width:105px;">
 <input type="text" name="numbers" id="numbers1" style="width:105px;">
-<input type="text" name="display4" id="display6" readonly style="background: #000;color: #fff;width:105px;margin-right:20px;">
+<input type="text" name="display4" id="display6" readonly style="background: #000;color: #fff;width:105px;">
 <input type="text" name="display3" id="display5" readonly style="background: #000;color: #fff;width:105px;">
 <input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;width:105px;">
 <!--<input type="text" name="display2" id="lifepathbelow" readonly style="background: #000;color: #fff;width:105px;"> -->
-<label style="background:#000;width: 435px;padding-left:15px;padding-bottom:10px;padding-top:5px;margin-top:45px;margin-bottom:15px;" id="psy"><span style="color:#ff0092;">P</span><span style="color:#f3009c;">s</span><span style="color:#e800a6;">y</span><span style="color:#dc00b0;">c</span><span style="color:#d100ba;">h</span><span style="color:#c500c4;">o</span><span style="color:#ba00cd;">m</span><span style="color:#ae00d7;">a</span><span style="color:#a300e1;">t</span><span style="color:#9700eb;">r</span><span style="color:#8c00f5;">i</span><span style="color:#8000ff;">x</span></label>
+</div>
+<a name="psychomatrix"></a>
+<label style="background:#000;width: 483px;padding-left:15px;padding-bottom:10px;padding-top:5px;margin-top:45px;margin-bottom:15px;" id="psy"><span style="color:#ff0092;">P</span><span style="color:#f3009c;">s</span><span style="color:#e800a6;">y</span><span style="color:#dc00b0;">c</span><span style="color:#d100ba;">h</span><span style="color:#c500c4;">o</span><span style="color:#ba00cd;">m</span><span style="color:#ae00d7;">a</span><span style="color:#a300e1;">t</span><span style="color:#9700eb;">r</span><span style="color:#8c00f5;">i</span><span style="color:#8000ff;">x</span></label>
 <!--<input type="text" name="psycho" id="psycho" readonly style="background: #000;color: #fff;"> -->
 <table id="psychomatrix">
 <tr>
@@ -1095,84 +1153,36 @@ Pythagorean Numerology Calculator<span style="float:right" id="help"><a href="he
 <td><span id="t7"></span>,<span id="t8"></span><br><span class="infos">spirit<br>/temp</span></td>
 </tr>
 </table>
-<button type="button" onclick="createChart();" style="width:450px;height:30px;">Create Chart</button>
-<textarea id="ChartOutput" readonly style="width:450px;height:450px;resize: none;background-image: url('img/logo.jpg');" wrap='off'>
+</div>
+<div id="datasentries2">
+<style>
+#chartsbox {
+    width: 450px;
+    margin: 0 auto;
+}
+</style>
+<a name="charts"></a>
+<div id="chartsbox">
+<button type="button" onclick="createChart();" style="width:450px;height:30px;margin:0 auto;">Create Chart</button>
+<textarea id="ChartOutput" readonly style="width:450px;height:450px;margin: 0 auto;resize: none;background-image: url('img/logo.jpg');" wrap='off'>
 Empty
 </textarea>
 <button type="button" onclick="saveChart();" style="width:450px;height:30px;">Save Chart</button>
-</div>
-<style>
-#lifepathbox {
-    width: 450px;
-    text-align:center;
-}
-</style>
+</div></div>
 <!--
-<label style="margin: 0 auto;width:450px;text-align:center;padding-top: 30px;">Life Path Number</label>
-<div id="lifepathbox">
-<span id="lifepath" style="color:gold;font-size:64px;margin:0 auto;text-align:center;font-family:goth;float:center;width:100px;"></span>
-</div> -->
-<!--
-<table id="infostable">
-<tr>
-<td class="infolabels">Self</td><td class="infolabels">Work</td><td class="infolabels">Talent</td><td class="infolabels">Purpose</td><td class="infolabels">Family</td><td class="infolabels">Habits</td><td class="infolabels">Spirit</td><td class="infolabels">Temp</td>
-</tr>
-<tr>
-<td id="t1" class="infoss"></td><td id="t2" class="infoss"></td><td id="t3" class="infoss"></td><td id="t4" class="infoss"></td><td id="t5" class="infoss"></td><td id="t6" class="infoss"></td><td id="t7" class="infoss"></td><td id="t8" class="infoss"></td>
-</tr>
-</table> -->
+</div> 
+
+
+
+
 </div>
-</div>
-
-<script>
-var ones=0;
-var twos=0;
-var threes=0;
-var fours=0;
-var fives=0;
-var sixes=0;
-var sevens=0;
-var eights=0;
-var nines=0;
-
-</script>
-
-<div id="box2">
-
-
-<div id="datasentries2">
-<label style="float:left;width: 378px;margin-left:20px;margin-top: 15px;">Vowels</label><label style="right:0;width: 80px;margin-right:0px;margin-top: 15px;float:right;">Totals</label><br>
-<input type="text" name="VowelsT" id="VowelsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Vowels" id="Vowels" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
-
-<label style="float:left;width: 378px;margin-left:20px;">Data Entry</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
-<input type="text" name="namestotal" id="namestotal" readonly style="background: #000;color: #fff; width: 80px;margin-right:20px;"><input type="text" name="numbers" id="thenames" style="width: 378px;margin-left:20px;text-transform:uppercase;">
-
-<label style="float:left;width: 378px;margin-left:20px;">Consonants</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
-<input type="text" name="ConsonantsT" id="ConsonantsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Consonants" id="Consonants" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
-<br><br>
-
-
-<table id="ulti" style="padding: 15px;background: #777;border-radius: 0px;">
-<tr>
-<td></td><td id="" class="spacer">1</td><td id="" class="spacer">2</td><td id="" class="spacer">3</td><td id="" class="spacer">4</td><td id="" class="spacer">5</td><td id="" class="spacer">6</td><td id="" class="spacer">7</td><td id="" class="spacer">8</td><td id="" class="spacer">9</td><td style="text-align:center;">Totals</td>
-</tr>
-<tr>
-<td>Vowels</td><td id="v1" class="spacer"></td><td id="v2" class="spacer"></td><td id="v3" class="spacer"></td><td id="v4" class="spacer"></td><td id="v5" class="spacer"></td><td id="v6" class="spacer"></td><td id="v7" class="spacer"></td><td id="v8" class="spacer"></td><td id="v9" class="spacer"></td><td id="vt" style="text-align:center;"></td>
-</tr>
-<tr>
-<td>Consonants</td><td id="c1" class="spacer"></td><td id="c2" class="spacer"></td><td id="c3" class="spacer"></td><td id="c4" class="spacer"></td><td id="c5" class="spacer"></td><td id="c6" class="spacer"></td><td id="c7" class="spacer"></td><td id="c8" class="spacer"></td><td id="c9" class="spacer"></td><td id="ct" style="text-align:center;"></td>
-</tr>
-<tr>
-<td>Totals</td><td id="1t" class="spacer"></td><td id="2t" class="spacer"></td><td id="3t" class="spacer"></td><td id="4t" class="spacer"></td><td id="5t" class="spacer"></td><td id="6t" class="spacer"></td><td id="7t" class="spacer"></td><td id="8t" class="spacer"></td><td id="9t" class="spacer"></td><td id="tt" style="text-align:center;"></td>
-</tr>
-</table>
-</div>
-
+-->
 <style>
 #container {
   position: relative;
   width: 480px;
   height: 480px;
+  margin: auto;
 }
 
 #ultibox {
@@ -1187,6 +1197,7 @@ var nines=0;
 
 #container canvas, #overlay {
   position: absolute;
+  margin: 0 auto;
  
 }
 canvas {
@@ -1194,6 +1205,7 @@ canvas {
     background-size: 480px 480px;
     width:480px;
     height:480px;
+    margin: 0 auto;
 }
 
 #forecast {
@@ -1214,6 +1226,7 @@ canvas {
     padding-top: 6px !important;
 }
 </style>
+<a name="namediagrams"></a>
 <div id="container">
 <canvas id="DemoCanvas" width="480" height="480"></canvas>
 
@@ -1237,7 +1250,6 @@ canvas {
 </table>
 </div>
 </div>
-
 
 <style>
 #calendar-body {
@@ -1348,8 +1360,9 @@ canvas {
 #pillslim {
     width: 458px;
     height: 36px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    padding-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -1380,7 +1393,7 @@ canvas {
 }
 
 </style>
-
+<a name="personaldaycalendar"></a>
    <div id="pillslim">
     <div id="pillslimleft">
     <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:36px;color:#fff;vertical-align:middle;">Personal Year Number for <span id="currentyear"></span></span>  
@@ -1402,7 +1415,7 @@ canvas {
     
     
     
-<div class="container col-sm-4 col-md-7 col-lg-4 mt-5" style="border-radius:10px;background:#999;margin:0 auto;">
+<div class="container col-sm-4 col-md-7 col-lg-4 mt-5" style="border-radius:10px;background:#999;margin:0 auto;width:498px;">
     <div class="card">
    
 
@@ -1526,7 +1539,118 @@ canvas {
     text-align:center;
 }
 </style>
+<!--</div>
+
+-->
+
+
+
+
 </div>
+<div id="sidepanel">
+<div id="labels">
+<div id="labelsbox"><a href="#calculator"><span class="labelstext">Calculator</span></a></div>
+</div>
+<div id="labels">
+<div id="labelsbox"><a href="#psychomatrix"><span class="labelstext">Psychomatrix</span></a></div>
+</div>
+<div id="labels">
+<div id="labelsbox"><a href="#charts"><span class="labelstext">Charts</span></a></div>
+</div>
+<div id="labels">
+<div id="labelsbox"><a href="#namediagrams"><span class="labelstext">Name Diagrams</span></a></div>
+</div>
+<div id="labels">
+<div id="labelsbox"><a href="#personaldaycalendar"><span class="labelstext">Personal Day Calendar</span></a></div>
+</div>
+<div id="labels">
+<div id="labelsbox"><a href="help.html" target="_blank"><span class="labelstext">Help</span></a></div>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="boxes">
+<div id="box1">
+<div id="addborder">
+
+<style>
+#datasentries {
+    background: #777;
+    border-radius: 5px;
+    position: relative;
+    display: block;
+    width: 420px;
+    padding: 15px;
+    overflow-y: hidden;
+}
+#datasentries2 {
+    background: #555;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 498px;
+    color: #fff;
+    padding-bottom: 20px;
+}
+#datasentries3 {
+    background: #555;
+    border-radius: 5px;
+    width: 498px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    margin-top: 0px;
+    color: #fff;
+}
+#psy {
+    text-shadow: 0 0 5px #000;
+}
+</style>
+<!--
+<div id="datasentries">
+<label style="color:orange;">Data Entry</label><label style="float:right">Totals</label><br>
+<input type="text" name="numbers" id="numbers" style="width:320px;float:left;"><input type="text" name="display" id="display" readonly style="background: #000;color: #fff;width:100px;float:right;"><br><br>
+</div>
+-->
+
+<style>
+#lifepathbox {
+    width: 450px;
+    text-align:center;
+}
+</style>
+<!--
+<label style="margin: 0 auto;width:450px;text-align:center;padding-top: 30px;">Life Path Number</label>
+<div id="lifepathbox">
+<span id="lifepath" style="color:gold;font-size:64px;margin:0 auto;text-align:center;font-family:goth;float:center;width:100px;"></span>
+</div> -->
+<!--
+<table id="infostable">
+<tr>
+<td class="infolabels">Self</td><td class="infolabels">Work</td><td class="infolabels">Talent</td><td class="infolabels">Purpose</td><td class="infolabels">Family</td><td class="infolabels">Habits</td><td class="infolabels">Spirit</td><td class="infolabels">Temp</td>
+</tr>
+<tr>
+<td id="t1" class="infoss"></td><td id="t2" class="infoss"></td><td id="t3" class="infoss"></td><td id="t4" class="infoss"></td><td id="t5" class="infoss"></td><td id="t6" class="infoss"></td><td id="t7" class="infoss"></td><td id="t8" class="infoss"></td>
+</tr>
+</table> -->
+</div>
+</div>
+
+<script>
+var ones=0;
+var twos=0;
+var threes=0;
+var fours=0;
+var fives=0;
+var sixes=0;
+var sevens=0;
+var eights=0;
+var nines=0;
+
+</script>
+
+
 </div>
 
 <script>
