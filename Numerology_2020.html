@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8" />
 </head>
+<script>
+
+
+
+</script>
 <style>
 #sidepanel a {
     color: white;
@@ -12,7 +17,7 @@
     background: #333;
     margin: 0 auto;
     width: 900px;
-    height: 550px;
+    height: 600px;
     border-radius: 10px;
     border: 20px solid #333;
     margin-top: 20px !important;
@@ -1100,7 +1105,7 @@ font-size: 100%;
 <input type="text" name="VowelsT" id="VowelsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Vowels" id="Vowels" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
 
 <label style="float:left;width: 378px;margin-left:20px;">Data Entry</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
-<input type="text" name="namestotal" id="namestotal" readonly style="background: #000;color: #fff; width: 80px;margin-right:20px;"><input type="text" name="numbers" id="thenames" style="width: 378px;margin-left:20px;text-transform:uppercase;">
+<input type="text" name="namestotal" id="namestotal" readonly style="background: #000;color: #fff; width: 80px;margin-right:20px;"><input type="text" name="numbers" id="thenames" style="width: 378px;margin-left:20px;text-transform:uppercase;" readonly>
 
 <label style="float:left;width: 378px;margin-left:20px;">Consonants</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
 <input type="text" name="ConsonantsT" id="ConsonantsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Consonants" id="Consonants" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
@@ -1136,9 +1141,9 @@ font-size: 100%;
 <label style="width:105px;margin-top: 15px;">Month</label>
 <label style="width:105px;margin-top: 15px;">Date</label>
 
-<input type="text" name="numbers" id="numbers3" style="width:105px;">
-<input type="text" name="numbers" id="numbers2" style="width:105px;">
-<input type="text" name="numbers" id="numbers1" style="width:105px;">
+<input type="text" name="numbers" id="numbers3" style="width:105px;" readonly>
+<input type="text" name="numbers" id="numbers2" style="width:105px;" readonly>
+<input type="text" name="numbers" id="numbers1" style="width:105px;" readonly>
 <input type="text" name="display4" id="display6" readonly style="background: #000;color: #fff;width:105px;">
 <input type="text" name="display3" id="display5" readonly style="background: #000;color: #fff;width:105px;">
 <input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;width:105px;">
@@ -1574,7 +1579,7 @@ canvas {
 </div>
 <div id="sidepanel">
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, red);"><img src="icons/calculator.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#calculator"><span class="labelstext">Calculator</span></a></div>
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, red);"><img src="icons/calculator.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#calculator" onclick="newuser()"><span class="labelstext">New Profile</span></a></div>
 </div>
 <div id="labels">
 <div id="labelsbox" style="background-image: linear-gradient(#aaa, orange);"><img src="icons/psychomatrix.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#psychomatrix"><span class="labelstext">Psychomatrix</span></a></div>
@@ -1592,6 +1597,7 @@ canvas {
 <div id="labelsbox" style="background-image: linear-gradient(#aaa, deeppink);"><img src="icons/help.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="help.html" target="_blank"><span class="labelstext">Help</span></a></div>
 </div>
 </div>
+<div id="apptitle"><span style="float:right;font-family:helveticanew;" id="currentperson"></span></div>
 </div>
 
 
@@ -4520,7 +4526,9 @@ document.getElementById("personalmonth").innerText = countmonths.toString();
     
     
 //////////////////////// CALENDAR
-    
+
+
+//////////////////////// CALENDAR
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
@@ -4529,17 +4537,26 @@ let selectMonth = document.getElementById("month");
 
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-let monthAndYear = document.getElementById("monthAndYear");
+let monthAndYear = document.getElementById("monthAndYear");    
+
+today = new Date();
+currentMonth = today.getMonth();
+currentYear = today.getFullYear();
+
 showCalendar(currentMonth, currentYear);
 
 
 function next() {
+   
+    countmonths++;
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
     showCalendar(currentMonth, currentYear);
 }
 
 function previous() {
+   
+    countmonths--;
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
     showCalendar(currentMonth, currentYear);
@@ -4637,6 +4654,8 @@ function showCalendar(month, year) {
 /*********************** MOONPHASE ************************/
             var mydate = new Date();
             mydate.setDate(date);
+            mydate.setMonth(month);
+            mydate.setYear(year);
             var phase = SunCalc.getMoonIllumination(mydate).phase;
             var moonphasetype = "";
            
@@ -4793,7 +4812,7 @@ function showCalendar(month, year) {
         tbl.appendChild(row); // appending each row into calendar body.
     }
 
-}    
+}   
     
 }
 
@@ -5233,10 +5252,10 @@ white-space: nowrap;
 </style>
 </body>
 </html>
+
 <script>
 
 //////////////////////// CALENDAR
-    
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
@@ -5245,11 +5264,17 @@ let selectMonth = document.getElementById("month");
 
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-let monthAndYear = document.getElementById("monthAndYear");
+let monthAndYear = document.getElementById("monthAndYear");    
+
+today = new Date();
+currentMonth = today.getMonth();
+currentYear = today.getFullYear();
+
 showCalendar(currentMonth, currentYear);
 
 
 function next() {
+   
     countmonths++;
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
@@ -5257,6 +5282,7 @@ function next() {
 }
 
 function previous() {
+   
     countmonths--;
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
@@ -5514,6 +5540,33 @@ function showCalendar(month, year) {
     }
 
 }    
+
+</script>
+<script>
+
+function newuser() {
+ var user = prompt("Enter your name, please", "John Doe");
+ if (user != null) {
+ document.getElementById("thenames").value = user;
+ }
+ 
+ 
+ var dateofbirth = prompt("Enter date of birth: mm dd yy");
+ if (dateofbirth != null) {
+
+ var newdateofbirth = dateofbirth.split(" ");
+    document.getElementById("numbers3").value = newdateofbirth[1]; 
+    document.getElementById("numbers1").value = newdateofbirth[2]; 
+    document.getElementById("numbers2").value = newdateofbirth[0]; 
+    
+ }
+ 
+ document.getElementById("currentperson").innerHTML = user.toUpperCase() + " (" + newdateofbirth[0] + " / " + newdateofbirth[1] + " / " + newdateofbirth[2] + ")";
+ 
+ 
+ calculate2();
+
+}
 
 </script>
 <!--
