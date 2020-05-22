@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/Jvkt4eJ.png">
+<img src="https://i.imgur.com/Zo6VVXL.png">
 
 
 A basic numerology calculator in JavaScript
