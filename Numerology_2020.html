@@ -1465,12 +1465,17 @@ canvas {
 
             </tbody>
         </table>
+        <style>
+        #mybuttons {
+            width: 498px;
+            height: 35px;
+        }
+        </style>
+         <div class="form-inline">
+          <div id="mybuttons">
+            <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()" style="background:#000;color:#fff;font-family:helveticanew;float:left;height:35px;width:249px;">Previous</button>
 
-        <div class="form-inline">
-
-            <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()" style="display:none">Previous</button>
-
-            <button class="btn btn-outline-primary col-sm-6" id="next" style="display:none">Next</button>
+            <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()" style="background:#000;color:#fff;font-family:helveticanew;height:35px;float:right;width:249px;">Next</button></div>
         </div>
  <form class="form-inline" style="display:none;">
             <label class="lead mr-2 ml-2" for="month"></label>
@@ -5230,7 +5235,285 @@ white-space: nowrap;
 </html>
 <script>
 
+//////////////////////// CALENDAR
+    
+let today = new Date();
+let currentMonth = today.getMonth();
+let currentYear = today.getFullYear();
+let selectYear = document.getElementById("year");
+let selectMonth = document.getElementById("month");
 
+let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+let monthAndYear = document.getElementById("monthAndYear");
+showCalendar(currentMonth, currentYear);
+
+
+function next() {
+    countmonths++;
+    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+    currentMonth = (currentMonth + 1) % 12;
+    showCalendar(currentMonth, currentYear);
+}
+
+function previous() {
+    countmonths--;
+    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+    showCalendar(currentMonth, currentYear);
+}
+
+function jump() {
+    currentYear = parseInt(selectYear.value);
+    currentMonth = parseInt(selectMonth.value);
+    showCalendar(currentMonth, currentYear);
+}
+
+function showCalendar(month, year) {
+
+    let firstDay = (new Date(year, month)).getDay();
+    let daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+    let tbl = document.getElementById("calendar-body"); // body of the calendar
+
+    // clearing all previous cells
+    tbl.innerHTML = "";
+
+    // filing data about month and in the page via DOM.
+    monthAndYear.innerHTML = months[month] + " " + year;
+    selectYear.value = year;
+    selectMonth.value = month;
+
+    // creating all cells
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+        // creates a table row
+        let row = document.createElement("tr");
+
+        //creating individual cells, filing them up with data.
+        for (let j = 0; j < 7; j++) {
+            if (i === 0 && j < firstDay) {
+                let cell = document.createElement("td");
+               
+
+                let cellText = document.createTextNode("");
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            else if (date > daysInMonth) {
+                break;
+            }
+
+            else {
+                let cell = document.createElement("td");
+                var tempdate = date.toString();
+                var tempdatelength = tempdate.length;
+                var tempdatesplit = tempdate.split("");
+                var countdate = 0;
+                if (tempdatelength > 1)
+                {
+                    for (s = 0; s < tempdatelength; s++)
+                    {
+                        countdate = countdate + parseFloat(tempdatesplit[s]);
+                    }
+                    
+                } else { countdate = parseFloat(date); }
+                
+               /* var getPersonalDayNumbers = countdate + countmonths;
+                var GPDN_string = getPersonalDayNumbers.toString();
+                var GPDN_split = GPDN_string.split("");
+                var GPDN_length = GPDN_string.length;
+                var GPDN_final = 0;
+                
+                if (GPDN_length > 1)
+                {
+                    for (d = 0; d < GPDN_length; d++)
+                    {
+                        GPDN_final = GPDN_final + parseFloat(GPDN_split[d]);
+                    }
+                } else { GPDN_final = GPDN_string; }
+                */
+               // var newcontent = "<span id='personaldays'>" +  GPDN_final.toString() + "</span>";
+                
+                //date = date + "<span id='personaldays'>" +  GPDN_final.toString() + "</span>";
+                var getPersonalDayNumbers = countdate + countmonths;
+                var GPDN_string = getPersonalDayNumbers.toString();
+                var GPDN_split = GPDN_string.split("");
+                var GPDN_length = GPDN_string.length;
+                var GPDN_final = 0;
+                
+                if (GPDN_length > 1)
+                {
+                    for (d = 0; d < GPDN_length; d++)
+                    {
+                        GPDN_final = GPDN_final + parseFloat(GPDN_split[d]);
+                    }
+                } else { GPDN_final = GPDN_string; }
+                
+                
+                
+/*********************** MOONPHASE ************************/
+            var mydate = new Date();
+            mydate.setDate(date);
+            mydate.setMonth(month);
+            mydate.setYear(year);
+            var phase = SunCalc.getMoonIllumination(mydate).phase;
+            var moonphasetype = "";
+           
+            if (phase > 0 && phase < 0.032)
+			{
+                moonphasetype = "moonphases/0.png";			
+			}
+			if (phase > 0.032 && phase < 0.064)
+			{
+                moonphasetype = "moonphases/1.png";		
+			}
+			if (phase > 0.064 && phase < 0.096)
+			{
+                moonphasetype = "moonphases/2.png";		
+			}
+			if (phase > 0.096 && phase < 0.128)
+			{
+                moonphasetype = "moonphases/3.png";		
+			}
+			if (phase > 0.128 && phase < 0.160)
+			{
+                moonphasetype = "moonphases/4.png";			
+			}			
+			if (phase > 0.160 && phase < 0.192)
+			{
+                moonphasetype = "moonphases/5.png";
+			}
+			if (phase > 0.192 && phase < 0.224)
+			{
+                moonphasetype = "moonphases/6.png";		
+			}
+			if (phase > 0.224 && phase < 0.256)
+			{
+                moonphasetype = "moonphases/7.png";		
+			} 
+			if (phase > 0.256 && phase < 0.288)
+			{
+                moonphasetype = "moonphases/8.png";		
+			} 
+			if (phase > 0.288 && phase < 0.320)
+			{
+                moonphasetype = "moonphases/9.png";		
+			} 
+			if (phase > 0.320 && phase < 0.352)
+			{
+                moonphasetype = "moonphases/10.png";		
+			} 
+			if (phase > 0.352 && phase < 0.384)
+			{
+                moonphasetype = "moonphases/11.png";		
+			} 
+			if (phase > 0.384 && phase < 0.416)
+			{
+                moonphasetype = "moonphases/12.png";		
+			} 
+			if (phase > 0.416 && phase < 0.448)
+			{
+                moonphasetype = "moonphases/13.png";		
+			} 
+			if (phase > 0.448 && phase < 0.480)
+			{
+                moonphasetype = "moonphases/14.png";		
+			} 
+			if (phase > 0.480 && phase < 0.5)
+			{
+                moonphasetype = "moonphases/15.png";		
+			} 
+			if (phase > 0.5 && phase < 0.532)
+			{
+                moonphasetype = "moonphases/16.png";		
+			} 
+			if (phase > 0.532 && phase < 0.564)
+			{
+                moonphasetype = "moonphases/17.png";		
+			} 
+			if (phase > 0.564 && phase < 0.596)
+			{
+                moonphasetype = "moonphases/18.png";		
+			} 
+			if (phase > 0.596 && phase < 0.628)
+			{
+                moonphasetype = "moonphases/19.png";		
+			}
+			if (phase > 0.628 && phase < 0.660)
+			{
+                moonphasetype = "moonphases/20.png";		
+			} 
+			if (phase > 0.660 && phase < 0.692)
+			{
+                moonphasetype = "moonphases/21.png";		
+			} 
+            if (phase > 0.692 && phase < 0.724)
+			{
+                moonphasetype = "moonphases/22.png";		
+			} 
+			if (phase > 0.724 && phase < 0.756)
+			{
+                moonphasetype = "moonphases/23.png";		
+			} 			
+			if (phase > 0.756 && phase < 0.788)
+			{
+                moonphasetype = "moonphases/24.png";		
+			}
+            if (phase > 0.788 && phase < 0.810)
+			{
+                moonphasetype = "moonphases/25.png";		
+			} 
+			if (phase > 0.810 && phase < 0.842)
+			{
+                moonphasetype = "moonphases/26.png";		
+			} 			
+			if (phase > 0.842 && phase < 0.876)
+			{
+                moonphasetype = "moonphases/27.png";		
+			} 
+			if (phase > 0.876 && phase < 0.908)
+			{
+                moonphasetype = "moonphases/28.png";		
+			} 
+			if (phase > 0.908 && phase < 0.940)
+			{
+                moonphasetype = "moonphases/29.png";		
+			} 			
+			if (phase > 0.940 && phase < 0.972)
+			{
+                moonphasetype = "moonphases/30.png";		
+			} 
+            if (phase > 0.972 && phase < 1)
+			{
+                moonphasetype = "moonphases/31.png";		
+			}                 
+                
+                
+                
+                
+                cell.innerHTML = "<span id='personaldays'>" +  GPDN_final.toString() + "</span>";
+                
+                let cellText = document.createTextNode(date);
+                
+        
+                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                    cell.classList.add("bg-info");
+                } // color today's date
+                cell.appendChild(cellText);
+                cell.style.background = "url(\'" + moonphasetype + "\')";
+                cell.style.backgroundSize = "64px 64px";
+                row.appendChild(cell);
+                date++;
+            }
+
+
+        }
+
+        tbl.appendChild(row); // appending each row into calendar body.
+    }
+
+}    
 
 </script>
 <!--
