@@ -13,11 +13,18 @@
 #mainwindow {
     background: #333;
     margin: 0 auto;
-    width: 900px;
+    width: 1100px;
     height: 600px;
     border-radius: 10px;
     border: 20px solid #333;
     margin-top: 20px !important;
+}
+
+#features {
+    width: 200px;
+    float:left;
+    height:500px;
+    background: #333;
 }
 #mainpanel {
     width: 540px;
@@ -43,7 +50,7 @@
     height: 60px;
     background: #333;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: left;
     vertical-align: middle;
     font-size: 18px;
@@ -52,6 +59,7 @@
 
 .labelstext {
     margin-left: 20px;
+    color: #fff;
 }
 
 #labelsbox {
@@ -911,7 +919,6 @@ textarea {
     height: 450px;
     margin: 0 auto;
     background: #999;
-    margin-top: 20px;
     font-family: goth;
     background: #000;
 }
@@ -1066,7 +1073,7 @@ font-size: 100%;
 }
 
 #apptitle {
-    width: 900px;
+    width: 1100px;
     height:30px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -1078,9 +1085,56 @@ font-size: 100%;
 }   
 
 .apptitletext {
-    margin-left: 20px;
     vertical-align: middle;
     
+}
+
+#apptitle2 {
+    width:1100px;
+    height:30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    font-family: goth;
+    color: #fff;
+    vertical-align: middle;
+} 
+
+#subfeaturestitle {
+    width: 198px;
+    background: gold;
+    color: #000;
+    height: 34px;
+    vertical-align: middle;
+    font-family: helveticanew;
+    font-size: 16px;
+    line-height: 38px;
+    border: 1px solid orange;
+    text-align: center;
+
+    
+}
+
+#subfeatures {
+    width: 200px;
+    background: #999;
+    color: #fff;
+    vertical-align: middle;
+    font-family: helveticanew;
+    font-size: 14px;
+    line-height: 24px;
+}
+#subfeaturestitles {
+    width: 200px;
+    height: 24px;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.results {
+    margin-left: 20px;
 }
 </style>
 <body>
@@ -1088,6 +1142,34 @@ font-size: 100%;
 
 <div id="mainwindow">
 <div id="apptitle"><span class="apptitletext">Pythagorean Numerology Calculator</span><span style="float:right;font-family:helveticanew;">version 0.07</span></div>
+<div id="features">
+<div id="subfeaturestitle"><span>Main Features</span></div>
+<div id="subfeatures">
+<div id="subfeaturestitles">
+<span class="">Life Path</span><span class="results" id="sublifepath"></span></div>
+<div id="subfeaturestitles">
+<span class="">Birthday</span><span  class="results" id="subbirthday"></span></div>
+<div id="subfeaturestitles">
+<span class="">Expression</span><span class="results"  id="subexpression"></span></div>
+<div id="subfeaturestitles">
+<span class="">Heart Desire</span><span class="results"  id="subheartdesire"></span></div>
+<div id="subfeaturestitles">
+<span class="">Personality</span><span class="results"  id="subpersonality"></span></div>
+</div>
+<div id="subfeaturestitle" style="margin-top:20px;">Additional Features</span></div>
+<div id="subfeatures">
+<div id="subfeaturestitles">
+<span class="">Maturity</span><span  class="results" id="submaturity"></span></div>
+<div id="subfeaturestitles">
+<span class="">Rational Thought</span><span  class="results" id="subrational"></span></div>
+<div id="subfeaturestitles">
+<span class="">Balance</span><span class="results"  id="subbalance"></span></div>
+<div id="subfeaturestitles">
+<span class="">Hidden Passion</span><span class="results"  id="subhidden"></span></div>
+<div id="subfeaturestitles">
+<span class="">Subcons. Confid.</span><span class="results"  id="subsubcons"></span></div>
+</div>
+</div>
 <div id="mainpanel">
 
 
@@ -1654,15 +1736,6 @@ Empty
 </div>
 </div>
 
-
-<!--
-</div> 
-
-
-
-
-</div>
--->
 <style>
 #container {
   position: relative;
@@ -1712,7 +1785,7 @@ canvas {
     padding-top: 6px !important;
 }
 </style>
-<a name="namediagrams"></a>
+
 <div id="container">
 <canvas id="DemoCanvas" width="480" height="480"></canvas>
 
@@ -1844,17 +1917,29 @@ canvas {
 }
 
 #pillslim {
-    width: 458px;
+    width: 160px;
     height: 36px;
-    margin-left: 20px !important;
-    margin-right: 20px !important;
-    padding-left: 10px;
+    margin-left: 0px !important;
+    margin-right: 10px !important;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
+#pillslimname {
+    width: 500px;
+    height: 36px;
+    margin-left: 0px !important;
+    margin-right: 10px !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: right;
+    background: dodgerblue;
+    border-radius: 5px;
+    text-align: center;
+}
+
 #pillslimleft {
-    width: 400px;
+    width: 125px;
     height: 36px;
     line-height: 36px !important;
     font-size: 14px !important;
@@ -1867,7 +1952,7 @@ canvas {
 
 #pillslimright {
     line-height: 36px !important;
-    width: 58px;
+    width: 35px;
     height: 36px;
     float: right;
     background: white;
@@ -1886,24 +1971,7 @@ canvas {
 <a name="personaldaycalendar"></a>
    
    <div id="personal">
-   <div id="pillslim">
-    <div id="pillslimleft">
-    <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:36px;color:#fff;vertical-align:middle;">Personal Year Number for <span id="currentyear"></span></span>  
-    </div>
-    <div id="pillslimright">
-    <b><span id="personalyear" style="font-family:helveticanew;font-size:14px;line-height:36px;color:#000;vertical-align:middle;text-align:center;"></span></b>
-    </div>
-    </div> 
-    
-    <div id ="pillslim">
-    <div id="pillslimleft">
-     <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:36px;color:#fff;vertical-align:middle;">Personal Month Number for <span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span></span>
-    </div>
-    <div id="pillslimright">
-    <b><span id="personalmonth" style="font-family:helveticanew;font-size:14px;line-height:36px;color:#000;vertical-align:middle;text-align:center;"></span></b>
-    </div>
-    
-    </div>
+
     
     
     
@@ -2035,6 +2103,9 @@ canvas {
     line-height: 12px;
     text-align:center;
 }
+.mypointer {
+    cursor: pointer;
+}
 </style>
 <!--</div>
 
@@ -2046,28 +2117,57 @@ canvas {
 </div>
 <div id="sidepanel">
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, gold);"><img src="icons/profile.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#" onclick="newuser()"><span class="labelstext">New Profile</span></a></div>
+<a class="mypointer" onclick="newuser()">
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, gold);"><img src="icons/profile.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><span class="labelstext">New Profile</span></div></a>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, red);"><img src="icons/calculator.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#" onclick="calcmode()"><span class="labelstext">Calculator</span></a></div>
+<a class="mypointer" onclick="calcmode()">
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, red);"><img src="icons/calculator.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><span class="labelstext">Calculator</span></div></a>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, orange);"><img src="icons/charts.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#" onclick="chartmode()"><span class="labelstext">Charts</span></a></div>
+<a class="mypointer" onclick="chartmode()">
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, orange);"><img src="icons/charts.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><span class="labelstext">Chart</span></div></a>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, yellow);"><img src="icons/psychomatrix.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#" onclick="psychomode()"><span class="labelstext">Psychomatrix</span></a></div>
+<a class="mypointer" onclick="psychomode()">
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, yellow);"><img src="icons/psychomatrix.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><span class="labelstext">Psychomatrix</span></div></a>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, lawngreen);"><img src="icons/namediagrams.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#" onclick="normanmode()"><span class="labelstext">Name Diagrams</span></a></div>
+<a class="mypointer" onclick="normanmode()">
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, lawngreen);"><img src="icons/namediagrams.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><span class="labelstext">Name Diagram</span></div></a>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, purple);"><img src="icons/personaldaycalendar.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#p" onclick="personalmode()"><span class="labelstext">Personal Day Calendar</span></a></div>
+<a class="mypointer" onclick="personalmode()">
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, purple);"><img src="icons/personaldaycalendar.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><span class="labelstext">Personal Day Calendar</span></div></a>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, deeppink);"><img src="icons/help.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="help.html" target="_blank"><span class="labelstext">Help</span></a></div>
+<a class="mypointer" href="help.html" target="_blank">
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, deeppink);"><img src="icons/help.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><span class="labelstext">Help</span></div></a>
 </div>
 </div>
-<div id="apptitle"><span style="float:right;font-family:helveticanew;" id="currentperson"></span></div>
+<div id="apptitle2">
+
+
+   <div id="pillslim" style="float:left;">
+    <div id="pillslimleft">
+    <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:36px;color:#fff;vertical-align:middle;"><span id="currentyear"></span></span>  
+    </div>
+    <div id="pillslimright">
+    <b><span id="personalyear" style="font-family:helveticanew;font-size:14px;line-height:36px;color:#000;vertical-align:middle;text-align:center;"></span></b>
+    </div>
+    </div> 
+    
+    <div id ="pillslim" style="float:left;">
+    <div id="pillslimleft">
+     <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:36px;color:#fff;vertical-align:middle;"><span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span></span>
+    </div>
+    <div id="pillslimright">
+    <b><span id="personalmonth" style="font-family:helveticanew;font-size:14px;line-height:36px;color:#000;vertical-align:middle;text-align:center;"></span></b>
+    </div>
+    
+    </div>
+
+<div id="pillslimname"><span style="font-family:helveticanew;bottom:0px;vertical-align: middle;" id="currentperson"></span></div></div>
 </div>
 
 
@@ -5688,9 +5788,20 @@ function showCalendar(month, year) {
   
   mydecoration = mydecoration + "####";
   
+  ///// SIDEBARFEATUREsS Sexy
   
-  
-  
+   document.getElementById("sublifepath").innerText = newpath;
+   document.getElementById("subbirthday").innerText = document.getElementById("display6").value;
+   document.getElementById("subexpression").innerText = document.getElementById("namestotal").value;
+   document.getElementById("subheartdesire").innerText = document.getElementById("VowelsT").value;
+   document.getElementById("subpersonality").innerText = document.getElementById("ConsonantsT").value;
+   
+   document.getElementById("submaturity").innerText = newpath + namestotalsfinal2;
+   document.getElementById("subrational").innerText = rational3 + " / " + rational;
+   document.getElementById("subbalance").innerText = initial1sum + " / " + initial2sum;
+   document.getElementById("subhidden").innerText = findRepeat(theset);
+   document.getElementById("subsubcons").innerText = confidencenumber;
+
   
   finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + MaturityNumber + RationalNumber + BalanceNumber + HiddenPassionNumber + Confidence + LifePathPeriods + FinalFullName + ShortNameTotals + PsychoMatrixString;
   
