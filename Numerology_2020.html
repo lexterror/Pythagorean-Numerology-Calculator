@@ -856,6 +856,16 @@ label {
 }
 
 @font-face {
+font-family: 'astro';
+src: url('fonts/AstroDotBasic.eot'); /* IE9 Compat Modes */
+src: url('fonts/AstroDotBasic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+url('fonts/AstroDotBasic.woff2') format('woff2'), /* Super Modern Browsers */
+url('fonts/AstroDotBasic.woff') format('woff'), /* Pretty Modern Browsers */
+url('fonts/AstroDotBasic.ttf')  format('truetype'); /* Safari, Android, iOS */
+font-size: 100%;
+}
+
+@font-face {
 font-family: 'goth';
 src: url('fonts/Gothicus W00 Regular.eot'); /* IE9 Compat Modes */
 src: url('fonts/Gothicus W00 Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -2168,6 +2178,8 @@ canvas {
     </div>
     
     </div>
+    
+    <div id="zodiacsign"><span id="mysign"></span></div>
 
 <div id="pillslimname"><span style="font-family:helveticanew;bottom:0px;vertical-align: middle;" id="currentperson"></span></div></div>
 </div>
@@ -2180,6 +2192,17 @@ canvas {
 <div id="addborder">
 
 <style>
+#zodiacsign {
+    width: 50px;
+    height: 50px;
+    font-family: astro;
+    background: #000;
+    font-size: 32px;
+    line-height: 50px;
+    color:#fff;
+    float: right;
+    border-radius: 5px;
+}
 #datasentries {
     background: transparent;
     border-radius: 5px;
@@ -6287,7 +6310,7 @@ function newuser() {
  if (dateofbirth != null) {
 
  var newdateofbirth = dateofbirth.split(" ");
-    document.getElementById("numbers3").value = newdateofbirth[1]; 
+    document.getElementById("numbers3").value = newdateofbirth[1];  
     document.getElementById("numbers1").value = newdateofbirth[2]; 
     document.getElementById("numbers2").value = newdateofbirth[0]; 
     
@@ -6295,7 +6318,52 @@ function newuser() {
  
  document.getElementById("currentperson").innerHTML = user.toUpperCase() + " (" + newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + ")";
  
+var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
+document.getElementById("mysign").innerText = sign;
  
+function getZodiacSign(day, month) {
+
+  var zodiacSigns = {
+    'capricorn':'j',
+    'aquarius':'k',
+    'pisces':'l',
+    'aries':'a',
+    'taurus':'b',
+    'gemini':'c',
+    'cancer':'d',
+    'leo':'e',
+    'virgo':'f',
+    'libra':'g',
+    'scorpio':'h',
+    'sagittarius':'i'
+  }
+
+  if((month == 1 && day <= 20) || (month == 12 && day >=22)) {
+    return zodiacSigns.capricorn;
+  } else if ((month == 1 && day >= 21) || (month == 2 && day <= 18)) {
+    return zodiacSigns.aquarius;
+  } else if((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+    return zodiacSigns.pisces;
+  } else if((month == 3 && day >= 21) || (month == 4 && day <= 20)) {
+    return zodiacSigns.aries;
+  } else if((month == 4 && day >= 21) || (month == 5 && day <= 20)) {
+    return zodiacSigns.taurus;
+  } else if((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+    return zodiacSigns.gemini;
+  } else if((month == 6 && day >= 22) || (month == 7 && day <= 22)) {
+    return zodiacSigns.cancer;
+  } else if((month == 7 && day >= 23) || (month == 8 && day <= 23)) {
+    return zodiacSigns.leo;
+  } else if((month == 8 && day >= 24) || (month == 9 && day <= 23)) {
+    return zodiacSigns.virgo;
+  } else if((month == 9 && day >= 24) || (month == 10 && day <= 23)) {
+    return zodiacSigns.libra;
+  } else if((month == 10 && day >= 24) || (month == 11 && day <= 22)) {
+    return zodiacSigns.scorpio;
+  } else if((month == 11 && day >= 23) || (month == 12 && day <= 21)) {
+    return zodiacSigns.sagittarius;
+  }
+} 
  calculate2();
  createChart();
 
