@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8" />
 </head>
-<script>
-
-
-
+<script src="js/jquery-3.5.1.min.js">
 </script>
 <style>
 #sidepanel a {
@@ -1095,7 +1092,7 @@ font-size: 100%;
 
 
 <!-- new calculator-->
-<div id="datasentries2">
+<div id="datasentries4">
 <a name="calculator"></a>
 <label style="float:left;width: 378px;margin-left:20px;margin-top: 15px;">Vowels</label><label style="right:0;width: 80px;margin-right:0px;margin-top: 15px;float:right;">Totals</label><br>
 <input type="text" name="VowelsT" id="VowelsT2" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Vowels" id="Vowels2" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
@@ -1621,11 +1618,13 @@ Empty
 
 </div>
 
-
-
+<style>
+#psychobox {
+    
+}
+</style>
+<div id="psychobox">
 <a name="psychomatrix"></a>
-<label style="background:#000;width: 483px;padding-left:15px;padding-bottom:10px;padding-top:5px;margin-top:45px;margin-bottom:15px;" id="psy"><span style="color:#ff0092;">P</span><span style="color:#f3009c;">s</span><span style="color:#e800a6;">y</span><span style="color:#dc00b0;">c</span><span style="color:#d100ba;">h</span><span style="color:#c500c4;">o</span><span style="color:#ba00cd;">m</span><span style="color:#ae00d7;">a</span><span style="color:#a300e1;">t</span><span style="color:#9700eb;">r</span><span style="color:#8c00f5;">i</span><span style="color:#8000ff;">x</span></label>
-<!--<input type="text" name="psycho" id="psycho" readonly style="background: #000;color: #fff;"> -->
 <table id="psychomatrix">
 <tr>
 <td><span id="ones3"></span><br><span class="infos">character,<br>will</span></td>  <!-- 3 -->
@@ -1653,7 +1652,7 @@ Empty
 </tr>
 </table>
 </div>
-
+</div>
 
 
 <!--
@@ -1879,8 +1878,14 @@ canvas {
 
 }
 
+#personal {
+
+}
+
 </style>
 <a name="personaldaycalendar"></a>
+   
+   <div id="personal">
    <div id="pillslim">
     <div id="pillslimleft">
     <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:36px;color:#fff;vertical-align:middle;">Personal Year Number for <span id="currentyear"></span></span>  
@@ -2009,7 +2014,7 @@ canvas {
         
     </div>
 </div>
-
+</div>
 <style>
 #infostable {
     color: #eee;
@@ -2041,22 +2046,22 @@ canvas {
 </div>
 <div id="sidepanel">
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, gold);"><img src="icons/profile.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#calculator" onclick="newuser()"><span class="labelstext">New Profile</span></a></div>
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, gold);"><img src="icons/profile.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#" onclick="newuser()"><span class="labelstext">New Profile</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, red);"><img src="icons/calculator.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#calculator"><span class="labelstext">Calculator</span></a></div>
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, red);"><img src="icons/calculator.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#" onclick="calcmode()"><span class="labelstext">Calculator</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, orange);"><img src="icons/charts.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#charts"><span class="labelstext">Charts</span></a></div>
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, orange);"><img src="icons/charts.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#" onclick="chartmode()"><span class="labelstext">Charts</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, yellow);"><img src="icons/psychomatrix.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#psychomatrix"><span class="labelstext">Psychomatrix</span></a></div>
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, yellow);"><img src="icons/psychomatrix.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#" onclick="psychomode()"><span class="labelstext">Psychomatrix</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, lawngreen);"><img src="icons/namediagrams.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#namediagrams"><span class="labelstext">Name Diagrams</span></a></div>
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, lawngreen);"><img src="icons/namediagrams.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#" onclick="normanmode()"><span class="labelstext">Name Diagrams</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, purple);"><img src="icons/personaldaycalendar.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#personaldaycalendar"><span class="labelstext">Personal Day Calendar</span></a></div>
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, purple);"><img src="icons/personaldaycalendar.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#p" onclick="personalmode()"><span class="labelstext">Personal Day Calendar</span></a></div>
 </div>
 <div id="labels">
 <div id="labelsbox" style="background-image: linear-gradient(#aaa, deeppink);"><img src="icons/help.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="help.html" target="_blank"><span class="labelstext">Help</span></a></div>
@@ -2074,7 +2079,7 @@ canvas {
 
 <style>
 #datasentries {
-    background: #777;
+    background: transparent;
     border-radius: 5px;
     position: relative;
     display: block;
@@ -2083,7 +2088,7 @@ canvas {
     overflow-y: hidden;
 }
 #datasentries2 {
-    background: #555;
+    background: transparent;
     border-radius: 5px;
     margin: 0 auto;
     width: 498px;
@@ -2091,7 +2096,7 @@ canvas {
     padding-bottom: 20px;
 }
 #datasentries3 {
-    background: #555;
+    background: transparent;
     border-radius: 5px;
     width: 498px;
     margin: 0 auto;
@@ -2099,6 +2104,16 @@ canvas {
     margin-top: 0px;
     color: #fff;
 }
+
+#datasentries4 {
+    background: #555;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 498px;
+    color: #fff;
+    padding-bottom: 20px;
+}
+
 #psy {
     text-shadow: 0 0 5px #000;
 }
@@ -6043,6 +6058,52 @@ function newuser() {
 
 }
 </script>
+<script>
+function calcmode() {
+
+  $("#datasentries4").show();
+  $("#chartsbox").hide();
+  $("#psychobox").hide();
+  $("#container").hide();
+  $("#personal").hide();
+}
+function chartmode() {
+
+  $("#datasentries4").hide();
+  $("#chartsbox").show();
+  $("#psychobox").hide();
+  $("#container").hide();
+  $("#personal").hide();
+}
+function psychomode() {
+
+  $("#datasentries4").hide();
+  $("#chartsbox").hide();
+  $("#psychobox").show();
+  $("#container").hide();
+  $("#personal").hide();
+}
+function normanmode() {
+
+  $("#datasentries4").hide();
+  $("#chartsbox").hide();
+  $("#psychobox").hide();
+  $("#container").show();
+  $("#personal").hide();
+}
+function personalmode() {
+
+  $("#datasentries4").hide();
+  $("#chartsbox").hide();
+  $("#psychobox").hide();
+  $("#container").hide();
+  $("#personal").show();
+}
+calcmode();
+
+</script>
+
+
 <!--
 
 How do I calculate my Psychomatrix Square?
