@@ -881,8 +881,8 @@ font-size: 100%;
 }
 textarea {
 
-  background-color : #000;
-  color: lawngreen;
+  background-color : #fff;
+  color: #000;
 
 }
 #mytitle {
@@ -1092,14 +1092,463 @@ font-size: 100%;
 <div id="mainwindow">
 <div id="apptitle"><span class="apptitletext">Pythagorean Numerology Calculator</span><span style="float:right;font-family:helveticanew;">version 0.07</span></div>
 <div id="mainpanel">
-<!--
-<div id="box2">
 
 
+<!-- new calculator-->
 <div id="datasentries2">
--->
+<a name="calculator"></a>
+<label style="float:left;width: 378px;margin-left:20px;margin-top: 15px;">Vowels</label><label style="right:0;width: 80px;margin-right:0px;margin-top: 15px;float:right;">Totals</label><br>
+<input type="text" name="VowelsT" id="VowelsT2" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Vowels" id="Vowels2" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
 
-<div id="datasentries2">
+<label style="float:left;width: 378px;margin-left:20px;">Data Entry</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
+<input type="text" name="namestotal" id="namestotal2" readonly style="background: #000;color: #fff; width: 80px;margin-right:20px;"><input type="text" name="numbers" id="thenames2" style="width: 378px;margin-left:20px;text-transform:uppercase;">
+
+<label style="float:left;width: 378px;margin-left:20px;">Consonants</label><label style="right:0;width: 80px;margin-right:20px;">.</label><br>
+<input type="text" name="ConsonantsT" id="ConsonantsT2" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Consonants" id="Consonants2" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
+<br><br>
+
+
+<table id="ulti" style="padding: 15px;background: #777;border-radius: 0px;">
+<tr>
+<td></td><td id="" class="spacer">1</td><td id="" class="spacer">2</td><td id="" class="spacer">3</td><td id="" class="spacer">4</td><td id="" class="spacer">5</td><td id="" class="spacer">6</td><td id="" class="spacer">7</td><td id="" class="spacer">8</td><td id="" class="spacer">9</td><td style="text-align:center;">Totals</td>
+</tr>
+<tr>
+<td>Vowels</td><td id="new_v1" class="spacer"></td><td id="new_v2" class="spacer"></td><td id="new_v3" class="spacer"></td><td id="new_v4" class="spacer"></td><td id="new_v5" class="spacer"></td><td id="new_v6" class="spacer"></td><td id="new_v7" class="spacer"></td><td id="new_v8" class="spacer"></td><td id="new_v9" class="spacer"></td><td id="new_vt" style="text-align:center;"></td>
+</tr>
+<tr>
+<td>Consonants</td><td id="new_c1" class="spacer"></td><td id="new_c2" class="spacer"></td><td id="new_c3" class="spacer"></td><td id="new_c4" class="spacer"></td><td id="new_c5" class="spacer"></td><td id="new_c6" class="spacer"></td><td id="new_c7" class="spacer"></td><td id="new_c8" class="spacer"></td><td id="new_c9" class="spacer"></td><td id="new_ct" style="text-align:center;"></td>
+</tr>
+<tr>
+<td>Totals</td><td id="new_1t" class="spacer"></td><td id="new_2t" class="spacer"></td><td id="new_3t" class="spacer"></td><td id="new_4t" class="spacer"></td><td id="new_5t" class="spacer"></td><td id="new_6t" class="spacer"></td><td id="new_7t" class="spacer"></td><td id="new_8t" class="spacer"></td><td id="new_9t" class="spacer"></td><td id="new_tt" style="text-align:center;"></td>
+</tr>
+</table>
+</div>
+
+<script>
+function newcalculate() {
+
+var thenames =  document.getElementById("thenames2").value;
+thenames = thenames.replace(/\s/g, '');
+
+///////************* NORMAN **************///////////
+    var names_data_entered_length = thenames.length;
+    var namesumbers = thenames.split("");
+    var new_ones=0;
+    var new_twos=0;
+    var new_threes=0;
+    var new_fours=0;
+    var new_fives=0;
+    var new_sixes=0;
+    var new_sevens=0;
+    var new_eights=0;
+    var new_nines=0;
+    
+    var new_onesc=0;
+    var new_twosc=0;
+    var new_threesc=0;
+    var new_foursc=0;
+    var new_fivesc=0;
+    var new_sixesc=0;
+    var new_sevensc=0;
+    var new_eightsc=0;
+    var new_ninesc=0;
+    
+    var new_onesv=0;
+    var new_twosv=0;
+    var new_threesv=0;
+    var new_foursv=0;
+    var new_fivesv=0;
+    var new_sixesv=0;
+    var new_sevensv=0;
+    var new_eightsv=0;
+    var new_ninesv=0;
+    
+    var new_vowelstrack = 0;
+    var new_consonantstrack = 0;
+    var new_vowels = [];
+    var new_consonants = [];
+    var new_namestotalsfinal2 = 0;
+
+for (i = 0; i < names_data_entered_length; i++)
+    {
+    
+    if (namesumbers[i] == "1")
+    {
+    new_ones++;
+    }
+    if (namesumbers[i] == "2")
+    {
+    new_twos++;
+    }
+    if (namesumbers[i] == "3")
+    {
+    new_threes++;
+    }
+    if (namesumbers[i] == "4")
+    {
+    new_fours++;
+    }
+    if (namesumbers[i] == "5")
+    {
+    new_fives++;
+    }
+    if (namesumbers[i] == "6")
+    {
+    new_sixes++;
+    }
+    if (namesumbers[i] == "7")
+    {
+    new_sevens++;
+    }
+    if (namesumbers[i] == "8")
+    {
+    new_eights++;
+    }
+    if (namesumbers[i] == "9")
+    {
+    new_nines++;
+    }
+    
+    
+    
+    
+    if (namesumbers[i] == "a" || namesumbers[i] == "A")
+    {
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 1;
+    new_onesv++;
+    new_ones++;
+    }
+    if (namesumbers[i] == "j" || namesumbers[i] == "J")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 1;
+    new_ones++;
+    new_onesc++
+    }
+    if (namesumbers[i] == "s" || namesumbers[i] == "S")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 1;
+    new_ones++;
+    new_onesc++;
+    }
+    if (namesumbers[i] == "b" || namesumbers[i] == "B")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 2;
+    new_twos++;
+    new_twosc++;
+    }
+    if (namesumbers[i] == "k" || namesumbers[i] == "K")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 2;
+    new_twos++;
+    new_twosc++;
+    }
+    if (namesumbers[i] == "t" || namesumbers[i] == "T")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 2;
+    new_twos++;
+    new_twosc++;
+    }
+    if (namesumbers[i] == "c" || namesumbers[i] == "C")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 3;
+    new_threes++;
+    new_threesc++;
+    }
+    if (namesumbers[i] == "l" || namesumbers[i] == "L")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 3;
+    new_threes++;
+    new_threesv++;
+    }
+    if (namesumbers[i] == "u" || namesumbers[i] == "U")
+    {
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 3;
+    new_threes++;
+    new_threesv++;
+    }
+    if (namesumbers[i] == "d" || namesumbers[i] == "D")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 4;
+    new_fours++;
+    new_foursc++;
+    }
+    if (namesumbers[i] == "m" || namesumbers[i] == "M")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 4;
+    new_fours++;
+    new_foursc++;
+    }
+    if (namesumbers[i] == "v" || namesumbers[i] == "V")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 4;
+    new_fours++;
+    new_foursc++;
+    }
+    if (namesumbers[i] == "e" || namesumbers[i] == "E")
+    {
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 5;
+    new_fives++;
+    new_fivesv++;
+    }
+    if (namesumbers[i] == "n" || namesumbers[i] == "N")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 5;
+    new_fives++;
+    new_fivesc++;
+    }
+    if (namesumbers[i] == "w" || namesumbers[i] == "W")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 5;
+    new_fives++;
+    new_fivesc++;
+    }
+    if (namesumbers[i] == "f" || namesumbers[i] == "F")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 6;
+    new_sixes++;
+    new_sixesc++;
+    }
+    if (namesumbers[i] == "o" || namesumbers[i] == "O")
+    {
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 6;
+    new_sixes++;
+    new_sixesv++;
+    }
+    if (namesumbers[i] == "x" || namesumbers[i] == "X")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 6;
+    new_sixes++;
+    new_sixesc++;
+    }
+    if (namesumbers[i] == "g" || namesumbers[i] == "G")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 7;
+    new_sevens++;
+    new_sevensc++;
+    }
+    if (namesumbers[i] == "p" || namesumbers[i] == "P")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 7;
+    new_sevens++;
+    new_sevensc++;
+    }
+    if (namesumbers[i] == "y" || namesumbers[i] == "Y")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 7;
+    new_sevens++;
+    new_sevensc++;
+    }
+    if (namesumbers[i] == "h" || namesumbers[i] == "H")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 8;
+    new_eights++;
+    new_eightsc++;
+    }
+    if (namesumbers[i] == "q" || namesumbers[i] == "Q")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 8;
+    new_eights++;
+    new_eightsc++;
+    }
+    if (namesumbers[i] == "z" || namesumbers[i] == "Z")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 8;
+    new_eights++;
+    new_eightsc++;
+    }
+    if (namesumbers[i] == "i" || namesumbers[i] == "I")
+    {
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 9;
+    new_nines++;
+    new_ninesv++;
+    }
+    if (namesumbers[i] == "r" || namesumbers[i] == "R")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 9;
+    new_nines++;
+    new_ninesc++;
+    }
+        
+    }
+    ////////////// MATRIX //////////////////////
+    document.getElementById("new_v1").innerText = new_onesv; 
+    document.getElementById("new_v2").innerText = new_twosv;     
+    document.getElementById("new_v3").innerText = new_threesv; 
+    document.getElementById("new_v4").innerText = new_foursv; 
+    document.getElementById("new_v5").innerText = new_fivesv; 
+    document.getElementById("new_v6").innerText = new_sixesv; 
+    document.getElementById("new_v7").innerText = new_sevensv; 
+    document.getElementById("new_v8").innerText = new_eightsv; 
+    document.getElementById("new_v9").innerText = new_ninesv; 
+    document.getElementById("new_c1").innerText = new_onesc; 
+    document.getElementById("new_c2").innerText = new_twosc;     
+    document.getElementById("new_c3").innerText = new_threesc; 
+    document.getElementById("new_c4").innerText = new_foursc; 
+    document.getElementById("new_c5").innerText = new_fivesc; 
+    document.getElementById("new_c6").innerText = new_sixesc; 
+    document.getElementById("new_c7").innerText = new_sevensc; 
+    document.getElementById("new_c8").innerText = new_eightsc; 
+    document.getElementById("new_c9").innerText = new_ninesc;   
+    
+    document.getElementById("new_1t").innerText = new_onesc + new_onesv; 
+    document.getElementById("new_2t").innerText = new_twosc + new_twosv;  
+    document.getElementById("new_3t").innerText = new_threesc + new_threesv; 
+    document.getElementById("new_4t").innerText = new_foursc + new_foursv; 
+    document.getElementById("new_5t").innerText = new_fivesc + new_fivesv; 
+    document.getElementById("new_6t").innerText = new_sixesc + new_sixesv; 
+    document.getElementById("new_7t").innerText = new_sevensc + new_sevensv; 
+    document.getElementById("new_8t").innerText = new_eightsc + new_eightsv; 
+    document.getElementById("new_9t").innerText = new_ninesc + new_ninesv; 
+    
+    document.getElementById("new_vt").innerText = new_onesv + new_twosv + new_threesv + new_foursv + new_fivesv + new_sixesv + new_sevensv + new_eightsv + new_ninesv;
+    document.getElementById("new_ct").innerText = new_onesc + new_twosc + new_threesc + new_foursc + new_fivesc + new_sixesc + new_sevensc + new_eightsc + new_ninesc;  
+    
+    document.getElementById("new_tt").innerText = new_onesc + new_twosc + new_threesc + new_foursc + new_fivesc + new_sixesc + new_sevensc + new_eightsc + new_ninesc + new_onesv + new_twosv + new_threesv + new_foursv + new_fivesv + new_sixesv + new_sevensv + new_eightsv + new_ninesv;     
+    
+    ///////////// VOWELS CONSONANTS TOTALS ///////////////////
+    var consonantstotals = new_consonants.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    var vowelstotals = new_vowels.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    
+    var vpass1 = vowelstotals.length;
+    var cpass1 = consonantstotals.length;
+    var vpass1totals = 0;
+    var vpass1totals2 = 0;
+    var cpass1totals = 0;
+    var cpass1totals2 = 0;
+    
+    document.getElementById("VowelsT2").value = vowelstotals; 
+    document.getElementById("ConsonantsT2").value = consonantstotals;
+    
+    var cc = consonantstotals.toString();
+    var vv = vowelstotals.toString();
+    var cc2 = cc.length;
+    var vv2 = vv.length;
+    var v1split = vv.split("");
+    var c1split = cc.split("");
+    
+    if (vv2 > 1)
+    {
+    for (j = 0; j < vv2; j++)
+    {
+         vpass1totals = vpass1totals + parseFloat(v1split[j]);
+    }
+    document.getElementById("VowelsT2").value = vowelstotals + " / " + vpass1totals;     
+    }
+
+    if (cc2 > 1)
+    {
+    for (j = 0; j < cc2; j++)
+    {
+         cpass1totals = cpass1totals + parseFloat(c1split[j]);
+    }
+    document.getElementById("ConsonantsT2").value = consonantstotals + " / " + cpass1totals;     
+    }
+    
+    var cc3 = cpass1totals.toString();
+    var vv3 = vpass1totals.toString();
+    var cc23 = cc3.length;
+    var vv23 = vv3.length;
+    var v3split = vv3.split("");
+    var c3split = cc3.split("");    
+        
+    if (vv23 > 1)
+    {
+    for (j = 0; j < vv23; j++)
+    {
+         vpass1totals2 = vpass1totals2 + parseFloat(v3split[j]);
+    }
+    document.getElementById("VowelsT2").value = vowelstotals + " / " + vpass1totals + " / " + vpass1totals2;     
+    }
+
+    if (cc23 > 1)
+    {
+    for (j = 0; j < cc23; j++)
+    {
+         cpass1totals2 = cpass1totals2 + parseFloat(c3split[j]);
+    }
+    document.getElementById("ConsonantsT2").value = consonantstotals + " / " + cpass1totals + " / " + cpass1totals2;     
+    }    
+    
+    var vow1 = new_vowels.map(String);
+    var con1 = new_consonants.map(String);
+    var vow2 = vow1.toString().replace(/,/g,"");
+    var con2 = con1.toString().replace(/,/g,"");
+    document.getElementById("Vowels2").value = vow2;
+    document.getElementById("Consonants2").value = con2;
+    
+    
+    var sumtotals = (new_ones + (new_twos * 2) + (new_threes * 3) + (new_fours * 4) + (new_fives * 5) + (new_sixes * 6) + (new_sevens * 7) + (new_eights * 8) + (new_nines * 9));
+    
+    var n = sumtotals.toString();
+    var sumtotalslentgh = n.length;
+    var numberss = n.split("");
+    var namestotalsfinal = 0;
+    
+    document.getElementById("namestotal2").value = sumtotals; 
+    
+    
+    if (sumtotalslentgh > 1)
+    {
+    for (m = 0; m < sumtotalslentgh; m++)
+    {
+        namestotalsfinal = namestotalsfinal + parseFloat(numberss[m]);
+    }
+    document.getElementById("namestotal2").value = sumtotals + " / " +  namestotalsfinal;
+    }
+
+    var nn = namestotalsfinal.toString();
+    var nnlength = nn.length;
+    var temp = nn.split("");
+    
+    if (nnlength > 1)
+    {
+    for (z = 0; z < nnlength; z++)
+    {
+         new_namestotalsfinal2 = new_namestotalsfinal2 + parseFloat(temp[z]);
+    }
+     document.getElementById("namestotal2").value = sumtotals + " / " +  namestotalsfinal + " / " + new_namestotalsfinal2;
+    }
+    
+    
+    
+    
+}
+
+</script>
+<!-- end of new calculator -->
+
+
+<div id="datasentries2" style="display:none">
 <a name="calculator"></a>
 <label style="float:left;width: 378px;margin-left:20px;margin-top: 15px;">Vowels</label><label style="right:0;width: 80px;margin-right:0px;margin-top: 15px;float:right;">Totals</label><br>
 <input type="text" name="VowelsT" id="VowelsT" readonly style="background: #000;color: #fff;width: 80px;margin-right:20px;"><input type="text" name="Vowels" id="Vowels" readonly style="background: #000;color: #fff;width:378px;margin-left:20px;">
@@ -1136,7 +1585,7 @@ font-size: 100%;
 }
 </style>
 <div id="datasentries3">
-<div id="datebirthbox">
+<div id="datebirthbox" style="display:none">
 <label style="width:105px;margin-top: 15px;float:left;">Year</label>
 <label style="width:105px;margin-top: 15px;">Month</label>
 <label style="width:105px;margin-top: 15px;">Date</label>
@@ -1149,6 +1598,31 @@ font-size: 100%;
 <input type="text" name="display2" id="display4" readonly style="background: #000;color: #fff;width:105px;">
 <!--<input type="text" name="display2" id="lifepathbelow" readonly style="background: #000;color: #fff;width:105px;"> -->
 </div>
+
+
+<div id="datasentries2">
+<style>
+#chartsbox {
+    width: 450px;
+    margin: 0 auto;
+}
+</style>
+
+
+<a name="charts"></a>
+<div id="chartsbox">
+<button type="button" onclick="createChart();" style="width:450px;height:30px;margin:0 auto;display:none;">Create Chart</button>
+<textarea id="ChartOutput" readonly style="width:450px;height:450px;margin: 0 auto;resize: none;" wrap='off'>
+Empty
+</textarea>
+<button type="button" onclick="saveChart();" style="width:450px;height:30px;">Save Chart</button>
+</div>
+
+
+</div>
+
+
+
 <a name="psychomatrix"></a>
 <label style="background:#000;width: 483px;padding-left:15px;padding-bottom:10px;padding-top:5px;margin-top:45px;margin-bottom:15px;" id="psy"><span style="color:#ff0092;">P</span><span style="color:#f3009c;">s</span><span style="color:#e800a6;">y</span><span style="color:#dc00b0;">c</span><span style="color:#d100ba;">h</span><span style="color:#c500c4;">o</span><span style="color:#ba00cd;">m</span><span style="color:#ae00d7;">a</span><span style="color:#a300e1;">t</span><span style="color:#9700eb;">r</span><span style="color:#8c00f5;">i</span><span style="color:#8000ff;">x</span></label>
 <!--<input type="text" name="psycho" id="psycho" readonly style="background: #000;color: #fff;"> -->
@@ -1179,21 +1653,9 @@ font-size: 100%;
 </tr>
 </table>
 </div>
-<div id="datasentries2">
-<style>
-#chartsbox {
-    width: 450px;
-    margin: 0 auto;
-}
-</style>
-<a name="charts"></a>
-<div id="chartsbox">
-<button type="button" onclick="createChart();" style="width:450px;height:30px;margin:0 auto;">Create Chart</button>
-<textarea id="ChartOutput" readonly style="width:450px;height:450px;margin: 0 auto;resize: none;background-image: url('img/logo.jpg');" wrap='off'>
-Empty
-</textarea>
-<button type="button" onclick="saveChart();" style="width:450px;height:30px;">Save Chart</button>
-</div></div>
+
+
+
 <!--
 </div> 
 
@@ -1478,9 +1940,9 @@ canvas {
         </style>
          <div class="form-inline">
           <div id="mybuttons">
-            <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()" style="background:#000;color:#fff;font-family:helveticanew;float:left;height:35px;width:249px;display:none;">Previous</button>
+            <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()" style="display:none;background:#000;color:#fff;font-family:helveticanew;float:left;height:35px;width:249px;">Previous</button>
 
-            <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()" style="background:#000;color:#fff;font-family:helveticanew;height:35px;float:right;width:249px;display:none;">Next</button></div>
+            <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()" style="display:none;background:#000;color:#fff;font-family:helveticanew;height:35px;float:right;width:249px;">Next</button></div>
         </div>
  <form class="form-inline" style="display:none;">
             <label class="lead mr-2 ml-2" for="month"></label>
@@ -1579,13 +2041,16 @@ canvas {
 </div>
 <div id="sidepanel">
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, red);"><img src="icons/calculator.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#calculator" onclick="newuser()"><span class="labelstext">New Profile</span></a></div>
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, gold);"><img src="icons/profile.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#calculator" onclick="newuser()"><span class="labelstext">New Profile</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, orange);"><img src="icons/psychomatrix.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#psychomatrix"><span class="labelstext">Psychomatrix</span></a></div>
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, red);"><img src="icons/calculator.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#calculator"><span class="labelstext">Calculator</span></a></div>
 </div>
 <div id="labels">
-<div id="labelsbox" style="background-image: linear-gradient(#aaa, yellow);"><img src="icons/charts.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#charts"><span class="labelstext">Charts</span></a></div>
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, orange);"><img src="icons/charts.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#charts"><span class="labelstext">Charts</span></a></div>
+</div>
+<div id="labels">
+<div id="labelsbox" style="background-image: linear-gradient(#aaa, yellow);"><img src="icons/psychomatrix.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#psychomatrix"><span class="labelstext">Psychomatrix</span></a></div>
 </div>
 <div id="labels">
 <div id="labelsbox" style="background-image: linear-gradient(#aaa, lawngreen);"><img src="icons/namediagrams.png" height="44" width="44" style="float:left;margin-left:15px;padding:8px;"><a href="#namediagrams"><span class="labelstext">Name Diagrams</span></a></div>
@@ -1801,6 +2266,7 @@ let myInput1 = document.getElementById('numbers1');
 let myInput2 = document.getElementById('numbers2');
 let myInput3 = document.getElementById('numbers3');
 let myInput5 = document.getElementById('thenames');
+let myInput6 = document.getElementById('thenames2');
 //on keyup, start the countdown
 myInput1.addEventListener('keyup', () => {
     clearTimeout(typingTimer);
@@ -1835,6 +2301,13 @@ myInput5.addEventListener('keyup', () => {
     clearTimeout(typingTimer);
     if (myInput5.value) {
         typingTimer = setTimeout(calculate2, doneTypingInterval);
+    }
+});
+
+myInput6.addEventListener('keyup', () => {
+    clearTimeout(typingTimer);
+    if (myInput6.value) {
+        typingTimer = setTimeout(newcalculate, doneTypingInterval);
     }
 });
 //user is "finished typing," do something
@@ -5252,9 +5725,9 @@ white-space: nowrap;
 </style>
 </body>
 </html>
-
+<!--
 <script>
-/*
+
 //////////////////////// CALENDAR
 let today = new Date();
 let currentMonth = today.getMonth();
@@ -5540,8 +6013,9 @@ function showCalendar(month, year) {
     }
 
 }    
-*/
+
 </script>
+-->
 <script>
 
 function newuser() {
@@ -5551,7 +6025,7 @@ function newuser() {
  }
  
  
- var dateofbirth = prompt("Enter date of birth: mm dd yy");
+ var dateofbirth = prompt("Enter date of birth: mm dd yyyy");
  if (dateofbirth != null) {
 
  var newdateofbirth = dateofbirth.split(" ");
@@ -5565,9 +6039,9 @@ function newuser() {
  
  
  calculate2();
+ createChart();
 
 }
-
 </script>
 <!--
 
