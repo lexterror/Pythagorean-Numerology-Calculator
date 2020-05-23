@@ -2513,15 +2513,46 @@ function masterRepeat(str)
 items.sort((a, b) => (a.value < b.value) ? 1 : -1)
 
 var newdata = [];
+var firsttwo = [];
 
 for (k =0; k <items.length ;k++) {
   newdata[k] = items[k].name;
 }
 
-var firsttwo = [];
+var lastvalueone = items[0].value;
+var lastvaluetwo = items[1].value
+var lastvaluethree = items[2].value;
+var lastvaluefour = items[3].value;
 
+
+if (lastvalueone == lastvaluetwo && lastvaluetwo == lastvaluethree && lastvaluethree == lastvaluefour)
+{
 firsttwo[0] = newdata[0];
 firsttwo[1] = newdata[1];
+firsttwo[2] = newdata[2];
+firsttwo[3] = newdata[3];
+}
+if (lastvalueone == lastvaluetwo && lastvaluetwo == lastvaluethree)
+{
+firsttwo[0] = newdata[0];
+firsttwo[1] = newdata[1];
+firsttwo[2] = newdata[2];
+}
+if (lastvalueone == lastvaluetwo)
+{
+firsttwo[0] = newdata[0];
+firsttwo[1] = newdata[1];
+}
+if (lastvalueone > lastvaluetwo)
+{
+firsttwo[0] = newdata[0];
+}
+if (lastvalueone < lastvaluetwo)
+{
+firsttwo[0] = newdata[1];
+}
+
+
 
 return firsttwo.toString();
 
@@ -4653,7 +4684,7 @@ if (sevens == 1)
   }
   if (fives < sevens)
   {
-  ctx.arrow(270 + xlength_right_57 , 270  + xlength_right_57 , 370 + xlength_left  , 370 + xlength_left_57, [10,-7,10,-2,-1,-2]);
+  ctx.arrow(270 + xlength_right_57 , 270  + xlength_right_57 , 370 + xlength_left_57  , 370 + xlength_left_57, [10,-7,10,-2,-1,-2]);
   }
   ctx.fill();
   // Make the line visible
@@ -5860,7 +5891,39 @@ function showCalendar(month, year) {
   ///// SIDEBARFEATUREsS Sexy
   
    document.getElementById("sublifepath").innerText = newpath;
-   document.getElementById("subbirthday").innerText = document.getElementById("numbers3").value + " / " + document.getElementById("display6").value;
+   
+   //mod
+   var birthday_reduct =  document.getElementById("numbers3").value;
+   var birthday_string = birthday_reduct.toString();
+   var birthday_split = birthday_string.split("");
+   var newbirthdayvalue = 0;
+   var myfinalanswer = 0;
+   
+   myfinalanswer = birthday_string;
+   
+   if (birthday_string.length > 1)
+   {
+   for (i = 0; i < birthday_string.length; i++)
+   {
+        newbirthdayvalue = newbirthdayvalue + parseFloat(birthday_split[i]);
+   }
+    myfinalanswer = newbirthdayvalue.toString();
+   }
+   var subbirthdayvalue = newbirthdayvalue.toString();
+   var subbirthdayvaluelength = subbirthdayvalue.length;
+   var subbirthdayvaluesplit = subbirthdayvalue.split("");
+   var lastsubbirthdayvalue = 0;
+   
+   if (subbirthdayvaluelength > 1)
+   {
+        for (o = 0; o < subbirthdayvaluelength; o++)
+        {
+        lastsubbirthdayvalue = lastsubbirthdayvalue + parseFloat(subbirthdayvaluesplit[o]);
+        }
+     myfinalanswer = lastsubbirthdayvalue.toString();
+   }
+   
+   document.getElementById("subbirthday").innerText = document.getElementById("numbers3").value + " / " + myfinalanswer;
    document.getElementById("subexpression").innerText = document.getElementById("namestotal").value;
    document.getElementById("subheartdesire").innerText = document.getElementById("VowelsT").value;
    document.getElementById("subpersonality").innerText = document.getElementById("ConsonantsT").value;
@@ -6230,7 +6293,7 @@ function newuser() {
     
  }
  
- document.getElementById("currentperson").innerHTML = user.toUpperCase() + " (" + newdateofbirth[0] + " / " + newdateofbirth[1] + " / " + newdateofbirth[2] + ")";
+ document.getElementById("currentperson").innerHTML = user.toUpperCase() + " (" + newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + ")";
  
  
  calculate2();
