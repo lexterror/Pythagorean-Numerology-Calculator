@@ -1741,6 +1741,7 @@ Empty
   position: relative;
   width: 480px;
   height: 480px;
+  top: -30px;
   margin: auto;
 }
 
@@ -1941,7 +1942,7 @@ canvas {
 #pillslimleft {
     width: 125px;
     height: 36px;
-    line-height: 36px !important;
+    line-height: 56px !important;
     font-size: 14px !important;
     float: left;
     background: dodgerblue;
@@ -1951,8 +1952,9 @@ canvas {
 }
 
 #pillslimright {
-    line-height: 36px !important;
     width: 35px;
+    line-height: 56px !important;
+    font-size: 14px !important;
     height: 36px;
     float: right;
     background: white;
@@ -1975,7 +1977,7 @@ canvas {
     
     
     
-<div class="container col-sm-4 col-md-7 col-lg-4 mt-5" style="border-radius:10px;background:#999;margin:0 auto;width:498px;">
+<div class="container col-sm-4 col-md-7 col-lg-4 mt-5" style="border-radius:10px;margin-top:-30px !important;background:#999;margin:0 auto;width:498px;">
     <div class="card">
    
 
@@ -2150,19 +2152,19 @@ canvas {
 
    <div id="pillslim" style="float:left;">
     <div id="pillslimleft">
-    <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:36px;color:#fff;vertical-align:middle;"><span id="currentyear"></span></span>  
+    <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:41px;color:#fff;vertical-align:middle;"><span id="currentyear"></span></span>  
     </div>
     <div id="pillslimright">
-    <b><span id="personalyear" style="font-family:helveticanew;font-size:14px;line-height:36px;color:#000;vertical-align:middle;text-align:center;"></span></b>
+    <b><span id="personalyear" style="font-family:helveticanew;font-size:14px;line-height:41px;color:#000;vertical-align:middle;text-align:center;"></span></b>
     </div>
     </div> 
     
     <div id ="pillslim" style="float:left;">
     <div id="pillslimleft">
-     <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:36px;color:#fff;vertical-align:middle;"><span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span></span>
+     <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:41px;color:#fff;vertical-align:middle;"><span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span></span>
     </div>
     <div id="pillslimright">
-    <b><span id="personalmonth" style="font-family:helveticanew;font-size:14px;line-height:36px;color:#000;vertical-align:middle;text-align:center;"></span></b>
+    <b><span id="personalmonth" style="font-family:helveticanew;font-size:14px;line-height:41px;color:#000;vertical-align:middle;text-align:center;"></span></b>
     </div>
     
     </div>
@@ -2459,9 +2461,75 @@ function findRepeat(str) {
   return result;
 }*/
 
+function masterRepeat(str)
+{
+  var arr = str.split('');
+
+  var check_one = 0;
+  var check_two = 0;
+  var check_three = 0;
+  var check_four =0;
+  var check_five = 0;
+  var check_six = 0;
+  var check_seven=0;
+  var check_eight =0;
+  var check_nine=0;
+
+  // If repeat the value is false, if no repeat the value is true
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] == 1)
+    check_one++;
+    if (arr[i] == 2)
+    check_two++;
+    if (arr[i] == 3)
+    check_three++;
+    if (arr[i] == 4)
+    check_four++;
+    if (arr[i] == 5)
+    check_five++;
+    if (arr[i] == 6)
+    check_six++;
+    if (arr[i] == 7)
+    check_seven++;
+    if (arr[i] == 8)
+    check_eight++;
+    if (arr[i] == 9)
+    check_nine++;
+  }
+
+   var items = [ 
+    { name: '1', value: check_one },
+    { name: '2', value: check_two },
+    { name: '3', value: check_three },
+    { name: '4', value: check_four },
+    { name: '5', value: check_five },
+    { name: '6', value: check_six },
+    { name: '7', value: check_seven },
+    { name: '8', value: check_eight }, 
+    { name: '9', value: check_nine },
+]
+
+
+items.sort((a, b) => (a.value < b.value) ? 1 : -1)
+
+var newdata = [];
+
+for (k =0; k <items.length ;k++) {
+  newdata[k] = items[k].name;
+}
+
+var firsttwo = [];
+
+firsttwo[0] = newdata[0];
+firsttwo[1] = newdata[1];
+
+return firsttwo.toString();
+
+}
+
 function findRepeat(str){
   const result = [];
-  const strArr = str.toLowerCase().split("").sort().join("").match(/(.)(.*\1+){2}/g);
+  const strArr = str.toLowerCase().split("").sort().join("").match(/(.)(.*\1+){1}/g);
   
   // (.)(.*\1){3}
   // .*(\w).*\1.*\1.*\1.*
@@ -2483,6 +2551,7 @@ function findRepeat(str){
   }
   return result;
 }
+
 
 function findRepeatOwn(str){
   const result = [];
@@ -5701,7 +5770,7 @@ function showCalendar(month, year) {
   var secondset = document.getElementById("Consonants").value;
   var theset = firstset.toString() + secondset.toString();
   
-  var HiddenPassionNumber = "Hidden Passion Number: " + findRepeat(theset) + "\n\n";
+  var HiddenPassionNumber = "Hidden Passion Number: " + masterRepeat(theset) + "\n\n";
   
   var confident = theset.length;
   var confidentString = theset.split("");
@@ -5791,7 +5860,7 @@ function showCalendar(month, year) {
   ///// SIDEBARFEATUREsS Sexy
   
    document.getElementById("sublifepath").innerText = newpath;
-   document.getElementById("subbirthday").innerText = document.getElementById("display6").value;
+   document.getElementById("subbirthday").innerText = document.getElementById("numbers3").value + " / " + document.getElementById("display6").value;
    document.getElementById("subexpression").innerText = document.getElementById("namestotal").value;
    document.getElementById("subheartdesire").innerText = document.getElementById("VowelsT").value;
    document.getElementById("subpersonality").innerText = document.getElementById("ConsonantsT").value;
@@ -5799,7 +5868,7 @@ function showCalendar(month, year) {
    document.getElementById("submaturity").innerText = newpath + namestotalsfinal2;
    document.getElementById("subrational").innerText = rational3 + " / " + rational;
    document.getElementById("subbalance").innerText = initial1sum + " / " + initial2sum;
-   document.getElementById("subhidden").innerText = findRepeat(theset);
+   document.getElementById("subhidden").innerText = masterRepeat(theset);
    document.getElementById("subsubcons").innerText = confidencenumber;
 
   
