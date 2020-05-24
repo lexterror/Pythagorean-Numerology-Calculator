@@ -76,14 +76,14 @@
 #labels {
     width: 260px;
     margin: 0 auto;
-    height: 45px;
+    height: 18px;
     background: #333;
     margin-bottom: 10px;
     margin-bottom: 10px;
     text-align: left;
     vertical-align: middle;
-    font-size: 18px;
-    line-height: 50px;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .labelstext {
@@ -93,7 +93,7 @@
 
 #labelsbox {
     width: 260px;
-    height: 45px;
+    height: 18px;
     float: right;
     margin: 0 auto;
     text-shadow: 0 0 5px #000;
@@ -1235,8 +1235,8 @@ font-size: 100%;
 <style>
 #log {
     resize: none;
-    width: 450px;
-    height: 350px;
+    width: 260px;
+    height: 260px;
     font-size: 14px;
     line-height: 24px;
     font-family: tab;
@@ -1246,13 +1246,13 @@ font-size: 100%;
     color: #fff;
   }
 </style>
-<div id="log"></div>
+
 <!--<textarea id="log" readonly style="background:#000;color:lawngreen;width:450px;height:300px;margin: 0 auto;resize: none;" wrap='off'>
 </textarea> -->
 <script>
 
 
-  $('#log').css('width','450');
+  $('#log').css('width','260');
   $('#log').css('margin','auto');
 
 </script>
@@ -2231,6 +2231,7 @@ canvas {
 <a class="mypointer" href="help.html" target="_blank">
 <div id="labelsbox" style="background-image: linear-gradient(to left,#333, deeppink);"><span class="labelstext">Help</span></div></a>
 </div>
+<div id="log"></div>
 </div>
 <div id="apptitle2">
 
@@ -6373,9 +6374,12 @@ function showCalendar(month, year) {
 </script>
 -->
 <script>
+var switchuser = [];
+var switchdob = [];
+
 var checklastuser = "";
 var checklastdob = "";
-
+var addmoreusers = 0;
 function newuser() {
 
    
@@ -6453,13 +6457,17 @@ function newuser() {
         myinitials[2] = inital3;    
     }
 
-    
+    switchuser[addmoreusers] = document.getElementById("profile_fullname").value;
+    switchdob[addmoreusers] = document.getElementById("profile_dob").value;
     
     var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
     document.getElementById("mysign").innerText = sign;
     
-    $('#log').prepend("<font color='white'>" + dateTime + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + user.toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "</font><br>");
- 
+    if (print == 1)
+    {
+    $('#log').prepend("<span onclick='switchit(" + addmoreusers + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + user.toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "</font><br></span>");
+    }
+
     function getZodiacSign(day, month) {
 
     var zodiacSigns = {
@@ -6507,6 +6515,7 @@ function newuser() {
    
    checklastuser = user;
    checklastdob = checkdob;
+   addmoreusers++;
    calculate2();
    createChart();
 }
@@ -6569,7 +6578,7 @@ function newusermode() {
   $("#container").hide();
   $("#personal").hide();
 }
-newusermode();
+calcmode();
 
 
    function randColor() {
@@ -6584,7 +6593,15 @@ newusermode();
        }
        return col;
    }
-
+   var print = 1;
+   function switchit(link)
+   {    
+        document.getElementById("profile_fullname").value = switchuser[link];
+        document.getElementById("profile_dob").value = switchdob[link];
+        print = 0;
+        newuser();
+        print = 1;
+   }
 </script>
 
 
