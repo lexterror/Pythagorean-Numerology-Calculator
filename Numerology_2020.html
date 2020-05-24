@@ -6,6 +6,35 @@
 <script src="js/jquery-3.5.1.min.js">
 </script>
 <style>
+#newprofilecontainer {
+
+    width: 450px;
+    margin: 0 auto;
+    color: #fff;
+    padding: 16px;
+}
+
+#newprofilenamecontainer {
+    width: 450px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+#newprofiledateofbirthcontainer {
+    width: 450px;
+    height: 30px;
+    margin: 0 auto;
+}
+#newprofiletitle {
+    width: 450px;
+    height: 30px;
+    color: lawngreen;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+}
+</style>
+<style>
 #sidepanel a {
     color: white;
 }
@@ -848,9 +877,10 @@ input {
 
 label {
     float: left;
-    font-family: goth;
-    font-size: 24px;
-    line-height: 24px;
+    font-family: helveticanew;
+    font-size: 16px;
+    line-height: 16px;
+    margin-top:10px;
 }
 
 @font-face {
@@ -1182,7 +1212,20 @@ font-size: 100%;
 </div>
 <div id="mainpanel">
 
-
+<div id="newprofilecontainer">
+<div id="newprofiletitle" style="font-family:helveticanew;">New Profile</div>
+<div id="newprofilenamecontainer">
+<div id="newprofiledateofbirthcontainer">
+<label style="width: 100px;float:left;">Full Name</label>
+<input type="text" name="numbers" id="profile_fullname" style="width: 350px;float:right;text-transform:uppercase;">
+</div>
+</div>
+<div id="newprofiledateofbirthcontainer">
+<label style="float:left;width: 350px;float:left;">Date of Birth: (mm dd yyyy)</label>
+<input type="text" name="numbers" id="profile_dob" style="width: 100px;float:right;text-transform:uppercase;">
+<button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="newuser();">Create Profile</button>
+</div>
+</div>
 <!-- new calculator-->
 <div id="datasentries4">
 <a name="calculator"></a>
@@ -2129,7 +2172,7 @@ canvas {
 </div>
 <div id="sidepanel">
 <div id="labels">
-<a class="mypointer" onclick="newuser()">
+<a class="mypointer" onclick="newusermode()">
 <div id="labelsbox" style="background-image: linear-gradient(to left,#333, gold);"><span class="labelstext">New Profile</span></div></a>
 </div>
 <div id="labels">
@@ -6300,21 +6343,20 @@ function showCalendar(month, year) {
 <script>
 
 function newuser() {
- var user = prompt("Enter your name, please", "John Doe");
- if (user != null) {
- document.getElementById("thenames").value = user;
- }
+
+
+   document.getElementById("thenames").value = document.getElementById("profile_fullname").value;
+   var user =  document.getElementById("profile_fullname").value;
  
  
- var dateofbirth = prompt("Enter date of birth: mm dd yyyy");
- if (dateofbirth != null) {
+ var dateofbirth = document.getElementById("profile_dob").value;
 
  var newdateofbirth = dateofbirth.split(" ");
     document.getElementById("numbers3").value = newdateofbirth[1];  
     document.getElementById("numbers1").value = newdateofbirth[2]; 
     document.getElementById("numbers2").value = newdateofbirth[0]; 
     
- }
+
  
  document.getElementById("currentperson").innerHTML = user.toUpperCase() + " (" + newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + ")";
  
@@ -6373,6 +6415,7 @@ function getZodiacSign(day, month) {
 function calcmode() {
 
   $("#datasentries4").show();
+  $("#newprofilecontainer").hide();  
   $("#chartsbox").hide();
   $("#psychobox").hide();
   $("#container").hide();
@@ -6382,6 +6425,7 @@ function chartmode() {
 
   $("#datasentries4").hide();
   $("#chartsbox").show();
+  $("#newprofilecontainer").hide(); 
   $("#psychobox").hide();
   $("#container").hide();
   $("#personal").hide();
@@ -6389,6 +6433,7 @@ function chartmode() {
 function psychomode() {
 
   $("#datasentries4").hide();
+  $("#newprofilecontainer").hide(); 
   $("#chartsbox").hide();
   $("#psychobox").show();
   $("#container").hide();
@@ -6398,6 +6443,7 @@ function normanmode() {
 
   $("#datasentries4").hide();
   $("#chartsbox").hide();
+  $("#newprofilecontainer").hide(); 
   $("#psychobox").hide();
   $("#container").show();
   $("#personal").hide();
@@ -6405,10 +6451,20 @@ function normanmode() {
 function personalmode() {
 
   $("#datasentries4").hide();
+  $("#newprofilecontainer").hide(); 
   $("#chartsbox").hide();
   $("#psychobox").hide();
   $("#container").hide();
   $("#personal").show();
+}
+function newusermode() {
+
+  $("#datasentries4").hide();
+  $("#newprofilecontainer").show(); 
+  $("#chartsbox").hide();
+  $("#psychobox").hide();
+  $("#container").hide();
+  $("#personal").hide();
 }
 calcmode();
 
