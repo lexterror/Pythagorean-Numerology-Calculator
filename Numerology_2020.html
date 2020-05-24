@@ -6405,7 +6405,7 @@ function newuser() {
     var dateTime = date+' '+time;
     
     //document.getElementById("log").innerHTML += dateTime + ": Profile Created (" + user.toUpperCase() + ")\n";
-    $('#log').append(dateTime + ": <font color='lawngreen'>Profile Created</font> (" + user.toUpperCase() + ")<br>")
+    $('#log').prepend(dateTime + ": <font color='lawngreen'>Profile Created</font> (" + user.toUpperCase() + ")<br>")
  
     var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
     document.getElementById("mysign").innerText = sign;
