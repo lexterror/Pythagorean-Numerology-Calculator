@@ -1213,7 +1213,6 @@ font-size: 100%;
 <div id="mainpanel">
 
 <div id="newprofilecontainer">
-<div id="newprofiletitle" style="font-family:helveticanew;">New Profile</div>
 <div id="newprofilenamecontainer">
 <div id="newprofiledateofbirthcontainer">
 <label style="width: 100px;float:left;">Full Name</label>
@@ -1224,6 +1223,27 @@ font-size: 100%;
 <label style="float:left;width: 350px;float:left;">Date of Birth: (mm dd yyyy)</label>
 <input type="text" name="numbers" id="profile_dob" style="width: 100px;float:right;text-transform:uppercase;">
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="newuser();">Create Profile</button>
+<style>
+#log {
+    resize: none;
+    width: 450px;
+    height: 200px;
+    background: #222;
+    overflow-x: scroll !important;
+    white-space: nowrap !important;
+    color: #fff;
+  }
+</style>
+<div id="log"></div>
+<!--<textarea id="log" readonly style="background:#000;color:lawngreen;width:450px;height:300px;margin: 0 auto;resize: none;" wrap='off'>
+</textarea> -->
+<script>
+
+
+  $('#log').css('width','450');
+  $('#log').css('margin','auto');
+
+</script>
 </div>
 </div>
 <!-- new calculator-->
@@ -2173,7 +2193,7 @@ canvas {
 <div id="sidepanel">
 <div id="labels">
 <a class="mypointer" onclick="newusermode()">
-<div id="labelsbox" style="background-image: linear-gradient(to left,#333, gold);"><span class="labelstext">New Profile</span></div></a>
+<div id="labelsbox" style="background-image: linear-gradient(to left,#333, gold);"><span class="labelstext">Profile</span></div></a>
 </div>
 <div id="labels">
 <a class="mypointer" onclick="calcmode()">
@@ -6373,6 +6393,19 @@ function newuser() {
   
  
     document.getElementById("currentperson").innerHTML = user.toUpperCase() + " (" + newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + ")";
+    
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    currentMinutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+    currentSeconds = (today.getSeconds() < 10 ? '0' : '') + today.getSeconds();
+    currentHours = today.getHours();
+    currentHours = ("0" + currentHours).slice(-2);    
+    
+    var time = currentHours + ":" + currentMinutes + ":" + currentSeconds;
+    var dateTime = date+' '+time;
+    
+    //document.getElementById("log").innerHTML += dateTime + ": Profile Created (" + user.toUpperCase() + ")\n";
+    $('#log').append(dateTime + ": <font color='lawngreen'>Profile Created</font> (" + user.toUpperCase() + ")<br>")
  
     var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
     document.getElementById("mysign").innerText = sign;
