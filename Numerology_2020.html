@@ -882,6 +882,15 @@ label {
     line-height: 16px;
     margin-top:10px;
 }
+@font-face {
+font-family: 'tab';
+src: url('fonts/Tabular-Regular.eot'); /* IE9 Compat Modes */
+src: url('fonts/Tabular-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+url('fonts/Tabular-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+url('fonts/Tabular-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+url('fonts/Tabular-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+font-size: 100%;
+}
 
 @font-face {
 font-family: 'astro';
@@ -1227,7 +1236,10 @@ font-size: 100%;
 #log {
     resize: none;
     width: 450px;
-    height: 200px;
+    height: 350px;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: tab;
     background: #222;
     overflow-x: scroll !important;
     white-space: nowrap !important;
@@ -6361,20 +6373,28 @@ function showCalendar(month, year) {
 </script>
 -->
 <script>
+var checklastuser = "";
+var checklastdob = "";
 
 function newuser() {
 
+   
+   
    var checkdata = document.getElementById("profile_fullname").value;
    if (checkdata.length > 0)
    {
+   
    
    document.getElementById("thenames").value = document.getElementById("profile_fullname").value;
    var user =  document.getElementById("profile_fullname").value;
 
    var checkdob = document.getElementById("profile_dob").value;
+
    
+   if (checklastuser != user || checklastdob != checkdob)
    if (checkdob.length > 0 && checkdob.length < 11)
    {
+    
      var lastdobchck = checkdob.split(" ");
      var last1 = lastdobchck[0];
      var last2 = lastdobchck[1];   
@@ -6403,12 +6423,42 @@ function newuser() {
     
     var time = currentHours + ":" + currentMinutes + ":" + currentSeconds;
     var dateTime = date+' '+time;
-    
+    var randomcolor = randColor();
     //document.getElementById("log").innerHTML += dateTime + ": Profile Created (" + user.toUpperCase() + ")\n";
-    $('#log').prepend(dateTime + ": <font color='lawngreen'>Profile Created</font> (" + user.toUpperCase() + ")<br>")
- 
+    
+    var initials = user.split(" ");
+    var myinitials = [];
+    var inital1 = "";
+    var inital2 = "";
+    var inital3 = "";
+    if (initials.length == 1)
+    {
+       inital1 = initials[0].charAt(0);
+       myinitials[0] = inital1;
+    }
+    if (initials.length == 2)
+    {
+        inital1 = initials[0].charAt(0);
+        inital2 = initials[1].charAt(0);
+        myinitials[0] = inital1;
+        myinitials[1] = inital2;    
+    }
+    if (initials.length == 3)
+    {
+        inital1 = initials[0].charAt(0);
+        inital2 = initials[1].charAt(0);
+        inital3 = initials[2].charAt(0);
+        myinitials[0] = inital1;
+        myinitials[1] = inital2;
+        myinitials[2] = inital3;    
+    }
+
+    
+    
     var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
     document.getElementById("mysign").innerText = sign;
+    
+    $('#log').prepend("<font color='white'>" + dateTime + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + user.toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "</font><br>");
  
     function getZodiacSign(day, month) {
 
@@ -6451,10 +6501,14 @@ function newuser() {
     return zodiacSigns.scorpio;
   } else if((month == 11 && day >= 23) || (month == 12 && day <= 21)) {
     return zodiacSigns.sagittarius;
+  
   }
 } 
- calculate2();
- createChart();
+   
+   checklastuser = user;
+   checklastdob = checkdob;
+   calculate2();
+   createChart();
 }
 }}
 }
@@ -6516,6 +6570,20 @@ function newusermode() {
   $("#personal").hide();
 }
 newusermode();
+
+
+   function randColor() {
+       var dig = '0123456789ABCDEF',
+           col = '#';
+       for (var i = 0; i < 6; i++) {
+           var thecolor = dig.charAt(Math.round(Math.random() * dig.length));
+           while (thecolor < 999999) {
+               thecolor = dig.charAt(Math.round(Math.random() * dig.length));
+           }
+           col += thecolor;
+       }
+       return col;
+   }
 
 </script>
 
