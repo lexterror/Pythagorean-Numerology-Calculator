@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
 </head>
+<script src="settings.js"></script>
 <script src="js/jquery-3.5.1.min.js">
 </script>
 <style>
@@ -1233,6 +1234,7 @@ font-size: 100%;
 <input type="text" name="numbers" id="profile_dob" style="width: 100px;float:right;text-transform:uppercase;">
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="newuser();">Create Profile</button>
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="deleteuser();">Delete Profile</button>
+<button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="saveprofiles();">Save Profiles</button>
 <style>
 #log {
     resize: none;
@@ -6046,7 +6048,46 @@ function showCalendar(month, year) {
   
   }
   
-
+   function saveprofiles()
+    {
+        var savesettingsa = "";
+        var savesettingsb = "";
+        for (i = 0; i < switchuser.length; i++)
+        {   
+            savesettingsa += "'" + switchuser[i] + "'," ;
+            savesettingsb += "'" + switchdob[i] + "',";
+        
+        }
+        var saveafinal =  "var profilenames = [" + savesettingsa + "];\n";
+        var savebfinal =  "var profiledobs = [" + savesettingsb + "];\n";
+        var savefinal = saveafinal + savebfinal;
+        var BlobString = savefinal.toString();
+    	var textFileAsBlob = new Blob([BlobString], {type:'text/plain'}); 
+    	var downloadLink = document.createElement("a");
+    	downloadLink.download = "settings.js";
+    	downloadLink.innerHTML = "Download File";
+    	if (window.webkitURL != null)
+    	{
+    		// Chrome allows the link to be clicked
+    		// without actually adding it to the DOM.
+    		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    	}
+    	else
+    	{
+    		// Firefox requires the link to be added to the DOM
+    		// before it can be clicked.
+    		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    		downloadLink.onclick = destroyClickedElement;
+    		downloadLink.style.display = "none";
+    		document.body.appendChild(downloadLink);
+    	}
+    
+    	downloadLink.click();
+        setTimeout(function(){
+            document.body.removeChild(downloadLink);
+            window.URL.revokeObjectURL(url);  
+        }, 100); 
+    } 
 
    function saveChart()
     {
@@ -6382,7 +6423,131 @@ var checklastuser = "";
 var checklastdob = "";
 var addmoreusers = 0;
 var mynewlength = 0;
+var loadstart = 0;
 
+function loadusers() {
+
+
+
+     for (o = 0; o < profilenames.length; o++)
+     {
+        switchuser[o] = profilenames[o];
+        switchdob[o] = profiledobs[o];
+        
+     }
+
+     
+       $('#log').html("");
+          
+          for (i = 0; i < switchuser.length; i++)
+          { 
+          
+    var newdateofbirth = switchdob[i].split(" ");
+    
+    var initials = switchuser[i].split(" ");
+    var myinitials = [];
+    var inital1 = "";
+    var inital2 = "";
+    var inital3 = "";
+    if (initials.length == 1)
+    {
+       inital1 = initials[0].charAt(0);
+       myinitials[0] = inital1;
+    }
+    if (initials.length == 2)
+    {
+        inital1 = initials[0].charAt(0);
+        inital2 = initials[1].charAt(0);
+        myinitials[0] = inital1;
+        myinitials[1] = inital2;    
+    }
+    if (initials.length == 3)
+    {
+        inital1 = initials[0].charAt(0);
+        inital2 = initials[1].charAt(0);
+        inital3 = initials[2].charAt(0);
+        myinitials[0] = inital1;
+        myinitials[1] = inital2;
+        myinitials[2] = inital3;    
+    }
+    var randomcolor = randColor();
+    var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
+    document.getElementById("mysign").innerText = sign;
+    
+    
+          
+                $('#log').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "</font><br></span>");                              
+           
+          }
+     
+    
+       
+
+
+
+    function getZodiacSign(day, month) {
+
+    var zodiacSigns = {
+    'capricorn':'j',
+    'aquarius':'k',
+    'pisces':'l',
+    'aries':'a',
+    'taurus':'b',
+    'gemini':'c',
+    'cancer':'d',
+    'leo':'e',
+    'virgo':'f',
+    'libra':'g',
+    'scorpio':'h',
+    'sagittarius':'i'
+  }
+
+  if((month == 1 && day <= 20) || (month == 12 && day >=22)) {
+    return zodiacSigns.capricorn;
+  } else if ((month == 1 && day >= 21) || (month == 2 && day <= 18)) {
+    return zodiacSigns.aquarius;
+  } else if((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+    return zodiacSigns.pisces;
+  } else if((month == 3 && day >= 21) || (month == 4 && day <= 20)) {
+    return zodiacSigns.aries;
+  } else if((month == 4 && day >= 21) || (month == 5 && day <= 20)) {
+    return zodiacSigns.taurus;
+  } else if((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+    return zodiacSigns.gemini;
+  } else if((month == 6 && day >= 22) || (month == 7 && day <= 22)) {
+    return zodiacSigns.cancer;
+  } else if((month == 7 && day >= 23) || (month == 8 && day <= 23)) {
+    return zodiacSigns.leo;
+  } else if((month == 8 && day >= 24) || (month == 9 && day <= 23)) {
+    return zodiacSigns.virgo;
+  } else if((month == 9 && day >= 24) || (month == 10 && day <= 23)) {
+    return zodiacSigns.libra;
+  } else if((month == 10 && day >= 24) || (month == 11 && day <= 22)) {
+    return zodiacSigns.scorpio;
+  } else if((month == 11 && day >= 23) || (month == 12 && day <= 21)) {
+    return zodiacSigns.sagittarius;
+  
+ }
+ }     
+     
+
+}
+
+
+   function randColor() {
+       var dig = '0123456789ABCDEF',
+           col = '#';
+       for (var i = 0; i < 6; i++) {
+           var thecolor = dig.charAt(Math.round(Math.random() * dig.length));
+           while (thecolor < 999999) {
+               thecolor = dig.charAt(Math.round(Math.random() * dig.length));
+           }
+           col += thecolor;
+       }
+       return col;
+   }
+   
+   
 function newuser() {
 
    
@@ -6474,8 +6639,11 @@ function newuser() {
   
     if (print == 1)
     {
+    for (i=0; i < switchuser.length; i++)
+    {
  
-    $('#log').prepend("<span onclick='switchit(" + addmoreusers + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + user.toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "</font><br></span>");
+    $('#log').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "</font><br></span>"); 
+    }
     
     
     }
@@ -6795,7 +6963,7 @@ calcmode();
 
    }
  
-   
+loadusers();   
 </script>
 
 
