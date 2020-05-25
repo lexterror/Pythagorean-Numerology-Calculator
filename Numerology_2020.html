@@ -6427,7 +6427,7 @@ var loadstart = 0;
 
 function loadusers() {
 
-
+    addmoreusers = switchuser.length;
 
      for (o = 0; o < profilenames.length; o++)
      {
@@ -6528,7 +6528,7 @@ function loadusers() {
     return zodiacSigns.sagittarius;
   
  }
- }     
+ }    addmoreusers = switchuser.length;     
      
 
 }
@@ -6599,7 +6599,7 @@ function newuser() {
     
     var time = currentHours + ":" + currentMinutes + ":" + currentSeconds;
     var dateTime = date+' '+time;
-    var randomcolor = randColor();
+   
     //document.getElementById("log").innerHTML += dateTime + ": Profile Created (" + user.toUpperCase() + ")\n";
     
     var initials = user.split(" ");
@@ -6636,12 +6636,12 @@ function newuser() {
    
     var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
     document.getElementById("mysign").innerText = sign;
-  
+    $('#log').html("");
     if (print == 1)
     {
     for (i=0; i < switchuser.length; i++)
     {
- 
+    var randomcolor = randColor();
     $('#log').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "</font><br></span>"); 
     }
     
