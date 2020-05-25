@@ -1232,6 +1232,7 @@ font-size: 100%;
 <label style="float:left;width: 350px;float:left;">Date of Birth: (mm dd yyyy)</label>
 <input type="text" name="numbers" id="profile_dob" style="width: 100px;float:right;text-transform:uppercase;">
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="newuser();">Create Profile</button>
+<button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="deleteuser();">Delete Profile</button>
 <style>
 #log {
     resize: none;
@@ -2205,7 +2206,7 @@ canvas {
 <div id="sidepanel">
 <div id="labels">
 <a class="mypointer" onclick="newusermode()">
-<div id="labelsbox" style="background-image: linear-gradient(to left,#333, gold);"><span class="labelstext">Profile</span></div></a>
+<div id="labelsbox" style="background-image: linear-gradient(to left,#333, gold);"><span class="labelstext">Profiles</span></div></a>
 </div>
 <div id="labels">
 <a class="mypointer" onclick="calcmode()">
@@ -6380,6 +6381,8 @@ var switchdob = [];
 var checklastuser = "";
 var checklastdob = "";
 var addmoreusers = 0;
+var mynewlength = 0;
+
 function newuser() {
 
    
@@ -6388,25 +6391,29 @@ function newuser() {
    if (checkdata.length > 0)
    {
    
-   
+ 
    document.getElementById("thenames").value = document.getElementById("profile_fullname").value;
    var user =  document.getElementById("profile_fullname").value;
 
    var checkdob = document.getElementById("profile_dob").value;
+   
 
    
    if (checklastuser != user || checklastdob != checkdob)
    if (checkdob.length > 0 && checkdob.length < 11)
    {
     
+  
      var lastdobchck = checkdob.split(" ");
      var last1 = lastdobchck[0];
      var last2 = lastdobchck[1];   
-     var last3 = lastdobchck[2];     
+     var last3 = lastdobchck[2];  
+     
      
      if (last1 > 0 && last1 < 13 && last2 > 0 && last2 < 32 && last3 > 0 && last3 < 3000)
      {
  
+
     var dateofbirth = document.getElementById("profile_dob").value;
 
     var newdateofbirth = dateofbirth.split(" ");
@@ -6456,18 +6463,23 @@ function newuser() {
         myinitials[1] = inital2;
         myinitials[2] = inital3;    
     }
-
+    
+    
+   
     switchuser[addmoreusers] = document.getElementById("profile_fullname").value;
     switchdob[addmoreusers] = document.getElementById("profile_dob").value;
-    
+   
     var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
     document.getElementById("mysign").innerText = sign;
-    
+  
     if (print == 1)
     {
+ 
     $('#log').prepend("<span onclick='switchit(" + addmoreusers + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + user.toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "</font><br></span>");
+    
+    
     }
-
+    
     function getZodiacSign(day, month) {
 
     var zodiacSigns = {
@@ -6515,12 +6527,137 @@ function newuser() {
    
    checklastuser = user;
    checklastdob = checkdob;
+   if (print == 1)
+   {
    addmoreusers++;
+   }
    calculate2();
    createChart();
 }
 }}
 }
+
+
+
+function deleteuser() {
+        
+        addmoreusers = switchuser.length;
+      
+        
+        var a = document.getElementById("profile_fullname").value;
+        var b = document.getElementById("profile_dob").value;
+        document.getElementById("profile_dob").value = "";
+        document.getElementById("profile_fullname").value = "";
+        
+        for (i = 0; i < switchuser.length; i++)
+        {   
+            if (switchuser[i] == a)
+            {
+                switchuser.splice(i, 1);
+                switchdob.splice(i, 1);
+        
+          //  }
+            
+              
+          
+        //}
+    
+          $('#log').html("");
+          
+          for (i = 0; i < switchuser.length; i++)
+          { 
+          
+    var newdateofbirth = switchdob[i].split(" ");
+    
+    var initials = switchuser[i].split(" ");
+    var myinitials = [];
+    var inital1 = "";
+    var inital2 = "";
+    var inital3 = "";
+    if (initials.length == 1)
+    {
+       inital1 = initials[0].charAt(0);
+       myinitials[0] = inital1;
+    }
+    if (initials.length == 2)
+    {
+        inital1 = initials[0].charAt(0);
+        inital2 = initials[1].charAt(0);
+        myinitials[0] = inital1;
+        myinitials[1] = inital2;    
+    }
+    if (initials.length == 3)
+    {
+        inital1 = initials[0].charAt(0);
+        inital2 = initials[1].charAt(0);
+        inital3 = initials[2].charAt(0);
+        myinitials[0] = inital1;
+        myinitials[1] = inital2;
+        myinitials[2] = inital3;    
+    }
+    var randomcolor = randColor();
+    var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
+    document.getElementById("mysign").innerText = sign;
+    
+    
+          
+                $('#log').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "</font><br></span>");                              
+           
+          }
+     
+    
+       
+
+
+
+    function getZodiacSign(day, month) {
+
+    var zodiacSigns = {
+    'capricorn':'j',
+    'aquarius':'k',
+    'pisces':'l',
+    'aries':'a',
+    'taurus':'b',
+    'gemini':'c',
+    'cancer':'d',
+    'leo':'e',
+    'virgo':'f',
+    'libra':'g',
+    'scorpio':'h',
+    'sagittarius':'i'
+  }
+
+  if((month == 1 && day <= 20) || (month == 12 && day >=22)) {
+    return zodiacSigns.capricorn;
+  } else if ((month == 1 && day >= 21) || (month == 2 && day <= 18)) {
+    return zodiacSigns.aquarius;
+  } else if((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+    return zodiacSigns.pisces;
+  } else if((month == 3 && day >= 21) || (month == 4 && day <= 20)) {
+    return zodiacSigns.aries;
+  } else if((month == 4 && day >= 21) || (month == 5 && day <= 20)) {
+    return zodiacSigns.taurus;
+  } else if((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+    return zodiacSigns.gemini;
+  } else if((month == 6 && day >= 22) || (month == 7 && day <= 22)) {
+    return zodiacSigns.cancer;
+  } else if((month == 7 && day >= 23) || (month == 8 && day <= 23)) {
+    return zodiacSigns.leo;
+  } else if((month == 8 && day >= 24) || (month == 9 && day <= 23)) {
+    return zodiacSigns.virgo;
+  } else if((month == 9 && day >= 24) || (month == 10 && day <= 23)) {
+    return zodiacSigns.libra;
+  } else if((month == 10 && day >= 24) || (month == 11 && day <= 22)) {
+    return zodiacSigns.scorpio;
+  } else if((month == 11 && day >= 23) || (month == 12 && day <= 21)) {
+    return zodiacSigns.sagittarius;
+  
+ }
+ }
+
+ }
+ 
+ }   addmoreusers = switchuser.length; }
 
 </script>
 <script>
@@ -6594,14 +6731,71 @@ calcmode();
        return col;
    }
    var print = 1;
+   function getZodiacSign(day, month) {
+
+    var zodiacSigns = {
+    'capricorn':'j',
+    'aquarius':'k',
+    'pisces':'l',
+    'aries':'a',
+    'taurus':'b',
+    'gemini':'c',
+    'cancer':'d',
+    'leo':'e',
+    'virgo':'f',
+    'libra':'g',
+    'scorpio':'h',
+    'sagittarius':'i'
+  }
+
+  if((month == 1 && day <= 20) || (month == 12 && day >=22)) {
+    return zodiacSigns.capricorn;
+  } else if ((month == 1 && day >= 21) || (month == 2 && day <= 18)) {
+    return zodiacSigns.aquarius;
+  } else if((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+    return zodiacSigns.pisces;
+  } else if((month == 3 && day >= 21) || (month == 4 && day <= 20)) {
+    return zodiacSigns.aries;
+  } else if((month == 4 && day >= 21) || (month == 5 && day <= 20)) {
+    return zodiacSigns.taurus;
+  } else if((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+    return zodiacSigns.gemini;
+  } else if((month == 6 && day >= 22) || (month == 7 && day <= 22)) {
+    return zodiacSigns.cancer;
+  } else if((month == 7 && day >= 23) || (month == 8 && day <= 23)) {
+    return zodiacSigns.leo;
+  } else if((month == 8 && day >= 24) || (month == 9 && day <= 23)) {
+    return zodiacSigns.virgo;
+  } else if((month == 9 && day >= 24) || (month == 10 && day <= 23)) {
+    return zodiacSigns.libra;
+  } else if((month == 10 && day >= 24) || (month == 11 && day <= 22)) {
+    return zodiacSigns.scorpio;
+  } else if((month == 11 && day >= 23) || (month == 12 && day <= 21)) {
+    return zodiacSigns.sagittarius;
+  
+ }
+ }
+ 
    function switchit(link)
    {    
         document.getElementById("profile_fullname").value = switchuser[link];
         document.getElementById("profile_dob").value = switchdob[link];
+        document.getElementById("thenames").value = switchuser[link];
+    var newdateofbirth = switchdob[link].split(" ");
+    document.getElementById("numbers3").value = newdateofbirth[1];  
+    document.getElementById("numbers1").value = newdateofbirth[2]; 
+    document.getElementById("numbers2").value = newdateofbirth[0];
+    var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
+    document.getElementById("mysign").innerText = sign;
+ document.getElementById("currentperson").innerHTML = switchuser[link].toUpperCase() + " (" + newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + ")";
         print = 0;
-        newuser();
+        calculate2();
+        createChart();
         print = 1;
+
    }
+ 
+   
 </script>
 
 
