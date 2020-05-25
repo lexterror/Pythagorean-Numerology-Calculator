@@ -6639,8 +6639,53 @@ function newuser() {
     $('#log').html("");
     if (print == 1)
     {
+    
+    
+    
+    
     for (i=0; i < switchuser.length; i++)
     {
+    
+    
+    
+//maybe
+    
+    newdateofbirth = switchdob[i].split(" ");
+    
+    initials = switchuser[i].split(" ");
+    myinitials = [];
+    inital1 = "";
+    inital2 = "";
+    inital3 = "";
+    if (initials.length == 1)
+    {
+       inital1 = initials[0].charAt(0);
+       myinitials[0] = inital1;
+    }
+    if (initials.length == 2)
+    {
+        inital1 = initials[0].charAt(0);
+        inital2 = initials[1].charAt(0);
+        myinitials[0] = inital1;
+        myinitials[1] = inital2;    
+    }
+    if (initials.length == 3)
+    {
+        inital1 = initials[0].charAt(0);
+        inital2 = initials[1].charAt(0);
+        inital3 = initials[2].charAt(0);
+        myinitials[0] = inital1;
+        myinitials[1] = inital2;
+        myinitials[2] = inital3;    
+    }
+
+    sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
+    document.getElementById("mysign").innerText = sign;
+    
+        
+    //endofmaybe
+        
+    
     var randomcolor = randColor();
     $('#log').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "</font><br></span>"); 
     }
