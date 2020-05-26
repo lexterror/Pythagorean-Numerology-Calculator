@@ -1254,11 +1254,12 @@ font-size: 100%;
 
 #logmain {
     resize: none;
+    margin: 0 auto;
+    margin-top: 15px !important;
     width: 450px;
-    height: 300px;
+    height: 260px;
     font-size: 14px;
     line-height: 24px;
-    margin: 0 auto;
     font-family: tab;
     background: #222;
     overflow-x: hidden;
@@ -5313,14 +5314,34 @@ var personalyearstring = personalyear.toString();
 var personalyearlength = personalyearstring.length;
 var personalyearsplit = personalyearstring.split("");
 
+
+ 
+
 if (personalyearlength > 1)
 {
 for (n = 0; n < personalyearlength; n++)
 {
     countyearss = countyearss + parseFloat(personalyearsplit[n]);
 }
+    
+    
+} else countyearss = personalyear;
+ 
+//// TEST
+var test = countyearss.toString();
+var finaltest = 0;
+var finaltestsplit = test.split("");
+if (test.length > 1)
+{
+    for (n = 0; n < test.length; n++)
+    {
+    
+        finaltest = finaltest + parseFloat(finaltestsplit[n]);
+    }
+    countyearss = finaltest;
 }
-else { countyearss = personalyearstring; }
+// END OF TEST
+
 
 document.getElementById("personalyear").innerText = countyearss.toString();
 
@@ -5337,7 +5358,7 @@ for (m = 0; m < cmonthlength; m++)
     countmonths = countmonths + parseFloat(cmonthsplit[m]);
 }
 }
-else { counthmonths = cmonth; }
+else { countmonths = mymonth; }
 
 document.getElementById("personalmonth").innerText = countmonths.toString();    
     
@@ -5465,6 +5486,23 @@ function showCalendar(month, year) {
                         GPDN_final = GPDN_final + parseFloat(GPDN_split[d]);
                     }
                 } else { GPDN_final = GPDN_string; }
+                
+                var testlastpersonaldigit = 0;
+                var getlastdigit = GPDN_final.toString();
+                var getlastSplit = getlastdigit.split("");
+                var getlastvalue = 0;
+                
+                if (getlastdigit.length > 1)
+                {
+                    for (d = 0; d < getlastdigit.length; d++)
+                    {
+                        getlastvalue = getlastvalue + parseFloat(getlastSplit[d]);
+                    }
+                    
+                    GPDN_final = getlastvalue.toString();
+                    
+                }
+                
                 
                 
                 
