@@ -6125,6 +6125,20 @@ function showCalendar(month, year) {
   var intimateString = "Intimate/Personality Number: " + intimateNumber + "\n\n";
   
   var MaturityNumbers = newpath + namestotalsfinal2;
+  var MaturityCheck = MaturityNumbers.toString();
+  var MaturityCheckSplit = MaturityCheck.split("");
+  var newMaturityValue = 0;
+  if (MaturityCheck.length > 1)
+  {
+    for (a = 0; a < MaturityCheck.length; a++)
+    {
+        newMaturityValue = newMaturityValue + parseFloat(MaturityCheckSplit[a]);
+    }
+    
+    MaturityNumbers = newMaturityValue;
+        
+  }
+  
   var MaturityNumber = "Maturity Number: " + MaturityNumbers + "\n\n";
   
   var rationalget = document.getElementById("thenames").value;
@@ -6473,7 +6487,7 @@ function showCalendar(month, year) {
    document.getElementById("subheartdesire").innerText = document.getElementById("VowelsT").value;
    document.getElementById("subpersonality").innerText = document.getElementById("ConsonantsT").value;
    
-   document.getElementById("submaturity").innerText = newpath + namestotalsfinal2;
+   document.getElementById("submaturity").innerText = MaturityNumbers;
    document.getElementById("subrational").innerText = rational3 + " / " + rational;
    document.getElementById("subbalance").innerText = initial1sum + " / " + initial2sum;
    document.getElementById("subhidden").innerText = masterRepeat(theset);
