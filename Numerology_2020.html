@@ -7,6 +7,83 @@
 <script src="js/jquery-3.5.1.min.js">
 </script>
 <style>
+
+/* HELP MODE */
+#title {
+    padding: 5px;
+    color: orange;
+    float: left;
+    font-size: 18px;
+    background: #333;
+    border: 2px solid dodgerblue;
+    border-radius: 5px;
+}
+#content {
+    padding: 10px;
+    color: white;
+    float: left;
+    font-size: 16px;
+    line-height: 16px;
+    background: #333;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 410px;
+}
+#abouttable {
+    margin: 0 auto;
+    width: 328px;
+    height: 165px;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    padding: 5px;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px;
+    line-height: 35px;
+    background: #fff;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#aboutbox {
+    width: 348px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 165px;
+    border-radius: 5px;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 10px;
+
+}
+
+#abouttable td {
+    width: 35px;
+    text-align: center;
+    height: 35px;
+    vertical-align: middle;
+    border: 1px solid #fff;
+    
+}
+
+#abouttable  {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+#mytitle {
+    font-family: goth;
+    font-size: 28px;
+    text-decoration: bold;
+    text-align: left;
+    text-shadow: 0 0 5px orange;
+    width: 902px;
+    color: #000;
+}
+
+/* END OF HELP MODE */
+
 #newprofilecontainer {
 
     width: 450px;
@@ -43,8 +120,8 @@
 #mainwindow {
     background: #333;
     margin: 0 auto;
-    width: 1015px;
-    height: 600px;
+    width: 955px;
+    height: 610px;
     border-radius: 10px;
     border: 10px solid #333;
     margin-top: 20px !important;
@@ -65,8 +142,24 @@
     overflow-y: scroll;
 }
 
+#mainpanelTITLE {
+
+    width: 955px;
+    margin: 0 auto;
+    height: 20px;
+    border-radius: 10px 10px 0 0px;
+    background: dodgerblue;
+    color: #000;
+    float: top;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: helveticanew;
+    text-align: center;
+    text-shadow: 0 0 5px blue;
+}
+
 #sidepanel {
-    width: 260px;
+    width: 200px;
     height: 500px;
     float: right;
     background: #333;
@@ -75,7 +168,7 @@
 }
 
 #labels {
-    width: 260px;
+    width: 200px;
     margin: 0 auto;
     height: 18px;
     background: #333;
@@ -93,11 +186,23 @@
 }
 
 #labelsbox {
-    width: 260px;
+    width: 200px;
     height: 18px;
     float: right;
     margin: 0 auto;
     text-shadow: 0 0 5px #000;
+}
+
+#helpbox {
+    width: 450px;
+    overflow: hidden;
+    margin: 0 auto;
+    background: #aaa;
+    display:block;
+}
+#helpboxinner {
+    margin: 0 auto;
+    width: 430px;
 }
 </style>
 <script>
@@ -865,7 +970,7 @@ function getShortName(SHORTNAME)
 
 body {
     margin: 0 auto;
-    width: 1015px;
+    width: 955px;
     background: #fff;
 }
 
@@ -993,8 +1098,8 @@ textarea {
     font-family: helveticanew;
     font-size: 18px;
     line-height: 18px;
-    color: gold;
-    text-shadow: 0 0 5px red;
+    color: lawngreen;
+    text-shadow: 0 0 5px green;
 }
 
 #calculate {
@@ -1121,12 +1226,12 @@ font-size: 100%;
 }
 
 #apptitle {
-    width: 1015px;
-    height:30px;
+    width: 955px;
+    height:18px;
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 18px;
-    line-height: 30px;
+    line-height: 18px;
     text-align: left;
     font-family: goth;
     color: #fff;
@@ -1138,7 +1243,7 @@ font-size: 100%;
 }
 
 #apptitle2 {
-    width:1015px;
+    width:955px;
     height:30px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -1191,8 +1296,8 @@ font-size: 100%;
 
 <div id="mainwindow">
 <div id="apptitle">
-<img src="icons/logo.svg" width="32" height="32" style="float:left;">
 <span class="apptitletext">Pythagorean Numerology Calculator</span><span style="float:right;font-family:helveticanew;">version 0.1</span></div>
+<div id="mainpanelTITLE"><span id="selection"></span></div>
 <div id="features">
 <div id="subfeaturestitle"><span>Current Profile</span></div>
 <div id="subfeatures">
@@ -1234,6 +1339,8 @@ font-size: 100%;
 <span class="">Subcons. Confid.</span><span class="results"  id="subsubcons"></span></div>
 </div>
 </div>
+<style>
+</style>
 <div id="mainpanel">
 
 <div id="newprofilecontainer">
@@ -1254,7 +1361,7 @@ font-size: 100%;
 <style>
 #log {
     resize: none;
-    width: 260px;
+    width: 200px;
     height: 260px;
     font-size: 14px;
     line-height: 24px;
@@ -1289,7 +1396,7 @@ font-size: 100%;
 <script>
 
 
-  $('#log').css('width','260');
+  $('#log').css('width','200');
   $('#log').css('margin','auto');
 
 </script>
@@ -2236,7 +2343,263 @@ canvas {
 -->
 
 
+<div id="helpbox">
+<div id="helpboxinner">
 
+<div id="title" style="margin-top: 20px !important;">Life Path Number</div>
+<div id="content">The <i>Life Path Number</i> is the sum of the birth date i.e. DD+MM+YY.<br></div>
+<div id="title" style="margin-top:20px">Personal Year Number</div>
+<div id="content">The Personal Year Number is the reduced sum of :<br><br>
+Day of Birth + Month of Birth + Current Year<br><br>
+</div>
+<div id="title" style="margin-top:20px">Personal Month Number</div>
+<div id="content">The Personal Month is the reduced sum of :<br><br>
+Personal Year Number + value of the current month<br><br>
+</div>
+<div id="title" style="margin-top:20px">Personal Day Number</div>
+<div id="content">The Personal Day Number is the sum of :<br><br>
+Value of the curent day (reduced to 1-9) +  Personal Month Number.<br><br>
+</div>
+<div id="title" style="margin-top:20px">Psychomatrix</div>
+<div id="content">
+<i>Pythagorean square</i> or <i>"Psychomatrix"</i> gives a characteristic according to the date of birth. It was developed by Pythagoras in the 5th century BC and was developed by his followers. The basic idea of psychomatrix is that the date of birth has a certain combination of numbers, with the help of which the human psychological type can be described. Each number from 1 to 9 symbolizes a certain quality and depending on the frequency of repetitions strengthens them.
+</div>
+<div id="title" style="margin-top:20px">Maturity Number</div>
+<div id="content">
+You calculate the Maturity Number (also called the Reality or Realization Number) by <i>adding your Life Path number and your Destiny/Expression number together.</i>
+</div>
+<div id="title" style="margin-top:20px">Rational Thought Number</div>
+<div id="content">
+You can find your Rational Thought number by first adding the sum of the numerical values of all of the letters which make up your first name (the full first name you were given at birth). Next, add to it your day of birth (the day of the month you were born.
+</div>
+<div id="title" style="margin-top:20px">Balance Number</div>
+<div id="content">
+Your Balance number is found by adding the numerical value of the initials of your full name at birth.
+</div>
+<style>
+#norman1 {
+    width:410px;
+    background: #fff;
+    font-size: 10px;
+    line-height: 16px;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#normn {
+    width: 10px;
+    height: 16px;
+}
+#normdesc {
+    width: 126px;
+}
+
+#norman1 td {
+    border: 2px solid #fff;
+}
+#norman2 {
+    width: 410px;
+    background: #fff;
+    font-size: 10px;
+    line-height: 16px;
+    margin-top: 10px;
+}
+#normn2 {
+    width: 60px;
+    height: 16px;
+	border-collapse: collapse;
+	border-spacing: 0;
+
+}
+#normdesc2 {
+    width: 145px;
+
+}
+
+#norman2 td {
+    border: 2px solid #fff;
+
+}
+
+.ones {
+    background-color: red;
+    text-align: center;
+    width: 35px;
+    height:35px;
+
+}
+
+.onessub {
+    color: red;
+}
+
+.twos {
+    background-color: orange;
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+.twossub {
+    color: black;
+}
+
+.threes {
+    background-color: yellow;
+    text-align: center;
+    width: 35px;
+    height:35px;
+    color: #000;
+}
+
+.threessub {
+    color: black;
+}
+
+.fours {
+    background-color: green;
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.fourssub {
+    color: green;
+}
+
+.fives {
+    background-color: lawngreen;
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.fivessub {
+    color: black;
+}
+
+.sixes {
+    background-color: violet;
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.sixessub {
+    color: black;
+}
+
+.sevens {
+    background-color: purple;
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.sevenssub {
+    color: purple;
+}
+
+.eights {
+    background-color: deeppink;
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.eightssub {
+    color: black;
+}
+
+.nines {
+    background-color: gold;
+    text-align: center;
+    width: 35px;
+    height:35px;
+}
+
+.ninessub {
+    color: black;
+}
+</style>
+<div id="title" style="margin-top: 20px;">Numbers and Letters</div>
+<div id="content">
+Using the English alphabet we find the following correspondence between numbers and letters:
+<div id="aboutbox">
+<table id="abouttable">
+<tr>
+<td class="ones">1</td><td class="twos">2</td><td class="threes">3</td><td class="fours">4</td><td class="fives">5</td><td class="sixes">6</td><td class="sevens">7</td><td class="eights">8</td><td class="nines">9</td>
+</tr>
+<tr>
+<td class="onessub">A</td><td class="twossub">B</td><td class="threessub">C</td><td class="fourssub">D</td><td class="fivessub">E</td><td class="sixessub">F</td><td class="sevenssub">G</td><td class="eightssub">H</td><td class="ninessub">I</td>
+</tr>
+<tr>
+<td class="onessub">J</td><td class="twossub">K</td><td class="threessub">L</td><td class="fourssub">M</td><td class="fivessub">N</td><td class="sixessub">O</td><td class="sevenssub">P</td><td class="eightssub">Q</td><td  class="ninessub">R</td>
+</tr>
+<tr>
+<td class="onessub">S</td><td class="twossub">T</td><td class="threessub">U</td><td class="fourssub">V</td><td class="fivessub">W</td><td class="sixessub">X</td><td class="sevenssub">Y</td><td class="eightssub">Z</td><td></td>
+</tr>
+</table>
+</div>
+</div>
+<div id="title" style="margin-top:20px">How Name Diagrams Work <font color="white">(Norman Shine)</font></div>
+<div id="content">
+<table id="norman1">
+<tr>
+<td id="normn">3</td><td id="normdesc">Personal Creativity</td><td id="normn">6</td><td id="normdesc">Theory and Intuition<td id="normn">9</td><td id="normdesc">Spiritual Creativity</td>
+</tr>
+<tr>
+<td id="normn">2</td><td id="normdesc">Personal Feelings</td><td id="normn">5</td><td id="normdesc">Senses and Expansion<td id="normn">8</td><td id="normdesc">Transformation</td>
+</tr>
+</tr>
+<tr>
+<td id="normn">1</td><td id="normdesc">Personal Resources</td><td id="normn">4</td><td id="normdesc">Logic and Instincts<td id="normn">7</td><td id="normdesc">Setting Limits</td>
+</tr>
+</table>
+
+<table id="norman2">
+<tr>
+<td id="normn2" style="background:lawngreen;"></td><td id="normdesc2">The Physical Body Line</td><td id="normn2" style="background:orange;"></td><td id="normdesc2">The Material World Line</td></tr><tr>
+<td id="normn2" style="background:yellow;"></td><td id="normdesc2">The Intellectual Line</td><td id="normn2" style="background:green;"></td><td id="normdesc2">The Emotions Line</td></tr><tr>
+<td id="normn2" style="background:brown;"></td><td id="normdesc2">The Spiritual Line</td><td id="normn2" style="background:deeppink;"></td><td id="normdesc2">The Creativity Line</td></tr><tr>
+<td id="normn2" style="background:dodgerblue;"></td><td id="normdesc2">The Communication Line</td><td id="normn2" style="background:red;"></td><td id="normdesc2">The Effectiveness Line</td></tr><tr>
+</tr>
+</table>
+</div>
+<div id="title" style="margin-top:20px">Expression or Destiny Number</div>
+<div id="content">
+To find your <i>Destiny Number</i>, calculate the root number of your full name (first, middle, last) by reducing each name to a single digit, and adding up the total.
+<br><br>
+Intimate Number + Desire Number
+</div>
+<div id="title" style="margin-top:20px">Master Numbers</div>
+<div id="content">
+11, 22 and sometimes 33 and 44</div>
+<div id="title" style="margin-top:20px">Desire Number</div>
+<div id="content">
+It's value is the reduced sum of the vowels of the full name (given at birth).<br><br>
+</div>
+<div id="title" style="margin-top:20px">Intimate or Personality Number</div>
+<div id="content">
+It's the reduced sum of all the consonants of the full name.<br><br>
+</div>
+<div id="title" style="margin-top:20px">Hidden Passion Number</div>
+<div id="content">
+Your unique hidden passion number comes from digits allocated to different letters of your name. Your hidden passion number is the one that occurs most often in your name.
+</div>
+<div id="title" style="margin-top:20px">Subconscious Confidence Number</div>
+<div id="content">
+The Subconscious Self is determined by adding up the quantity of represented numbers in your name. In other words, if the numbers 1,3,6,7, and 9 are represented, your Subconscious Self number is 5.
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+</div>
 
 </div>
 <div id="sidepanel">
@@ -2265,18 +2628,18 @@ canvas {
 <div id="labelsbox" style="background-image: linear-gradient(to left,#333, purple);"><span class="labelstext">Personal Day Calendar</span></div></a>
 </div>
 <div id="labels">
-<a class="mypointer" href="help.html" target="_blank">
+<a class="mypointer" onclick="helpmode()">
 <div id="labelsbox" style="background-image: linear-gradient(to left,#333, deeppink);"><span class="labelstext">Help</span></div></a>
 </div>
 <div id="log"></div>
 <style>
 #buttonbox {
-    width: 260px;
+    width: 200px;
     height: 32px;
 }
 </style>
 <div id="buttonbox">
-<button id="sortbyname" onclick="sortbyname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:260px;">Sort by Name</button>
+<button id="sortbyname" onclick="sortbyname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:200px;">Sort by Name</button>
 </div>
 </div>
 <div id="apptitle2">
@@ -7149,55 +7512,71 @@ function deleteuser() {
 </script>
 <script>
 function calcmode() {
-
+  document.getElementById("selection").innerText = "Calculator";
   $("#datasentries4").show();
   $("#newprofilecontainer").hide();  
   $("#chartsbox").hide();
   $("#psychobox").hide();
   $("#container").hide();
   $("#personal").hide();
+  $("#helpbox").hide();
 }
 function chartmode() {
-
+  document.getElementById("selection").innerText = "Chart";
   $("#datasentries4").hide();
   $("#chartsbox").show();
   $("#newprofilecontainer").hide(); 
   $("#psychobox").hide();
   $("#container").hide();
   $("#personal").hide();
+ $("#helpbox").hide();
 }
 function psychomode() {
-
+  document.getElementById("selection").innerText = "Psychomatrix";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
   $("#chartsbox").hide();
   $("#psychobox").show();
   $("#container").hide();
   $("#personal").hide();
+ $("#helpbox").hide();
 }
 function normanmode() {
-
+  document.getElementById("selection").innerText = "Name Diagram";
   $("#datasentries4").hide();
   $("#chartsbox").hide();
   $("#newprofilecontainer").hide(); 
   $("#psychobox").hide();
   $("#container").show();
   $("#personal").hide();
+ $("#helpbox").hide();
 }
 function personalmode() {
-
+  document.getElementById("selection").innerText = "Personal Day Calendar";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
   $("#chartsbox").hide();
   $("#psychobox").hide();
   $("#container").hide();
   $("#personal").show();
+ $("#helpbox").hide();
 }
 function newusermode() {
-
+  document.getElementById("selection").innerText = "Profiles";
   $("#datasentries4").hide();
   $("#newprofilecontainer").show(); 
   $("#chartsbox").hide();
+  $("#psychobox").hide();
+  $("#container").hide();
+  $("#personal").hide();
+ $("#helpbox").hide();
+}
+function helpmode() {
+  document.getElementById("selection").innerText = "Help";
+  $("#datasentries4").hide();
+  $("#newprofilecontainer").hide(); 
+  $("#chartsbox").hide();
+  $("#helpbox").show();
   $("#psychobox").hide();
   $("#container").hide();
   $("#personal").hide();
