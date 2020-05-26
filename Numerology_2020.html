@@ -1154,11 +1154,11 @@ font-size: 100%;
     width: 198px;
     background: gold;
     color: #000;
-    height: 34px;
+    height: 16px;
     vertical-align: middle;
     font-family: helveticanew;
-    font-size: 16px;
-    line-height: 38px;
+    font-size: 14px;
+    line-height: 20px;
     border: 1px solid orange;
     text-align: center;
 
@@ -1173,10 +1173,11 @@ font-size: 100%;
     font-family: helveticanew;
     font-size: 14px;
     line-height: 24px;
+    padding-bottom: 5px;
 }
 #subfeaturestitles {
     width: 200px;
-    height: 24px;
+    height: 14px;
     padding: 5px;
     margin-left: 5px;
 }
@@ -1193,7 +1194,20 @@ font-size: 100%;
 <img src="icons/logo.svg" width="32" height="32" style="float:left;">
 <span class="apptitletext">Pythagorean Numerology Calculator</span><span style="float:right;font-family:helveticanew;">version 0.1</span></div>
 <div id="features">
-<div id="subfeaturestitle"><span>Main Features</span></div>
+<div id="subfeaturestitle"><span>Current Profile</span></div>
+<div id="subfeatures">
+<div id="subfeaturestitles">
+<span class="">First Name</span><span class="results" id="currentname"></span></div>
+<div id="subfeaturestitles">
+<span class="">Middle Name</span><span class="results" id="currentmiddlename"></span></div>
+<div id="subfeaturestitles">
+<span class="">Last Name</span><span class="results" id="currentlastname"></span></div>
+<div id="subfeaturestitles">
+<span class="">Date of Birth</span><span class="results" id="currentdob"></span></div>
+<div id="subfeaturestitles">
+<span class="">Sign</span><span class="results" id="currentsign"></span></div>
+</div>
+<div id="subfeaturestitle" style="margin-top:20px;"><span>Main Features</span></div>
 <div id="subfeatures">
 <div id="subfeaturestitles">
 <span class="">Life Path</span><span class="results" id="sublifepath"></span></div>
@@ -6810,7 +6824,34 @@ function newuser() {
     document.getElementById("numbers1").value = newdateofbirth[2]; 
     document.getElementById("numbers2").value = newdateofbirth[0]; 
     
-  
+    //////////// CURRENT PROFILE TOP CARROT
+    var currentprofilefirstname = user.split(" ");
+    if (currentprofilefirstname.length == 3)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[2].toUpperCase();
+    }
+    if (currentprofilefirstname.length == 2)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = "";
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[1].toUpperCase();    
+    }
+    if (currentprofilefirstname.length == 1)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase(); 
+    document.getElementById("currentmiddlename").innerText = "";
+    document.getElementById("currentlastname").innerText = "";
+    }
+    document.getElementById("currentdob").innerText = newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2];
+    
+    var signname = getZodiacName(newdateofbirth[1], newdateofbirth[0]);
+    document.getElementById("currentsign").innerText = signname.toUpperCase();
+    
+    // END OF CURRENT PROFILE TOP
+ 
+ 
  
     document.getElementById("currentperson").innerHTML = user.toUpperCase() + " (" + newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + ")";
     
@@ -7238,8 +7279,39 @@ calcmode();
         calculate2();
         createChart();
         print = 1;
+        
+        
+//////////// CURRENT PROFILE TOP CARROT
+    var currentprofilefirstname = switchuser[link].split(" ");
+    if (currentprofilefirstname.length == 3)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[2].toUpperCase();
+    }
+    if (currentprofilefirstname.length == 2)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = "";
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[1].toUpperCase();    
+    }
+    if (currentprofilefirstname.length == 1)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();    
+    document.getElementById("currentmiddlename").innerText = "";
+    document.getElementById("currentlastname").innerText = "";     
+    }
+    document.getElementById("currentdob").innerText = newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2];
+    
+    var signname = getZodiacName(newdateofbirth[1], newdateofbirth[0]);
+    document.getElementById("currentsign").innerText = signname.toUpperCase();
+    
+    // END OF CURRENT PROFILE TOP   
+           
 
    }
+   
+   
  
 loadusers();   
     function getAge(dateString) {
@@ -7253,8 +7325,56 @@ loadusers();
     }
     return age;
     
+   
+   
     
+   
+   
     }
+ function getZodiacName(day, month) {
+
+    var zodiacSigns = {
+    'capricorn':'capricorn',
+    'aquarius':'aquarius',
+    'pisces':'pisces',
+    'aries':'aries',
+    'taurus':'taurus',
+    'gemini':'gemini',
+    'cancer':'cancer',
+    'leo':'leo',
+    'virgo':'virgo',
+    'libra':'libra',
+    'scorpio':'scorpio',
+    'sagittarius':'sagittarius'
+  }
+
+  if((month == 1 && day <= 20) || (month == 12 && day >=22)) {
+    return zodiacSigns.capricorn;
+  } else if ((month == 1 && day >= 21) || (month == 2 && day <= 18)) {
+    return zodiacSigns.aquarius;
+  } else if((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+    return zodiacSigns.pisces;
+  } else if((month == 3 && day >= 21) || (month == 4 && day <= 20)) {
+    return zodiacSigns.aries;
+  } else if((month == 4 && day >= 21) || (month == 5 && day <= 20)) {
+    return zodiacSigns.taurus;
+  } else if((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+    return zodiacSigns.gemini;
+  } else if((month == 6 && day >= 22) || (month == 7 && day <= 22)) {
+    return zodiacSigns.cancer;
+  } else if((month == 7 && day >= 23) || (month == 8 && day <= 23)) {
+    return zodiacSigns.leo;
+  } else if((month == 8 && day >= 24) || (month == 9 && day <= 23)) {
+    return zodiacSigns.virgo;
+  } else if((month == 9 && day >= 24) || (month == 10 && day <= 23)) {
+    return zodiacSigns.libra;
+  } else if((month == 10 && day >= 24) || (month == 11 && day <= 22)) {
+    return zodiacSigns.scorpio;
+  } else if((month == 11 && day >= 23) || (month == 12 && day <= 21)) {
+    return zodiacSigns.sagittarius;
+  
+  }
+}     
 </script>
 
 
