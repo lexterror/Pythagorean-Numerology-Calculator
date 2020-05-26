@@ -12,4 +12,11 @@
     { name: 'alexandra panait', dob: '10 25 1987' },
     { name: 'robert norman ross', dob: '10 29 1942' },    
     { name: 'julia carolyn mcwilliams', dob: '8 15 1912' },
+    { name: 'edward regan murphy', dob: '4 3 1961' },
+    { name: 'george carlin', dob: '5 12 1937' },
+    { name: 'christopher reeve', dob: '9 25 1952' },
+    { name: 'isaac newton', dob: '3 31 1727' },
+    { name: 'nostradamus', dob: '12 24 1503' },
+    { name: 'judith teresa jasper', dob: '1 16 1976' },
+    { name: 'jacob rodney cohen', dob: '11 22 1921' },    
 ]

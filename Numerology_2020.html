@@ -7169,7 +7169,19 @@ function newuser() {
    
    
    var checkdata = document.getElementById("profile_fullname").value;
+   
+   var doublecheck = 0;
    if (checkdata.length > 0)
+   if (checkdata.includes('  '))
+   doublecheck = 1;
+   if (checkdata.includes('   '))
+   doublecheck = 1;
+   if (checkdata.slice(-1).includes(' '))
+   doublecheck = 1;
+   if (checkdata.charAt(0).includes(' '))
+   doublecheck = 1;
+   
+   if (doublecheck == 0)
    {
    
  
