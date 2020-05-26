@@ -8,4 +8,8 @@
     { name: 'alfonso john romero', dob: '10 28 1967' },
     { name: 'stephen william hawking', dob: '1 8 1942' },
     { name: 'stephen robert irwin', dob: '2 22 1962' },
+    { name: 'martha helen stewart', dob: '8 3 1941' },
+    { name: 'alexandra panait', dob: '10 25 1987' },
+    { name: 'robert norman ross', dob: '10 29 1942' },    
+    { name: 'julia carolyn mcwilliams', dob: '8 15 1912' },
 ]

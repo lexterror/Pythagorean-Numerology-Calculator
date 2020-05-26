@@ -1236,6 +1236,7 @@ font-size: 100%;
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="deleteuser();">Delete Profile</button>
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="saveprofiles();">Save Profiles</button>
 <div id="logmain"></div>
+<button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="deleteall();">Delete All</button>
 <style>
 #log {
     resize: none;
@@ -1257,7 +1258,7 @@ font-size: 100%;
     margin: 0 auto;
     margin-top: 15px !important;
     width: 450px;
-    height: 260px;
+    height: 200px;
     font-size: 14px;
     line-height: 24px;
     font-family: tab;
@@ -6484,6 +6485,19 @@ var checklastdob = "";
 var addmoreusers = 0;
 var mynewlength = 0;
 var loadstart = 0;
+
+function deleteall() {
+
+    addmoreusers = switchuser.length;
+    
+    switchuser = [];
+    switchdob = [];
+
+    $('#log').html("");
+    $('#logmain').html("");
+    
+    addmoreusers = switchuser.length;
+}
 
 
 function sortbyname() {
