@@ -1293,11 +1293,46 @@ font-size: 100%;
 }
 </style>
 <body>
-
+<!--
+<div id="labels">
+<a class="mypointer" onclick="newusermode()">
+<div id="labelsbox" style="background: #ff8080;"><span class="labelstext">Profiles</span></div></a>
+</div>
+<div id="labels">
+<a class="mypointer" onclick="calcmode()">
+<div id="labelsbox" style="background: #cc99ff;"><span class="labelstext">Calculator</span></div></a>
+</div>
+<div id="labels">
+<a class="mypointer" onclick="chartmode()">
+<div id="labelsbox" style="background: #ffcc99;"><span class="labelstext">Chart</span></div></a>
+</div>
+<div id="labels">
+<a class="mypointer" onclick="psychomode()">
+<div id="labelsbox" style="background: #ffff99;"><span class="labelstext">Psychomatrix</span></div></a>
+</div>
+<div id="labels">
+<a class="mypointer" onclick="normanmode()">
+<div id="labelsbox" style="background: #ccffcc;"><span class="labelstext">Name Diagram</span></div></a>
+</div>
+<div id="labels">
+<a class="mypointer" onclick="personalmode()">
+<div id="labelsbox" style="background: #99ccff;"><span class="labelstext">Personal Day Calendar</span></div></a>
+</div>
+<div id="labels">
+<a class="mypointer" onclick="helpmode()">
+<div id="labelsbox" style="background: #ccccff;"><span class="labelstext">Help</span></div></a>
+</div>-->
 
 <div id="mainwindow">
-<div id="apptitle">
-<span class="apptitletext">Pythagorean Numerology Calculator</span><span style="float:right;font-family:helveticanew;">version 0.1</span></div>
+<ul id="tabs">
+    <li><a onclick="newusermode()" style="cursor:pointer;">Profiles</a></li>
+    <li><a onclick="calcmode()" style="cursor:pointer;">Calculator</a></li>
+    <li><a onclick="chartmode()" style="cursor:pointer;">Chart</a></li>
+    <li><a onclick="psychomode()" style="cursor:pointer;">Psychomatrix</a></li>
+    <li><a onclick="normanmode()" style="cursor:pointer;">Name Diagram</a></li>
+    <li><a onclick="personalmode()" style="cursor:pointer;">Personal Day Calendar</a></li>
+    <li><a onclick="helpmode()" style="cursor:pointer;">Help</a></li>
+</ul>
 <div id="mainpanelTITLE"><span id="selection"></span></div>
 <div id="features">
 <div id="subfeaturestitle"><span>Current Profile</span></div>
@@ -1363,7 +1398,7 @@ font-size: 100%;
     resize: none;
     width: 196px !important;
     float: left;
-    height: 220px;
+    height: 400px;
     font-size: 14px;
     line-height: 24px;
     font-family: tab;
@@ -2615,11 +2650,97 @@ The Subconscious Self is determined by adding up the quantity of represented num
 #labelsbox:hover .labelstext {
    color: #fff !important;
 }
+#labels {
+   float: left;
+}
+
+#labelsbox {
+   width: fit-content !important;
+   float:left;
+   padding-right: 18px;
+   transform: skew(.1rad);
+   border-radius: 5px;
+}
+
+</style>
+<style>
+#tabs {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+#tabs li {
+  float: left;
+  margin: 0 .5em 0 0;
+}
+
+#tabs a {
+  position: relative;
+  background: #ddd;
+  background-image: linear-gradient(to bottom, #fff, #ddd);
+  padding: 10px 20px;
+  float: left;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 rgba(255,255,255,.8);
+  border-radius: 5px 0 0 0;
+  box-shadow: 0 2px 2px rgba(0,0,0,.4);
+}
+
+#tabs a:hover,
+#tabs a:hover::after,
+#tabs a:focus,
+#tabs a:focus::after {
+  background: #fff;
+}
+
+#tabs a:focus {
+  outline: 0;
+}
+
+#tabs a::after {
+  content:'';
+  position:absolute;
+  z-index: 1;
+  top: 0;
+  right: -.5em;
+  bottom: 0;
+  width: 1em;
+  background: #ddd;
+  background-image: linear-gradient(to bottom, #fff, #ddd);
+  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;
+}
+
+#tabs #current a,
+#tabs #current a::after {
+  background: #fff;
+  z-index: 3;
+}
+
+#content2 {
+  background: #fff;
+  padding: 2em;
+  height: 220px;
+  position: relative;
+  z-index: 2;
+  border-radius: 0 5px 5px 5px;
+  box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+}
 </style>
 <div id="sidepanel">
+<div id="xfiles">
+
+<!--
 <div id="labels">
 <a class="mypointer" onclick="newusermode()">
-<div id="labelsbox" style="background: #ff8080;border-radius:15px 0 0 0;"><span class="labelstext">Profiles</span></div></a>
+<div id="labelsbox" style="background: #ff8080;"><span class="labelstext">Profiles</span></div></a>
 </div>
 <div id="labels">
 <a class="mypointer" onclick="calcmode()">
@@ -2643,7 +2764,8 @@ The Subconscious Self is determined by adding up the quantity of represented num
 </div>
 <div id="labels">
 <a class="mypointer" onclick="helpmode()">
-<div id="labelsbox" style="background: #ccccff;border-radius:0 0 15px 0;"><span class="labelstext">Help</span></div></a>
+<div id="labelsbox" style="background: #ccccff;"><span class="labelstext">Help</span></div></a>
+</div>-->
 </div>
 <div id="buttonbox">
 <input type="search" id="searchnow2" style="width:198px;height:30px;float:left;background:#111;color:#aaa;margin-top: 20px !important;border-left:1px solid dodgerblue;border-top:1px solid dodgerblue;border-right: 1px solid dodgerblue;border-bottom:1px solid #333;margin: 0 auto;" placeholder="Search..."></div>
