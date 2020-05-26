@@ -6,6 +6,7 @@
 <script src="profiles_database.js"></script>
 <script src="js/jquery-3.5.1.min.js">
 </script>
+
 <style>
 
 /* HELP MODE */
@@ -1354,13 +1355,14 @@ font-size: 100%;
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="newuser();">Create Profile</button>
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="deleteuser();">Delete Profile</button>
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="saveprofiles();">Save Profiles</button>
+<input type="search" id="searchnow" style="width:450px;height:30px;background:#111;color:#aaa;margin-top:10px;border:0 !important;margin-bottom:10px !important;" placeholder="search">
 <div id="logmain"></div>
-<button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="deleteall();">Delete All</button>
+<button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px !important;" onclick="deleteall();">Delete All</button>
 <style>
 #log {
     resize: none;
     width: 200px;
-    height: 260px;
+    height: 220px;
     font-size: 14px;
     line-height: 24px;
     font-family: tab;
@@ -2638,6 +2640,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 </style>
 <div id="buttonbox">
 <button id="sortbyname" onclick="sortbyname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:200px;">Sort by Name</button>
+<input type="search" id="searchnow2" style="width:200px;height:30px;background:#111;color:#aaa;border:0 !important;margin-bottom:10px !important;" placeholder="search">
 </div>
 </div>
 <div id="apptitle2">
@@ -6954,10 +6957,10 @@ function sortbyname() {
     
     
           
-                $('#log').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>"); 
+                $('#log').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>"); 
                 
                            
-                $('#logmain').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");  
+                $('#logmain').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");  
            
           }
      
@@ -7087,9 +7090,9 @@ function loadusers() {
     
                    
            
-                $('#log').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>");      
+                $('#log').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>");      
                 
-                $('#logmain').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");   
+                $('#logmain').prepend("<span  class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");   
            
           }
      
@@ -7328,10 +7331,10 @@ function newuser() {
         
     
     var randomcolor = randColor();
-    $('#log').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>"); 
+    $('#log').prepend("<span  class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>"); 
     
                
-                $('#logmain').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");      
+                $('#logmain').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");      
     
     }
     
@@ -7460,10 +7463,10 @@ function deleteuser() {
     
     
           
-                $('#log').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>");    
+                $('#log').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>");    
             
                
-                $('#logmain').prepend("<span onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");              
+                $('#logmain').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");              
            
           }
      
@@ -7767,7 +7770,60 @@ loadusers();
   }
 }     
 </script>
+<script>
 
+var input = document.getElementById('searchnow');
+           input.onkeyup = function () {
+               // Declare variables
+               var filter, ul, li, a, i, txtValue;
+               filter = input.value.toUpperCase();
+               ul = document.getElementsByClassName('searchable');
+            //   var style2 = document.createElement('style');
+               // Loop through all list items, and hide those who don't match the query
+               for (i = 0; i < ul.length; i++) {
+                   a = ul[i];
+                   txtValue = a.textContent || a.innerText;
+                   if (input.value.length == 0) {
+                       ul[i].style.display = "inline";
+                   }
+                   else if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                       ul[i].style.display = "inline";
+
+                   } else {
+                       ul[i].style.display = "none";
+
+
+                   }
+
+               }
+}
+
+var input2 = document.getElementById('searchnow2');
+           input2.onkeyup = function () {
+               // Declare variables
+               var filter, ul, li, a, i, txtValue;
+               filter = input2.value.toUpperCase();
+               ul = document.getElementsByClassName('searchable');
+            //   var style2 = document.createElement('style');
+               // Loop through all list items, and hide those who don't match the query
+               for (i = 0; i < ul.length; i++) {
+                   a = ul[i];
+                   txtValue = a.textContent || a.innerText;
+                   if (input2.value.length == 0) {
+                       ul[i].style.display = "inline";
+                   }
+                   else if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                       ul[i].style.display = "inline";
+
+                   } else {
+                       ul[i].style.display = "none";
+
+
+                   }
+
+               }
+}
+</script>
 
 <!--
 
