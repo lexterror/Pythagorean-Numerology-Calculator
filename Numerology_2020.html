@@ -147,13 +147,14 @@
 
     width: 955px;
     margin: 0 auto;
-    height: 20px;
+    height: 18px;
+    border-bottom: 2px solid #333;
     border-radius: 10px 10px 0 0px;
     background-image: linear-gradient(to right, #333 , dodgerblue, #333);
     color: black;
     float: top;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 23px;
     font-family: helveticanew;
     text-align: center;
     text-shadow: 0 0 5px #fff;
@@ -171,14 +172,13 @@
 #labels {
     width: 200px;
     margin: 0 auto;
-    height: 18px;
+    height: 22px;
     background: #333;
-    margin-bottom: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     text-align: left;
     vertical-align: middle;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 28px;
 }
 
 .labelstext {
@@ -188,10 +188,10 @@
 
 #labelsbox {
     width: 200px;
-    height: 18px;
+    height: 22px;
     float: right;
     margin: 0 auto;
-    text-shadow: 0 0 5px #000;
+    text-shadow: 0 0 5px #fff;
 }
 
 #helpbox {
@@ -1361,11 +1361,14 @@ font-size: 100%;
 <style>
 #log {
     resize: none;
-    width: 200px;
+    width: 196px !important;
+    float: left;
     height: 220px;
     font-size: 14px;
     line-height: 24px;
     font-family: tab;
+    border-left: 1px solid dodgerblue;
+    border-right: 1px solid dodgerblue;
     background: #222;
     overflow-x: hidden;
     text-overflow: ellipsis;
@@ -2606,46 +2609,60 @@ The Subconscious Self is determined by adding up the quantity of represented num
 #labelsbox:hover {
     background: #000000 !important;
 }
+.labelstext {
+    color: #000 !important;
+}
+#labelsbox:hover .labelstext {
+   color: #fff !important;
+}
 </style>
 <div id="sidepanel">
 <div id="labels">
 <a class="mypointer" onclick="newusermode()">
-<div id="labelsbox" style="background-image: linear-gradient(to left,#333, gold);"><span class="labelstext">Profiles</span></div></a>
+<div id="labelsbox" style="background: #ff8080;border-radius:15px 0 0 0;"><span class="labelstext">Profiles</span></div></a>
 </div>
 <div id="labels">
 <a class="mypointer" onclick="calcmode()">
-<div id="labelsbox" style="background-image: linear-gradient(to left,#333, red);"><span class="labelstext">Calculator</span></div></a>
+<div id="labelsbox" style="background: #cc99ff;"><span class="labelstext">Calculator</span></div></a>
 </div>
 <div id="labels">
 <a class="mypointer" onclick="chartmode()">
-<div id="labelsbox" style="background-image: linear-gradient(to left,#333, orange);"><span class="labelstext">Chart</span></div></a>
+<div id="labelsbox" style="background: #ffcc99;"><span class="labelstext">Chart</span></div></a>
 </div>
 <div id="labels">
 <a class="mypointer" onclick="psychomode()">
-<div id="labelsbox" style="background-image: linear-gradient(to left,#333, yellow);"><span class="labelstext">Psychomatrix</span></div></a>
+<div id="labelsbox" style="background: #ffff99;"><span class="labelstext">Psychomatrix</span></div></a>
 </div>
 <div id="labels">
 <a class="mypointer" onclick="normanmode()">
-<div id="labelsbox" style="background-image: linear-gradient(to left,#333, lawngreen);"><span class="labelstext">Name Diagram</span></div></a>
+<div id="labelsbox" style="background: #ccffcc;"><span class="labelstext">Name Diagram</span></div></a>
 </div>
 <div id="labels">
 <a class="mypointer" onclick="personalmode()">
-<div id="labelsbox" style="background-image: linear-gradient(to left,#333, purple);"><span class="labelstext">Personal Day Calendar</span></div></a>
+<div id="labelsbox" style="background: #99ccff;"><span class="labelstext">Personal Day Calendar</span></div></a>
 </div>
 <div id="labels">
 <a class="mypointer" onclick="helpmode()">
-<div id="labelsbox" style="background-image: linear-gradient(to left,#333, deeppink);"><span class="labelstext">Help</span></div></a>
+<div id="labelsbox" style="background: #ccccff;border-radius:0 0 15px 0;"><span class="labelstext">Help</span></div></a>
 </div>
-<div id="log"></div>
+<div id="buttonbox">
+<input type="search" id="searchnow2" style="width:198px;height:30px;float:left;background:#111;color:#aaa;margin-top: 20px !important;border-left:1px solid dodgerblue;border-top:1px solid dodgerblue;border-right: 1px solid dodgerblue;border-bottom:1px solid #333;margin: 0 auto;" placeholder="Search..."></div>
+<div id="log" style=""></div>
 <style>
+#log {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+#log::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
 #buttonbox {
     width: 200px;
     height: 32px;
 }
 </style>
-<div id="buttonbox">
-<button id="sortbyname" onclick="sortbyname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:200px;">Sort by Name</button>
-<input type="search" id="searchnow2" style="width:200px;height:30px;background:#111;color:#aaa;border:0 !important;margin-bottom:10px !important;" placeholder="search">
+<div id="buttonbox" style="">
+<button id="sortbyname" onclick="sortbyname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by Name</button>
 </div>
 </div>
 <div id="apptitle2">
@@ -7844,7 +7861,7 @@ var input2 = document.getElementById('searchnow2');
 <style>
 .searchable:hover {
       margin-left: 6px;
-      text-shadow: 0 0 5px #fff;
+      text-shadow: 0 0 12px #fff;
 }
 </style>
 <!--
