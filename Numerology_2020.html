@@ -1346,13 +1346,11 @@ font-size: 100%;
 <div id="newprofilecontainer">
 <div id="newprofilenamecontainer">
 <div id="newprofiledateofbirthcontainer">
-<label style="width: 100px;float:left;">Full Name</label>
-<input type="text" name="numbers" id="profile_fullname" style="width: 350px;float:right;text-transform:uppercase;">
+<label style="float:left;">Full Name</label><label style="float:right;">(mm dd yyyy)</label>
+<input type="text" name="numbers" id="profile_fullname" style="width: 350px;float:left;text-transform:uppercase;"><input type="text" name="numbers" id="profile_dob" style="width: 100px;float:right;text-transform:uppercase;">
 </div>
 </div>
 <div id="newprofiledateofbirthcontainer" style="margin-top: 5px;">
-<label style="float:left;width: 350px;float:left;">Date of Birth: (mm dd yyyy)</label>
-<input type="text" name="numbers" id="profile_dob" style="width: 100px;float:right;text-transform:uppercase;">
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="newuser();">Create Profile</button>
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="deleteuser();">Delete Profile</button>
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="saveprofiles();">Save Profiles</button>
