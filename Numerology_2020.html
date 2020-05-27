@@ -142,16 +142,25 @@
     margin: 0 auto;
     overflow-y: scroll;
 }
+#arrow
+{
+  border-color: transparent transparent #ffcc99 #ffcc99;
+  border-style: solid;
+  border-width: 9px 10px 9px 10px;
+  height:0;
+  width:0;
+  bottom:0px;
+  float: right;
+}  
 
 #mainpanelTITLE {
 
-    width: 955px;
-    margin: 0 auto;
+    width: 935px;
+    float: left;
     height: 18px;
     border-bottom: 2px solid #333;
     background: #ffcc99;
     color: black;
-    float: top;
     font-size: 18px;
     line-height: 23px;
     font-family: helveticanew;
@@ -1371,7 +1380,7 @@ font-size: 100%;
            $('.homeroom6').css('--myVar', color7);
            
 </script>
-<div id="mainpanelTITLE"><span id="selection"></span></div>
+<div id="mainpanelTITLE"><span id="selection"></span></div><div id="arrow"></div>
 <div id="features">
 <div id="subfeaturestitle"><span>Current Profile</span></div>
 <div id="subfeatures">
@@ -7809,6 +7818,7 @@ function deleteuser() {
 
 function calcmode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#ffcc99";
+  document.getElementById("arrow").style.borderColor = "transparent transparent #ffcc99 #ffcc99";
   document.getElementById("selection").innerText = "Calculator";
   $("#datasentries4").show();
   $("#newprofilecontainer").hide();  
@@ -7820,6 +7830,7 @@ function calcmode() {
 }
 function chartmode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#ffff99";
+  document.getElementById("arrow").style.borderColor = "transparent transparent #ffff99 #ffff99";
   document.getElementById("selection").innerText = "Chart";
   $("#datasentries4").hide();
   $("#chartsbox").show();
@@ -7833,6 +7844,7 @@ function psychomode() {
 
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#ccffcc";
   document.getElementById("selection").innerText = "Psychomatrix";
+  document.getElementById("arrow").style.borderColor = "transparent transparent #ccffcc #ccffcc";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
   $("#chartsbox").hide();
@@ -7844,6 +7856,7 @@ function psychomode() {
 function normanmode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#99ccff";
   document.getElementById("selection").innerText = "Name Diagram";
+  document.getElementById("arrow").style.borderColor = "transparent transparent #99ccff #99ccff";
   $("#datasentries4").hide();
   $("#chartsbox").hide();
   $("#newprofilecontainer").hide(); 
@@ -7855,6 +7868,7 @@ function normanmode() {
 function personalmode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#ccccff";
   document.getElementById("selection").innerText = "Personal Day Calendar";
+  document.getElementById("arrow").style.borderColor = "transparent transparent #ccccff #ccccff";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
   $("#chartsbox").hide();
@@ -7866,6 +7880,7 @@ function personalmode() {
 function newusermode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#ff8080";
   document.getElementById("selection").innerText = "Profiles";
+  document.getElementById("arrow").style.borderColor = "transparent transparent #ff8080 #ff8080";
   $("#datasentries4").hide();
   $("#newprofilecontainer").show(); 
   $("#chartsbox").hide();
@@ -7876,6 +7891,7 @@ function newusermode() {
 }
 function helpmode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#cc99ff";
+  document.getElementById("arrow").style.borderColor = "transparent transparent #cc99ff #cc99ff";
   document.getElementById("selection").innerText = "Help";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
