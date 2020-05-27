@@ -972,7 +972,7 @@ function getShortName(SHORTNAME)
 body {
     margin: 0 auto;
     width: 955px;
-    background: #fff;
+    background: #999;
 }
 
 input {
@@ -1325,14 +1325,51 @@ font-size: 100%;
 
 <div id="mainwindow">
 <ul id="tabs">
-    <li><a onclick="newusermode()" style="cursor:pointer;">Profiles</a></li>
-    <li><a onclick="calcmode()" style="cursor:pointer;">Calculator</a></li>
-    <li><a onclick="chartmode()" style="cursor:pointer;">Chart</a></li>
-    <li><a onclick="psychomode()" style="cursor:pointer;">Psychomatrix</a></li>
-    <li><a onclick="normanmode()" style="cursor:pointer;">Name Diagram</a></li>
-    <li><a onclick="personalmode()" style="cursor:pointer;">Personal Day Calendar</a></li>
-    <li><a onclick="helpmode()" style="cursor:pointer;">Help</a></li>
+    <li><a class="homeroom" onclick="newusermode()" style="cursor:pointer">Profiles</a></li>
+    <li><a class="homeroom1" onclick="calcmode()" style="cursor:pointer;">Calculator</a></li>
+    <li><a class="homeroom2" onclick="chartmode()" style="cursor:pointer;">Chart</a></li>
+    <li><a class="homeroom3" onclick="psychomode()" style="cursor:pointer;">Psychomatrix</a></li>
+    <li><a class="homeroom4" onclick="normanmode()" style="cursor:pointer;">Name Diagram</a></li>
+    <li><a class="homeroom5" onclick="personalmode()" style="cursor:pointer;">Personal Day Calendar</a></li>
+    <li><a class="homeroom6" onclick="helpmode()" style="cursor:pointer;">Help</a></li>
 </ul>
+<script>
+   function randColor() {
+       var dig = '0123456789ABCDEF',
+           col = '#';
+       for (var i = 0; i < 6; i++) {
+           var thecolor = dig.charAt(Math.round(Math.random() * dig.length));
+           while (thecolor < 999999) {
+               thecolor = dig.charAt(Math.round(Math.random() * dig.length));
+           }
+           col += thecolor;
+       }
+       return col;
+   }
+
+           var color = "#ff8080";
+           $('.homeroom').css('background', color);
+           $('.homeroom').css('--myVar', color);
+           var color2 = "#ffcc99";
+           $('.homeroom1').css('background', color2);
+           $('.homeroom1').css('--myVar', color2);
+           var color3 = "#ffff99";
+           $('.homeroom2').css('background', color3);
+           $('.homeroom2').css('--myVar', color3);
+           var color4 = "#ccffcc";
+           $('.homeroom3').css('background', color4);
+           $('.homeroom3').css('--myVar', color4);
+           var color5 = "#99ccff";           
+           $('.homeroom4').css('background', color5);
+           $('.homeroom4').css('--myVar', color5);
+           var color6 = "#ccccff";           
+           $('.homeroom5').css('background', color6);
+           $('.homeroom5').css('--myVar', color6);
+           var color7 = "#cc99ff";  
+           $('.homeroom6').css('background', color7);
+           $('.homeroom6').css('--myVar', color7);
+           
+</script>
 <div id="mainpanelTITLE"><span id="selection"></span></div>
 <div id="features">
 <div id="subfeaturestitle"><span>Current Profile</span></div>
@@ -2681,8 +2718,8 @@ The Subconscious Self is determined by adding up the quantity of represented num
 
 #tabs a {
   position: relative;
-  background: #ddd;
-  background-image: linear-gradient(to bottom, #fff, #ddd);
+  /*background: #ddd;*/
+ /* background-image: linear-gradient(to bottom, #fff, #ddd);*/
   padding: 10px 20px;
   float: left;
   text-decoration: none;
@@ -2696,14 +2733,14 @@ The Subconscious Self is determined by adding up the quantity of represented num
 #tabs a:hover::after,
 #tabs a:focus,
 #tabs a:focus::after {
-  background: #fff;
+  text-decoration: underline;
 }
 
 #tabs a:focus {
   outline: 0;
 }
 
-#tabs a::after {
+#tabs .homeroom::after {
   content:'';
   position:absolute;
   z-index: 1;
@@ -2711,16 +2748,100 @@ The Subconscious Self is determined by adding up the quantity of represented num
   right: -.5em;
   bottom: 0;
   width: 1em;
-  background: #ddd;
-  background-image: linear-gradient(to bottom, #fff, #ddd);
+  background: var(--myVar);
+/*  background-image: linear-gradient(to bottom, #fff, #ddd); */
   box-shadow: 2px 2px 2px rgba(0,0,0,.4);
   transform: skew(10deg);
   border-radius: 0 5px 0 0;
 }
 
+#tabs .homeroom1::after {
+  content:'';
+  position:absolute;
+  z-index: 1;
+  top: 0;
+  right: -.5em;
+  bottom: 0;
+  width: 1em;
+  background: var(--myVar);
+/*  background-image: linear-gradient(to bottom, #fff, #ddd); */
+  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;
+}
+#tabs .homeroom2::after {
+  content:'';
+  position:absolute;
+  z-index: 1;
+  top: 0;
+  right: -.5em;
+  bottom: 0;
+  width: 1em;
+  background: var(--myVar);
+/*  background-image: linear-gradient(to bottom, #fff, #ddd); */
+  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;
+}
+#tabs .homeroom3::after {
+  content:'';
+  position:absolute;
+  z-index: 1;
+  top: 0;
+  right: -.5em;
+  bottom: 0;
+  width: 1em;
+  background: var(--myVar);
+/*  background-image: linear-gradient(to bottom, #fff, #ddd); */
+  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;
+}
+#tabs .homeroom4::after {
+  content:'';
+  position:absolute;
+  z-index: 1;
+  top: 0;
+  right: -.5em;
+  bottom: 0;
+  width: 1em;
+  background: var(--myVar);
+/*  background-image: linear-gradient(to bottom, #fff, #ddd); */
+  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;
+}
+#tabs .homeroom5::after {
+  content:'';
+  position:absolute;
+  z-index: 1;
+  top: 0;
+  right: -.5em;
+  bottom: 0;
+  width: 1em;
+  background: var(--myVar);
+/*  background-image: linear-gradient(to bottom, #fff, #ddd); */
+  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;
+}
+#tabs .homeroom6::after {
+  content:'';
+  position:absolute;
+  z-index: 1;
+  top: 0;
+  right: -.5em;
+  bottom: 0;
+  width: 1em;
+  background: var(--myVar);
+/*  background-image: linear-gradient(to bottom, #fff, #ddd); */
+  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;
+}
 #tabs #current a,
 #tabs #current a::after {
-  background: #fff;
+  background: transparent;
   z-index: 3;
 }
 
@@ -7986,6 +8107,76 @@ var input2 = document.getElementById('searchnow2');
       text-shadow: 0 0 12px #fff;
 }
 </style>
+<style>
+/*#tabs {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#tabs li {
+  float: left;
+  margin: 0 .5em 0 0;
+}
+
+#tabs a {
+  position: relative;
+  background: #ddd;
+  background-image: linear-gradient(to bottom, #fff, #ddd);
+  padding: 10px 10px;
+  float: left;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 rgba(255,255,255,.8);
+  border-radius: 5px 0 0 0;
+  box-shadow: 0 2px 2px rgba(0,0,0,.4);
+}
+
+#tabs a:hover,
+#tabs a:hover::after,
+#tabs a:focus,
+#tabs a:focus::after {
+  background: #fff;
+}
+
+#tabs a:focus {
+  outline: 0;
+}
+
+#tabs a::after {
+  content:'';
+  position:absolute;
+  z-index: 1;
+  top: 0;
+  right: -.5em;
+  bottom: 0;
+  width: 1em;
+  background: #ddd;
+  background-image: linear-gradient(to bottom, #fff, #ddd);
+  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;
+}
+
+#tabs #current a,
+#tabs #current a::after {
+  background: #fff;
+  z-index: 3;
+}
+
+#content {
+  background: #fff;
+  padding: 2em;
+  height: 220px;
+  position: relative;
+  z-index: 2;
+  border-radius: 0 5px 5px 5px;
+  box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+}*/
+</style>
+
 <!--
 
 How do I calculate my Psychomatrix Square?
