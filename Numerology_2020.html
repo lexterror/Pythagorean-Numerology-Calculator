@@ -149,8 +149,7 @@
     margin: 0 auto;
     height: 18px;
     border-bottom: 2px solid #333;
-    border-radius: 10px 10px 0 0px;
-    background-image: linear-gradient(to right, #333 , dodgerblue, #333);
+    background: #ffcc99;
     color: black;
     float: top;
     font-size: 18px;
@@ -7803,7 +7802,11 @@ function deleteuser() {
 
 </script>
 <script>
+
+
+
 function calcmode() {
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#ffcc99";
   document.getElementById("selection").innerText = "Calculator";
   $("#datasentries4").show();
   $("#newprofilecontainer").hide();  
@@ -7814,6 +7817,7 @@ function calcmode() {
   $("#helpbox").hide();
 }
 function chartmode() {
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#ffff99";
   document.getElementById("selection").innerText = "Chart";
   $("#datasentries4").hide();
   $("#chartsbox").show();
@@ -7824,6 +7828,8 @@ function chartmode() {
  $("#helpbox").hide();
 }
 function psychomode() {
+
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#ccffcc";
   document.getElementById("selection").innerText = "Psychomatrix";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
@@ -7834,6 +7840,7 @@ function psychomode() {
  $("#helpbox").hide();
 }
 function normanmode() {
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#99ccff";
   document.getElementById("selection").innerText = "Name Diagram";
   $("#datasentries4").hide();
   $("#chartsbox").hide();
@@ -7844,6 +7851,7 @@ function normanmode() {
  $("#helpbox").hide();
 }
 function personalmode() {
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#ccccff";
   document.getElementById("selection").innerText = "Personal Day Calendar";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
@@ -7854,6 +7862,7 @@ function personalmode() {
  $("#helpbox").hide();
 }
 function newusermode() {
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#ff8080";
   document.getElementById("selection").innerText = "Profiles";
   $("#datasentries4").hide();
   $("#newprofilecontainer").show(); 
@@ -7864,6 +7873,7 @@ function newusermode() {
  $("#helpbox").hide();
 }
 function helpmode() {
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#cc99ff";
   document.getElementById("selection").innerText = "Help";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
