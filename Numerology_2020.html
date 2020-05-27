@@ -6784,7 +6784,7 @@ function showCalendar(month, year) {
     	var textFileAsBlob = new Blob([BlobString], {type:'text/plain'}); 
     	var downloadLink = document.createElement("a");
     	downloadLink.download = "profiles_database.js";
-    	downloadLink.innerHTML = "Download File";
+    	//downloadLink.innerHTML = "Download File";
     	if (window.webkitURL != null)
     	{
     		// Chrome allows the link to be clicked
@@ -6796,7 +6796,7 @@ function showCalendar(month, year) {
     		// Firefox requires the link to be added to the DOM
     		// before it can be clicked.
     		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
-    		downloadLink.onclick = destroyClickedElement;
+    		//downloadLink.onclick = destroyClickedElement;
     		downloadLink.style.display = "none";
     		document.body.appendChild(downloadLink);
     	}
