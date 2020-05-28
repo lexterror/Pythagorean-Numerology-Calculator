@@ -2248,7 +2248,6 @@ canvas {
     width: 500px;
     height: 36px;
     margin-left: 0px !important;
-    margin-right: 10px !important;
     margin-top: 10px;
     margin-bottom: 10px;
     float: right;
@@ -2938,9 +2937,12 @@ The Subconscious Self is determined by adding up the quantity of represented num
     
     </div>
     
-    <div id="zodiacsign"><span id="mysign"></span></div>
+    
 
-<div id="pillslimname"><span style="font-family:helveticanew;bottom:0px;vertical-align: middle;" id="currentperson"></span></div></div>
+<div id="pillslimname"><span style="font-family:helveticanew;vertical-align: middle;" id="currentperson"></span></div>
+
+
+</div>
 </div>
 
 
@@ -2951,16 +2953,20 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <div id="addborder">
 
 <style>
-#zodiacsign {
-    width: 50px;
-    height: 50px;
+#zodiacplusname {
+    width: 600px;
+    height: 46px;
+    float: left;
+}
+#mysign {
+    width: 14px;
+    height: 14px;
     font-family: astro;
-    background: #000;
-    font-size: 32px;
-    line-height: 50px;
+    margin-left: 5px;
+    font-size: 12px;
+    line-height: 16px !important;
     color:#fff;
-    float: right;
-    border-radius: 5px;
+    vertical-align: middle !important;
 }
 #datasentries {
     background: transparent;
@@ -7311,7 +7317,7 @@ function sortbyname() {
     
     
           
-                $('#log').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>"); 
+                $('#log').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + "<font face='astro'>" + sign + "</font>" + "&nbsp;" + switchuser[i].toUpperCase() + "</font><br></span>"); 
                 
                            
                 $('#logmain').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");  
@@ -7444,7 +7450,7 @@ function loadusers() {
     
                    
            
-                $('#log').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>");      
+                $('#log').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + "<font face='astro'>" + sign + "</font>" + "&nbsp;" + switchuser[i].toUpperCase() + "</font><br></span>");      
                 
                 $('#logmain').prepend("<span  class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");   
            
@@ -7648,7 +7654,7 @@ function newuser() {
     switchdob[addmoreusers] = document.getElementById("profile_dob").value;
    
     var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
-    document.getElementById("mysign").innerText = sign;
+  //  document.getElementById("mysign").innerText = sign;
     $('#log').html("");
       $('#logmain').html("");
     if (print == 1)
@@ -7694,14 +7700,14 @@ function newuser() {
     }
 
     sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
-    document.getElementById("mysign").innerText = sign;
+ //   document.getElementById("mysign").innerText = sign;
     
         
     //endofmaybe
         
     
     var randomcolor = randColor();
-    $('#log').prepend("<span  class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>"); 
+    $('#log').prepend("<span  class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + "<font face='astro'>" + sign + "</font>" + "&nbsp" + switchuser[i].toUpperCase() + "</font><br></span>"); 
     
                
                 $('#logmain').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");      
@@ -7833,7 +7839,7 @@ function deleteuser() {
     
     
           
-                $('#log').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "</font><br></span>");    
+                $('#log').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + "<font face='astro'>" + sign + "</font>" + "&nbsp" + switchuser[i].toUpperCase() + "</font><br></span>");    
             
                
                 $('#logmain').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");              
@@ -8048,7 +8054,7 @@ calcmode();
     document.getElementById("numbers1").value = newdateofbirth[2]; 
     document.getElementById("numbers2").value = newdateofbirth[0];
     var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
-    document.getElementById("mysign").innerText = sign;
+  //  document.getElementById("mysign").innerText = sign;
  document.getElementById("currentperson").innerHTML = switchuser[link].toUpperCase() + " (" + newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + ")";
         print = 0;
         calculate2();
