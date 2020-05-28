@@ -6705,11 +6705,25 @@ function showCalendar(month, year) {
   var matrix16 = document.getElementById("t7").innerText;
   var matrix17 = document.getElementById("t8").innerText;  
   
-  var PsychoMatrixString = "Psychomatrix: " + "\n\n" +
+ /* var PsychoMatrixString = "Psychomatrix: " + "\n\n" +
                            "Character/Will: " + matrix1 + "\n" + "Health/Beauty: " + matrix2 + "\n" + "Luck: " + matrix3 + "\n" + "Purpose: " + matrix4 + "\n" +
                            "Vital/Energy: " + matrix5 + "\n" + "Logic/Intuition: " + matrix6 + "\n" + "Duty: " + matrix7 + "\n" + "Family: " + matrix8 + "\n" +
                            "Cognitive/Creative: " + matrix9 + "\n" + "Labor/Skill: " + matrix10 + "\n" + "Intellect/Memory: " + matrix11 + "\n" + "Habits: " + matrix12 + "\n" +
-                           "Self-Esteem: " + matrix13 + "\n" + "Work: " + matrix14 + "\n" + "Talent: " + matrix15 + "\n" + "Spirit/Temp: " + matrix16 + " / " + matrix17;
+                           "Self-Esteem: " + matrix13 + "\n" + "Work: " + matrix14 + "\n" + "Talent: " + matrix15 + "\n" + "Spirit/Temp: " + matrix16 + " / " + matrix17; */
+                           
+    var PsychoMatrixString = "Psychomatrix: " + "\n\n" + "Main abilities (square's cells)\n\n" + 
+                           "Character/Will: " + matrix1  + "\n" +
+                           "Vital/Energy: " + matrix5  + "\n" +
+                           "Cognitive/Creative: " + matrix9 + "\n" +
+                           "Health/Beauty: " + matrix2 + "\n" +
+                           "Logic/Intuition: " + matrix6 +  "\n" +
+                           "Labor/Skill: " + matrix10 + "\n" +
+                           "Luck: " + matrix3 + "\n" +
+                           "Duty: " + matrix7 + "\n" +
+                           "Intellect/Memory: " + matrix11 + "\n\n"  
+                           
+                           + "Secondary abilities (lines and diagonals)\n\n" +
+                           "Self-Esteem:  (Line «1-2-3») " + matrix13 + "\n" + "Work:  (Line «4-5-6») " + matrix14 + "\n" + "Talent: (Line «7-8-9») " + matrix15 + "\n" + "Purpose:  (Line «1-4-7») " + matrix4 + "\n" + "Family: (Line «2-5-8») " + matrix8 + "\n" + "Habits:  (Line «3-6-9») " + matrix12 + "\n" + "Spirit:  (Diagonal «1-5-9») " + matrix16 + "\nTemp: (Diagonal «3-5-7») " + matrix17;                           
   
   var decorate = Name + " ( " + ShortName + " ), " + themonth + " " + DateBirth + " " + YearBirth;
   var decoratestring = decorate.toString();
