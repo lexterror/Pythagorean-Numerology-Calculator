@@ -1296,7 +1296,7 @@ font-size: 100%;
 #subfeaturestitles {
     width: 200px;
     height: 14px;
-    padding: 5px;
+    padding: 3px;
     margin-left: 5px;
 }
 
@@ -1397,7 +1397,7 @@ font-size: 100%;
 <div id="subfeaturestitles">
 <span class="">Zodiac Sign</span><span class="results" id="currentsign"></span></div>
 </div>
-<div id="subfeaturestitle" style="margin-top:20px;"><span>Main Features</span></div>
+<div id="subfeaturestitle" style="margin-top:5px;"><span>Main Features</span></div>
 <div id="subfeatures">
 <div id="subfeaturestitles">
 <span class="">Life Path</span><span class="results" id="sublifepath"></span></div>
@@ -1410,7 +1410,7 @@ font-size: 100%;
 <div id="subfeaturestitles">
 <span class="">Personality</span><span class="results"  id="subpersonality"></span></div>
 </div>
-<div id="subfeaturestitle" style="margin-top:20px;">Additional Features</span></div>
+<div id="subfeaturestitle" style="margin-top:5px;">Additional Features</span></div>
 <div id="subfeatures">
 <div id="subfeaturestitles">
 <span class="">Maturity</span><span  class="results" id="submaturity"></span></div>
@@ -1423,6 +1423,16 @@ font-size: 100%;
 <div id="subfeaturestitles">
 <span class="">Subcons. Confid.</span><span class="results"  id="subsubcons"></span></div>
 </div>
+
+<div id="subfeaturestitle" style="margin-top:5px;">Life Cycles</span></div>
+<div id="subfeatures">
+<div id="subfeaturestitles">
+<span class="">Life Path Periods</span><span  class="results" id="subperiods"></span></div>
+<div id="subfeaturestitles">
+<span class="">Personal Year</span><span  class="results" id="subpersonalyear"></span></div>
+
+</div>
+
 </div>
 <style>
 </style>
@@ -2901,7 +2911,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 </div>-->
 </div>
 <div id="buttonbox">
-<input type="search" id="searchnow2" style="width:198px;height:30px;float:left;background:#111;color:#aaa;margin-top: 20px !important;border-left:1px solid dodgerblue;border-top:1px solid dodgerblue;border-right: 1px solid dodgerblue;border-bottom:1px solid #333;margin: 0 auto;" placeholder="Search..."></div>
+<input type="search" id="searchnow2" style="width:198px;height:30px;float:left;background:#111;color:#aaa;border-left:1px solid dodgerblue;border-top:1px solid dodgerblue;border-right: 1px solid dodgerblue;border-bottom:1px solid #333;margin: 0 auto;" placeholder="Search..."></div>
 <div id="log" style=""></div>
 <style>
 #log {
@@ -3531,6 +3541,7 @@ var month_total3 = 0;
 var date_total3 = 0;
 var countyearss = 0;
 var countmonths = 0;
+var lifepathperiods = 0;
 
 function calculate2() {
 countyearss = 0;
@@ -3543,6 +3554,7 @@ finalString = "";
 Name = "";
 newpath = 0;
 namestotalsfinal2 = 0;
+lifepathperiods = 0;
 //initialize variables
 var total1 = 0;
 var total2 = 0;
@@ -5572,7 +5584,11 @@ var data_entered_length = year.length;
     }
     //(""+n).split("");
     // display results
+    var checkyear = total1.toString();
+    if (checkyear.length > 1)
     document.getElementById("display4").value = total1 + " / " + total3;
+    if (checkyear.length == 1)
+    document.getElementById("display4").value = total1;
 }
 
 /////////////// MONTH
@@ -5586,6 +5602,7 @@ else if (month != null)
 //split value entered into array
 var numbers = month.split("");
 var data_entered_length = month.length;
+
 
     for (i = 0; i < data_entered_length; i++)
     {
@@ -5623,7 +5640,12 @@ var data_entered_length = month.length;
     }
     //(""+n).split("");
     // display results
+    
+    var checkmonth = month_total1.toString();
+    if (checkmonth.length > 1)
     document.getElementById("display5").value =  month_total1 + " / " + month_total3;
+    if (checkmonth.length == 1)
+    document.getElementById("display5").value =  month_total1;
     if (month == 11)
     document.getElementById("display5").value =  11 + " / " + month_total3;
 }
@@ -5675,7 +5697,11 @@ var data_entered_length = date.length;
     //(""+n).split("");
     // display results
     
+    var checkdate = date_total1.toString();
+    if (checkdate.length > 1)
     document.getElementById("display6").value = date_total1 + " / " + date_total3;
+    if (checkdate.length == 1)
+    document.getElementById("display6").value = date_total1;    
     if (date == 11)
     document.getElementById("display6").value = "11" + " / " + date_total3;
     if (date == 22)
@@ -5687,6 +5713,8 @@ var data_entered_length = date.length;
    var yearpath = total3;
    var monthpath = month_total3;
    var datepath = date_total3;
+   
+   lifepathperiods = month_total3 + " , " + date_total3 + " , " + total3;
    
    var pathsum = total3 + month_total3 + date_total3;
    var pathbeforetotal = 0;
@@ -6391,9 +6419,55 @@ function showCalendar(month, year) {
    
    ////////// END LIFEPATH
    
-   
+    // numbers3 date
+    // numbers1 year
+    // numbers2 month
+    
+    
+    
   var MyPathNumber = GetYearAdditions + " + " + GetMonthAdditions + " + " + GetDateAdditions + " = " + newpath;
-  var BirthDay = "Birthday: " + document.getElementById("numbers3").value + " / " + document.getElementById("display6").value + "\n\n";
+  
+  var correctbirthday = "";
+  var birthdaycheck = document.getElementById("numbers3").value;
+  var birthdaychecktostring = birthdaycheck.toString();
+  var birthdaychecksplit = birthdaychecktostring.split("");
+  var birthdaycheckpass1 = 0;
+  var correctbirthdaytostring = "";
+  
+  var bdpass1 = "";
+  
+  correctbirthday = birthdaycheck.toString();
+  correctbirthdaytostring = correctbirthday;
+  
+  if (birthdaychecktostring.length > 1)
+  {
+        for (n = 0;n < birthdaychecktostring.length; n++)
+        {
+        
+            birthdaycheckpass1 = birthdaycheckpass1 + parseFloat(birthdaychecktostring[n])
+        }
+        
+        bdpass1 = birthdaycheckpass1.toString();
+        correctbirthdaytostring = correctbirthday + " / " + bdpass1;
+  }
+  var birthdaycheckpass2 = 0;
+  var bdpass2 = "";
+  var bdpass1tostring = bdpass1.toString();
+  var bdpass1tostringsplit = bdpass1tostring.split("");
+  
+  if (bdpass1tostring.length > 1)
+  {
+        for (n = 0;n < bdpass1tostring.length; n++)
+        {
+        
+            birthdaycheckpass2 = birthdaycheckpass2 + parseFloat(bdpass1tostringsplit[n])
+        }
+        bdpass2 = birthdaycheckpass2.toString(); 
+        correctbirthdaytostring = correctbirthday + " / " + bdpass1 + " / " + bdpass2;
+        
+  }
+  
+  var BirthDay = "Birthday: " + correctbirthdaytostring + "\n\n";
   var expressionNumber = document.getElementById("namestotal").value;
   var desireNumber = document.getElementById("VowelsT").value;
   var intimateNumber = document.getElementById("ConsonantsT").value; 
@@ -6678,7 +6752,7 @@ function showCalendar(month, year) {
   
   var Confidence = "Subconscious Confidence Number: " + confidencenumber + "\n\n";
   
-  var LifePathPeriods = "Life Path Periods: " + GetMonthAdditions + ", " + GetDateAdditions + ", " + GetYearAdditions + "\n\n";
+  var LifePathPeriods = "Life Path Periods: " + lifepathperiods + "\n\n";
   
   var FullName = "Full Name:" + "\n\n";
   var VowelsString = document.getElementById("Vowels").value + " = " + desireNumber + "\n";
@@ -6774,7 +6848,7 @@ function showCalendar(month, year) {
      myfinalanswer = lastsubbirthdayvalue.toString();
    }
    
-   document.getElementById("subbirthday").innerText = document.getElementById("numbers3").value + " / " + myfinalanswer;
+   document.getElementById("subbirthday").innerText = correctbirthdaytostring;
    document.getElementById("subexpression").innerText = document.getElementById("namestotal").value;
    document.getElementById("subheartdesire").innerText = document.getElementById("VowelsT").value;
    document.getElementById("subpersonality").innerText = document.getElementById("ConsonantsT").value;
@@ -6785,7 +6859,10 @@ function showCalendar(month, year) {
    document.getElementById("subhidden").innerText = masterRepeat(theset);
    document.getElementById("subsubcons").innerText = confidencenumber;
 
-  
+   document.getElementById("subperiods").innerText = lifepathperiods;
+   document.getElementById("subpersonalyear").innerText = countyearss.toString();
+   
+   
   finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + MaturityNumber + RationalNumber + BalanceNumber + HiddenPassionNumber + Confidence + LifePathPeriods + FinalFullName + ShortNameTotals + PsychoMatrixString;
   
  
@@ -7504,6 +7581,10 @@ function newuser() {
     document.getElementById("numbers3").value = newdateofbirth[1];  
     document.getElementById("numbers1").value = newdateofbirth[2]; 
     document.getElementById("numbers2").value = newdateofbirth[0]; 
+    
+    // numbers3 date
+    // numbers1 year
+    // numbers2 month
     
     //////////// CURRENT PROFILE TOP CARROT
     var currentprofilefirstname = user.split(" ");
