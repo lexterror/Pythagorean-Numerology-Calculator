@@ -13,7 +13,7 @@
     { name: 'robert norman ross', dob: '10 29 1942' },    
     { name: 'julia carolyn mcwilliams', dob: '8 15 1912' },
     { name: 'edward regan murphy', dob: '4 3 1961' },
-    { name: 'george carlin', dob: '5 12 1937' },
+    { name: 'george denis patrick carlin', dob: '5 12 1937' },
     { name: 'christopher reeve', dob: '9 25 1952' },
     { name: 'isaac newton', dob: '3 31 1727' },
     { name: 'nostradamus', dob: '12 24 1503' },
