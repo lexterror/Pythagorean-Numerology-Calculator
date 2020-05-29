@@ -2049,11 +2049,538 @@ font-size: 100%;
 <td>Totals</td><td id="new_1t" class="spacer"></td><td id="new_2t" class="spacer"></td><td id="new_3t" class="spacer"></td><td id="new_4t" class="spacer"></td><td id="new_5t" class="spacer"></td><td id="new_6t" class="spacer"></td><td id="new_7t" class="spacer"></td><td id="new_8t" class="spacer"></td><td id="new_9t" class="spacer"></td><td id="new_tt" style="text-align:center;"></td>
 </tr>
 </table>
+<button id="printtape" onclick="printtape();" style="width:498px;margin: 0 auto;height:32px;">Save</button>
 </div>
 
 <script>
-function newcalculate() {
+    var VPRINT = "";
+    var CPRINT = "";
+    
+function printtape() {
+VPRINT = "";
+CPRINT = "";
+var thenames =  document.getElementById("thenames2").value;
+//thenames = thenames.replace(/\s/g, '');
 
+///////************* NORMAN **************///////////
+    var names_data_entered_length = thenames.length;
+    var namesumbers = thenames.split("");
+    var new_ones=0;
+    var new_twos=0;
+    var new_threes=0;
+    var new_fours=0;
+    var new_fives=0;
+    var new_sixes=0;
+    var new_sevens=0;
+    var new_eights=0;
+    var new_nines=0;
+    
+    var new_onesc=0;
+    var new_twosc=0;
+    var new_threesc=0;
+    var new_foursc=0;
+    var new_fivesc=0;
+    var new_sixesc=0;
+    var new_sevensc=0;
+    var new_eightsc=0;
+    var new_ninesc=0;
+    
+    var new_onesv=0;
+    var new_twosv=0;
+    var new_threesv=0;
+    var new_foursv=0;
+    var new_fivesv=0;
+    var new_sixesv=0;
+    var new_sevensv=0;
+    var new_eightsv=0;
+    var new_ninesv=0;
+    
+    var new_vowelstrack = 0;
+    var new_consonantstrack = 0;
+    var new_vowels = [];
+    var new_consonants = [];
+    var new_namestotalsfinal2 = 0;
+
+for (i = 0; i < names_data_entered_length; i++)
+    {
+    
+    if (namesumbers[i] == "1")
+    {
+    new_ones++;
+    }
+    if (namesumbers[i] == "2")
+    {
+    new_twos++;
+    }
+    if (namesumbers[i] == "3")
+    {
+    new_threes++;
+    }
+    if (namesumbers[i] == "4")
+    {
+    new_fours++;
+    }
+    if (namesumbers[i] == "5")
+    {
+    new_fives++;
+    }
+    if (namesumbers[i] == "6")
+    {
+    new_sixes++;
+    }
+    if (namesumbers[i] == "7")
+    {
+    new_sevens++;
+    }
+    if (namesumbers[i] == "8")
+    {
+    new_eights++;
+    }
+    if (namesumbers[i] == "9")
+    {
+    new_nines++;
+    }
+    
+
+    if (namesumbers[i] == " ")
+    {
+    CPRINT = CPRINT + " ";
+    VPRINT = VPRINT + " ";    
+    }
+    
+    if (namesumbers[i] == "a" || namesumbers[i] == "A")
+    {
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 1;
+       VPRINT = VPRINT + "1";
+       CPRINT = CPRINT + " ";
+    new_onesv++;
+    new_ones++;
+    }
+    if (namesumbers[i] == "j" || namesumbers[i] == "J")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 1;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "1";
+    new_ones++;
+    new_onesc++
+    }
+    if (namesumbers[i] == "s" || namesumbers[i] == "S")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 1;
+    new_ones++;
+    new_onesc++;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "1";
+    }
+    if (namesumbers[i] == "b" || namesumbers[i] == "B")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 2;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "2";
+    new_twos++;
+    new_twosc++;
+    }
+    if (namesumbers[i] == "k" || namesumbers[i] == "K")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 2;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "2";
+    new_twos++;
+    new_twosc++;
+    }
+    if (namesumbers[i] == "t" || namesumbers[i] == "T")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 2;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "2";
+    new_twos++;
+    new_twosc++;
+    }
+    if (namesumbers[i] == "c" || namesumbers[i] == "C")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 3;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "3";
+    new_threes++;
+    new_threesc++;
+    }
+    if (namesumbers[i] == "l" || namesumbers[i] == "L")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 3;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "3";
+    new_threes++;
+    new_threesc++;
+    }
+    if (namesumbers[i] == "u" || namesumbers[i] == "U")
+    {
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 3;
+       VPRINT = VPRINT + "3";
+       CPRINT = CPRINT + " ";
+    new_threes++;
+    new_threesv++;
+    }
+    if (namesumbers[i] == "d" || namesumbers[i] == "D")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 4;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "4";
+    new_fours++;
+    new_foursc++;
+    }
+    if (namesumbers[i] == "m" || namesumbers[i] == "M")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 4;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "4";
+    new_fours++;
+    new_foursc++;
+    }
+    if (namesumbers[i] == "v" || namesumbers[i] == "V")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 4;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "4";
+    new_fours++;
+    new_foursc++;
+    }
+    if (namesumbers[i] == "e" || namesumbers[i] == "E")
+    {
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 5;
+       VPRINT = VPRINT + "5";
+       CPRINT = CPRINT + " ";
+    new_fives++;
+    new_fivesv++;
+    }
+    if (namesumbers[i] == "n" || namesumbers[i] == "N")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 5;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "5";
+    new_fives++;
+    new_fivesc++;
+    }
+    if (namesumbers[i] == "w" || namesumbers[i] == "W")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 5;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "5";
+    new_fives++;
+    new_fivesc++;
+    }
+    if (namesumbers[i] == "f" || namesumbers[i] == "F")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 6;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "6";
+    new_sixes++;
+    new_sixesc++;
+    }
+    if (namesumbers[i] == "o" || namesumbers[i] == "O")
+    {
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 6;
+       VPRINT = VPRINT + "6";
+       CPRINT = CPRINT + " ";
+    new_sixes++;
+    new_sixesv++;
+    }
+    if (namesumbers[i] == "x" || namesumbers[i] == "X")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 6;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "6";
+    new_sixes++;
+    new_sixesc++;
+    }
+    if (namesumbers[i] == "g" || namesumbers[i] == "G")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 7;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "7";
+    new_sevens++;
+    new_sevensc++;
+    }
+    if (namesumbers[i] == "p" || namesumbers[i] == "P")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 7;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "7";
+    new_sevens++;
+    new_sevensc++;
+    }
+    if (namesumbers[i] == "y" || namesumbers[i] == "Y")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 7;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "7";
+    new_sevens++;
+    new_sevensc++;
+    }
+    if (namesumbers[i] == "h" || namesumbers[i] == "H")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 8;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "8";
+    new_eights++;
+    new_eightsc++;
+    }
+    if (namesumbers[i] == "q" || namesumbers[i] == "Q")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 8;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "8";
+    new_eights++;
+    new_eightsc++;
+    }
+    if (namesumbers[i] == "z" || namesumbers[i] == "Z")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 8;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "8";
+    new_eights++;
+    new_eightsc++;
+    }
+    if (namesumbers[i] == "i" || namesumbers[i] == "I")
+    {
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 9;
+       VPRINT = VPRINT + "9";
+       CPRINT = CPRINT + " ";
+    new_nines++;
+    new_ninesv++;
+    }
+    if (namesumbers[i] == "r" || namesumbers[i] == "R")
+    {
+    new_consonantstrack++;
+    new_consonants[new_consonantstrack] = 9;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "9";
+    new_nines++;
+    new_ninesc++;
+    }
+        
+    }
+    ////////////// MATRIX //////////////////////
+    document.getElementById("new_v1").innerText = new_onesv; 
+    document.getElementById("new_v2").innerText = new_twosv;     
+    document.getElementById("new_v3").innerText = new_threesv; 
+    document.getElementById("new_v4").innerText = new_foursv; 
+    document.getElementById("new_v5").innerText = new_fivesv; 
+    document.getElementById("new_v6").innerText = new_sixesv; 
+    document.getElementById("new_v7").innerText = new_sevensv; 
+    document.getElementById("new_v8").innerText = new_eightsv; 
+    document.getElementById("new_v9").innerText = new_ninesv; 
+    document.getElementById("new_c1").innerText = new_onesc; 
+    document.getElementById("new_c2").innerText = new_twosc;     
+    document.getElementById("new_c3").innerText = new_threesc; 
+    document.getElementById("new_c4").innerText = new_foursc; 
+    document.getElementById("new_c5").innerText = new_fivesc; 
+    document.getElementById("new_c6").innerText = new_sixesc; 
+    document.getElementById("new_c7").innerText = new_sevensc; 
+    document.getElementById("new_c8").innerText = new_eightsc; 
+    document.getElementById("new_c9").innerText = new_ninesc;   
+    var TABLEX = "    " + "1" + "   " + "2" + "   " + "3" + "   " + "4" + "   " + "5" + "   " + "6" + "   " + "7" + "   " + "8" + "   " + "9" + "   " + "T";
+    var TABLEV = "V" + "   " + new_onesv + "   " + new_twosv + "   " + new_threesv + "   " + new_foursv + "   " + new_fivesv + "   " + new_sixesv + "   " + new_sevensv + "   " + new_eightsv + "   " + new_ninesv + "   " + parseInt(new_onesv + new_twosv + new_threesv + new_foursv + new_fivesv + new_sixesv + new_sevensv + new_eightsv + new_ninesv);
+    var TABLEC = "C" + "   " + new_onesc + "   " + new_twosc + "   " + new_threesc + "   " + new_foursc + "   " + new_fivesc + "   " + new_sixesc + "   " + new_sevensc + "   " + new_eightsc + "   " + new_ninesc + "   " +parseInt(new_onesc + new_twosc + new_threesc + new_foursc + new_fivesc + new_sixesc + new_sevensc + new_eightsc + new_ninesc);
+    var TABLET = "T" + "   "+ parseInt(new_onesc + new_onesv) + "   " + parseInt(new_twosc + new_twosv) + "   " + parseInt(new_threesc + new_threesv) + "   " + parseInt(new_foursc + new_foursv) + "   " + parseInt(new_fivesc + new_fivesv) + "   " + parseInt(new_sixesc + new_sixesv) + "   " + parseInt(new_sevensv + new_sevensc) + "   " + parseInt(new_eightsv + new_eightsc) + "   " + parseInt(new_ninesv + new_ninesc) + "   " + parseInt(new_onesc + new_twosc + new_threesc + new_foursc + new_fivesc + new_sixesc + new_sevensc + new_eightsc + new_ninesc + new_onesv + new_twosv + new_threesv + new_foursv + new_fivesv + new_sixesv + new_sevensv + new_eightsv + new_ninesv);
+    
+    document.getElementById("new_1t").innerText = new_onesc + new_onesv; 
+    document.getElementById("new_2t").innerText = new_twosc + new_twosv;  
+    document.getElementById("new_3t").innerText = new_threesc + new_threesv; 
+    document.getElementById("new_4t").innerText = new_foursc + new_foursv; 
+    document.getElementById("new_5t").innerText = new_fivesc + new_fivesv; 
+    document.getElementById("new_6t").innerText = new_sixesc + new_sixesv; 
+    document.getElementById("new_7t").innerText = new_sevensc + new_sevensv; 
+    document.getElementById("new_8t").innerText = new_eightsc + new_eightsv; 
+    document.getElementById("new_9t").innerText = new_ninesc + new_ninesv; 
+
+    parseInt(new_onesc + new_twosc + new_threesc + new_foursc + new_fivesc + new_sixesc + new_sevensc + new_eightsc + new_ninesc + new_onesv + new_twosv + new_threesv + new_foursv + new_fivesv + new_sixesv + new_sevensv + new_eightsv + new_ninesv)
+    
+    document.getElementById("new_vt").innerText = new_onesv + new_twosv + new_threesv + new_foursv + new_fivesv + new_sixesv + new_sevensv + new_eightsv + new_ninesv;
+    document.getElementById("new_ct").innerText = new_onesc + new_twosc + new_threesc + new_foursc + new_fivesc + new_sixesc + new_sevensc + new_eightsc + new_ninesc;  
+    
+    document.getElementById("new_tt").innerText = new_onesc + new_twosc + new_threesc + new_foursc + new_fivesc + new_sixesc + new_sevensc + new_eightsc + new_ninesc + new_onesv + new_twosv + new_threesv + new_foursv + new_fivesv + new_sixesv + new_sevensv + new_eightsv + new_ninesv;     
+    
+    ///////////// VOWELS CONSONANTS TOTALS ///////////////////
+    var consonantstotals = new_consonants.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    var vowelstotals = new_vowels.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    
+    var vpass1 = vowelstotals.length;
+    var cpass1 = consonantstotals.length;
+    var vpass1totals = 0;
+    var vpass1totals2 = 0;
+    var cpass1totals = 0;
+    var cpass1totals2 = 0;
+    var THENT = "";
+    var THEVT = "";
+    var THeCT = "";
+    
+    document.getElementById("VowelsT2").value = vowelstotals; 
+    document.getElementById("ConsonantsT2").value = consonantstotals;
+    THEVT = vowelstotals;
+    THECT = consonantstotals
+    
+    var cc = consonantstotals.toString();
+    var vv = vowelstotals.toString();
+    var cc2 = cc.length;
+    var vv2 = vv.length;
+    var v1split = vv.split("");
+    var c1split = cc.split("");
+    
+    if (vv2 > 1)
+    {
+    for (j = 0; j < vv2; j++)
+    {
+         vpass1totals = vpass1totals + parseFloat(v1split[j]);
+    }
+    document.getElementById("VowelsT2").value = vowelstotals + " / " + vpass1totals;    
+    THEVT = vowelstotals + " / " + vpass1totals;
+    }
+
+    if (cc2 > 1)
+    {
+    for (j = 0; j < cc2; j++)
+    {
+         cpass1totals = cpass1totals + parseFloat(c1split[j]);
+    }
+    document.getElementById("ConsonantsT2").value = consonantstotals + " / " + cpass1totals;     
+    THECT = consonantstotals + " / " + cpass1totals; 
+    }
+    
+    var cc3 = cpass1totals.toString();
+    var vv3 = vpass1totals.toString();
+    var cc23 = cc3.length;
+    var vv23 = vv3.length;
+    var v3split = vv3.split("");
+    var c3split = cc3.split("");    
+        
+    if (vv23 > 1)
+    {
+    for (j = 0; j < vv23; j++)
+    {
+         vpass1totals2 = vpass1totals2 + parseFloat(v3split[j]);
+    }
+    document.getElementById("VowelsT2").value = vowelstotals + " / " + vpass1totals + " / " + vpass1totals2; 
+    THEVT = vowelstotals + " / " + vpass1totals + " / " + vpass1totals2;
+    }
+
+    if (cc23 > 1)
+    {
+    for (j = 0; j < cc23; j++)
+    {
+         cpass1totals2 = cpass1totals2 + parseFloat(c3split[j]);
+    }
+    document.getElementById("ConsonantsT2").value = consonantstotals + " / " + cpass1totals + " / " + cpass1totals2;     
+    THECT  = consonantstotals + " / " + cpass1totals + " / " + cpass1totals2;   
+    }    
+    
+    var vow1 = new_vowels.map(String);
+    var con1 = new_consonants.map(String);
+    var vow2 = vow1.toString().replace(/,/g,"");
+    var con2 = con1.toString().replace(/,/g,"");
+    document.getElementById("Vowels2").value = vow2;
+    document.getElementById("Consonants2").value = con2;
+    
+    
+    var sumtotals = (new_ones + (new_twos * 2) + (new_threes * 3) + (new_fours * 4) + (new_fives * 5) + (new_sixes * 6) + (new_sevens * 7) + (new_eights * 8) + (new_nines * 9));
+    
+    var n = sumtotals.toString();
+    var sumtotalslentgh = n.length;
+    var numberss = n.split("");
+    var namestotalsfinal = 0;
+    
+    document.getElementById("namestotal2").value = sumtotals; 
+    THENT = sumtotals; 
+    
+    
+    if (sumtotalslentgh > 1)
+    {
+    for (m = 0; m < sumtotalslentgh; m++)
+    {
+        namestotalsfinal = namestotalsfinal + parseFloat(numberss[m]);
+    }
+    document.getElementById("namestotal2").value = sumtotals + " / " +  namestotalsfinal;
+    THENT = sumtotals + " / " +  namestotalsfinal;
+    }
+
+    var nn = namestotalsfinal.toString();
+    var nnlength = nn.length;
+    var temp = nn.split("");
+    
+    if (nnlength > 1)
+    {
+    for (z = 0; z < nnlength; z++)
+    {
+         new_namestotalsfinal2 = new_namestotalsfinal2 + parseFloat(temp[z]);
+    }
+     document.getElementById("namestotal2").value = sumtotals + " / " +  namestotalsfinal + " / " + new_namestotalsfinal2;
+    THENT = sumtotals + " / " +  namestotalsfinal + " / " + new_namestotalsfinal2;
+    }
+        
+      var theinput = document.getElementById("thenames2").value;
+      var finalString = VPRINT + " = " + THEVT  + "\n" + theinput + " = " +  THENT + "\n" + CPRINT + " = " + THECT + "\n\n" + TABLEX + "\n" + TABLEV + "\n" + TABLEC + "\n" + TABLET;
+      
+        var BlobString = finalString.toString().toUpperCase();
+    	var textFileAsBlob = new Blob([BlobString], {type:'text/plain'}); 
+    	var downloadLink = document.createElement("a");
+    	downloadLink.download = "numerology_export";
+    	//downloadLink.innerHTML = "Download File";
+    	if (window.webkitURL != null)
+    	{
+    		// Chrome allows the link to be clicked
+    		// without actually adding it to the DOM.
+    		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    	}
+    	else
+    	{
+    		// Firefox requires the link to be added to the DOM
+    		// before it can be clicked.
+    		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    		//downloadLink.onclick = destroyClickedElement;
+    		downloadLink.style.display = "none";
+    		document.body.appendChild(downloadLink);
+    	}
+    
+    	downloadLink.click();
+        setTimeout(function(){
+            document.body.removeChild(downloadLink);
+            window.URL.revokeObjectURL(url);  
+        }, 100);     
+    
+}
+    
+    
+function newcalculate() {
+VPRINT = "";
+CPRINT = "";
 var thenames =  document.getElementById("thenames2").value;
 thenames = thenames.replace(/\s/g, '');
 
@@ -2136,13 +2663,19 @@ for (i = 0; i < names_data_entered_length; i++)
     new_nines++;
     }
     
-    
-    
+
+    if (namesumbers[i] == " ")
+    {
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + " ";
+    }
     
     if (namesumbers[i] == "a" || namesumbers[i] == "A")
     {
     new_vowelstrack++;
     new_vowels[new_vowelstrack] = 1;
+       VPRINT = VPRINT + "1";
+       CPRINT = CPRINT + " ";
     new_onesv++;
     new_ones++;
     }
@@ -2150,6 +2683,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 1;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "1";
     new_ones++;
     new_onesc++
     }
@@ -2159,11 +2694,15 @@ for (i = 0; i < names_data_entered_length; i++)
     new_consonants[new_consonantstrack] = 1;
     new_ones++;
     new_onesc++;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "1";
     }
     if (namesumbers[i] == "b" || namesumbers[i] == "B")
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 2;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "2";
     new_twos++;
     new_twosc++;
     }
@@ -2171,6 +2710,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 2;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "2";
     new_twos++;
     new_twosc++;
     }
@@ -2178,6 +2719,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 2;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "2";
     new_twos++;
     new_twosc++;
     }
@@ -2185,6 +2728,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 3;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "3";
     new_threes++;
     new_threesc++;
     }
@@ -2192,6 +2737,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 3;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "3";
     new_threes++;
     new_threesc++;
     }
@@ -2199,6 +2746,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_vowelstrack++;
     new_vowels[new_vowelstrack] = 3;
+       VPRINT = VPRINT + "3";
+       CPRINT = CPRINT + " ";
     new_threes++;
     new_threesv++;
     }
@@ -2206,6 +2755,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 4;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "4";
     new_fours++;
     new_foursc++;
     }
@@ -2213,6 +2764,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 4;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "4";
     new_fours++;
     new_foursc++;
     }
@@ -2220,6 +2773,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 4;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "4";
     new_fours++;
     new_foursc++;
     }
@@ -2227,6 +2782,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_vowelstrack++;
     new_vowels[new_vowelstrack] = 5;
+       VPRINT = VPRINT + "5";
+       CPRINT = CPRINT + " ";
     new_fives++;
     new_fivesv++;
     }
@@ -2234,6 +2791,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 5;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "5";
     new_fives++;
     new_fivesc++;
     }
@@ -2241,6 +2800,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 5;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "5";
     new_fives++;
     new_fivesc++;
     }
@@ -2248,6 +2809,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 6;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "6";
     new_sixes++;
     new_sixesc++;
     }
@@ -2255,6 +2818,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_vowelstrack++;
     new_vowels[new_vowelstrack] = 6;
+       VPRINT = VPRINT + "6";
+       CPRINT = CPRINT + " ";
     new_sixes++;
     new_sixesv++;
     }
@@ -2262,6 +2827,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 6;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "6";
     new_sixes++;
     new_sixesc++;
     }
@@ -2269,6 +2836,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 7;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "7";
     new_sevens++;
     new_sevensc++;
     }
@@ -2276,6 +2845,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 7;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "7";
     new_sevens++;
     new_sevensc++;
     }
@@ -2283,6 +2854,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 7;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "7";
     new_sevens++;
     new_sevensc++;
     }
@@ -2290,6 +2863,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 8;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "8";
     new_eights++;
     new_eightsc++;
     }
@@ -2297,6 +2872,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 8;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "8";
     new_eights++;
     new_eightsc++;
     }
@@ -2304,6 +2881,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 8;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "8";
     new_eights++;
     new_eightsc++;
     }
@@ -2311,6 +2890,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_vowelstrack++;
     new_vowels[new_vowelstrack] = 9;
+       VPRINT = VPRINT + "9";
+       CPRINT = CPRINT + " ";
     new_nines++;
     new_ninesv++;
     }
@@ -2318,6 +2899,8 @@ for (i = 0; i < names_data_entered_length; i++)
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 9;
+       VPRINT = VPRINT + " ";
+       CPRINT = CPRINT + "9";
     new_nines++;
     new_ninesc++;
     }
@@ -2501,7 +3084,9 @@ for (i = 0; i < names_data_entered_length; i++)
 <tr>
 <td>Totals</td><td id="1t" class="spacer"></td><td id="2t" class="spacer"></td><td id="3t" class="spacer"></td><td id="4t" class="spacer"></td><td id="5t" class="spacer"></td><td id="6t" class="spacer"></td><td id="7t" class="spacer"></td><td id="8t" class="spacer"></td><td id="9t" class="spacer"></td><td id="tt" style="text-align:center;"></td>
 </tr>
+
 </table>
+
 </div>
 <!--
 <div id="datasentries3">-->
