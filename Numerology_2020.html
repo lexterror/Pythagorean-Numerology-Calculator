@@ -2912,7 +2912,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 }
 </style>
 <div id="buttonbox" style="">
-<button id="sortbyname" onclick="sortbyname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by Name</button>
+<button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First/Last Name</button>
 </div>
 </div>
 <div id="apptitle2">
@@ -3534,6 +3534,8 @@ var date_total3 = 0;
 var countyearss = 0;
 var countmonths = 0;
 var lifepathperiods = 0;
+var firstnamemode = 0;
+
 
 function calculate2() {
 countyearss = 0;
@@ -6351,12 +6353,37 @@ function showCalendar(month, year) {
 
   function createChart() 
   {
+  
+
+  
   var ShortName = "";
   ShortNameTotals = "";
   Name = "";
+  var Shorty =  document.getElementById("profile_fullname").value;
   
   var title = "Numerology Chart for:\n\n";
+
+  if (firstnamemode % 2 == 0)
+  {
   Name = document.getElementById("thenames").value.toUpperCase();
+  }
+      
+  if (firstnamemode % 2 != 0)
+  {
+  
+  var tempo = Shorty.toString().toUpperCase();
+  var tempy = tempo.split(" ")
+  if (tempy.length == 1)
+  Name = document.getElementById("thenames").value.toUpperCase();
+  if (tempy.length == 2)
+  Name = tempy[1] + " " + tempy[0];
+  if (tempy.length == 3)
+  Name = tempy[2] + " " + tempy[1] + " " + tempy[0];
+  
+  }
+  
+  
+  
   ShortName = Name.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } );
 
   if (ShortName[2] != null)
@@ -6488,8 +6515,26 @@ function showCalendar(month, year) {
   var rationalget = document.getElementById("thenames").value;
   var rational1 = "";
   var rational1length;
+  var rationalbegin;
+  var rations = document.getElementById("thenames").value;
+  var rationalgetsplitfornow = rations.split(" ");
   
-  var rationalbegin = rationalget.substr(0,rationalget.indexOf(' '));
+  if (firstnamemode % 2 == 0)
+  rationalbegin = rationalget.substr(0,rationalget.indexOf(' '));
+  
+  
+  if (firstnamemode % 2 != 0)
+  {
+      if (rationalgetsplitfornow.length == 1)
+      rationalbegin = rationalgetsplitfornow[0];
+      if (rationalgetsplitfornow.length == 2)
+      rationalbegin = rationalgetsplitfornow[1];   
+      if (rationalgetsplitfornow.length == 3)
+      rationalbegin = rationalgetsplitfornow[2];
+      
+  }
+  
+  
   
   if (/\s/.test(rationalget))
   {
@@ -7251,9 +7296,10 @@ function deleteall() {
     addmoreusers = switchuser.length;
 }
 
+function sortbylastname() {
 
-function sortbyname() {
-
+     firstnamemode++;
+     
 
      addmoreusers = switchuser.length;
 
@@ -7263,8 +7309,211 @@ function sortbyname() {
      
      for (o = 0; o < switchuser.length; o++)
      {
+        var breakdownname = switchuser[o].split(" ");
         
-        newmasterarray.push({'name':switchuser[o], 'dob':switchdob[o]});
+        var firstname = "";
+        
+        var lastname = "";
+        
+        var middlename = "";
+        
+        var newnamesorted = "";
+        
+        if (breakdownname.length == 3)
+        for (j = 0; j < breakdownname.length; j++)
+        {
+            firstname = breakdownname[0].toString();
+            middlename = breakdownname[1].toString();
+            lastname = breakdownname[2].toString();
+            newnamesorted = lastname + " " + middlename + " " + firstname;
+        }
+        if (breakdownname.length == 2)
+        for (j = 0; j < breakdownname.length; j++)
+        {
+            firstname = breakdownname[0].toString();
+            lastname = breakdownname[1].toString();
+            middlename = "";
+            newnamesorted = lastname + " " + firstname;
+        }
+        if (breakdownname.length == 1)
+        for (j = 0; j < breakdownname.length; j++)
+        {
+            firstname = breakdownname[0].toString();
+            middlename = "";
+            lastname = "";
+            newnamesorted = firstname;
+        }
+        
+
+        
+        
+        newmasterarray.push({'name':newnamesorted, 'dob':switchdob[o]});
+        
+     }
+     
+     
+     //var newdata = Object.assign(target, source);
+     newmasterarray.sort((a, b) => (a.name < b.name) ? 1 : -1);
+
+     for (o = 0; o < newmasterarray.length; o++)
+     {
+        switchuser[o] = newmasterarray[o].name;
+        switchdob[o] = newmasterarray[o].dob;
+        
+     }
+     
+       $('#log').html("");
+         $('#logmain').html("");
+          
+          for (i = 0; i < switchuser.length; i++)
+          { 
+          
+    var newdateofbirth = switchdob[i].split(" ");
+    
+    var initials = switchuser[i].split(" ");
+    var myinitials = [];
+    var inital1 = "";
+    var inital2 = "";
+    var inital3 = "";
+    if (initials.length == 1)
+    {
+       inital1 = initials[0].charAt(0);
+       myinitials[0] = inital1;
+    }
+    if (initials.length == 2)
+    {
+        inital1 = initials[0].charAt(0);
+        inital2 = initials[1].charAt(0);
+        myinitials[0] = inital1;
+        myinitials[1] = inital2;    
+    }
+    if (initials.length == 3)
+    {
+        inital1 = initials[0].charAt(0);
+        inital2 = initials[1].charAt(0);
+        inital3 = initials[2].charAt(0);
+        myinitials[0] = inital1;
+        myinitials[1] = inital2;
+        myinitials[2] = inital3;    
+    }
+    var randomcolor = randColor();
+    var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
+    
+    
+          
+                $('#log').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + "<font face='astro'>" + sign + "</font>" + "&nbsp;" + switchuser[i].toUpperCase() + "</font><br></span>"); 
+                
+                           
+                $('#logmain').prepend("<span class='searchable' onclick='switchit(" + i + ")' style='cursor:pointer;'>" + "<font color='white'>" + "</font>" + "&nbsp;>&nbsp;" + "<font color='" + randomcolor + "'>" + switchuser[i].toUpperCase() + "&nbsp"+ newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + "&nbsp;<font face='astro'>" + sign +"</font>&nbsp;"+ myinitials.toString().replace(/,/g,"").toUpperCase() + "&nbsp;" + getAge(newdateofbirth[2]+'/'+newdateofbirth[0]+'/'+newdateofbirth[1]) + "</font><br></span>");  
+           
+          }
+     
+    
+       
+
+
+
+    function getZodiacSign(day, month) {
+
+    var zodiacSigns = {
+    'capricorn':'j',
+    'aquarius':'k',
+    'pisces':'l',
+    'aries':'a',
+    'taurus':'b',
+    'gemini':'c',
+    'cancer':'d',
+    'leo':'e',
+    'virgo':'f',
+    'libra':'g',
+    'scorpio':'h',
+    'sagittarius':'i'
+  }
+
+  if((month == 1 && day <= 20) || (month == 12 && day >=22)) {
+    return zodiacSigns.capricorn;
+  } else if ((month == 1 && day >= 21) || (month == 2 && day <= 18)) {
+    return zodiacSigns.aquarius;
+  } else if((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+    return zodiacSigns.pisces;
+  } else if((month == 3 && day >= 21) || (month == 4 && day <= 20)) {
+    return zodiacSigns.aries;
+  } else if((month == 4 && day >= 21) || (month == 5 && day <= 20)) {
+    return zodiacSigns.taurus;
+  } else if((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+    return zodiacSigns.gemini;
+  } else if((month == 6 && day >= 22) || (month == 7 && day <= 22)) {
+    return zodiacSigns.cancer;
+  } else if((month == 7 && day >= 23) || (month == 8 && day <= 23)) {
+    return zodiacSigns.leo;
+  } else if((month == 8 && day >= 24) || (month == 9 && day <= 23)) {
+    return zodiacSigns.virgo;
+  } else if((month == 9 && day >= 24) || (month == 10 && day <= 23)) {
+    return zodiacSigns.libra;
+  } else if((month == 10 && day >= 24) || (month == 11 && day <= 22)) {
+    return zodiacSigns.scorpio;
+  } else if((month == 11 && day >= 23) || (month == 12 && day <= 21)) {
+    return zodiacSigns.sagittarius;
+  
+ }
+ }    addmoreusers = switchuser.length;     
+     
+
+}
+
+function sortbyname() {
+
+     firstnamemode = 1;
+     
+     addmoreusers = switchuser.length;
+
+     var newmasterarray = [];
+    
+
+     
+     for (o = 0; o < switchuser.length; o++)
+     {
+        
+        
+        var breakdownname = switchuser[o].split(" ");
+        
+        var firstname = "";
+        
+        var lastname = "";
+        
+        var middlename = "";
+        
+        var newnamesorted = "";
+        
+        if (breakdownname.length == 3)
+        for (j = 0; j < breakdownname.length; j++)
+        {
+            firstname = breakdownname[0].toString();
+            middlename = breakdownname[1].toString();
+            lastname = breakdownname[2].toString();
+            newnamesorted = lastname + " " + middlename + " " + firstname;
+        }
+        if (breakdownname.length == 2)
+        for (j = 0; j < breakdownname.length; j++)
+        {
+            firstname = breakdownname[0].toString();
+            lastname = breakdownname[1].toString();
+            middlename = "";
+            newnamesorted = lastname + " " + firstname;
+        }
+        if (breakdownname.length == 1)
+        for (j = 0; j < breakdownname.length; j++)
+        {
+            firstname = breakdownname[0].toString();
+            middlename = "";
+            lastname = "";
+            newnamesorted = firstname;
+        }
+        
+        
+         newmasterarray.push({'name':newnamesorted, 'dob':switchdob[o]});
+        
+       // newmasterarray.push({'name':switchuser[o], 'dob':switchdob[o]});
         
      }
      
@@ -7580,6 +7829,10 @@ function newuser() {
     
     //////////// CURRENT PROFILE TOP CARROT
     var currentprofilefirstname = user.split(" ");
+    
+
+    if (firstnamemode % 2 == 0)
+    {
     if (currentprofilefirstname.length == 3)
     {
     document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
@@ -7598,6 +7851,31 @@ function newuser() {
     document.getElementById("currentmiddlename").innerText = "";
     document.getElementById("currentlastname").innerText = "";
     }
+    }
+
+    if (firstnamemode % 2 != 0)
+    {
+    if (currentprofilefirstname.length == 3)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[2].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[0].toUpperCase();
+    }
+    if (currentprofilefirstname.length == 2)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[1].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = "";
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[0].toUpperCase();    
+    }
+    if (currentprofilefirstname.length == 1)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase(); 
+    document.getElementById("currentmiddlename").innerText = "";
+    document.getElementById("currentlastname").innerText = "";
+    }
+    }    
+    
+
     document.getElementById("currentdob").innerText = newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2];
     
     var signname = getZodiacName(newdateofbirth[1], newdateofbirth[0]);
@@ -8063,7 +8341,13 @@ calcmode();
         
         
 //////////// CURRENT PROFILE TOP CARROT
+
+
+
     var currentprofilefirstname = switchuser[link].split(" ");
+
+    if (firstnamemode % 2 == 0)
+    {
     if (currentprofilefirstname.length == 3)
     {
     document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
@@ -8078,10 +8362,36 @@ calcmode();
     }
     if (currentprofilefirstname.length == 1)
     {
-    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();    
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase(); 
     document.getElementById("currentmiddlename").innerText = "";
-    document.getElementById("currentlastname").innerText = "";     
+    document.getElementById("currentlastname").innerText = "";
     }
+    }
+
+    if (firstnamemode % 2 != 0)
+    {
+    if (currentprofilefirstname.length == 3)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[2].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[0].toUpperCase();
+    }
+    if (currentprofilefirstname.length == 2)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[1].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = "";
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[0].toUpperCase();    
+    }
+    if (currentprofilefirstname.length == 1)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase(); 
+    document.getElementById("currentmiddlename").innerText = "";
+    document.getElementById("currentlastname").innerText = "";
+    }
+    }    
+    
+    
+    
     document.getElementById("currentdob").innerText = newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2];
     
     var signname = getZodiacName(newdateofbirth[1], newdateofbirth[0]);
