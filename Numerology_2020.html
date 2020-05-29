@@ -2000,7 +2000,7 @@ for (i = 0; i < names_data_entered_length; i++)
 <div id="datasentries2">
 <style>
 #chartsbox {
-    width: 450px;
+    width: 498px;
     margin: 0 auto;
 }
 </style>
@@ -2009,10 +2009,10 @@ for (i = 0; i < names_data_entered_length; i++)
 <a name="charts"></a>
 <div id="chartsbox">
 <button type="button" onclick="createChart();" style="width:450px;height:30px;margin:0 auto;display:none;">Create Chart</button>
-<textarea id="ChartOutput" readonly style="width:450px;height:450px;margin: 0 auto;resize: none;" wrap='off'>
+<textarea id="ChartOutput" readonly style="width:498px;height:450px;margin: 0 auto;resize: none;" wrap='off'>
 Empty
 </textarea>
-<button type="button" onclick="saveChart();" style="width:450px;height:30px;">Save Chart</button>
+<button type="button" onclick="saveChart();" style="width:498px;height:30px;">Save Chart</button>
 </div>
 
 
@@ -6693,8 +6693,10 @@ function showCalendar(month, year) {
       rational = rational + parseFloat(b4rationalarray[k]);
   }
   
-  
+  if (b4rational.length > 1)
   var RationalNumber = "Rational Thought Number: " + rational3 + " / " + rational + "\n\n";
+  if (b4rational.length == 1)
+  var RationalNumber = "Rational Thought Number: " + rational3 + "\n\n";  
   
   var BalanceNumber = "";
   var initals = 0;
@@ -6743,7 +6745,11 @@ function showCalendar(month, year) {
     initial2sum = initial2sum + parseFloat(initial2split[o]);
   }
   
+  if (initial2length > 1)
   BalanceNumber = "Balance Number: " + initial1sum + " / " + initial2sum + "\n\n";
+  if (initial2length == 1)
+  BalanceNumber = "Balance Number: " + initial1sum +  "\n\n";
+  
   
   var firstset = document.getElementById("Vowels").value;
   var secondset = document.getElementById("Consonants").value;
@@ -6891,8 +6897,18 @@ function showCalendar(month, year) {
    document.getElementById("subpersonality").innerText = document.getElementById("ConsonantsT").value;
    
    document.getElementById("submaturity").innerText = MaturityNumbers;
+   if (b4rational.length > 1)
    document.getElementById("subrational").innerText = rational3 + " / " + rational;
+   if (b4rational.length == 1)
+   document.getElementById("subrational").innerText = rational3;
+   
+   
+   if (initial2length > 1)
    document.getElementById("subbalance").innerText = initial1sum + " / " + initial2sum;
+   if (initial2length == 1)
+   document.getElementById("subbalance").innerText = initial1sum;   
+   
+   
    document.getElementById("subhidden").innerText = masterRepeat(theset);
    document.getElementById("subsubcons").innerText = confidencenumber;
 
