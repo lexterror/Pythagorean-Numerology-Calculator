@@ -1389,7 +1389,7 @@ font-size: 100%;
 <div id="subfeaturestitles">
 <span class="">First Name</span><span class="results" id="currentname"></span></div>
 <div id="subfeaturestitles">
-<span class="">Middle Name</span><span class="results" id="currentmiddlename"></span></div>
+<span class="">Middle Name</span><span class="results" id="currentmiddlename" style="text-overflow: ellipsis;"></span></div>
 <div id="subfeaturestitles">
 <span class="">Last Name</span><span class="results" id="currentlastname"></span></div>
 <div id="subfeaturestitles">
@@ -1447,7 +1447,7 @@ font-size: 100%;
 </div>
 </div>
 <div id="newprofiledateofbirthcontainer" style="margin-top: 5px;">
-<button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="newuser();">Create Profile</button>
+<button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="newuser();">Create Profile (sort first name)</button>
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="deleteuser();">Delete Profile</button>
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="saveprofiles();">Save Profiles</button>
 <input type="search" id="searchnow" style="width:450px;height:30px;background:#111;color:#aaa;margin-top:10px;border:0 !important;margin-bottom:10px !important;" placeholder="search">
@@ -2925,7 +2925,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.0)</span></span>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.1)</span></span>
 </div>
 
 
@@ -6514,7 +6514,10 @@ function showCalendar(month, year) {
       rationalbegin = rationalgetsplitfornow[1];   
       if (rationalgetsplitfornow.length == 3)
       rationalbegin = rationalgetsplitfornow[2];
-      
+      if (rationalgetsplitfornow.length == 4)
+      rationalbegin = rationalgetsplitfornow[3];     
+      if (rationalgetsplitfornow.length == 5)
+      rationalbegin = rationalgetsplitfornow[4]; 
   }
   
   
@@ -7317,7 +7320,22 @@ function sortbylastname() {
         var middlename = "";
         
         var newnamesorted = "";
-        
+        if (breakdownname.length == 5)
+        for (j = 0; j < breakdownname.length; j++)
+        {
+            firstname = breakdownname[0].toString();
+            middlename = breakdownname[1].toString() + " " + breakdownname[2].toString() + " " + breakdownname[3].toString();
+            lastname = breakdownname[4].toString();
+            newnamesorted = lastname + " " + middlename + " " + firstname;
+        }        
+        if (breakdownname.length == 4)
+        for (j = 0; j < breakdownname.length; j++)
+        {
+            firstname = breakdownname[0].toString();
+            middlename = breakdownname[1].toString() + " " + breakdownname[2].toString();
+            lastname = breakdownname[3].toString();
+            newnamesorted = lastname + " " + middlename + " " + firstname;
+        }        
         if (breakdownname.length == 3)
         for (j = 0; j < breakdownname.length; j++)
         {
@@ -7346,7 +7364,7 @@ function sortbylastname() {
 
         
         
-        newmasterarray.push({'name':newnamesorted, 'dob':switchdob[o]});
+        newmasterarray.push({'name':newnamesorted.toLowerCase(), 'dob':switchdob[o]});
         
      }
      
@@ -7778,6 +7796,7 @@ function newuser() {
    {
    
    var checkdata = document.getElementById("profile_fullname").value;
+   checkdata.toLowerCase();
    
    var doublecheck = 0;
    if (checkdata.length > 0)
@@ -7796,6 +7815,7 @@ function newuser() {
  
    document.getElementById("thenames").value = document.getElementById("profile_fullname").value;
    var user =  document.getElementById("profile_fullname").value;
+   user.toLowerCase();
 
    var checkdob = document.getElementById("profile_dob").value;
    
@@ -7833,6 +7853,18 @@ function newuser() {
 
     if (firstnamemode % 2 == 0)
     {
+    if (currentprofilefirstname.length == 5)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase() + " " + currentprofilefirstname[2].toUpperCase() + " " + currentprofilefirstname[3].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[4].toUpperCase();
+    }    
+    if (currentprofilefirstname.length == 4)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase() + " " + currentprofilefirstname[2].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[3].toUpperCase();
+    }    
     if (currentprofilefirstname.length == 3)
     {
     document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
@@ -7855,6 +7887,18 @@ function newuser() {
 
     if (firstnamemode % 2 != 0)
     {
+    if (currentprofilefirstname.length == 5)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[4].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase() + " " + currentprofilefirstname[2].toUpperCase() + " " + currentprofilefirstname[3].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[0].toUpperCase();
+    }    
+    if (currentprofilefirstname.length == 4)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[3].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase() + " " + currentprofilefirstname[2].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[0].toUpperCase();
+    }        
     if (currentprofilefirstname.length == 3)
     {
     document.getElementById("currentname").innerText = currentprofilefirstname[2].toUpperCase();
@@ -8351,6 +8395,18 @@ calcmode();
 
     if (firstnamemode % 2 == 0)
     {
+    if (currentprofilefirstname.length == 5)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase() + " " + currentprofilefirstname[2].toUpperCase() + " " + currentprofilefirstname[3].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[4].toUpperCase();
+    }    
+    if (currentprofilefirstname.length == 4)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase() + " " + currentprofilefirstname[2].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[3].toUpperCase();
+    }    
     if (currentprofilefirstname.length == 3)
     {
     document.getElementById("currentname").innerText = currentprofilefirstname[0].toUpperCase();
@@ -8373,6 +8429,18 @@ calcmode();
 
     if (firstnamemode % 2 != 0)
     {
+    if (currentprofilefirstname.length == 5)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[4].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase() + " " + currentprofilefirstname[2].toUpperCase() + " " + currentprofilefirstname[3].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[0].toUpperCase();
+    }    
+    if (currentprofilefirstname.length == 4)
+    {
+    document.getElementById("currentname").innerText = currentprofilefirstname[3].toUpperCase();
+    document.getElementById("currentmiddlename").innerText = currentprofilefirstname[1].toUpperCase() + " " + currentprofilefirstname[2].toUpperCase();
+    document.getElementById("currentlastname").innerText = currentprofilefirstname[0].toUpperCase();
+    }      
     if (currentprofilefirstname.length == 3)
     {
     document.getElementById("currentname").innerText = currentprofilefirstname[2].toUpperCase();
