@@ -7775,7 +7775,8 @@ function loadusers() {
    
 function newuser() {
 
-   
+   if (firstnamemode % 2 == 0) 
+   {
    
    var checkdata = document.getElementById("profile_fullname").value;
    
@@ -8050,6 +8051,9 @@ function newuser() {
    createChart();
 }
 }}
+
+} ///modulus check
+
 }
 
 
