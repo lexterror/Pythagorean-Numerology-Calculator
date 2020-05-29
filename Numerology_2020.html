@@ -1698,7 +1698,6 @@ font-size: 100%;
     padding-bottom: 5px;
 }
 #subfeaturestitles {
-    width: 200px;
     height: 14px;
     padding: 3px;
     margin-left: 5px;
@@ -1792,8 +1791,8 @@ font-size: 100%;
 <div id="subfeatures">
 <div id="subfeaturestitles">
 <span class="">First Name</span><span class="results" id="currentname"></span></div>
-<div id="subfeaturestitles">
-<span class="">Middle Name</span><span class="results" id="currentmiddlename" style="text-overflow: ellipsis;"></span></div>
+<div id="subfeaturestitles" style="text-overflow: ellipsis !important;overflow:hidden !important;width: 200px !important;white-space:nowrap;display:inline-block;">
+<span class="">Middle Name</span><span class="results" id="currentmiddlename"  ></span></div>
 <div id="subfeaturestitles">
 <span class="">Last Name</span><span class="results" id="currentlastname"></span></div>
 <div id="subfeaturestitles">
@@ -6770,7 +6769,7 @@ function showCalendar(month, year) {
   if (tempy.length == 4)
   Name = tempy[3] + " " + tempy[1] + " " + tempy[2] + " " + tempy[0];
   if (tempy.length == 5)
-  Name = tempy[4] + " " + tempy[2] + " " + tempy[3] + " " + tempy[1] + " " + tempy[0];
+  Name = tempy[4] + " " + tempy[1] + " " + tempy[2] + " " + tempy[3] + " " + tempy[0];
   }
   
   
