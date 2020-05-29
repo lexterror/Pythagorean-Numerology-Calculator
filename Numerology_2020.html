@@ -1230,20 +1230,29 @@ font-size: 100%;
 }
 
 #apptitle {
-    width: 955px;
-    height:18px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
-    line-height: 18px;
-    text-align: left;
+    width: 300px;
+    height: 46px;
     font-family: goth;
-    color: #fff;
+ 
+
 }   
+.version {
+
+    color: #666;
+
+}
 
 .apptitletext {
-    vertical-align: middle;
-    
+
+    float: bottom;
+    bottom: 0;
+    vertical-align: middle; 
+    text-align: left;
+    font-family: goth;
+    height: 46px;
+    color: #999;
+    font-size: 18px;
+    line-height: 46px;
 }
 
 #apptitle2 {
@@ -1420,8 +1429,9 @@ font-size: 100%;
 <div id="subfeaturestitles">
 <span class="">Life Path Periods</span><span  class="results" id="subperiods"></span></div>
 <div id="subfeaturestitles">
-<span class="">Personal Year</span><span  class="results" id="subpersonalyear"></span></div>
-
+<span class="">Personal Year</span>&nbsp;<span  class="results" id="subpersonalyear"></span></div>
+<div id="subfeaturestitles">
+<span class="">Personal Month</span>&nbsp;<span class="results" id="personalmonth" style=""></span></div>
 </div>
 
 </div>
@@ -2915,34 +2925,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<div id="apptitle2">
-
-
-   <div id="pillslim" style="float:left;">
-    <div id="pillslimleft">
-    <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:41px;color:#fff;vertical-align:middle;"><span id="currentyear"></span></span>  
-    </div>
-    <div id="pillslimright">
-    <b><span id="personalyear" style="font-family:helveticanew;font-size:14px;line-height:41px;color:#000;vertical-align:middle;text-align:center;"></span></b>
-    </div>
-    </div> 
-    
-    <div id ="pillslim" style="float:left;">
-    <div id="pillslimleft">
-     <span class="" style="padding-left: 10px;font-family:helveticanew;font-size:14px;line-height:41px;color:#fff;vertical-align:middle;"><span id="currentmonth"></span>&nbsp;<span id="currentyear2"></span></span>
-    </div>
-    <div id="pillslimright">
-    <b><span id="personalmonth" style="font-family:helveticanew;font-size:14px;line-height:41px;color:#000;vertical-align:middle;text-align:center;"></span></b>
-    </div>
-    
-    </div>
-    
-    
-
-<div id="pillslimname"><span style="font-family:helveticanew;vertical-align: middle;" id="currentperson"></span></div>
-
-
-</div>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.0)</span></span>
 </div>
 
 
@@ -5984,9 +5967,9 @@ month[10] = "November";
 month[11] = "December";
 var nm = month[d.getMonth()];
 var monthit = d.getMonth();
-document.getElementById("currentyear").innerText = ny;
-document.getElementById("currentyear2").innerText = ny;
-document.getElementById("currentmonth").innerText = nm;
+//document.getElementById("currentyear").innerText = ny;
+//document.getElementById("currentyear2").innerText = ny;
+//document.getElementById("currentmonth").innerText = nm;
 var personalyear = parseFloat(month_total3) + parseFloat(date_total3) + parseFloat(ny);
 var personalyearstring = personalyear.toString();
 var personalyearlength = personalyearstring.length;
@@ -6021,7 +6004,7 @@ if (test.length > 1)
 // END OF TEST
 
 
-document.getElementById("personalyear").innerText = countyearss.toString();
+//document.getElementById("personalyear").innerText = countyearss.toString();
 
 var mymonth = monthit + 1 + countyearss;
 var cmonth = mymonth.toString();
@@ -7902,7 +7885,7 @@ function newuser() {
  
  
  
-    document.getElementById("currentperson").innerHTML = user.toUpperCase() + " (" + newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + ")";
+   // document.getElementById("currentperson").innerHTML = user.toUpperCase() + " (" + newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + ")";
     
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -8353,7 +8336,7 @@ calcmode();
     document.getElementById("numbers2").value = newdateofbirth[0];
     var sign = getZodiacSign(newdateofbirth[1], newdateofbirth[0]);
   //  document.getElementById("mysign").innerText = sign;
- document.getElementById("currentperson").innerHTML = switchuser[link].toUpperCase() + " (" + newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + ")";
+// document.getElementById("currentperson").innerHTML = switchuser[link].toUpperCase() + " (" + newdateofbirth[0] + "/" + newdateofbirth[1] + "/" + newdateofbirth[2] + ")";
         print = 0;
         calculate2();
         createChart();
