@@ -601,6 +601,8 @@ function getShortName(SHORTNAME)
      
     var SNvowelstrack = 0;
     var SNconsonantstrack = 0;
+    var SNvowelstrackString = "";
+    var SNconsonantstrackString = "";
     var SNvowels = [];
     var SNconsonants = [];
     var vvvtotals = "";
@@ -650,13 +652,19 @@ function getShortName(SHORTNAME)
     SNnines++;
     }
     
-    
+    if (namesumbers[i] == " ")
+    {
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + " ";    
+    }
     
     
     if (namesumbers[i] == "a" || namesumbers[i] == "A")
     {
     SNvowelstrack++;
     SNvowels[SNvowelstrack] = 1;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "1";
     SNonesv++;
     SNones++;
     }
@@ -664,6 +672,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 1;
+    SNconsonantstrackString = SNconsonantstrackString + "1";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNones++;
     SNonesc++
     }
@@ -671,6 +681,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 1;
+    SNconsonantstrackString = SNconsonantstrackString + "1";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNones++;
     SNonesc++;
     }
@@ -678,6 +690,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 2;
+    SNconsonantstrackString = SNconsonantstrackString + "2";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNtwos++;
     SNtwosc++;
     }
@@ -685,6 +699,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 2;
+    SNconsonantstrackString = SNconsonantstrackString + "2";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNtwos++;
     SNtwosc++;
     }
@@ -692,6 +708,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 2;
+    SNconsonantstrackString = SNconsonantstrackString + "2";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNtwos++;
     SNtwosc++;
     }
@@ -699,6 +717,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 3;
+    SNconsonantstrackString = SNconsonantstrackString + "3";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNthrees++;
     SNthreesc++;
     }
@@ -706,6 +726,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 3;
+    SNconsonantstrackString = SNconsonantstrackString + "3";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNthrees++;
     SNthreesc++;
     }
@@ -713,6 +735,8 @@ function getShortName(SHORTNAME)
     {
     SNvowelstrack++;
     SNvowels[SNvowelstrack] = 3;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "3";
     SNthrees++;
     SNthreesv++;
     }
@@ -720,6 +744,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 4;
+    SNconsonantstrackString = SNconsonantstrackString + "4";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNfours++;
     SNfoursc++;
     }
@@ -727,6 +753,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 4;
+    SNconsonantstrackString = SNconsonantstrackString + "4";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNfours++;
     SNfoursc++;
     }
@@ -734,6 +762,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 4;
+    SNconsonantstrackString = SNconsonantstrackString + "4";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNfours++;
     SNfoursc++;
     }
@@ -741,6 +771,8 @@ function getShortName(SHORTNAME)
     {
     SNvowelstrack++;
     SNvowels[SNvowelstrack] = 5;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "5";
     SNfives++;
     SNfivesv++;
     }
@@ -748,6 +780,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 5;
+    SNconsonantstrackString = SNconsonantstrackString + "5";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNfives++;
     SNfivesc++;
     }
@@ -755,6 +789,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 5;
+    SNconsonantstrackString = SNconsonantstrackString + "5";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNfives++;
     SNfivesc++;
     }
@@ -762,6 +798,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 6;
+    SNconsonantstrackString = SNconsonantstrackString + "6";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNsixes++;
     SNsixesc++;
     }
@@ -769,6 +807,8 @@ function getShortName(SHORTNAME)
     {
     SNvowelstrack++;
     SNvowels[SNvowelstrack] = 6;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "6";
     SNsixes++;
     SNsixesv++;
     }
@@ -776,6 +816,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 6;
+    SNconsonantstrackString = SNconsonantstrackString + "6";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNsixes++;
     SNsixesc++;
     }
@@ -783,6 +825,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + "7";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNsevens++;
     SNsevensc++;
     }
@@ -790,6 +834,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + "7";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNsevens++;
     SNsevensc++;
     }
@@ -797,6 +843,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + "7";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNsevens++;
     SNsevensc++;
     }
@@ -804,6 +852,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 8;
+    SNconsonantstrackString = SNconsonantstrackString + "8";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNeights++;
     SNeightsc++;
     }
@@ -811,6 +861,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 8;
+    SNconsonantstrackString = SNconsonantstrackString + "8";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNeights++;
     SNeightsc++;
     }
@@ -818,6 +870,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 8;
+    SNconsonantstrackString = SNconsonantstrackString + "8";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNeights++;
     SNeightsc++;
     }
@@ -825,6 +879,8 @@ function getShortName(SHORTNAME)
     {
     SNvowelstrack++;
     SNvowels[SNvowelstrack] = 9;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "9";
     SNnines++;
     SNninesv++;
     }
@@ -832,6 +888,8 @@ function getShortName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 9;
+    SNconsonantstrackString = SNconsonantstrackString + "9";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNnines++;
     SNninesc++;
     }
@@ -956,10 +1014,11 @@ function getShortName(SHORTNAME)
         shortnamestotals2 = sumtotals + " / " +  master1 + " / " + master2;
     }
     
+        
     var SNV = SNvowels.toString().replace(/,/g,"");
     var SNC = SNconsonants.toString().replace(/,/g,"");
     
-    var finalShortNameString = "Short Name: \n\n" + SNV + " = " + vvvtotals  + "\n" + SHORTNAME + " = " +  shortnamestotals2 + "\n" + SNC + " = " + ccctotals + "\n\n";
+    var finalShortNameString = "Short Name: \n\n" + SNvowelstrackString + " = " + vvvtotals  + "\n" + SHORTNAME + " = " +  shortnamestotals2 + "\n" + SNconsonantstrackString + " = " + ccctotals + "\n\n";
     
     return finalShortNameString.toString();
     
@@ -967,7 +1026,6 @@ function getShortName(SHORTNAME)
     
 
 }
-
 function getFullName(SHORTNAME)
 {
 ///////************* NORMAN **************///////////
@@ -1006,6 +1064,8 @@ function getFullName(SHORTNAME)
      
     var SNvowelstrack = 0;
     var SNconsonantstrack = 0;
+    var SNvowelstrackString = "";
+    var SNconsonantstrackString = "";
     var SNvowels = [];
     var SNconsonants = [];
     var vvvtotals = "";
@@ -1055,13 +1115,19 @@ function getFullName(SHORTNAME)
     SNnines++;
     }
     
-    
+    if (namesumbers[i] == " ")
+    {
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + " ";    
+    }
     
     
     if (namesumbers[i] == "a" || namesumbers[i] == "A")
     {
     SNvowelstrack++;
     SNvowels[SNvowelstrack] = 1;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "1";
     SNonesv++;
     SNones++;
     }
@@ -1069,6 +1135,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 1;
+    SNconsonantstrackString = SNconsonantstrackString + "1";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNones++;
     SNonesc++
     }
@@ -1076,6 +1144,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 1;
+    SNconsonantstrackString = SNconsonantstrackString + "1";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNones++;
     SNonesc++;
     }
@@ -1083,6 +1153,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 2;
+    SNconsonantstrackString = SNconsonantstrackString + "2";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNtwos++;
     SNtwosc++;
     }
@@ -1090,6 +1162,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 2;
+    SNconsonantstrackString = SNconsonantstrackString + "2";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNtwos++;
     SNtwosc++;
     }
@@ -1097,6 +1171,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 2;
+    SNconsonantstrackString = SNconsonantstrackString + "2";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNtwos++;
     SNtwosc++;
     }
@@ -1104,6 +1180,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 3;
+    SNconsonantstrackString = SNconsonantstrackString + "3";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNthrees++;
     SNthreesc++;
     }
@@ -1111,6 +1189,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 3;
+    SNconsonantstrackString = SNconsonantstrackString + "3";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNthrees++;
     SNthreesc++;
     }
@@ -1118,6 +1198,8 @@ function getFullName(SHORTNAME)
     {
     SNvowelstrack++;
     SNvowels[SNvowelstrack] = 3;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "3";
     SNthrees++;
     SNthreesv++;
     }
@@ -1125,6 +1207,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 4;
+    SNconsonantstrackString = SNconsonantstrackString + "4";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNfours++;
     SNfoursc++;
     }
@@ -1132,6 +1216,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 4;
+    SNconsonantstrackString = SNconsonantstrackString + "4";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNfours++;
     SNfoursc++;
     }
@@ -1139,6 +1225,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 4;
+    SNconsonantstrackString = SNconsonantstrackString + "4";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNfours++;
     SNfoursc++;
     }
@@ -1146,6 +1234,8 @@ function getFullName(SHORTNAME)
     {
     SNvowelstrack++;
     SNvowels[SNvowelstrack] = 5;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "5";
     SNfives++;
     SNfivesv++;
     }
@@ -1153,6 +1243,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 5;
+    SNconsonantstrackString = SNconsonantstrackString + "5";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNfives++;
     SNfivesc++;
     }
@@ -1160,6 +1252,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 5;
+    SNconsonantstrackString = SNconsonantstrackString + "5";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNfives++;
     SNfivesc++;
     }
@@ -1167,6 +1261,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 6;
+    SNconsonantstrackString = SNconsonantstrackString + "6";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNsixes++;
     SNsixesc++;
     }
@@ -1174,6 +1270,8 @@ function getFullName(SHORTNAME)
     {
     SNvowelstrack++;
     SNvowels[SNvowelstrack] = 6;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "6";
     SNsixes++;
     SNsixesv++;
     }
@@ -1181,6 +1279,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 6;
+    SNconsonantstrackString = SNconsonantstrackString + "6";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNsixes++;
     SNsixesc++;
     }
@@ -1188,6 +1288,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + "7";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNsevens++;
     SNsevensc++;
     }
@@ -1195,6 +1297,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + "7";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNsevens++;
     SNsevensc++;
     }
@@ -1202,6 +1306,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + "7";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNsevens++;
     SNsevensc++;
     }
@@ -1209,6 +1315,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 8;
+    SNconsonantstrackString = SNconsonantstrackString + "8";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNeights++;
     SNeightsc++;
     }
@@ -1216,6 +1324,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 8;
+    SNconsonantstrackString = SNconsonantstrackString + "8";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNeights++;
     SNeightsc++;
     }
@@ -1223,6 +1333,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 8;
+    SNconsonantstrackString = SNconsonantstrackString + "8";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNeights++;
     SNeightsc++;
     }
@@ -1230,6 +1342,8 @@ function getFullName(SHORTNAME)
     {
     SNvowelstrack++;
     SNvowels[SNvowelstrack] = 9;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "9";
     SNnines++;
     SNninesv++;
     }
@@ -1237,6 +1351,8 @@ function getFullName(SHORTNAME)
     {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 9;
+    SNconsonantstrackString = SNconsonantstrackString + "9";
+    SNvowelstrackString = SNvowelstrackString + " ";
     SNnines++;
     SNninesc++;
     }
@@ -1361,10 +1477,11 @@ function getFullName(SHORTNAME)
         shortnamestotals2 = sumtotals + " / " +  master1 + " / " + master2;
     }
     
+        
     var SNV = SNvowels.toString().replace(/,/g,"");
     var SNC = SNconsonants.toString().replace(/,/g,"");
     
-    var finalShortNameString = "Full Name: \n\n" + SNV + " = " + vvvtotals  + "\n" + SHORTNAME + " = " +  shortnamestotals2 + "\n" + SNC + " = " + ccctotals + "\n\n";
+    var finalShortNameString = "Full Name: \n\n" + SNvowelstrackString + " = " + vvvtotals  + "\n" + SHORTNAME + " = " +  shortnamestotals2 + "\n" + SNconsonantstrackString + " = " + ccctotals + "\n\n";
     
     return finalShortNameString.toString();
     
@@ -3328,7 +3445,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.1b)</span></span>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.1d)</span></span>
 </div>
 
 
