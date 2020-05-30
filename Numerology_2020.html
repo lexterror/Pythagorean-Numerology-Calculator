@@ -1824,6 +1824,7 @@ font-size: 100%;
     margin-left: 20px;
 }
 </style>
+
 <body>
 <!--
 <div id="labels">
@@ -1929,6 +1930,8 @@ font-size: 100%;
 <span class="">Heart Desire</span><span class="results"  id="subheartdesire"></span></div>
 <div id="subfeaturestitles">
 <span class="">Personality</span><span class="results"  id="subpersonality"></span></div>
+<div id="subfeaturestitles">
+<span class="">Karmic Debts</span><span class="results"  id="karmicdebts"></span></div>
 </div>
 <div id="subfeaturestitle" style="margin-top:5px;">Additional Features</span></div>
 <div id="subfeatures">
@@ -4030,7 +4033,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.1d)</span></span>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.2)</span></span>
 </div>
 
 
@@ -8002,6 +8005,11 @@ function showCalendar(month, year) {
    document.getElementById("subheartdesire").innerText = document.getElementById("VowelsT").value;
    document.getElementById("subpersonality").innerText = document.getElementById("ConsonantsT").value;
    
+   var dob_karmic = document.getElementById("profile_dob").value;
+   var karmic_string = dob_karmic.toString();
+   document.getElementById("karmicdebts").innerText = returnKarmicDebts(karmic_string); 
+   
+   
    document.getElementById("submaturity").innerText = MaturityNumbers;
    if (b4rational.length > 1)
    document.getElementById("subrational").innerText = rational3 + " / " + rational;
@@ -9787,7 +9795,119 @@ var input2 = document.getElementById('searchnow2');
   box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
 }*/
 </style>
+<script>
+/*
 
+    4 (13=1+3=4) or 13/4
+    5 (14=1+4=5) or 14/5
+    7 (16=1+6=7) or 16/7
+    1 (19=1+9=1+0=1) 19/1
+
+*/
+    function returnKarmicDebts(dateofbirth)
+    {
+        var splitdateofbirth = dateofbirth.split(" ");
+        var month = splitdateofbirth[0];
+        var date = splitdateofbirth[1];
+        var year = splitdateofbirth[2];
+        var karmicdebts = "";
+        
+        var dumpdate1 = 0;
+        var dumpdate2 = 0;
+        
+        if (date.length > 1)
+        {
+            for (n = 0; n < date.length;n++)
+            {
+                dumpdate1 = dumpdate1 + parseInt(date[n]);
+            }
+            date = dumpdate1.toString();
+        }
+        if (date.length > 1)
+        {
+            for (n = 0; n < date.length;n++)
+            {
+                dumpdate2 = dumpdate2 + parseInt(date[n]);
+            }
+            date = dumpdate2.toString();
+        }
+        var lpn = "";
+        var pers = "";
+        
+        var lpntemp = parseInt(month) + parseInt(date) + parseInt(year);
+        var dumplpn = lpntemp.toString();
+        
+        var dumplpnpass1 = 0;
+        var dumplpnpass2 = 0;
+        var dumplpnpass3 = 0;
+        
+        for (j = 0; j < dumplpn.length; j++)
+        {
+            dumplpnpass1 = dumplpnpass1 + parseInt(dumplpn[j]);
+            
+        }
+        
+        lpn = dumplpnpass1.toString();
+        
+        if (lpn.length > 1)
+        {
+            for (n = 0; n < lpn.length;n++)
+            {
+                dumplpnpass2 = dumplpnpass2 + parseInt(lpn[n]);
+            }
+            lpn = dumplpnpass2.toString();
+        }
+        if (lpn.length > 1)
+        {
+            for (n = 0; n < lpn.length;n++)
+            {
+                dumplpnpass3 = dumplpnpass3 + parseInt(lpn[n]);
+            }
+            lpn = dumplpnpass3.toString();
+        }        
+        
+        var perstotal = parseInt(month) + parseInt(date);
+        var perstemp = perstotal.toString();
+        
+        var persdump1 = 0;
+        var persdump2 = 0;
+        
+        var pers = perstemp;
+        
+        if (pers.length > 1)
+        {
+            for (n = 0; n < pers.length;n++)
+            {
+                persdump1 = persdump1 + parseInt(pers[n]);
+            }
+            pers = persdump1.toString();
+        }
+        
+        
+        if (pers.length > 1)
+        {
+            for (n = 0; n < pers.length;n++)
+            {
+                persdump2 = persdump2 + parseInt(pers[n]);
+            }
+            pers = persdump2.toString();
+        }         
+        
+        if (date == "4" || date == "13" || lpn == "4" || lpn == "13" || pers == "4" || pers == "13")
+        karmicdebts = karmicdebts + "13, ";
+        if (date == "5" || date == "14" || lpn == "5" || lpn == "14" || pers == "5" || pers == "14")
+        karmicdebts = karmicdebts + "14, ";
+        if (date == "1" || date == "19" || lpn == "1" || lpn == "19" || pers == "1" || pers == "19")
+        karmicdebts = karmicdebts + "19, ";       
+        if (date == "7" || date == "16" || lpn == "7" || lpn == "16" || pers == "7" || pers == "16")
+        karmicdebts = karmicdebts + "16, ";  
+        
+        
+        return karmicdebts;
+        
+        //document.getElementById("karmicdebts").value = karmicdebts;   
+    }
+</script>
 <!--
 
 How do I calculate my Psychomatrix Square?
