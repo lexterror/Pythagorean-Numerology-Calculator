@@ -1816,7 +1816,7 @@ font-size: 100%;
 }
 #subfeaturestitles {
     height: 14px;
-    padding: 3px;
+    padding: 2px;
     margin-left: 5px;
 }
 
@@ -1939,6 +1939,8 @@ font-size: 100%;
 <span class="">Maturity</span><span  class="results" id="submaturity"></span></div>
 <div id="subfeaturestitles">
 <span class="">Rational Thought</span><span  class="results" id="subrational"></span></div>
+<div id="subfeaturestitles">
+<span class="">Karmic Lessons</span><span  class="results" id="karmiclessons"></span></div>
 <div id="subfeaturestitles">
 <span class="">Balance</span><span class="results"  id="subbalance"></span></div>
 <div id="subfeaturestitles">
@@ -4033,7 +4035,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.2)</span></span>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.3)</span></span>
 </div>
 
 
@@ -4626,9 +4628,10 @@ var countyearss = 0;
 var countmonths = 0;
 var lifepathperiods = 0;
 var firstnamemode = 0;
-
+var karmiclessons = "";
 
 function calculate2() {
+karmiclessons = "";
 countyearss = 0;
 countmonths = 0;
 total3 = 0;
@@ -4998,10 +5001,31 @@ thenames = thenames.replace(/\s/g, '');
     document.getElementById("8t").innerText = eightsc + eightsv; 
     document.getElementById("9t").innerText = ninesc + ninesv; 
     
+    if (parseInt(onesc + onesv) == 0)
+        karmiclessons = karmiclessons + "1, ";
+    if (parseInt(twosc + twosv) == 0)
+        karmiclessons = karmiclessons + "2, "; 
+    if (parseInt(threesc + threesv) == 0)
+        karmiclessons = karmiclessons + "3, ";
+    if (parseInt(foursc + foursv) == 0)
+        karmiclessons = karmiclessons + "4, ";
+    if (parseInt(fivesc + fivesv) == 0)
+        karmiclessons = karmiclessons + "5, ";
+    if (parseInt(sixesc + sixesv) == 0)
+        karmiclessons = karmiclessons + "6, ";
+    if (parseInt(sevensc + sevensv) == 0)
+        karmiclessons = karmiclessons + "7, ";
+    if (parseInt(eightsc + eightsv) == 0)
+        karmiclessons = karmiclessons + "8, ";
+    if (parseInt(ninesc + ninesv) == 0)
+        karmiclessons = karmiclessons + "9, ";
+    
+    
     document.getElementById("vt").innerText = onesv + twosv + threesv + foursv + fivesv + sixesv + sevensv + eightsv + ninesv;
     document.getElementById("ct").innerText = onesc + twosc + threesc + foursc + fivesc + sixesc + sevensc + eightsc + ninesc;  
     
     document.getElementById("tt").innerText = onesc + twosc + threesc + foursc + fivesc + sixesc + sevensc + eightsc + ninesc + onesv + twosv + threesv + foursv + fivesv + sixesv + sevensv + eightsv + ninesv;     
+    
     
     ///////////// VOWELS CONSONANTS TOTALS ///////////////////
     var consonantstotals = consonants.reduce(function(a, b){
@@ -8015,7 +8039,7 @@ function showCalendar(month, year) {
    document.getElementById("subrational").innerText = rational3 + " / " + rational;
    if (b4rational.length == 1)
    document.getElementById("subrational").innerText = rational3;
-   
+   document.getElementById("karmiclessons").innerText = karmiclessons;
    
    if (initial2length > 1)
    document.getElementById("subbalance").innerText = initial1sum + " / " + initial2sum;
@@ -8030,7 +8054,7 @@ function showCalendar(month, year) {
    document.getElementById("subpersonalyear").innerText = countyearss.toString();
    
    
-  finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + MaturityNumber + RationalNumber + BalanceNumber + HiddenPassionNumber + Confidence + LifePathPeriods + FinalFullName + ShortNameTotals + PsychoMatrixString;
+  finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + "Karmic Debts " + returnKarmicDebts(karmic_string)+ "\n\n" + MaturityNumber + RationalNumber + "Karmic Lessons " + karmiclessons + "\n\n" + BalanceNumber + HiddenPassionNumber + Confidence + LifePathPeriods + FinalFullName + ShortNameTotals + PsychoMatrixString;
   
  
   
