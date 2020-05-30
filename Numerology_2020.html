@@ -1816,7 +1816,7 @@ font-size: 100%;
 }
 #subfeaturestitles {
     height: 14px;
-    padding: 2px;
+    padding: 1px;
     margin-left: 5px;
 }
 
@@ -1951,6 +1951,10 @@ font-size: 100%;
 
 <div id="subfeaturestitle" style="margin-top:5px;">Life Cycles</span></div>
 <div id="subfeatures">
+<div id="subfeaturestitles">
+<span class="">Challenges</span><span  class="results" id="challenges"></span></div>
+<div id="subfeaturestitles">
+<span class="">Pinnacles</span><span  class="results" id="pinnacles"></span></div>
 <div id="subfeaturestitles">
 <span class="">Life Path Periods</span><span  class="results" id="subperiods"></span></div>
 <div id="subfeaturestitles">
@@ -4035,7 +4039,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.3)</span></span>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.4)</span></span>
 </div>
 
 
@@ -8031,7 +8035,15 @@ function showCalendar(month, year) {
    
    var dob_karmic = document.getElementById("profile_dob").value;
    var karmic_string = dob_karmic.toString();
-   document.getElementById("karmicdebts").innerText = returnKarmicDebts(karmic_string); 
+   document.getElementById("karmicdebts").innerText = returnKarmicDebts(karmic_string);
+   
+   var dob_pinnacle = document.getElementById("profile_dob").value; 
+   var pinnacle_string = dob_pinnacle.toString();
+   document.getElementById("pinnacles").innerText = returnPinnacle(pinnacle_string);   
+   
+   var dob_challenge = document.getElementById("profile_dob").value; 
+   var challenge_string = dob_challenge.toString();
+   document.getElementById("challenges").innerText = returnChallenge(challenge_string);
    
    
    document.getElementById("submaturity").innerText = MaturityNumbers;
@@ -8040,6 +8052,8 @@ function showCalendar(month, year) {
    if (b4rational.length == 1)
    document.getElementById("subrational").innerText = rational3;
    document.getElementById("karmiclessons").innerText = karmiclessons;
+   
+
    
    if (initial2length > 1)
    document.getElementById("subbalance").innerText = initial1sum + " / " + initial2sum;
@@ -8054,7 +8068,7 @@ function showCalendar(month, year) {
    document.getElementById("subpersonalyear").innerText = countyearss.toString();
    
    
-  finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + "Karmic Debts " + returnKarmicDebts(karmic_string)+ "\n\n" + MaturityNumber + RationalNumber + "Karmic Lessons " + karmiclessons + "\n\n" + BalanceNumber + HiddenPassionNumber + Confidence + LifePathPeriods + FinalFullName + ShortNameTotals + PsychoMatrixString;
+  finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + "Karmic Debts " + returnKarmicDebts(karmic_string)+ "\n\n" + MaturityNumber + RationalNumber + "Karmic Lessons " + karmiclessons + "\n\n" + BalanceNumber + HiddenPassionNumber + Confidence + "Challenges " + returnChallenge(challenge_string) + "\n\n" + "Pinnacles " + returnPinnacle(pinnacle_string) + "\n\n" + "Life Path Periods " + lifepathperiods + "\n\n" + FinalFullName + ShortNameTotals + PsychoMatrixString;
   
  
   
@@ -9820,6 +9834,367 @@ var input2 = document.getElementById('searchnow2');
 }*/
 </style>
 <script>
+
+    function returnChallenge(dateofbirth)
+    {
+        var splitdateofbirth = dateofbirth.split(" ");
+        var month = splitdateofbirth[0];
+        var date = splitdateofbirth[1];
+        var year = splitdateofbirth[2];
+        var pinnacles = "";
+        
+        var dumpdate1 = 0;
+        var dumpdate2 = 0;
+        
+        if (date.length > 1)
+        {
+            for (n = 0; n < date.length;n++)
+            {
+                dumpdate1 = dumpdate1 + parseInt(date[n]);
+            }
+            date = dumpdate1.toString();
+        }
+        if (date.length > 1)
+        {
+            for (n = 0; n < date.length;n++)
+            {
+                dumpdate2 = dumpdate2 + parseInt(date[n]);
+            }
+            date = dumpdate2.toString();
+        }
+        
+        var dumpmonth1 = 0;
+        var dumpmonth2 = 0;
+        
+        if (month.length > 1)
+        {
+            for (n = 0; n < month.length;n++)
+            {
+                dumpmonth1 = dumpmonth1 + parseInt(month[n]);
+            }
+            month = dumpmonth1.toString();
+        }
+        if (month.length > 1)
+        {
+            for (n = 0; n < month.length;n++)
+            {
+                dumpmonth2 = dumpmonth2 + parseInt(month[n]);
+            }
+            month = dumpmonth2.toString();
+        }        
+         
+        var dumpyear1 = 0;
+        var dumpyear2 = 0;
+        
+        if (year.length > 1)
+        {
+            for (n = 0; n < year.length;n++)
+            {
+                dumpyear1 = dumpyear1 + parseInt(year[n]);
+            }
+            year = dumpyear1.toString();
+        }
+        if (year.length > 1)
+        {
+            for (n = 0; n < year.length;n++)
+            {
+                dumpyear2 = dumpyear2 + parseInt(year[n]);
+            }
+            year = dumpyear2.toString();
+        }      
+        
+        var firstpinnacle = parseInt(month) - parseInt(date);
+        if (Math.sign(firstpinnacle) == -1)
+        firstpinnacle = parseInt(date) - parseInt(month);
+        var secondpinnacle = parseInt(year) - parseInt(date);
+        if (Math.sign(secondpinnacle) == -1)
+        secondpinnacle = parseInt(date) - parseInt(year);
+        var thirdpinnacle = parseInt(secondpinnacle) - parseInt(firstpinnacle);
+        if (Math.sign(thirdpinnacle) == -1)  
+        thirdpinnacle = parseInt(firstpinnacle) - parseInt(secondpinnacle);
+        var fourthpinnacle = parseInt(year) - parseInt(month);
+        if (Math.sign(fourthpinnacle) == -1) 
+        fourthpinnacle = parseInt(month) - parseInt(year);
+        
+        var first_p = 0;
+        var second_p = 0;
+        var third_p = 0;
+        var fourth_p = 0;
+        
+        var first_s = firstpinnacle.toString();
+        var second_s = secondpinnacle.toString();
+        var third_s = thirdpinnacle.toString();
+        var fourth_s = fourthpinnacle.toString();
+        
+        var first_split = first_s.split("");
+        var second_split = second_s.split("");
+        var third_split = third_s.split("");
+        var fourth_split = fourth_s.split("");
+ 
+        if (first_s.length > 1)
+        {
+            for (n = 0; n < first_s.length; n++)
+            {
+                first_p = first_p + parseInt(first_split[n]);
+            }
+            firstpinnacle = first_p;
+        }
+        if (second_s.length > 1)
+        {
+            for (n = 0; n < second_s.length; n++)
+            {
+                second_p = second_p + parseInt(second_split[n]);
+            }
+            secondpinnacle = second_p;
+        }
+        if (third_s.length > 1)
+        {
+            for (n = 0; n < third_s.length; n++)
+            {
+                third_p = third_p + parseInt(third_split[n]);
+            }
+            thirdpinnacle = third_p;
+        }
+        if (fourth_s.length > 1)
+        {
+            for (n = 0; n < fourth_s.length ; n++)
+            {
+                fourth_p = fourth_p + parseInt(fourth_split[n]);
+            }
+            fourthpinnacle = fourth_p;
+        }
+        
+        var xfirst_p = 0;
+        var xsecond_p = 0;
+        var xthird_p = 0;
+        var xfourth_p = 0;         
+        var xfirst_s = firstpinnacle.toString();
+        var xsecond_s = secondpinnacle.toString();
+        var xthird_s = thirdpinnacle.toString();
+        var xfourth_s = fourthpinnacle.toString();
+        
+        var xfirst_split = xfirst_s.split("");
+        var xsecond_split = xsecond_s.split("");
+        var xthird_split = xthird_s.split("");
+        var xfourth_split = xfourth_s.split("");      
+        
+        if (xfirst_s.length > 1)
+        {
+            for (n = 0; n < xfirst_s.length; n++)
+            {
+                xfirst_p = xfirst_p + parseInt(xfirst_split[n]);
+            }
+            firstpinnacle = xfirst_p;
+        }
+        if (xsecond_s.length > 1)
+        {
+            for (n = 0; n < xsecond_s.length; n++)
+            {
+                xsecond_p = xsecond_p + parseInt(xsecond_split[n]);
+            }
+            secondpinnacle = xsecond_p;
+        }
+        if (xthird_s.length > 1)
+        {
+            for (n = 0; n < xthird_s.length; n++)
+            {
+                xthird_p = xthird_p + parseInt(xthird_split[n]);
+            }
+            thirdpinnacle = xthird_p;
+        }
+        if (xfourth_s.length > 1)
+        {
+            for (n = 0; n < xfourth_s.length ; n++)
+            {
+                xfourth_p = xfourth_p + parseInt(xfourth_split[n]);
+            }
+            fourthpinnacle = xfourth_p;
+        }        
+        
+        
+        pinnacles = firstpinnacle.toString() + ", " + secondpinnacle.toString() + ", " + thirdpinnacle.toString() + ", " + fourthpinnacle.toString();
+        
+        return pinnacles;
+        
+        //document.getElementById("karmicdebts").value = karmicdebts;   
+    }
+
+    function returnPinnacle(dateofbirth)
+    {
+        var splitdateofbirth = dateofbirth.split(" ");
+        var month = splitdateofbirth[0];
+        var date = splitdateofbirth[1];
+        var year = splitdateofbirth[2];
+        var pinnacles = "";
+        
+        var dumpdate1 = 0;
+        var dumpdate2 = 0;
+        
+        if (date.length > 1)
+        {
+            for (n = 0; n < date.length;n++)
+            {
+                dumpdate1 = dumpdate1 + parseInt(date[n]);
+            }
+            date = dumpdate1.toString();
+        }
+        if (date.length > 1)
+        {
+            for (n = 0; n < date.length;n++)
+            {
+                dumpdate2 = dumpdate2 + parseInt(date[n]);
+            }
+            date = dumpdate2.toString();
+        }
+        
+        var dumpmonth1 = 0;
+        var dumpmonth2 = 0;
+        
+        if (month.length > 1)
+        {
+            for (n = 0; n < month.length;n++)
+            {
+                dumpmonth1 = dumpmonth1 + parseInt(month[n]);
+            }
+            month = dumpmonth1.toString();
+        }
+        if (month.length > 1)
+        {
+            for (n = 0; n < month.length;n++)
+            {
+                dumpmonth2 = dumpmonth2 + parseInt(month[n]);
+            }
+            month = dumpmonth2.toString();
+        }        
+         
+        var dumpyear1 = 0;
+        var dumpyear2 = 0;
+        
+        if (year.length > 1)
+        {
+            for (n = 0; n < year.length;n++)
+            {
+                dumpyear1 = dumpyear1 + parseInt(year[n]);
+            }
+            year = dumpyear1.toString();
+        }
+        if (year.length > 1)
+        {
+            for (n = 0; n < year.length;n++)
+            {
+                dumpyear2 = dumpyear2 + parseInt(year[n]);
+            }
+            year = dumpyear2.toString();
+        }      
+        
+        var firstpinnacle = (parseInt(month) + parseInt(date));
+        var secondpinnacle = parseInt(date) + parseInt(year);
+        var thirdpinnacle = parseInt(firstpinnacle) + parseInt(secondpinnacle);
+        var fourthpinnacle = parseInt(month) + parseInt(year);
+        
+        var first_p = 0;
+        var second_p = 0;
+        var third_p = 0;
+        var fourth_p = 0;
+        
+        var first_s = firstpinnacle.toString();
+        var second_s = secondpinnacle.toString();
+        var third_s = thirdpinnacle.toString();
+        var fourth_s = fourthpinnacle.toString();
+        
+        var first_split = first_s.split("");
+        var second_split = second_s.split("");
+        var third_split = third_s.split("");
+        var fourth_split = fourth_s.split("");
+ 
+        if (first_s.length > 1)
+        {
+            for (n = 0; n < first_s.length; n++)
+            {
+                first_p = first_p + parseInt(first_split[n]);
+            }
+            firstpinnacle = first_p;
+        }
+        if (second_s.length > 1)
+        {
+            for (n = 0; n < second_s.length; n++)
+            {
+                second_p = second_p + parseInt(second_split[n]);
+            }
+            secondpinnacle = second_p;
+        }
+        if (third_s.length > 1)
+        {
+            for (n = 0; n < third_s.length; n++)
+            {
+                third_p = third_p + parseInt(third_split[n]);
+            }
+            thirdpinnacle = third_p;
+        }
+        if (fourth_s.length > 1)
+        {
+            for (n = 0; n < fourth_s.length ; n++)
+            {
+                fourth_p = fourth_p + parseInt(fourth_split[n]);
+            }
+            fourthpinnacle = fourth_p;
+        }
+        
+        var xfirst_p = 0;
+        var xsecond_p = 0;
+        var xthird_p = 0;
+        var xfourth_p = 0;         
+        var xfirst_s = firstpinnacle.toString();
+        var xsecond_s = secondpinnacle.toString();
+        var xthird_s = thirdpinnacle.toString();
+        var xfourth_s = fourthpinnacle.toString();
+        
+        var xfirst_split = xfirst_s.split("");
+        var xsecond_split = xsecond_s.split("");
+        var xthird_split = xthird_s.split("");
+        var xfourth_split = xfourth_s.split("");      
+        
+        if (xfirst_s.length > 1)
+        {
+            for (n = 0; n < xfirst_s.length; n++)
+            {
+                xfirst_p = xfirst_p + parseInt(xfirst_split[n]);
+            }
+            firstpinnacle = xfirst_p;
+        }
+        if (xsecond_s.length > 1)
+        {
+            for (n = 0; n < xsecond_s.length; n++)
+            {
+                xsecond_p = xsecond_p + parseInt(xsecond_split[n]);
+            }
+            secondpinnacle = xsecond_p;
+        }
+        if (xthird_s.length > 1)
+        {
+            for (n = 0; n < xthird_s.length; n++)
+            {
+                xthird_p = xthird_p + parseInt(xthird_split[n]);
+            }
+            thirdpinnacle = xthird_p;
+        }
+        if (xfourth_s.length > 1)
+        {
+            for (n = 0; n < xfourth_s.length ; n++)
+            {
+                xfourth_p = xfourth_p + parseInt(xfourth_split[n]);
+            }
+            fourthpinnacle = xfourth_p;
+        }        
+        
+        
+        pinnacles = firstpinnacle.toString() + ", " + secondpinnacle.toString() + ", " + thirdpinnacle.toString() + ", " + fourthpinnacle.toString();
+        
+        return pinnacles;
+        
+        //document.getElementById("karmicdebts").value = karmicdebts;   
+    }
+
 /*
 
     4 (13=1+3=4) or 13/4
