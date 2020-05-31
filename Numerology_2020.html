@@ -2909,24 +2909,24 @@ for (i = 0; i < names_data_entered_length; i++)
     }
     if (namesumbers[i] == "y" || namesumbers[i] == "Y")
     {
-    var personx = prompt("Is the Y a vowel? y/n");
-    if (personx == "n")
+    var r = confirm("Is the Y a vowel?");
+    if (r == true) {
+    
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 7;
+       VPRINT = VPRINT + "7";
+       CPRINT = CPRINT + " ";
+    new_sevens++;
+    new_sevensv++; 
+    
+    } else 
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 7;
        VPRINT = VPRINT + " ";
        CPRINT = CPRINT + "7";
     new_sevens++;
-    new_sevensc++;
-    }
-    if (personx == "y")
-    {
-    new_vowelstrack++;
-    new_vowels[new_vowelstrack] = 7;
-       VPRINT = VPRINT + "7";
-       CPRINT = CPRINT + " ";
-    new_sevens++;
-    new_sevensv++;    
+    new_sevensc++;   
     }
     }
     if (namesumbers[i] == "h" || namesumbers[i] == "H")
@@ -4100,7 +4100,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.8 "FINAL")</span></span>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 2.0)</span></span>
 </div>
 
 
@@ -5007,23 +5007,20 @@ thenames = thenames.replace(/\s/g, '');
     }
     if (namesumbers[i] == "y" || namesumbers[i] == "Y")
     {
-    person = prompt("Is the Y a vowel? y/n");
-    if (person == "n")
-    {
     
-    consonantstrack++;
-    consonants[consonantstrack] = 7;
-    sevens++;
-    sevensc++;
-    person3check = person3check + "n";
-    }
-    if (person == "y")
-    {
+    var r = confirm("Is the Y a vowel?");
+    if (r == true) {
     vowelstrack++;
     vowels[vowelstrack] = 7;
     sevens++;
     sevensv++; 
     person3check = person3check + "y";
+    } else {
+    consonantstrack++;
+    consonants[consonantstrack] = 7;
+    sevens++;
+    sevensc++;
+    person3check = person3check + "n";    
     }
     
     }
