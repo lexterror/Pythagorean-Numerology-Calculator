@@ -4039,7 +4039,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.4)</span></span>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.5)</span></span>
 </div>
 
 
@@ -9905,6 +9905,7 @@ var input2 = document.getElementById('searchnow2');
          
         var dumpyear1 = 0;
         var dumpyear2 = 0;
+        var dumpyear3 = 0;
         
         if (year.length > 1)
         {
@@ -9921,17 +9922,28 @@ var input2 = document.getElementById('searchnow2');
                 dumpyear2 = dumpyear2 + parseInt(year[n]);
             }
             year = dumpyear2.toString();
+        }   
+        if (year.length > 1)
+        {
+            for (n = 0; n < year.length;n++)
+            {
+                dumpyear3 = dumpyear3 + parseInt(year[n]);
+            }
+            year = dumpyear3.toString();
         }      
         
         var firstpinnacle = parseInt(month) - parseInt(date);
         if (Math.sign(firstpinnacle) == -1)
         firstpinnacle = parseInt(date) - parseInt(month);
+        
         var secondpinnacle = parseInt(year) - parseInt(date);
         if (Math.sign(secondpinnacle) == -1)
         secondpinnacle = parseInt(date) - parseInt(year);
+        
         var thirdpinnacle = parseInt(secondpinnacle) - parseInt(firstpinnacle);
         if (Math.sign(thirdpinnacle) == -1)  
         thirdpinnacle = parseInt(firstpinnacle) - parseInt(secondpinnacle);
+        
         var fourthpinnacle = parseInt(year) - parseInt(month);
         if (Math.sign(fourthpinnacle) == -1) 
         fourthpinnacle = parseInt(month) - parseInt(year);
