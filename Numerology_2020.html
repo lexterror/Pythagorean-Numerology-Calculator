@@ -2106,6 +2106,7 @@ font-size: 100%;
 <td>Totals</td><td id="new_1t" class="spacer"></td><td id="new_2t" class="spacer"></td><td id="new_3t" class="spacer"></td><td id="new_4t" class="spacer"></td><td id="new_5t" class="spacer"></td><td id="new_6t" class="spacer"></td><td id="new_7t" class="spacer"></td><td id="new_8t" class="spacer"></td><td id="new_9t" class="spacer"></td><td id="new_tt" style="text-align:center;"></td>
 </tr>
 </table>
+<button id="printtape" onclick="newcalculate();" style="width:498px;margin: 0 auto;height:32px;">Calculate</button>
 <button id="printtape" onclick="printtape();" style="width:498px;margin: 0 auto;height:32px;">Save</button>
 </div>
 
@@ -4329,7 +4330,6 @@ let myInput1 = document.getElementById('numbers1');
 let myInput2 = document.getElementById('numbers2');
 let myInput3 = document.getElementById('numbers3');
 let myInput5 = document.getElementById('thenames');
-let myInput6 = document.getElementById('thenames2');
 //on keyup, start the countdown
 myInput1.addEventListener('keyup', () => {
     clearTimeout(typingTimer);
@@ -4367,12 +4367,6 @@ myInput5.addEventListener('keyup', () => {
     }
 });
 
-myInput6.addEventListener('keyup', () => {
-    clearTimeout(typingTimer);
-    if (myInput6.value) {
-        typingTimer = setTimeout(newcalculate, doneTypingInterval);
-    }
-});
 //user is "finished typing," do something
 //function doneTyping () {
 //
