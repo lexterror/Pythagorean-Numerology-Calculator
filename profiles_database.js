@@ -22,4 +22,9 @@
     { name: 'ian lancaster fleming', dob: '5 28 1908' },
     { name: 'jean baudrillard', dob: '7 27 1929' },
     { name: 'richard cavendish', dob: '8 12 1930' },
+    { name: 'thomas james cloutier', dob: '10 13 1939' },
+    { name: 'ming hao tsai', dob: '3 29 1964' },
+    { name: 'vicente montoliu massana', dob: '3 28 1933' },
+    { name: 'al lowe', dob: '7 24 1946' },
+    { name: 'dan gibson', dob: '1 19 1922' },
 ]
