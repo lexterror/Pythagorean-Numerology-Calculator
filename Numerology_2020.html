@@ -4048,7 +4048,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.5)</span></span>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.6 "FINAL")</span></span>
 </div>
 
 
@@ -4951,10 +4951,22 @@ thenames = thenames.replace(/\s/g, '');
     }
     if (namesumbers[i] == "y" || namesumbers[i] == "Y")
     {
+    var person = prompt("Is the Y a vowel? y/n");
+    if (person == "n")
+    {
     consonantstrack++;
     consonants[consonantstrack] = 7;
     sevens++;
     sevensc++;
+    }
+    if (person == "y")
+    {
+    vowelstrack++;
+    vowels[vowelstrack] = 7;
+    sevens++;
+    sevensv++;    
+    }
+    
     }
     if (namesumbers[i] == "h" || namesumbers[i] == "H")
     {
@@ -8140,7 +8152,7 @@ function showCalendar(month, year) {
    document.getElementById("subpersonalyear").innerText = countyearss.toString();
    
    
-  finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + "Karmic Debts " + returnKarmicDebts(karmic_string)+ "\n\n" + MaturityNumber + RationalNumber + "Karmic Lessons " + karmiclessons + "\n\n" + BalanceNumber + HiddenPassionNumber + Confidence + "Challenges " + returnChallenge(challenge_string) + "\n\n" + "Pinnacles " + returnPinnacle(pinnacle_string) + "\n\n" + "Life Path Periods " + lifepathperiods + "\n\n" + FinalFullName + ShortNameTotals + PsychoMatrixString;
+  finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + "Karmic Debts " + returnKarmicDebts(karmic_string)+ "\n\n" + MaturityNumber + RationalNumber + "Karmic Lessons " + karmiclessons + "\n\n" + BalanceNumber + HiddenPassionNumber + Confidence + "Challenges " + returnChallenge(challenge_string) + "\n\n" + "Pinnacles " + returnPinnacle(pinnacle_string) + "\n\n" + "Life Path Periods " + lifepathperiods + "\n\n" + "Life Path - Expression Bridge number " + bridge1.toString() + "\n\n" + "Heart's Desire - Personality Bridge number " + bridge2.toString() +  "\n\n" + FinalFullName + ShortNameTotals + PsychoMatrixString;
   
  
   
