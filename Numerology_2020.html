@@ -2106,7 +2106,6 @@ font-size: 100%;
 <td>Totals</td><td id="new_1t" class="spacer"></td><td id="new_2t" class="spacer"></td><td id="new_3t" class="spacer"></td><td id="new_4t" class="spacer"></td><td id="new_5t" class="spacer"></td><td id="new_6t" class="spacer"></td><td id="new_7t" class="spacer"></td><td id="new_8t" class="spacer"></td><td id="new_9t" class="spacer"></td><td id="new_tt" style="text-align:center;"></td>
 </tr>
 </table>
-<button id="printtape" onclick="newcalculate();" style="width:498px;margin: 0 auto;height:32px;">Calculate</button>
 <button id="printtape" onclick="printtape();" style="width:498px;margin: 0 auto;height:32px;">Save</button>
 </div>
 
@@ -2386,7 +2385,7 @@ for (i = 0; i < names_data_entered_length; i++)
     new_sevens++;
     new_sevensc++;
     }
-    if (namesumbers[i] == "y" || namesumbers[i] == "Y")
+    if (namesumbers[i] == "y")
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 7;
@@ -2394,6 +2393,15 @@ for (i = 0; i < names_data_entered_length; i++)
        CPRINT = CPRINT + "7";
     new_sevens++;
     new_sevensc++;
+    }
+    if (namesumbers[i] == "Y")
+    {
+   new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 7;
+       VPRINT = VPRINT + "7";
+       CPRINT = CPRINT + " ";
+    new_sevens++;
+    new_sevensv++;    
     }
     if (namesumbers[i] == "h" || namesumbers[i] == "H")
     {
@@ -2908,19 +2916,17 @@ for (i = 0; i < names_data_entered_length; i++)
     new_sevens++;
     new_sevensc++;
     }
-    if (namesumbers[i] == "y" || namesumbers[i] == "Y")
+    if (namesumbers[i] == "Y")
     {
-    var r = confirm("Is the Y a vowel?");
-    if (r == true) {
-    
+
     new_vowelstrack++;
     new_vowels[new_vowelstrack] = 7;
        VPRINT = VPRINT + "7";
        CPRINT = CPRINT + " ";
     new_sevens++;
     new_sevensv++; 
-    
-    } else 
+    }
+    if (namesumbers[i] == "y")
     {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 7;
@@ -2928,7 +2934,6 @@ for (i = 0; i < names_data_entered_length; i++)
        CPRINT = CPRINT + "7";
     new_sevens++;
     new_sevensc++;   
-    }
     }
     if (namesumbers[i] == "h" || namesumbers[i] == "H")
     {
@@ -4101,7 +4106,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 2.0)</span></span>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 2.1)</span></span>
 </div>
 
 
@@ -4330,6 +4335,7 @@ let myInput1 = document.getElementById('numbers1');
 let myInput2 = document.getElementById('numbers2');
 let myInput3 = document.getElementById('numbers3');
 let myInput5 = document.getElementById('thenames');
+let myInput6 = document.getElementById('thenames2');
 //on keyup, start the countdown
 myInput1.addEventListener('keyup', () => {
     clearTimeout(typingTimer);
@@ -4364,6 +4370,30 @@ myInput5.addEventListener('keyup', () => {
     clearTimeout(typingTimer);
     if (myInput5.value) {
         typingTimer = setTimeout(calculate2, doneTypingInterval);
+    }
+});
+
+myInput6.addEventListener('keyup', () => {
+    clearTimeout(typingTimer);
+    if (myInput6.value) {
+        typingTimer = setTimeout(newcalculate, doneTypingInterval);
+    }
+});
+
+var aaa = document.getElementById("thenames2");
+aaa.addEventListener("keyup", function(event) {
+    if (event.key === "y") {
+     var r = confirm("Is the Y a vowel?");
+     if (r == true) {
+          var bbb = document.getElementById("thenames2").value.toString();
+          document.getElementById("thenames2").value = bbb = bbb.substring(0, bbb.length - 1) + "Y";
+        
+      }  else
+      {
+          var bbb = document.getElementById("thenames2").value.toString();
+          document.getElementById("thenames2").value = bbb = bbb.substring(0, bbb.length - 1) + "y";        
+      }
+        // Do more work
     }
 });
 
