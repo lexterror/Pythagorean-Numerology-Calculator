@@ -6877,6 +6877,22 @@ var data_entered_length = date.length;
         newpath = newpath + parseFloat(nparray[p]);
    }
    }
+   
+   var doublechecknp = newpath.toString();
+   var tempdoublechecknp = 0;
+   
+   if (doublechecknp.length > 1)
+   {
+        for (n = 0; n < doublechecknp.length; n++)
+        {
+        
+            tempdoublechecknp = tempdoublechecknp + parseFloat(doublechecknp[n]);
+        
+        }
+        
+        newpath = tempdoublechecknp;
+    
+   }
  
 
 
