@@ -18,5 +18,8 @@
     { name: 'isaac newton', dob: '3 31 1727' },
     { name: 'nostradamus', dob: '12 24 1503' },
     { name: 'judith teresa jasper', dob: '1 16 1976' },
-    { name: 'jacob rodney cohen', dob: '11 22 1921' },    
+    { name: 'jacob rodney cohen', dob: '11 22 1921' },  
+    { name: 'ian lancaster fleming', dob: '5 28 1908' },
+    { name: 'jean baudrillard', dob: '7 27 1929' },
+    { name: 'richard cavendish', dob: '8 12 1930' },
 ]
