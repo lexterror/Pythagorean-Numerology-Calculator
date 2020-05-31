@@ -563,9 +563,13 @@ else window.SunCalc = SunCalc;
 
 <script>
 
+var triplecheck = 0;
+
 function getShortName(SHORTNAME)
 {
 ///////************* NORMAN **************///////////
+
+    triplecheck = 0;
     var shortnamestring = SHORTNAME.toString();
     var names_data_entered_length = shortnamestring.length;
     var namesumbers = shortnamestring.split("");
@@ -841,12 +845,30 @@ function getShortName(SHORTNAME)
     }
     if (namesumbers[i] == "y" || namesumbers[i] == "Y")
     {
+    
+    var check = person3check.toString().split("");
+    if (check[triplecheck] == "n")
+    {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 7;
     SNconsonantstrackString = SNconsonantstrackString + "7";
     SNvowelstrackString = SNvowelstrackString + " ";
     SNsevens++;
     SNsevensc++;
+    }
+    if (check[triplecheck] == "y")   
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "7";
+    SNsevens++;
+    SNsevensv++;    
+    
+    }
+    
+    triplecheck++;
+    
     }
     if (namesumbers[i] == "h" || namesumbers[i] == "H")
     {
@@ -1028,6 +1050,7 @@ function getShortName(SHORTNAME)
 }
 function getFullName(SHORTNAME)
 {
+    triplecheck = 0;
 ///////************* NORMAN **************///////////
     var shortnamestring = SHORTNAME.toString();
     var names_data_entered_length = shortnamestring.length;
@@ -1304,12 +1327,28 @@ function getFullName(SHORTNAME)
     }
     if (namesumbers[i] == "y" || namesumbers[i] == "Y")
     {
+    var check = person3check.toString().split("");
+    if (check[triplecheck] == "n")    
+    {
     SNconsonantstrack++;
     SNconsonants[SNconsonantstrack] = 7;
     SNconsonantstrackString = SNconsonantstrackString + "7";
     SNvowelstrackString = SNvowelstrackString + " ";
     SNsevens++;
     SNsevensc++;
+    }
+    if (check[triplecheck] == "y")
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "7";
+    SNsevens++;
+    SNsevensv++;    
+    }
+    
+    triplecheck++;
+    
     }
     if (namesumbers[i] == "h" || namesumbers[i] == "H")
     {
@@ -2870,12 +2909,25 @@ for (i = 0; i < names_data_entered_length; i++)
     }
     if (namesumbers[i] == "y" || namesumbers[i] == "Y")
     {
+    var personx = prompt("Is the Y a vowel? y/n");
+    if (personx == "n")
+    {
     new_consonantstrack++;
     new_consonants[new_consonantstrack] = 7;
        VPRINT = VPRINT + " ";
        CPRINT = CPRINT + "7";
     new_sevens++;
     new_sevensc++;
+    }
+    if (personx == "y")
+    {
+    new_vowelstrack++;
+    new_vowels[new_vowelstrack] = 7;
+       VPRINT = VPRINT + "7";
+       CPRINT = CPRINT + " ";
+    new_sevens++;
+    new_sevensv++;    
+    }
     }
     if (namesumbers[i] == "h" || namesumbers[i] == "H")
     {
@@ -4048,7 +4100,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.6 "FINAL")</span></span>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 1.8 "FINAL")</span></span>
 </div>
 
 
@@ -4646,8 +4698,12 @@ var karmiclessons = "";
 var expressionfinal = "";
 var heartdesirefinal = "";
 var personalityfinal = "";
+var person = "";
+var person3check = "";
 
 function calculate2() {
+
+person3check = "";
 
 expressionfinal = "";
 heartdesirefinal = "";
@@ -4951,20 +5007,23 @@ thenames = thenames.replace(/\s/g, '');
     }
     if (namesumbers[i] == "y" || namesumbers[i] == "Y")
     {
-    var person = prompt("Is the Y a vowel? y/n");
+    person = prompt("Is the Y a vowel? y/n");
     if (person == "n")
     {
+    
     consonantstrack++;
     consonants[consonantstrack] = 7;
     sevens++;
     sevensc++;
+    person3check = person3check + "n";
     }
     if (person == "y")
     {
     vowelstrack++;
     vowels[vowelstrack] = 7;
     sevens++;
-    sevensv++;    
+    sevensv++; 
+    person3check = person3check + "y";
     }
     
     }
