@@ -2035,6 +2035,17 @@ label {
     margin-top:10px;
 }
 @font-face {
+font-family: 'alchemy';
+src: url('fonts/alchemy-symbols.eot'); /* IE9 Compat Modes */
+src: url('fonts/alchemy-symbols.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+url('fonts/alchemy-symbols.woff2') format('woff2'), /* Super Modern Browsers */
+url('fonts/alchemy-symbols.woff') format('woff'), /* Pretty Modern Browsers */
+url('fonts/alchemy-symbols.ttf')  format('truetype'); /* Safari, Android, iOS */
+font-size: 100%;
+}
+
+
+@font-face {
 font-family: 'tab';
 src: url('fonts/Tabular-Regular.eot'); /* IE9 Compat Modes */
 src: url('fonts/Tabular-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -2327,7 +2338,7 @@ font-size: 100%;
 
 #subfeatures {
     width: 200px;
-    background: #999;
+    background: #111;
     color: #fff;
     vertical-align: middle;
     font-family: helveticanew;
@@ -2424,20 +2435,35 @@ font-size: 100%;
            $('.homeroom6').css('--myVar', color7);
            
 </script>
-<div id="mainpanelTITLE"><span id="selection"></span></div>
+<style>
+.results2 {
+    margin-right: 5px;
+}
+.chemy {
+    font-family: alchemy;
+    font-size: 14px !important;
+    line-height: 14px !important;
+    vertical-align: middle !important;
+}
+.results3 {
+    margin-left: 5px;
+    font-size: 14px;
+    line-height: 14px;
+}
+</style>
+<div id="mainpanelTITLE"><span id="selection"></span><span class="results2" id="currentname" style="margin-left: 5px;"></span><span class="results2" id="currentmiddlename"  ></span><span class="results2" id="currentlastname"></span><span class="results2" id="currentdob"></span><span class="results2" id="currentsign"></span></div>
 <div id="features">
-<div id="subfeaturestitle"><span>Current Profile</span></div>
+<div id="subfeaturestitle"><span>Elements</span></div>
 <div id="subfeatures">
+<div id="subfeaturestitles" style="padding-top: 6px !important;">
+<span class="chemy" style="color:orange;text-shadow: 0 0 5px red;">U</span><span class="results3" id="fire"></span></div>
 <div id="subfeaturestitles">
-<span class="">First Name</span><span class="results" id="currentname"></span></div>
-<div id="subfeaturestitles" style="text-overflow: ellipsis !important;overflow:hidden !important;width: 150px !important;white-space:nowrap;display:inline-block;">
-<span class="">Middle Name</span><span class="results" id="currentmiddlename"  ></span></div>
+<span class="chemy" style="color:lawngreen;text-shadow: 0 0 5px green;">T</span><span class="results3" id="earth"></span></div>
 <div id="subfeaturestitles">
-<span class="">Last Name</span><span class="results" id="currentlastname"></span></div>
+<span class="chemy" style="color:white;text-shadow: 0 0 5px yellow">a</span><span class="results3" id="air"></span></div>
 <div id="subfeaturestitles">
-<span class="">Date of Birth</span><span class="results" id="currentdob"></span></div>
-<div id="subfeaturestitles">
-<span class="">Zodiac Sign</span><span class="results" id="currentsign"></span></div>
+<span class="chemy" style="color:lightblue;text-shadow: 0 0 5px blue;">&#xe023;</span><span class="results3" id="water"></span></div>
+
 </div>
 <div id="subfeaturestitle"><span>Main Features</span></div>
 <div id="subfeatures">
@@ -2453,6 +2479,9 @@ font-size: 100%;
 <span class="">Personality</span><span class="results"  id="subpersonality"></span></div>
 <div id="subfeaturestitles">
 <span class="">Karmic Debts</span><span class="results"  id="karmicdebts"></span></div>
+
+
+
 </div>
 <div id="subfeaturestitle">Additional Features</span></div>
 <div id="subfeatures">
@@ -8908,6 +8937,11 @@ function showCalendar(month, year) {
   var elements_air = "Air (5-6-11) " + air;
   var elements_water = "Water (2-7-22) " + water;
   
+  document.getElementById("fire").innerText = elements_fire;
+  document.getElementById("earth").innerText = elements_earth;
+  document.getElementById("air").innerText = elements_air;
+  document.getElementById("water").innerText = elements_water;
+  
   var final_elements_string = elements_fire + "\n\n" + elements_earth + "\n\n" + elements_air + "\n\n" + elements_water;
   
   
@@ -10246,7 +10280,7 @@ function deleteuser() {
 
 function calcmode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#ffcc99";
-  document.getElementById("selection").innerText = "Calculator";
+ // document.getElementById("selection").innerText = "( Calculator )";
   $("#datasentries4").show();
   $("#newprofilecontainer").hide();  
   $("#chartsbox").hide();
@@ -10257,7 +10291,7 @@ function calcmode() {
 }
 function chartmode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#ffff99";
-  document.getElementById("selection").innerText = "Chart";
+ // document.getElementById("selection").innerText = "( Chart )";
   $("#datasentries4").hide();
   $("#chartsbox").show();
   $("#newprofilecontainer").hide(); 
@@ -10269,7 +10303,7 @@ function chartmode() {
 function psychomode() {
 
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#ccffcc";
-  document.getElementById("selection").innerText = "Psychomatrix";
+//  document.getElementById("selection").innerText = "( Psychomatrix )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
   $("#chartsbox").hide();
@@ -10280,7 +10314,7 @@ function psychomode() {
 }
 function normanmode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#99ccff";
-  document.getElementById("selection").innerText = "Name Diagram";
+//  document.getElementById("selection").innerText = "( Name Diagram )";
   $("#datasentries4").hide();
   $("#chartsbox").hide();
   $("#newprofilecontainer").hide(); 
@@ -10291,7 +10325,7 @@ function normanmode() {
 }
 function personalmode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#ccccff";
-  document.getElementById("selection").innerText = "Personal Day Calendar";
+ // document.getElementById("selection").innerText = "( Personal Day Calendar )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
   $("#chartsbox").hide();
@@ -10302,7 +10336,7 @@ function personalmode() {
 }
 function newusermode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#ff8080";
-  document.getElementById("selection").innerText = "Profiles";
+//  document.getElementById("selection").innerText = "( Profiles )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").show(); 
   $("#chartsbox").hide();
@@ -10313,7 +10347,7 @@ function newusermode() {
 }
 function helpmode() {
   document.getElementById("mainpanelTITLE").style.backgroundColor = "#cc99ff";
-  document.getElementById("selection").innerText = "Help";
+//  document.getElementById("selection").innerText = "( Help )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
   $("#chartsbox").hide();
