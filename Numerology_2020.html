@@ -2537,7 +2537,7 @@ font-size: 100%;
 <div id="newprofiledateofbirthcontainer" style="margin-top: 5px;">
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="newuser();">Create Profile (sort by first name)</button>
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="deleteuser();">Delete Profile</button>
-<button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="saveprofiles();">Save Profiles</button>
+<button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px;" onclick="saveprofiles();">Save Profiles (sort by first name)</button>
 <input type="search" id="searchnow" style="width:450px;height:30px;background:#111;color:#aaa;margin-top:10px;border:0 !important;margin-bottom:10px !important;" placeholder="search">
 <div id="logmain"></div>
 <button id="createprofile" style="width:450px;height:30px;margin:0 auto;text-align:center;margin-top:10px !important;" onclick="deleteall();">Delete All</button>
@@ -8963,6 +8963,10 @@ function showCalendar(month, year) {
   
    function saveprofiles()
     {
+      
+   if (firstnamemode % 2 == 0) 
+   {
+
         var savesettings ="";
         for (i = 0; i < switchuser.length; i++)
         {   
@@ -8995,6 +8999,9 @@ function showCalendar(month, year) {
             document.body.removeChild(downloadLink);
             window.URL.revokeObjectURL(url);  
         }, 100); 
+        
+        }
+        
     } 
 
    function saveChart()
