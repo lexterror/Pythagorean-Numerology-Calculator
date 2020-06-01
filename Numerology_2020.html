@@ -564,7 +564,489 @@ else window.SunCalc = SunCalc;
 <script>
 
 var triplecheck = 0;
+function getNameTotals(SHORTNAME)
+{
+///////************* NORMAN **************///////////
 
+    triplecheck = 0;
+    var shortnamestring = SHORTNAME.toString();
+    var names_data_entered_length = shortnamestring.length;
+    var namesumbers = shortnamestring.split("");
+    var SNones=0;
+    var SNtwos=0;
+    var SNthrees=0;
+    var SNfours=0;
+    var SNfives=0;
+    var SNsixes=0;
+    var SNsevens=0;
+    var SNeights=0;
+    var SNnines=0;
+    
+    var SNonesc=0;
+    var SNtwosc=0;
+    var SNthreesc=0;
+    var SNfoursc=0;
+    var SNfivesc=0;
+    var SNsixesc=0;
+    var SNsevensc=0;
+    var SNeightsc=0;
+    var SNninesc=0;
+    
+    var SNonesv=0;
+    var SNtwosv=0;
+    var SNthreesv=0;
+    var SNfoursv=0;
+    var SNfivesv=0;
+    var SNsixesv=0;
+    var SNsevensv=0;
+    var SNeightsv=0;
+    var SNninesv=0;
+     
+    var SNvowelstrack = 0;
+    var SNconsonantstrack = 0;
+    var SNvowelstrackString = "";
+    var SNconsonantstrackString = "";
+    var SNvowels = [];
+    var SNconsonants = [];
+    var vvvtotals = "";
+    var ccctotals = "";
+    var shortnamestotals2 = "";
+    var master1 = 0;
+    var master2 = 0;
+    var master3 = 0;
+ 
+    for (i = 0; i < names_data_entered_length; i++)
+    {
+    
+    if (namesumbers[i] == "1")
+    {
+    SNones++;
+    }
+    if (namesumbers[i] == "2")
+    {
+    SNtwos++;
+    }
+    if (namesumbers[i] == "3")
+    {
+    SNthrees++;
+    }
+    if (namesumbers[i] == "4")
+    {
+    SNfours++;
+    }
+    if (namesumbers[i] == "5")
+    {
+    SNfives++;
+    }
+    if (namesumbers[i] == "6")
+    {
+    SNsixes++;
+    }
+    if (namesumbers[i] == "7")
+    {
+    SNsevens++;
+    }
+    if (namesumbers[i] == "8")
+    {
+    SNeights++;
+    }
+    if (namesumbers[i] == "9")
+    {
+    SNnines++;
+    }
+    
+    if (namesumbers[i] == " ")
+    {
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + " ";    
+    }
+    
+    
+    if (namesumbers[i] == "a" || namesumbers[i] == "A")
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 1;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "1";
+    SNonesv++;
+    SNones++;
+    }
+    if (namesumbers[i] == "j" || namesumbers[i] == "J")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 1;
+    SNconsonantstrackString = SNconsonantstrackString + "1";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNones++;
+    SNonesc++
+    }
+    if (namesumbers[i] == "s" || namesumbers[i] == "S")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 1;
+    SNconsonantstrackString = SNconsonantstrackString + "1";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNones++;
+    SNonesc++;
+    }
+    if (namesumbers[i] == "b" || namesumbers[i] == "B")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 2;
+    SNconsonantstrackString = SNconsonantstrackString + "2";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNtwos++;
+    SNtwosc++;
+    }
+    if (namesumbers[i] == "k" || namesumbers[i] == "K")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 2;
+    SNconsonantstrackString = SNconsonantstrackString + "2";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNtwos++;
+    SNtwosc++;
+    }
+    if (namesumbers[i] == "t" || namesumbers[i] == "T")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 2;
+    SNconsonantstrackString = SNconsonantstrackString + "2";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNtwos++;
+    SNtwosc++;
+    }
+    if (namesumbers[i] == "c" || namesumbers[i] == "C")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 3;
+    SNconsonantstrackString = SNconsonantstrackString + "3";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNthrees++;
+    SNthreesc++;
+    }
+    if (namesumbers[i] == "l" || namesumbers[i] == "L")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 3;
+    SNconsonantstrackString = SNconsonantstrackString + "3";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNthrees++;
+    SNthreesc++;
+    }
+    if (namesumbers[i] == "u" || namesumbers[i] == "U")
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 3;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "3";
+    SNthrees++;
+    SNthreesv++;
+    }
+    if (namesumbers[i] == "d" || namesumbers[i] == "D")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 4;
+    SNconsonantstrackString = SNconsonantstrackString + "4";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNfours++;
+    SNfoursc++;
+    }
+    if (namesumbers[i] == "m" || namesumbers[i] == "M")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 4;
+    SNconsonantstrackString = SNconsonantstrackString + "4";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNfours++;
+    SNfoursc++;
+    }
+    if (namesumbers[i] == "v" || namesumbers[i] == "V")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 4;
+    SNconsonantstrackString = SNconsonantstrackString + "4";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNfours++;
+    SNfoursc++;
+    }
+    if (namesumbers[i] == "e" || namesumbers[i] == "E")
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 5;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "5";
+    SNfives++;
+    SNfivesv++;
+    }
+    if (namesumbers[i] == "n" || namesumbers[i] == "N")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 5;
+    SNconsonantstrackString = SNconsonantstrackString + "5";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNfives++;
+    SNfivesc++;
+    }
+    if (namesumbers[i] == "w" || namesumbers[i] == "W")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 5;
+    SNconsonantstrackString = SNconsonantstrackString + "5";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNfives++;
+    SNfivesc++;
+    }
+    if (namesumbers[i] == "f" || namesumbers[i] == "F")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 6;
+    SNconsonantstrackString = SNconsonantstrackString + "6";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNsixes++;
+    SNsixesc++;
+    }
+    if (namesumbers[i] == "o" || namesumbers[i] == "O")
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 6;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "6";
+    SNsixes++;
+    SNsixesv++;
+    }
+    if (namesumbers[i] == "x" || namesumbers[i] == "X")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 6;
+    SNconsonantstrackString = SNconsonantstrackString + "6";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNsixes++;
+    SNsixesc++;
+    }
+    if (namesumbers[i] == "g" || namesumbers[i] == "G")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + "7";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNsevens++;
+    SNsevensc++;
+    }
+    if (namesumbers[i] == "p" || namesumbers[i] == "P")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + "7";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNsevens++;
+    SNsevensc++;
+    }
+    if (namesumbers[i] == "y" || namesumbers[i] == "Y")
+    {
+    
+    var check = person3check.toString().split("");
+    if (check[triplecheck] == "n")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + "7";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNsevens++;
+    SNsevensc++;
+    }
+    if (check[triplecheck] == "y")   
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 7;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "7";
+    SNsevens++;
+    SNsevensv++;    
+    
+    }
+    
+    triplecheck++;
+    
+    }
+    if (namesumbers[i] == "h" || namesumbers[i] == "H")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 8;
+    SNconsonantstrackString = SNconsonantstrackString + "8";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNeights++;
+    SNeightsc++;
+    }
+    if (namesumbers[i] == "q" || namesumbers[i] == "Q")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 8;
+    SNconsonantstrackString = SNconsonantstrackString + "8";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNeights++;
+    SNeightsc++;
+    }
+    if (namesumbers[i] == "z" || namesumbers[i] == "Z")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 8;
+    SNconsonantstrackString = SNconsonantstrackString + "8";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNeights++;
+    SNeightsc++;
+    }
+    if (namesumbers[i] == "i" || namesumbers[i] == "I")
+    {
+    SNvowelstrack++;
+    SNvowels[SNvowelstrack] = 9;
+    SNconsonantstrackString = SNconsonantstrackString + " ";
+    SNvowelstrackString = SNvowelstrackString + "9";
+    SNnines++;
+    SNninesv++;
+    }
+    if (namesumbers[i] == "r" || namesumbers[i] == "R")
+    {
+    SNconsonantstrack++;
+    SNconsonants[SNconsonantstrack] = 9;
+    SNconsonantstrackString = SNconsonantstrackString + "9";
+    SNvowelstrackString = SNvowelstrackString + " ";
+    SNnines++;
+    SNninesc++;
+    }
+        
+    }
+
+    ///////////// VOWELS CONSONANTS TOTALS ///////////////////
+    var consonantstotals = SNconsonants.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    var vowelstotals = SNvowels.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    
+    var vpass1 = vowelstotals.length;
+    var cpass1 = consonantstotals.length;
+    var vpass1totals = 0;
+    var vpass1totals2 = 0;
+    var cpass1totals = 0;
+    var cpass1totals2 = 0;
+
+    
+    //document.getElementById("VowelsT").value = vowelstotals; 
+    //document.getElementById("ConsonantsT").value = consonantstotals;
+    
+    var cc = consonantstotals.toString();
+    var vv = vowelstotals.toString();
+    var cc2 = cc.length;
+    var vv2 = vv.length;
+    var v1split = vv.split("");
+    var c1split = cc.split("");
+    
+    vvvtotals = vowelstotals;
+    ccctotals = consonantstotals;
+    
+    if (vv2 > 1)
+    {
+    for (j = 0; j < vv2; j++)
+    {
+         vpass1totals = vpass1totals + parseFloat(v1split[j]);
+    }
+    //document.getElementById("VowelsT").value = vowelstotals + " / " + vpass1totals;  
+    vvvtotals = vowelstotals + " / " + vpass1totals; 
+    }
+
+    if (cc2 > 1)
+    {
+    for (j = 0; j < cc2; j++)
+    {
+         cpass1totals = cpass1totals + parseFloat(c1split[j]);
+    }
+    //document.getElementById("ConsonantsT").value = consonantstotals + " / " + cpass1totals; 
+    ccctotals = consonantstotals + " / " + cpass1totals; 
+    }
+    
+    var cc3 = cpass1totals.toString();
+    var vv3 = vpass1totals.toString();
+    var cc23 = cc3.length;
+    var vv23 = vv3.length;
+    var v3split = vv3.split("");
+    var c3split = cc3.split("");    
+
+        
+    if (vv23 > 1)
+    {
+    for (j = 0; j < vv23; j++)
+    {
+         vpass1totals2 = vpass1totals2 + parseFloat(v3split[j]);
+    }
+    //document.getElementById("VowelsT").value = vowelstotals + " / " + vpass1totals + " / " + vpass1totals2; 
+    vvvtotals = vowelstotals + " / " + vpass1totals + " / " + vpass1totals2;
+    }
+
+    if (cc23 > 1)
+    {
+    for (j = 0; j < cc23; j++)
+    {
+         cpass1totals2 = cpass1totals2 + parseFloat(c3split[j]);
+    }
+    //document.getElementById("ConsonantsT").value = consonantstotals + " / " + cpass1totals + " / " + cpass1totals2;  
+    ccctotals = consonantstotals + " / " + cpass1totals + " / " + cpass1totals2;  
+    }    
+    
+    //var vow1 = vowels.map(String);
+    //var con1 = consonants.map(String);
+    //var vow2 = vow1.toString().replace(/,/g,"");
+    //var con2 = con1.toString().replace(/,/g,"");
+    //document.getElementById("Vowels").value = vow2;
+    //document.getElementById("Consonants").value = con2;
+    
+    var sumtotals = (SNones + (SNtwos * 2) + (SNthrees * 3) + (SNfours * 4) + (SNfives * 5) + (SNsixes * 6) + (SNsevens * 7) + (SNeights * 8) + (SNnines * 9));
+    
+    var n = sumtotals.toString();
+    var sumtotalslentgh = n.length;
+    var numberss = n.split("");
+   
+    //document.getElementById("namestotal").value = sumtotals; 
+    
+    shortnamestotals2 = sumtotals;
+    
+    if (sumtotalslentgh > 1)
+    {
+    for (m = 0; m < sumtotalslentgh; m++)
+    {
+        master1 = master1 + parseFloat(numberss[m]);
+    }
+    //document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal;
+    shortnamestotals2 = master1;
+    }
+
+    var nn = master1.toString();
+    var nnlength = nn.length;
+    var temp = nn.split("");
+    
+    if (nnlength > 1)
+    {
+    for (z = 0; z < nnlength; z++)
+    {
+         master2  = master2  + parseFloat(temp[z]);
+    }
+     //document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal + " / " + namestotalsfinal2;
+        shortnamestotals2 = + master2;
+    }
+    
+        
+    var SNV = SNvowels.toString().replace(/,/g,"");
+    var SNC = SNconsonants.toString().replace(/,/g,"");
+    
+    var finalShortNameString = "Short Name: \n\n" + SNvowelstrackString + " = " + vvvtotals  + "\n" + SHORTNAME + " = " +  shortnamestotals2 + "\n" + SNconsonantstrackString + " = " + ccctotals + "\n\n";
+    
+    return shortnamestotals2;
+    
+    
+    
+
+}
 function getShortName(SHORTNAME)
 {
 ///////************* NORMAN **************///////////
@@ -4725,6 +5207,11 @@ var personalityfinal = "";
 var person = "";
 var person3check = "";
 
+  var Expression_reduced = 0;
+  var Desire_reduced = 0;
+  var Personality_reduced = 0;
+  var Date_of_Birth_reduced = 0;
+
 function calculate2() {
 
 person3check = "";
@@ -5161,6 +5648,17 @@ thenames = thenames.replace(/\s/g, '');
     heartdesirefinal = vowelstotals.toString();
     personalityfinal =  consonantstotals.toString();
     
+    var Desire_Master = 0;
+    var Personality_Master = 0;
+    var Expression_Master = 0;
+    Desire_reduced = vowelstotals;
+    Personality_reduced = consonantstotals;
+    
+    if (Desire_reduced == 22 || Desire_reduced == 11)
+    Desire_Master = 1;
+    if (Personality_reduced == 22 || Personality_reduced == 11)
+    Personality_Master = 1;
+    
     var cc = consonantstotals.toString();
     var vv = vowelstotals.toString();
     var cc2 = cc.length;
@@ -5176,6 +5674,8 @@ thenames = thenames.replace(/\s/g, '');
     }
     document.getElementById("VowelsT").value = vowelstotals + " / " + vpass1totals;   
     heartdesirefinal = vpass1totals.toString();
+    if (Desire_Master == 0)
+    Desire_reduced = vpass1totals;
     }
 
     if (cc2 > 1)
@@ -5186,7 +5686,14 @@ thenames = thenames.replace(/\s/g, '');
     }
     document.getElementById("ConsonantsT").value = consonantstotals + " / " + cpass1totals;     
     personalityfinal = cpass1totals.toString();
+    if (Personality_Master == 0)
+    Personality_reduced = cpass1totals;
     }
+    
+    if (Desire_reduced == 22 || Desire_reduced == 11)
+    Desire_Master = 1;
+    if (Personality_reduced == 22 || Personality_reduced == 11)
+    Personality_Master = 1;    
     
     var cc3 = cpass1totals.toString();
     var vv3 = vpass1totals.toString();
@@ -5203,6 +5710,8 @@ thenames = thenames.replace(/\s/g, '');
     }
     document.getElementById("VowelsT").value = vowelstotals + " / " + vpass1totals + " / " + vpass1totals2;   
     heartdesirefinal = vpass1totals2.toString();
+    if (Desire_Master == 0)
+    Desire_reduced = vpass1totals2;
     }
 
     if (cc23 > 1)
@@ -5213,6 +5722,8 @@ thenames = thenames.replace(/\s/g, '');
     }
     document.getElementById("ConsonantsT").value = consonantstotals + " / " + cpass1totals + " / " + cpass1totals2; 
     personalityfinal = cpass1totals2.toString();
+    if (Personality_Master == 0)
+    Personality_reduced = cpass1totals2;
     }    
     
     var vow1 = vowels.map(String);
@@ -5231,6 +5742,10 @@ thenames = thenames.replace(/\s/g, '');
     
     document.getElementById("namestotal").value = sumtotals; 
     expressionfinal = sumtotals.toString();
+    var Expression_Master = 0;
+    Expression_reduced = sumtotals;
+    if (Expression_reduced == 11 || Expression_reduced == 22)
+    Expression_Master = 1;
     
     
     if (sumtotalslentgh > 1)
@@ -5240,9 +5755,13 @@ thenames = thenames.replace(/\s/g, '');
         namestotalsfinal = namestotalsfinal + parseFloat(numberss[m]);
     }
     document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal;
+    if (Expression_Master == 0)
+    Expression_reduced = namestotalsfinal;
     expressionfinal = namestotalsfinal;
     }
-
+    if (Expression_reduced == 11 || Expression_reduced == 22)
+    Expression_Master = 1;
+    
     var nn = namestotalsfinal.toString();
     var nnlength = nn.length;
     var temp = nn.split("");
@@ -5255,6 +5774,8 @@ thenames = thenames.replace(/\s/g, '');
     }
      document.getElementById("namestotal").value = sumtotals + " / " +  namestotalsfinal + " / " + namestotalsfinal2;
      expressionfinal = namestotalsfinal2;
+     if (Expression_Master == 0)
+     Expression_reduced = namestotalsfinal2;
     }
     
     
@@ -6967,6 +7488,7 @@ var data_entered_length = date.length;
    var datepath = date_total3;
    
    lifepathperiods = month_total3 + " , " + date_total3 + " , " + total3;
+
    
    var pathsum = total3 + month_total3 + date_total3;
    var pathbeforetotal = 0;
@@ -6979,6 +7501,7 @@ var data_entered_length = date.length;
    {
         newpath = newpath + parseFloat(remove_pathzeros[m]);
         pathbeforetotal = pathbeforetotal + " + " + parseFloat(remove_pathzeros[m]);
+        
    }
    var correct_Before_LifePathTotal = pathbeforetotal.substr(4, pathbeforetotal.length);
    
@@ -7628,7 +8151,7 @@ function showCalendar(month, year) {
   function createChart() 
   {
   
-
+  
   
   var ShortName = "";
   ShortNameTotals = "";
@@ -7746,6 +8269,10 @@ function showCalendar(month, year) {
   
   correctbirthday = birthdaycheck.toString();
   correctbirthdaytostring = correctbirthday;
+  Date_of_Birth_Master = 0;
+  Date_of_Birth_reduced = birthdaycheck;
+  if (Date_of_Birth_reduced == 11 || Date_of_Birth_reduced == 22)
+  Date_of_Birth_Master = 1;
   
   if (birthdaychecktostring.length > 1)
   {
@@ -7757,7 +8284,14 @@ function showCalendar(month, year) {
         
         bdpass1 = birthdaycheckpass1.toString();
         correctbirthdaytostring = correctbirthday + " / " + bdpass1;
+        if (Date_of_Birth_Master == 0)
+        Date_of_Birth_reduced = bdpass1;
+        
   }
+  
+  if (Date_of_Birth_reduced == 11 || Date_of_Birth_reduced == 22)
+  Date_of_Birth_Master = 1;  
+  
   var birthdaycheckpass2 = 0;
   var bdpass2 = "";
   var bdpass1tostring = bdpass1.toString();
@@ -7772,6 +8306,8 @@ function showCalendar(month, year) {
         }
         bdpass2 = birthdaycheckpass2.toString(); 
         correctbirthdaytostring = correctbirthday + " / " + bdpass1 + " / " + bdpass2;
+        if (Date_of_Birth_Master == 0)
+        Date_of_Birth_reduced = bdpass2;
         
   }
   
@@ -8231,8 +8767,156 @@ function showCalendar(month, year) {
    document.getElementById("subperiods").innerText = lifepathperiods;
    document.getElementById("subpersonalyear").innerText = countyearss.toString();
    
+
+///////////////// ELEMENTS ////////////////////
+  var fire = "";
+  var earth = "";
+  var air = "";
+  var water = "";
+  var fname = "";
+  var lname = "";
+  
+  
+  var getStringTheNames2 = document.getElementById("profile_fullname").value;
+  var getStringTN2 = getStringTheNames2.toString();
+  
+  var getStringTN2split = getStringTN2.split(" ");
+  if (getStringTN2split.length == 1)
+  {
+    fname = getStringTN2split[0];
+    lname = "";
+  }
+  if (getStringTN2split.length == 2)
+  {
+    fname = getStringTN2split[0];
+    lname = getStringTN2split[1];
+  }  
+  if (getStringTN2split.length == 3)
+  {
+    fname = getStringTN2split[0];
+    lname = getStringTN2split[2];
+  }
+  if (getStringTN2split.length == 4)
+  {
+    fname = getStringTN2split[0];
+    lname = getStringTN2split[3];
+  }
+  if (getStringTN2split.length == 5)
+  {
+    fname = getStringTN2split[0];
+    lname = getStringTN2split[4];
+  }
+  
+
+  var Last_Name_Totals_reduced = getNameTotals(lname);
+  var First_Name_Totals_reduced = getNameTotals(fname); 
+
+  
+   var newpathmaster = 0;
+
+   var newpathmaster_check = document.getElementById("profile_dob").value;
+   var newpathmaster_string = newpathmaster_check.replace(/ /g, '').toString();
+   var newpathmaster_split = newpathmaster_string.split("");
    
-  finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + "Karmic Debts " + returnKarmicDebts(karmic_string)+ "\n\n" + MaturityNumber + RationalNumber + "Karmic Lessons " + karmiclessons + "\n\n" + BalanceNumber + HiddenPassionNumber + Confidence + "Challenges " + returnChallenge(challenge_string) + "\n\n" + "Pinnacles " + returnPinnacle(pinnacle_string) + "\n\n" + "Life Path Periods " + lifepathperiods + "\n\n" + "Life Path - Expression Bridge number " + bridge1.toString() + "\n\n" + "Heart's Desire - Personality Bridge number " + bridge2.toString() +  "\n\n" + FinalFullName + ShortNameTotals + PsychoMatrixString;
+   for (n = 0; n < newpathmaster_string.length; n++)
+   {
+        newpathmaster = newpathmaster + parseFloat(newpathmaster_split[n]);
+   }
+   
+   var NPM = 0;
+   if (newpathmaster == 11 || newpathmaster == 22)
+   NPM = 1;
+   
+   var NPMpass1 = newpathmaster.toString();
+   var NPMpass1split = NPMpass1.split("");
+   var TEMPNPM = 0;
+   
+   if (NPMpass1.length > 1)
+   {
+        for (j = 0; j < NPMpass1.length; j++)
+        {
+            TEMPNPM = TEMPNPM + parseFloat(NPMpass1split[j]);
+        }
+        if (NPM == 0)
+        newpathmaster = TEMPNPM;
+   }
+   
+   var NPMpass2 = newpathmaster.toString();
+   var NPMpass2split = NPMpass2.split("");
+   var TEMPNPM2 = 0;   
+   
+   if (newpathmaster == 11 || newpathmaster == 22)
+   NPM = 1;
+   
+   if (NPMpass2.length > 1)
+   {
+        for (j = 0; j < NPMpass2.length; j++)
+        {
+            TEMPNPM2 = TEMPNPM2 + parseFloat(NPMpass2split[j]);
+        }
+        if (NPM == 0)
+        newpathmaster = TEMPNPM2;
+   }   
+     
+  
+  
+  
+  
+  var strarr = [newpathmaster, Date_of_Birth_reduced, Last_Name_Totals_reduced,First_Name_Totals_reduced,Expression_reduced,Desire_reduced,Personality_reduced];
+  
+  var str = strarr.toString();
+  
+  var earth_incompatible_with_air = 0;
+  
+  for (i = 0; i < str.length; i++)
+  {
+        if (strarr[i] == 11 || strarr[i] == 5)
+        earth_incompatible_with_air = 1;
+
+  }
+  
+  for (i = 0; i < str.length; i++)
+  {
+  if (strarr[i] == 1)
+  fire = fire + "1, ";
+  if (strarr[i] == 3)
+  fire = fire + "3, ";
+  if (strarr[i] == 9)
+  fire = fire + "9, ";
+  if (strarr[i] == 4)
+  earth = earth + "4, ";
+  if (strarr[i] == 8)
+  earth = earth + "8, ";
+  if (strarr[i] == 6 && earth_incompatible_with_air == 0)
+  earth = earth + "6, ";
+  if (strarr[i] == 5)
+  air = air + "5, ";
+  if (strarr[i] == 6 && earth_incompatible_with_air == 1)
+  air = air + "6, ";
+  if (strarr[i] == 11)
+  air = air + "11, ";
+  if (strarr[i] == 2)
+  water = water + "2, ";
+  if (strarr[i] == 7)
+  water = water + "7, ";
+  if (strarr[i] == 22)
+  water = water + "22, ";
+  }
+  
+  var elements_fire = "Fire (1-3-9) " + fire;
+  var elements_earth = "Earth (4-8-6) " + earth;
+  var elements_air = "Air (5-6-11) " + air;
+  var elements_water = "Water (2-7-22) " + water;
+  
+  var final_elements_string = elements_fire + "\n\n" + elements_earth + "\n\n" + elements_air + "\n\n" + elements_water;
+  
+  
+  
+  
+  //////////////// END OF ELEMENTS //////////////   
+   
+   
+  finalString = title + mydecoration + "\n# " + decorate + " #\n" + mydecoration + "\n\n" + "Life Path Number: " + MyPathNumber + "\n\n" + BirthDay + expressionString + desireString + intimateString + "Karmic Debts " + returnKarmicDebts(karmic_string)+ "\n\n" + MaturityNumber + RationalNumber + "Karmic Lessons " + karmiclessons + "\n\n" + BalanceNumber + HiddenPassionNumber + Confidence + "Challenges " + returnChallenge(challenge_string) + "\n\n" + "Pinnacles " + returnPinnacle(pinnacle_string) + "\n\n" + "Life Path Periods " + lifepathperiods + "\n\n" + "Life Path - Expression Bridge number " + bridge1.toString() + "\n\n" + "Heart's Desire - Personality Bridge number " + bridge2.toString() +  "\n\n"+ "Elements:\n\n" +final_elements_string  +"\n\n" + FinalFullName + ShortNameTotals + PsychoMatrixString;
   
  
   
