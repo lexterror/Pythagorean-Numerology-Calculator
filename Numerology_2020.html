@@ -6,6 +6,11 @@
 <script src="profiles_database.js"></script>
 <script src="js/jquery-3.5.1.min.js">
 </script>
+<style>
+.masternumbers {
+    color: red !important;
+}
+</style>
 
 <style>
 
@@ -2444,6 +2449,7 @@ font-size: 100%;
     font-size: 14px !important;
     line-height: 14px !important;
     vertical-align: middle !important;
+    margin-right: 5px;
 }
 .results3 {
     margin-left: 5px;
@@ -2453,16 +2459,18 @@ font-size: 100%;
 </style>
 <div id="mainpanelTITLE"><span id="selection"></span><span class="results2" id="currentname" style="margin-left: 5px;"></span><span class="results2" id="currentmiddlename"  ></span><span class="results2" id="currentlastname"></span><span class="results2" id="currentdob"></span><span class="results2" id="currentsign"></span></div>
 <div id="features">
+
+
 <div id="subfeaturestitle"><span>Elements</span></div>
 <div id="subfeatures">
-<div id="subfeaturestitles" style="padding-top: 6px !important;">
-<span class="chemy" style="color:orange;text-shadow: 0 0 5px red;">U</span><span class="results3" id="fire"></span></div>
 <div id="subfeaturestitles">
-<span class="chemy" style="color:lawngreen;text-shadow: 0 0 5px green;">T</span><span class="results3" id="earth"></span></div>
+<span class="chemy" style="color:orange;text-shadow: 0 0 5px red;">U</span>Fire (1-3-9)<span class="results3" id="fire"></span></div>
 <div id="subfeaturestitles">
-<span class="chemy" style="color:white;text-shadow: 0 0 5px yellow">a</span><span class="results3" id="air"></span></div>
+<span class="chemy" style="color:lawngreen;text-shadow: 0 0 5px green;">T</span>Earth (4-8-6)<span class="results3" id="earth"></span></div>
 <div id="subfeaturestitles">
-<span class="chemy" style="color:lightblue;text-shadow: 0 0 5px blue;">&#xe023;</span><span class="results3" id="water"></span></div>
+<span class="chemy" style="color:white;text-shadow: 0 0 5px yellow">a</span>Air (5-6-11)<span class="results3" id="air"></span></div>
+<div id="subfeaturestitles">
+<span class="chemy" style="color:lightblue;text-shadow: 0 0 5px blue;">&#xe023;</span>Water (2-7-22)<span class="results3" id="water"></span></div>
 
 </div>
 <div id="subfeaturestitle"><span>Main Features</span></div>
@@ -8172,6 +8180,8 @@ function showCalendar(month, year) {
     }
 
 }   
+
+
     
 }
 
@@ -8942,10 +8952,15 @@ function showCalendar(month, year) {
   var elements_air = "Air (5-6-11) " + air;
   var elements_water = "Water (2-7-22) " + water;
   
-  document.getElementById("fire").innerText = elements_fire;
-  document.getElementById("earth").innerText = elements_earth;
-  document.getElementById("air").innerText = elements_air;
-  document.getElementById("water").innerText = elements_water;
+  var elements_firex = fire;
+  var elements_earthx = earth;
+  var elements_airx = air;
+  var elements_waterx = water;  
+  
+  document.getElementById("fire").innerText = elements_firex;
+  document.getElementById("earth").innerText = elements_earthx;
+  document.getElementById("air").innerText = elements_airx;
+  document.getElementById("water").innerText = elements_waterx;
   
   var final_elements_string = elements_fire + "\n\n" + elements_earth + "\n\n" + elements_air + "\n\n" + elements_water;
   
@@ -8961,7 +8976,30 @@ function showCalendar(month, year) {
   
   document.getElementById("ChartOutput").value = finalString;
   
+  $('.results').each(function(){
+   var search_value = "11";
+   var search_regexp = new RegExp(search_value, "g");
+   $(this).html($(this).html().replace(search_regexp,"<span class = 'masternumbers'>"+search_value+"</span>"));
+});
+
+  $('.results').each(function(){
+   var search_value = "22";
+   var search_regexp = new RegExp(search_value, "g");
+   $(this).html($(this).html().replace(search_regexp,"<span class = 'masternumbers'>"+search_value+"</span>"));
+});
   
+  $('.results3').each(function(){
+   var search_value = "11";
+   var search_regexp = new RegExp(search_value, "g");
+   $(this).html($(this).html().replace(search_regexp,"<span class = 'masternumbers'>"+search_value+"</span>"));
+});
+
+  $('.results3').each(function(){
+   var search_value = "22";
+   var search_regexp = new RegExp(search_value, "g");
+   $(this).html($(this).html().replace(search_regexp,"<span class = 'masternumbers'>"+search_value+"</span>"));
+});
+    
   
   
   }
@@ -11216,6 +11254,9 @@ var input2 = document.getElementById('searchnow2');
         
         //document.getElementById("karmicdebts").value = karmicdebts;   
     }
+</script>
+<script>
+
 </script>
 <!--
 
