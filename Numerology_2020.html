@@ -8397,17 +8397,22 @@ function showCalendar(month, year) {
   var desireString = "Desire Number: " + desireNumber + "\n\n";
   var intimateString = "Intimate/Personality Number: " + intimateNumber + "\n\n";
   
+  var Maturity_Master = 0;
   var MaturityNumbers = newpath + namestotalsfinal2;
+  if (MaturityNumbers == 11 || MaturityNumbers == 22)
+  Maturity_Master = 1;
+  
   var MaturityCheck = MaturityNumbers.toString();
   var MaturityCheckSplit = MaturityCheck.split("");
   var newMaturityValue = 0;
+  
   if (MaturityCheck.length > 1)
   {
     for (a = 0; a < MaturityCheck.length; a++)
     {
         newMaturityValue = newMaturityValue + parseFloat(MaturityCheckSplit[a]);
     }
-    
+    if (Maturity_Master == 0)
     MaturityNumbers = newMaturityValue;
         
   }
