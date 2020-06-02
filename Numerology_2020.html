@@ -127,7 +127,7 @@
     background: #333;
     margin: 0 auto;
     width: 955px;
-    height: 600px;
+    height: 565px;
     border-radius: 10px;
     border: 10px solid #333;
     margin-top: 20px !important;
@@ -201,11 +201,13 @@
 #helpbox {
     width: 450px;
     overflow: hidden;
+    border-radius: 20px;
     margin: 0 auto;
     background: #aaa;
     display:block;
     font-size: 10px !important;
     line-height: 10px !important;
+    padding-bottom: 20px;
 }
 #helpboxinner {
     margin: 0 auto;
@@ -2302,13 +2304,11 @@ font-size: 100%;
 
 .apptitletext {
 
-    float: bottom;
-    bottom: 0;
     vertical-align: middle; 
     text-align: left;
     font-family: goth;
     height: 46px;
-    color: #999;
+    color: #000;
     font-size: 18px;
     line-height: 46px;
 }
@@ -2327,15 +2327,14 @@ font-size: 100%;
 } 
 
 #subfeaturestitle {
-    width: 198px;
-    background: gold;
+    width: 200px;
+    background-image: linear-gradient(to right, gold , orange);
     color: #000;
     height: 14px;
     vertical-align: middle;
     font-family: helveticanew;
     font-size: 14px;
     line-height: 18px;
-    border: 1px solid orange;
     text-align: center;
 
     
@@ -2457,7 +2456,7 @@ font-size: 100%;
     line-height: 14px;
 }
 </style>
-<div id="mainpanelTITLE"><span id="selection"></span><span class="results2" id="currentname" style="margin-left: 5px;"></span><span class="results2" id="currentmiddlename"  ></span><span class="results2" id="currentlastname"></span><span class="results2" id="currentdob"></span><span class="results2" id="currentsign"></span></div>
+<div id="mainpanelTITLE"><span id="selection"></span><span class="results2" id="currentname" style="margin-left: 5px;"></span><span class="results2" id="currentmiddlename"  ></span><span class="results2" id="currentlastname"></span><span class="results2" id="currentdob"></span><span class="results2" id="currentsign" style="color: #aaa;"></span></div>
 <div id="features">
 
 
@@ -4142,8 +4141,8 @@ canvas {
 
 
 <div id="helpbox">
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext"><a href="https://github.com/lexterror/Pythagorean-Numerology-Calculator" target="_blank">Pythagorean Numerology Calculator</a>&nbsp;<span class="version">(version 2.2)</span></span>
 <div id="helpboxinner">
-
 <div id="title" style="margin-top: 20px !important;">Life Path Number</div>
 <div id="content">The <i>Life Path Number</i> is the sum of the birth date i.e. DD+MM+YY.<br></div>
 <div id="title" style="margin-top:20px">Personal Year Number</div>
@@ -4625,7 +4624,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
 <button id="sortbyname" onclick="sortbylastname()" style="cursor:pointer;float:left;height:32px;background:#000;color:#fff;border:none;width:198px;border-left:1px solid dodgerblue;border-bottom:1px solid dodgerblue;border-right: 1px solid dodgerblue;">Sort by First / Last Name</button>
 </div>
 </div>
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext">Pythagorean Numerology Calculator&nbsp;<span class="version">(version 2.1)</span></span>
+
 </div>
 
 
