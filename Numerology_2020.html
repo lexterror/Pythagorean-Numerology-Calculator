@@ -127,7 +127,7 @@
     background: #333;
     margin: 0 auto;
     width: 955px;
-    height: 565px;
+    height: 535px;
     border-radius: 10px;
     border: 10px solid #333;
     margin-top: 20px !important;
@@ -150,18 +150,19 @@
 
 #mainpanelTITLE {
 
-    width: 955px;
+    width: 520px;
     float: left;
     height: 18px;
     border-bottom: 2px solid #333;
     background: C2;
-    border-radius: 0 10px 0 0;
     color: #fff;
     font-size: 18px;
     line-height: 23px;
     font-family: helveticanew;
     text-align: center;
     text-shadow: 0 0 5px #fff;
+    position: absolute;
+    z-index: 999999999;
 }
 
 #sidepanel {
@@ -2143,6 +2144,7 @@ textarea {
     width: 480px;
     height: 480px;
     margin: 0 auto;
+
 }
 
 #psychomatrix {
@@ -2472,7 +2474,7 @@ font-size: 100%;
     line-height: 14px;
 }
 </style>
-<div id="mainpanelTITLE"><span id="selection"></span><span class="results2" id="currentname" style="margin-left: 5px;"></span><span class="results2" id="currentmiddlename"  ></span><span class="results2" id="currentlastname"></span><span class="results2" id="currentdob"></span><span class="results2" id="currentsign" style="color: #aaa;"></span></div>
+
 <div id="features">
 
 
@@ -2549,7 +2551,7 @@ font-size: 100%;
 <style>
 </style>
 <div id="mainpanel">
-
+<div id="mainpanelTITLE"><span id="selection"></span><span class="results2" id="currentname" style="margin-left: 5px;"></span><span class="results2" id="currentmiddlename"  ></span><span class="results2" id="currentlastname"></span><span class="results2" id="currentdob"></span><span class="results2" id="currentsign" style="color: #aaa;"></span></div>
 <div id="newprofilecontainer">
 <div id="newprofilenamecontainer">
 <div id="newprofiledateofbirthcontainer">
@@ -3786,6 +3788,7 @@ Empty
   height: 480px;
   top: -30px;
   margin: auto;
+  margin-top: 20px !important;
 }
 
 #ultibox {
