@@ -2551,7 +2551,6 @@ font-size: 100%;
 <style>
 </style>
 <div id="mainpanel">
-<div id="mainpanelTITLE"><span id="selection"></span><span class="results2" id="currentname" style="margin-left: 5px;"></span><span class="results2" id="currentmiddlename"  ></span><span class="results2" id="currentlastname"></span><span class="results2" id="currentdob"></span><span class="results2" id="currentsign" style="color: #aaa;"></span></div>
 <div id="newprofilecontainer">
 <div id="newprofilenamecontainer">
 <div id="newprofiledateofbirthcontainer">
@@ -2571,7 +2570,7 @@ font-size: 100%;
     resize: none;
     width: 196px !important;
     float: left;
-    height: 434px;
+    height: 320px;
     top: 0;
     font-size: 14px;
     line-height: 24px;
@@ -4599,6 +4598,19 @@ The Subconscious Self is determined by adding up the quantity of represented num
 }
 </style>
 <div id="sidepanel">
+<div id="subfeaturestitle"><span>Current Profile</span></div>
+<div id="subfeatures">
+<div id="subfeaturestitles">
+<span class="">First Name</span><span class="results" id="currentname"></span></div>
+<div id="subfeaturestitles" style="text-overflow: ellipsis !important;overflow:hidden !important;width: 150px !important;white-space:nowrap;display:inline-block;">
+<span class="">Middle Name</span><span class="results" id="currentmiddlename"  ></span></div>
+<div id="subfeaturestitles">
+<span class="">Last Name</span><span class="results" id="currentlastname"></span></div>
+<div id="subfeaturestitles">
+<span class="">Date of Birth</span><span class="results" id="currentdob"></span></div>
+<div id="subfeaturestitles">
+<span class="">Zodiac Sign</span><span class="results" id="currentsign"></span></div>
+</div>
 <div id="xfiles">
 
 <!--
@@ -10339,7 +10351,7 @@ function deleteuser() {
 
 
 function calcmode() {
-  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333"; // "#ffcc99";
+//  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333"; // "#ffcc99";
  // document.getElementById("selection").innerText = "( Calculator )";
   $("#datasentries4").show();
   $("#newprofilecontainer").hide();  
@@ -10350,7 +10362,7 @@ function calcmode() {
   $("#helpbox").hide();
 }
 function chartmode() {
-  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333"; //"#ffff99";
+//  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333"; //"#ffff99";
  // document.getElementById("selection").innerText = "( Chart )";
   $("#datasentries4").hide();
   $("#chartsbox").show();
@@ -10362,7 +10374,7 @@ function chartmode() {
 }
 function psychomode() {
 
-  document.getElementById("mainpanelTITLE").style.backgroundColor =  "#333"; //"#ccffcc";
+ // document.getElementById("mainpanelTITLE").style.backgroundColor =  "#333"; //"#ccffcc";
 //  document.getElementById("selection").innerText = "( Psychomatrix )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
@@ -10384,7 +10396,7 @@ function normanmode() {
  $("#helpbox").hide();
 }
 function personalmode() {
-  document.getElementById("mainpanelTITLE").style.backgroundColor =  "#333";//"#ccccff";
+//  document.getElementById("mainpanelTITLE").style.backgroundColor =  "#333";//"#ccccff";
  // document.getElementById("selection").innerText = "( Personal Day Calendar )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
@@ -10395,7 +10407,7 @@ function personalmode() {
  $("#helpbox").hide();
 }
 function newusermode() {
-  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333";//"#ff8080";
+//  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333";//"#ff8080";
 //  document.getElementById("selection").innerText = "( Profiles )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").show(); 
@@ -10406,7 +10418,7 @@ function newusermode() {
  $("#helpbox").hide();
 }
 function helpmode() {
-  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333";//"#cc99ff";
+//  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333";//"#cc99ff";
 //  document.getElementById("selection").innerText = "( Help )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
