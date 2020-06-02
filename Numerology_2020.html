@@ -8180,7 +8180,55 @@ function showCalendar(month, year) {
   function createChart() 
   {
   
+ 
+   var newpathmaster = 0;
+
+   var newpathmaster_check = document.getElementById("profile_dob").value;
+   var newpathmaster_string = newpathmaster_check.replace(/ /g, '').toString();
+   var newpathmaster_split = newpathmaster_string.split("");
+   
+   for (n = 0; n < newpathmaster_string.length; n++)
+   {
+        newpathmaster = newpathmaster + parseFloat(newpathmaster_split[n]);
+   }
+   
+   var NPM = 0;
+   if (newpathmaster == 11 || newpathmaster == 22)
+   NPM = 1;
+   
+   var NPMpass1 = newpathmaster.toString();
+   var NPMpass1split = NPMpass1.split("");
+   var TEMPNPM = 0;
+   
+   if (NPMpass1.length > 1)
+   {
+        for (j = 0; j < NPMpass1.length; j++)
+        {
+            TEMPNPM = TEMPNPM + parseFloat(NPMpass1split[j]);
+        }
+        if (NPM == 0)
+        newpathmaster = TEMPNPM;
+   }
+   
+   var NPMpass2 = newpathmaster.toString();
+   var NPMpass2split = NPMpass2.split("");
+   var TEMPNPM2 = 0;   
+   
+   if (newpathmaster == 11 || newpathmaster == 22)
+   NPM = 1;
+   
+   if (NPMpass2.length > 1)
+   {
+        for (j = 0; j < NPMpass2.length; j++)
+        {
+            TEMPNPM2 = TEMPNPM2 + parseFloat(NPMpass2split[j]);
+        }
+        if (NPM == 0)
+        newpathmaster = TEMPNPM2;
+   }   
+     
   
+   
   
   var ShortName = "";
   ShortNameTotals = "";
@@ -8285,7 +8333,7 @@ function showCalendar(month, year) {
     
     
     
-  var MyPathNumber = GetYearAdditions + " + " + GetMonthAdditions + " + " + GetDateAdditions + " = " + newpath;
+  var MyPathNumber = GetYearAdditions + " + " + GetMonthAdditions + " + " + GetDateAdditions + " = " + newpathmaster;
   
   var correctbirthday = "";
   var birthdaycheck = document.getElementById("numbers3").value;
@@ -8715,7 +8763,7 @@ function showCalendar(month, year) {
   
   ///// SIDEBARFEATUREsS Sexy
   
-   document.getElementById("sublifepath").innerText = newpath;
+   document.getElementById("sublifepath").innerText = newpathmaster;
    
    //mod
    var birthday_reduct =  document.getElementById("numbers3").value;
@@ -8840,54 +8888,6 @@ function showCalendar(month, year) {
   var Last_Name_Totals_reduced = getNameTotals(lname);
   var First_Name_Totals_reduced = getNameTotals(fname); 
 
-  
-   var newpathmaster = 0;
-
-   var newpathmaster_check = document.getElementById("profile_dob").value;
-   var newpathmaster_string = newpathmaster_check.replace(/ /g, '').toString();
-   var newpathmaster_split = newpathmaster_string.split("");
-   
-   for (n = 0; n < newpathmaster_string.length; n++)
-   {
-        newpathmaster = newpathmaster + parseFloat(newpathmaster_split[n]);
-   }
-   
-   var NPM = 0;
-   if (newpathmaster == 11 || newpathmaster == 22)
-   NPM = 1;
-   
-   var NPMpass1 = newpathmaster.toString();
-   var NPMpass1split = NPMpass1.split("");
-   var TEMPNPM = 0;
-   
-   if (NPMpass1.length > 1)
-   {
-        for (j = 0; j < NPMpass1.length; j++)
-        {
-            TEMPNPM = TEMPNPM + parseFloat(NPMpass1split[j]);
-        }
-        if (NPM == 0)
-        newpathmaster = TEMPNPM;
-   }
-   
-   var NPMpass2 = newpathmaster.toString();
-   var NPMpass2split = NPMpass2.split("");
-   var TEMPNPM2 = 0;   
-   
-   if (newpathmaster == 11 || newpathmaster == 22)
-   NPM = 1;
-   
-   if (NPMpass2.length > 1)
-   {
-        for (j = 0; j < NPMpass2.length; j++)
-        {
-            TEMPNPM2 = TEMPNPM2 + parseFloat(NPMpass2split[j]);
-        }
-        if (NPM == 0)
-        newpathmaster = TEMPNPM2;
-   }   
-     
-  
   
   
   
