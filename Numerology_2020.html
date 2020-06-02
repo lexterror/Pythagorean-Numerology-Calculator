@@ -154,9 +154,9 @@
     float: left;
     height: 18px;
     border-bottom: 2px solid #333;
-    background: #ffcc99;
+    background: C2;
     border-radius: 0 10px 0 0;
-    color: black;
+    color: #fff;
     font-size: 18px;
     line-height: 23px;
     font-family: helveticanew;
@@ -215,6 +215,20 @@
 }
 </style>
 <script>
+
+
+function randColor() {
+       var dig = '0123456789ABCDEF',
+           col = '#';
+       for (var i = 0; i < 6; i++) {
+           var thecolor = dig.charAt(Math.round(Math.random() * dig.length));
+           while (thecolor < 333333) {
+               thecolor = dig.charAt(Math.round(Math.random() * dig.length));
+           }
+           col += thecolor;
+       }
+       return col;
+   }
 /*
  (c) 2011-2015, Vladimir Agafonkin
  SunCalc is a JavaScript library for calculating sun/moon position and light phases.
@@ -2403,6 +2417,8 @@ font-size: 100%;
     <li><a class="homeroom6" onclick="helpmode()" style="cursor:pointer;">Help</a></li>
 </ul>
 <script>
+
+/*
    function randColor() {
        var dig = '0123456789ABCDEF',
            col = '#';
@@ -2414,28 +2430,28 @@ font-size: 100%;
            col += thecolor;
        }
        return col;
-   }
+   } */
 
-           var color = "#ff8080";
-           $('.homeroom').css('background', color);
+           var color = "linear-gradient(red, #333)"; // "#ff8080";
+           $('.homeroom').css('background-image', color);
            $('.homeroom').css('--myVar', color);
-           var color2 = "#ffcc99";
-           $('.homeroom1').css('background', color2);
+           var color2 = "linear-gradient(orange, #333)"; // "#ffcc99";
+           $('.homeroom1').css('background-image', color2);
            $('.homeroom1').css('--myVar', color2);
-           var color3 = "#ffff99";
-           $('.homeroom2').css('background', color3);
+           var color3 = "linear-gradient(gold, #333)"; // "#ffff99";
+           $('.homeroom2').css('background-image', color3);
            $('.homeroom2').css('--myVar', color3);
-           var color4 = "#ccffcc";
-           $('.homeroom3').css('background', color4);
+           var color4 = "linear-gradient(lawngreen, #333)"; //"#ccffcc";
+           $('.homeroom3').css('background-image', color4);
            $('.homeroom3').css('--myVar', color4);
-           var color5 = "#99ccff";           
-           $('.homeroom4').css('background', color5);
+           var color5 = "linear-gradient(dodgerblue, #333)"; // "#99ccff";           
+           $('.homeroom4').css('background-image', color5);
            $('.homeroom4').css('--myVar', color5);
-           var color6 = "#ccccff";           
-           $('.homeroom5').css('background', color6);
+           var color6 = "linear-gradient(violet, #333)";// "#ccccff";           
+           $('.homeroom5').css('background-image', color6);
            $('.homeroom5').css('--myVar', color6);
-           var color7 = "#cc99ff";  
-           $('.homeroom6').css('background', color7);
+           var color7 = "linear-gradient(deeppink, #333)"; /// "#cc99ff";  
+           $('.homeroom6').css('background-image', color7);
            $('.homeroom6').css('--myVar', color7);
            
 </script>
@@ -4445,8 +4461,8 @@ The Subconscious Self is determined by adding up the quantity of represented num
   padding: 10px 20px;
   float: left;
   text-decoration: none;
-  color: #444;
-  text-shadow: 0 1px 0 rgba(255,255,255,.8);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,.8);
   border-radius: 5px 0 0 0;
   box-shadow: 0 2px 2px rgba(0,0,0,.4);
 }
@@ -4470,7 +4486,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
   right: -.5em;
   bottom: 0;
   width: 1em;
-  background: var(--myVar);
+  background-image: var(--myVar);
 /*  background-image: linear-gradient(to bottom, #fff, #ddd); */
   box-shadow: 2px 2px 2px rgba(0,0,0,.4);
   transform: skew(10deg);
@@ -9873,18 +9889,7 @@ function loadusers() {
 }
 
 
-   function randColor() {
-       var dig = '0123456789ABCDEF',
-           col = '#';
-       for (var i = 0; i < 6; i++) {
-           var thecolor = dig.charAt(Math.round(Math.random() * dig.length));
-           while (thecolor < 999999) {
-               thecolor = dig.charAt(Math.round(Math.random() * dig.length));
-           }
-           col += thecolor;
-       }
-       return col;
-   }
+
    
    
 function newuser() {
@@ -10328,7 +10333,7 @@ function deleteuser() {
 
 
 function calcmode() {
-  document.getElementById("mainpanelTITLE").style.backgroundColor = "#ffcc99";
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333"; // "#ffcc99";
  // document.getElementById("selection").innerText = "( Calculator )";
   $("#datasentries4").show();
   $("#newprofilecontainer").hide();  
@@ -10339,7 +10344,7 @@ function calcmode() {
   $("#helpbox").hide();
 }
 function chartmode() {
-  document.getElementById("mainpanelTITLE").style.backgroundColor = "#ffff99";
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333"; //"#ffff99";
  // document.getElementById("selection").innerText = "( Chart )";
   $("#datasentries4").hide();
   $("#chartsbox").show();
@@ -10351,7 +10356,7 @@ function chartmode() {
 }
 function psychomode() {
 
-  document.getElementById("mainpanelTITLE").style.backgroundColor = "#ccffcc";
+  document.getElementById("mainpanelTITLE").style.backgroundColor =  "#333"; //"#ccffcc";
 //  document.getElementById("selection").innerText = "( Psychomatrix )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
@@ -10362,7 +10367,7 @@ function psychomode() {
  $("#helpbox").hide();
 }
 function normanmode() {
-  document.getElementById("mainpanelTITLE").style.backgroundColor = "#99ccff";
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333"; //"#99ccff";
 //  document.getElementById("selection").innerText = "( Name Diagram )";
   $("#datasentries4").hide();
   $("#chartsbox").hide();
@@ -10373,7 +10378,7 @@ function normanmode() {
  $("#helpbox").hide();
 }
 function personalmode() {
-  document.getElementById("mainpanelTITLE").style.backgroundColor = "#ccccff";
+  document.getElementById("mainpanelTITLE").style.backgroundColor =  "#333";//"#ccccff";
  // document.getElementById("selection").innerText = "( Personal Day Calendar )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
@@ -10384,7 +10389,7 @@ function personalmode() {
  $("#helpbox").hide();
 }
 function newusermode() {
-  document.getElementById("mainpanelTITLE").style.backgroundColor = "#ff8080";
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333";//"#ff8080";
 //  document.getElementById("selection").innerText = "( Profiles )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").show(); 
@@ -10395,7 +10400,7 @@ function newusermode() {
  $("#helpbox").hide();
 }
 function helpmode() {
-  document.getElementById("mainpanelTITLE").style.backgroundColor = "#cc99ff";
+  document.getElementById("mainpanelTITLE").style.backgroundColor = "#333";//"#cc99ff";
 //  document.getElementById("selection").innerText = "( Help )";
   $("#datasentries4").hide();
   $("#newprofilecontainer").hide(); 
@@ -10407,19 +10412,19 @@ function helpmode() {
 }
 calcmode();
 
-
+/*
    function randColor() {
        var dig = '0123456789ABCDEF',
            col = '#';
        for (var i = 0; i < 6; i++) {
            var thecolor = dig.charAt(Math.round(Math.random() * dig.length));
-           while (thecolor < 999999) {
+           while (thecolor > 666666) {
                thecolor = dig.charAt(Math.round(Math.random() * dig.length));
            }
            col += thecolor;
        }
        return col;
-   }
+   } */
    var print = 1;
    function getZodiacSign(day, month) {
 
