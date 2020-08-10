@@ -2,7 +2,9 @@
 
 "A basic numerology calculator in JavaScript"<br><br>
 
-Pythagorean Numerology Calculator (Version 2.3)<br><br>
+<H1>Pythagorean Numerology Calculator (Version 2.3)</H1><br><br>
+
+<b>Features</b>
 
 -Your relationship to the 4 classic elements<br>
 -Numerology Chart Calculation<br>
