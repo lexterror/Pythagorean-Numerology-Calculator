@@ -14,6 +14,8 @@
 -Personal day calendar<br>
 -Plain calculator for names or numbers<br>
 -Name diagrams (Norman Shine)<br>
+-Profiles manager<br>
+-Unlimited number of profiles<br>
 -Search and sort feature to find profiles easily<br>
 -Small help section<br>
 -Ability to save/export calculations, profiles, and charts
