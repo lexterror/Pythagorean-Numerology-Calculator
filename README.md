@@ -19,6 +19,6 @@
 -Search and sort feature to find profiles easily<br>
 -Small help section<br>
 -Ability to save/export calculations, profiles, and charts<br>
--Runs Offline as well as online
+-Runs offline as well as online
 <br><br>
 Live demo: <a href="http://elounge.org" target="_blank">http://elounge.org</a>
