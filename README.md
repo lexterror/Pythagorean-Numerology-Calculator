@@ -6,7 +6,7 @@
 
 <b>Features:</b>
 
--Your relationship to the 4 classic elements<br>
+-Your relationship with the 4 classic elements<br>
 -Numerology chart calculation<br>
 -Master numbers detection<br>
 -Psychologic matrix chart calculator<br>
