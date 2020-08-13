@@ -2458,25 +2458,25 @@ font-size: 100%;
        return col;
    } */
 
-           var color = "linear-gradient(red, #333)"; // "#ff8080";
+           var color = "linear-gradient(red, red)"; // "#ff8080";
            $('.homeroom').css('background-image', color);
            $('.homeroom').css('--myVar', color);
-           var color2 = "linear-gradient(orange, #333)"; // "#ffcc99";
+           var color2 = "linear-gradient(orange, orange)"; // "#ffcc99";
            $('.homeroom1').css('background-image', color2);
            $('.homeroom1').css('--myVar', color2);
-           var color3 = "linear-gradient(gold, #333)"; // "#ffff99";
+           var color3 = "linear-gradient(gold, gold)"; // "#ffff99";
            $('.homeroom2').css('background-image', color3);
            $('.homeroom2').css('--myVar', color3);
-           var color4 = "linear-gradient(lawngreen, #333)"; //"#ccffcc";
+           var color4 = "linear-gradient(lawngreen, lawngreen)"; //"#ccffcc";
            $('.homeroom3').css('background-image', color4);
            $('.homeroom3').css('--myVar', color4);
-           var color5 = "linear-gradient(dodgerblue, #333)"; // "#99ccff";           
+           var color5 = "linear-gradient(dodgerblue, dodgerblue"; // "#99ccff";           
            $('.homeroom4').css('background-image', color5);
            $('.homeroom4').css('--myVar', color5);
-           var color6 = "linear-gradient(violet, #333)";// "#ccccff";           
+           var color6 = "linear-gradient(violet, violet)";// "#ccccff";           
            $('.homeroom5').css('background-image', color6);
            $('.homeroom5').css('--myVar', color6);
-           var color7 = "linear-gradient(deeppink, #333)"; /// "#cc99ff";  
+           var color7 = "linear-gradient(deeppink, deeppink)"; /// "#cc99ff";  
            $('.homeroom6').css('background-image', color7);
            $('.homeroom6').css('--myVar', color7);
            
@@ -4084,9 +4084,9 @@ canvas {
         </style>
          <div class="form-inline">
           <div id="mybuttons">
-            <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()" style="display:none;background:#000;color:#fff;font-family:helveticanew;float:left;height:35px;width:249px;">Previous</button>
+            <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()" style="background:#000;color:#fff;font-family:helveticanew;float:left;height:35px;width:249px;">Previous</button>
 
-            <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()" style="display:none;background:#000;color:#fff;font-family:helveticanew;height:35px;float:right;width:249px;">Next</button></div>
+            <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()" style="background:#000;color:#fff;font-family:helveticanew;height:35px;float:right;width:249px;">Next</button></div>
         </div>
  <form class="form-inline" style="display:none;">
             <label class="lead mr-2 ml-2" for="month"></label>
@@ -4184,7 +4184,7 @@ canvas {
 
 
 <div id="helpbox">
-<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext"><a href="https://github.com/lexterror/Pythagorean-Numerology-Calculator" target="_blank">Pythagorean Numerology Calculator</a>&nbsp;<span class="version">(version 2.3)</span></span>
+<img src="icons/logo.svg" width="46" height="46" style="float:left;"><span class="apptitletext"><a href="https://github.com/lexterror/Pythagorean-Numerology-Calculator" target="_blank">Pythagorean Numerology Calculator</a>&nbsp;<span class="version">(version 2.4)</span></span>
 <div id="helpboxinner">
 <div id="title" style="margin-top: 20px !important;">Life Path Number</div>
 <div id="content">The <i>Life Path Number</i> is the sum of the birth date i.e. DD+MM+YY.<br></div>
@@ -4489,7 +4489,7 @@ The Subconscious Self is determined by adding up the quantity of represented num
   font-family: helveticanew;
   float: left;
   text-decoration: none;
-  color: #fff;
+  color: #000;
   text-shadow: 0 1px 0 rgba(0,0,0,.8);
   border-radius: 5px 0 0 0;
   box-shadow: 0 2px 2px rgba(0,0,0,.4);
@@ -5291,6 +5291,10 @@ var month_total3 = 0;
 var date_total3 = 0;
 var countyearss = 0;
 var countmonths = 0;
+
+var currentMonth;
+var currentYear; 
+
 var lifepathperiods = 0;
 var firstnamemode = 0;
 var karmiclessons = "";
@@ -9171,13 +9175,14 @@ white-space: nowrap;
 </style>
 </body>
 </html>
-<!--
+<!-- HERRE -->
 <script>
 
 //////////////////////// CALENDAR
 let today = new Date();
-let currentMonth = today.getMonth();
-let currentYear = today.getFullYear();
+var mydate = new Date();
+currentMonth = today.getMonth();
+currentYear = today.getFullYear();
 let selectYear = document.getElementById("year");
 let selectMonth = document.getElementById("month");
 
@@ -9198,6 +9203,8 @@ function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
     showCalendar(currentMonth, currentYear);
+    mydate.setMonth(currentMonth);
+    mydate.setYear(currentYear);
 }
 
 function previous() {
@@ -9206,6 +9213,8 @@ function previous() {
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
     showCalendar(currentMonth, currentYear);
+    mydate.setMonth(currentMonth);
+    mydate.setYear(currentYear);
 }
 
 function jump() {
@@ -9298,7 +9307,8 @@ function showCalendar(month, year) {
                 
                 
 /*********************** MOONPHASE ************************/
-            var mydate = new Date();
+           /* var mydate = new Date(); */
+           
             mydate.setDate(date);
             mydate.setMonth(month);
             mydate.setYear(year);
@@ -9461,7 +9471,7 @@ function showCalendar(month, year) {
 }    
 
 </script>
--->
+
 <script>
 var switchuser = [];
 var switchdob = [];
@@ -10547,6 +10557,9 @@ calcmode();
  
    function switchit(link)
    {    
+    	currentMonth = today.getMonth();
+        currentYear = today.getFullYear();
+   	 countmonths = 0;
         document.getElementById("profile_fullname").value = switchuser[link];
         document.getElementById("profile_dob").value = switchdob[link];
         document.getElementById("thenames").value = switchuser[link];
