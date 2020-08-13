@@ -2,7 +2,7 @@
 
 "A basic numerology calculator in JavaScript"<br><br>
 
-<H1>Pythagorean Numerology Calculator (Version 2.3)</H1><br><br>
+<H1>Pythagorean Numerology Calculator (Version 2.4)</H1><br><br>
 
 <b>Features:</b>
 
