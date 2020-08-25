@@ -31,6 +31,7 @@
 { name:'francisco gustavo sanchez gomez', dob:'12 21 1947'},
 { name:'frances elizabeth allen', dob:'8 4 1932'},
 { name:'edward regan murphy', dob:'4 3 1961'},
+{ name:'edgar cayce', dob:'03 18 1877'},
 { name:'dwight goddard', dob:'7 5 1861'},
 { name:'david vaughan icke', dob:'4 29 1952'},
 { name:'dan gibson', dob:'1 19 1922'},
