@@ -21,4 +21,3 @@
 -Ability to save/export calculations, profiles, and charts<br>
 -Runs offline as well as online
 <br><br>
-Live demo: <a href="http://elounge.org" target="_blank">http://elounge.org</a>
