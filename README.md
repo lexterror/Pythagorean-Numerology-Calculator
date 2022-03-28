@@ -2,6 +2,8 @@
 
 "A basic numerology calculator in JavaScript"<br><br>
 
+Live demo: https://pythagorean-numerology-calc.sourceforge.io/pnc.html
+
 <H1>Pythagorean Numerology Calculator (Version 2.4)</H1><br><br>
 
 <b>Features:</b>
