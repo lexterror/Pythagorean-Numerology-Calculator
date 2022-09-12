@@ -4,7 +4,9 @@
 
 Live demo: https://pythagorean-numerology-calc.sourceforge.io/pnc.html
 
-<H1>Pythagorean Numerology Calculator (Version 2.4)</H1><br><br>
+<H1>Pythagorean Numerology Calculator (Version 2.5)</H1><br><br>
+
+v2.5: Profiles names assigned color alphabetically
 
 <b>Features:</b>
 
