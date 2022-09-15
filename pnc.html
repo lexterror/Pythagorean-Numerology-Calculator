@@ -170,13 +170,17 @@
     width: 515px;
     height: 500px;
     margin: 0 auto;
-    right:0;
-    left:0;
+    right:0px;
+    left:0px;
     position: absolute;
     background: #333;
     overflow-y: scroll;
     overflow-x: hidden;
     border-radius: 0px;
+background-color: rgb(32, 32, 32);
+  background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(to bottom, rgb(8, 8, 8), rgb(32, 32, 32));
+  background-size: 10px 10px, 10px 10px, 10px 5px;
+  background-position: 0px 0px, 5px 5px, 0px 0px;
 }
 
 
@@ -2084,6 +2088,8 @@ body {
     width: 1000px;
     background:#fff;
     background-repeat: repeat;
+    min-width: 1000px;
+    
 }
 
 input {
@@ -3810,7 +3816,7 @@ Empty
 </style>
 <div id="psychobox">
 <a name="psychomatrix"></a>
-<div style="max-width:450px;max-height:450px;overflow:hidden;position:absolute;top:20;left:0;right:0;margin:0 auto;">
+<div style="max-width:450px;max-height:450px;overflow:hidden;position:absolute;top:20;left:0;right:0;margin:0 auto;width:450px;height:450px;"> 
 <div class="fire" style="zoom:1000%;"></div></div>
 <table id="psychomatrix" style="z-index:9999999999999;position:absolute;top:20;left:0;right:0;margin:0 auto;">
 <tr>
@@ -3893,8 +3899,8 @@ canvas {
 }
 </style>
 
-<div id="container">
-<canvas id="DemoCanvas" width="480" height="480"></canvas>
+<div id="container" style="zoom:90%">
+<canvas id="DemoCanvas" width="480" height="480" style=""></canvas>
 
 <div id="overlay">
 <table id="norm">
@@ -4077,7 +4083,7 @@ canvas {
 </style>
 <a name="personaldaycalendar"></a>
    
-   <div id="personal">
+   <div id="personal" style="zoom:80%">
 
     
     
