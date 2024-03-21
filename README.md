@@ -1,10 +1,13 @@
-<img src="https://i.imgur.com/XttZrLX.jpg">
+![pncpreview2 6](https://github.com/lexterror/Pythagorean-Numerology-Calculator/assets/16135535/725ce7a0-9d68-427c-93c5-0b193b8f77a8)
+
 
 "A basic numerology calculator in JavaScript"<br><br>
 
 Live demo: https://pythagorean-numerology-calc.sourceforge.io/pnc.html
 
-<H1>Pythagorean Numerology Calculator (Version 2.5)</H1><br><br>
+<H1>Pythagorean Numerology Calculator (Version 2.6) 2024</H1><br><br>
+
+v2.6: Adjusted HSL Lightness to 80% for visual clarity
 
 v2.5: Profiles names assigned color alphabetically
 
